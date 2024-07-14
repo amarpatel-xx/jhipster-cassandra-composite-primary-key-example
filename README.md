@@ -1,0 +1,1 @@
+# jhipster-cassandra-composite-primary-key-example
