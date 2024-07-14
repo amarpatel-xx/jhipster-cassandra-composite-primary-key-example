@@ -1,0 +1,109 @@
+application {
+  config {
+    baseName gateway
+    packageName com.saathratri.developer.gateway
+    applicationType gateway
+    authenticationType oauth2
+    buildTool maven
+    clientFramework angularX
+    prodDatabaseType postgresql
+    serviceDiscoveryType eureka
+    testFrameworks [cypress]
+    microfrontends [blog, store]
+  }
+}
+
+application {
+  config {
+    baseName blog
+    packageName com.saathratri.developer.blog
+    applicationType microservice
+    authenticationType oauth2
+    buildTool maven
+    clientFramework angularX
+    databaseType cassandra
+    devDatabaseType cassandra
+    prodDatabaseType cassandra
+    enableHibernateCache false
+    serverPort 8081
+    serviceDiscoveryType eureka
+    testFrameworks [cypress]
+  }
+  entities Blog, Post, Tag, TajUser
+}
+
+application {
+  config {
+    baseName store
+    packageName com.saathratri.developer.store
+    applicationType microservice
+    authenticationType oauth2
+    buildTool maven
+    clientFramework angularX
+    databaseType cassandra
+    devDatabaseType cassandra
+    prodDatabaseType cassandra
+    enableHibernateCache false
+    serverPort 8082
+    serviceDiscoveryType eureka
+    testFrameworks [cypress]
+  }
+  entities Product
+}
+
+// Composite Primary Key Example:
+entity Blog {
+  @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("0") category String
+  // Do not name composite primary key fields as 'id' as it conflicts with the 'id' field in the JHipster entity.
+  @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("1") blogId UUID
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") handle String required minlength(3)
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") content String required
+}
+
+// Single-value Primary Key Example:
+entity TajUser {
+  // Primary Key field can be named 'id'.  JHipster natively supports single-value primary keys.  This blueprint also supports single-value primary keys.
+  @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("") id UUID
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") login String required minlength(6)
+}
+
+// Composite Primary Key Example:
+entity Post {
+  @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATE") @customAnnotation("0") createdDate Long 
+  // Do not name composite primary key fields as 'id' as it conflicts with the 'id' field in the JHipster entity.
+  @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATETIME") @customAnnotation("1") addedDateTime Long
+  @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("2") postId UUID
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") title String required
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") content String required
+}
+
+// Single-value Primary Key Example:
+entity Tag {
+  // Primary Key field can be named 'id'.  JHipster natively supports single-value primary keys.  This blueprint also supports single-value primary keys.
+  @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("") id UUID
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") name String required minlength(2)
+}
+
+// Single-value Primary Key Example:
+entity Product {
+  // Primary Key field can be named 'id'.  JHipster natively supports single-value primary keys.  This blueprint also supports single-value primary keys.
+  @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("") id UUID
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") title String required
+  @customAnnotation("") @customAnnotation("CassandraType.Name.DECIMAL") @customAnnotation("") @customAnnotation("") price BigDecimal required min(0)
+  @customAnnotation("") @customAnnotation("CassandraType.Name.BLOB") @customAnnotation("image") @customAnnotation("") image ImageBlob
+  @customAnnotation("") @customAnnotation("CassandraType.Name.DATE") @customAnnotation("") @customAnnotation("") addedDate LocalDate required
+  @customAnnotation("") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATETIME") @customAnnotation("") addedDateTime Long
+}
+
+deployment {
+  deploymentType docker-compose
+  serviceDiscoveryType eureka
+  appsFolders [gateway, blog, store]
+  dockerRepositoryName "amarppatel"
+}
+
+// Use DTO
+dto all with mapstruct
+
+// Set service options to all
+service all with serviceImpl
