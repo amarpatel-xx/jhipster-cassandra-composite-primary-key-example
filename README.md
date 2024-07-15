@@ -119,13 +119,15 @@ Notice the Blog entity shows the required category and blogId composite primary 
 ## Have Fun with Micro Frontends and JHipster!
 
 I hope you enjoyed this demo, and it helped you understand how to build better microservice architectures with composite primary keys.
+
 ☕️ Find the code for this blueprint on GitHub: https://github.com/amarpatel-xx/generator-jhipster-cassandra-composite-primary-key
 
 ☕️ Find the example code that uses this blueprint to generate a JHipster application on GitHub: https://github.com/amarpatel-xx/jhipster-cassandra-composite-primary-key-example
 
 🤓 Read the following blog post, by Matt Raible, that was used as inspiration for this project: [Micro Frontends for Java
 Microservices](https://auth0.com/blog/micro-frontends-for-java-microservices/)
+
 ### Acknowledgements
 
-Thank you to yelhouti (https://github.com/yelhouti), Jeremy Artero (https://www.linkedin.com/in/jeremyartero/), Matt Raible (https://github.com/mraible), Gaël Marziou (https://github.com/gmarziou), Cedrick Lunven (https://www.linkedin.com/in/clunven/), Christophe Bornet (https://www.linkedin.com/in/christophe-bornet-bab1193/ ), Disha Patel (https://www.linkedin.com/in/dishapatel860/) and Catherine Guevara (https://www.linkedin.com/in/catherine-guevara-1a5375b1/) for your invaluable contributions to this example and the underlying JHipster blueprint.
+Thank you to [yelhouti](https://github.com/yelhouti), [Jeremy Artero](https://www.linkedin.com/in/jeremyartero/), [Matt Raible](https://github.com/mraible), [Gaël Marziou](https://github.com/gmarziou), [Cedrick Lunven](https://www.linkedin.com/in/clunven/), [Christophe Borne](https://www.linkedin.com/in/christophe-bornet-bab1193/ ), [Disha Patel](https://www.linkedin.com/in/dishapatel860/) and [Catherine Guevara](https://www.linkedin.com/in/catherine-guevara-1a5375b1/) for your invaluable contributions to this example and the underlying JHipster blueprint.
 
