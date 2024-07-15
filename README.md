@@ -53,45 +53,43 @@ Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 ### Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 
 ## 1. To generate a microservices architecture with Cassandra composite primary key support, run the following command:
-    ```shell
-    sh saathratri-generate-code-dev-cassandra.sh
-    ```
+```shell
+sh saathratri-generate-code-dev-cassandra.sh
+```
 
 ## 2. You should see the message:
-    ```shell
-    Congratulations, JHipster execution is complete!
-    ```
+```shell
+Congratulations, JHipster execution is complete!
+```
 
 ### Run your Cassandra Composite Primary Key Entities Example
 
 ## 1.  When the process is complete, cd into the `gateway` directory and start Keycloak and Eureka using Docker Compose.
-    ```shell
-    cd gateway
-    docker compose -f src/main/docker/keycloak.yml up -d
-    docker compose -f src/main/docker/jhipster-registry.yml up -d
-    ```
+```shell
+cd gateway
+docker compose -f src/main/docker/keycloak.yml up -d
+docker compose -f src/main/docker/jhipster-registry.yml up -d
+```
 
 ## 2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
-    ```shell
-    npm run docker:db:up
-    ./mvnw spring-boot:run
-    ```
+```shell
+npm run docker:db:up
+./mvnw spring-boot:run
+```
 
 ## 3.  Start `blog` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `blog` microservice.
-
-    ```shell
-    cd blog
-    npm run docker:db:up
-    ./mvnw spring-boot:run
-    ```
+```shell
+cd blog
+npm run docker:db:up
+./mvnw spring-boot:run
+```
 
 ## 4.  Start `store` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `store` microservice.
-
-    ```shell
-    cd store
-    npm run docker:db:up
-    ./mvnw spring-boot:run
-    ```
+```shell
+cd store
+npm run docker:db:up
+./mvnw spring-boot:run
+```
 
 ### Identity Providers
 
