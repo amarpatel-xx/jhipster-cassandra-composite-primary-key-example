@@ -1,2 +1,2 @@
 echo "Cleaning up the dev environment for Saathratri Cassandra"
-rm -fr .yo-rc.json last-used-ports.json gateway blog store docker-compose kubernetes node_modules package.json package-lock.json README.md
+rm -fr .yo-rc.json last-used-ports.json gateway blog store docker-compose kubernetes node_modules package.json package-lock.json
