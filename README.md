@@ -107,13 +107,10 @@ okta apps create jhipster
 Now you can open your favorite browser to [http://localhost:8080](http://localhost:8080), and log in with the credentials displayed on the page.
 
 ## Then create a Blog
-# 1.  Open your favorite browser to [http://localhost:8080](http://localhost:8080), and log in with the credentials displayed on the page.
-
-# 2.  Then, add a blog by giving it a name, handle and selecting a user.
-
-# 3.  Add a tag by giving it a name.
-
-# 4.  Finally, create a post by giving it a title, content, selecting a blog and a tag.
+1.  Open your favorite browser to [http://localhost:8080](http://localhost:8080), and log in with the credentials displayed on the page.
+2.  Then, add a blog by giving it a name, handle and selecting a user.
+3.  Add a tag by giving it a name.
+4.  Finally, create a post by giving it a title, content, selecting a blog and a tag.
 
 
 Notice the Blog entity shows the required category and blogId composite primary key fields. That is success!
