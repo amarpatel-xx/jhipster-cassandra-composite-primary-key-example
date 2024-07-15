@@ -51,48 +51,48 @@ Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 
 ### Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 
-#### 1. To generate a microservices architecture with Cassandra composite primary key support, run the following command:
+1. To generate a microservices architecture with Cassandra composite primary key support, run the following command:
 ```shell
 npm install -g generator-jhipster-cassandra-composite-primary-key
 
 sh saathratri-generate-code-dev-cassandra.sh
 ```
 
-#### 2. You should see the message:
+ 2. You should see the message:
 ```shell
 Congratulations, JHipster execution is complete!
 ```
 
 ### Run your Cassandra Composite Primary Key Entities Example
 
-#### 1.  When the process is complete, cd into the `gateway` directory and start Keycloak and Eureka using Docker Compose.
+1.  When the process is complete, cd into the `gateway` directory and start Keycloak and Eureka using Docker Compose.
 ```shell
 cd gateway
 docker compose -f src/main/docker/keycloak.yml up -d
 docker compose -f src/main/docker/jhipster-registry.yml up -d
 ```
 
-#### 2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
+2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
 ```shell
 npm run docker:db:up
 ./mvnw spring-boot:run
 ```
 
-#### 3.  Start `blog` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `blog` microservice.
+3.  Start `blog` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `blog` microservice.
 ```shell
 cd blog
 npm run docker:db:up
 ./mvnw spring-boot:run
 ```
 
-#### 4.  Start `store` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `store` microservice.
+4.  Start `store` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `store` microservice.
 ```shell
 cd store
 npm run docker:db:up
 ./mvnw spring-boot:run
 ```
 
-### Identity Providers
+### Switch Identity Providers
 
 JHipster ships with Keycloak when you choose OAuth 2.0 / OIDC as the authentication type.
 
@@ -116,7 +116,6 @@ Now you can open your favorite browser to [http://localhost:8080](http://localho
 
 Notice the Blog entity shows the required category and blogId composite primary key fields. That is success!
 
-
 ## Have Fun with Micro Frontends and JHipster!
 
 I hope you enjoyed this demo, and it helped you understand how to build better microservice architectures with composite primary keys.
@@ -125,8 +124,7 @@ I hope you enjoyed this demo, and it helped you understand how to build better m
 
 ☕️ Find the example code that uses the blueprint to generate a JHipster application on GitHub: https://github.com/amarpatel-xx/jhipster-cassandra-composite-primary-key-example
 
-🤓 Read the following blog post, by Matt Raible, that was used as inspiration for this project: [Micro Frontends for Java
-Microservices](https://auth0.com/blog/micro-frontends-for-java-microservices/)
+🤓 Read the following blog post, by Matt Raible, that was used as inspiration for this project: [Micro Frontends for Java Microservices](https://auth0.com/blog/micro-frontends-for-java-microservices/)
 
 ### Acknowledgements
 
