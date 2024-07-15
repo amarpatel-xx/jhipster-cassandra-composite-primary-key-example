@@ -1,13 +1,12 @@
 
 ## JHipster Example for Composite Primary Keys in Cassandra
 
-### About this JHipster Blueprint
+### About this JHipster Example
 
-This code was generated using the JHipster blueprint `generator-jhipster-cassandra-composite-primary-key` 
-(the source code is available at: https://github.com/amarpatel-xx/generator-jhipster-cassandra-composite-primary-key.
+This code was generated using the JHipster blueprint `generator-jhipster-cassandra-composite-primary-key`. 
+The source code for the underlying JHipster blueprint is available at: https://github.com/amarpatel-xx/generator-jhipster-cassandra-composite-primary-key.
 
 The blueprint for generating the composite primary key with Cassandra entities is open source software made with love by `Amar Premsaran Patel`.
-
 
 This code in this example has a JDL which shows 2 Cassandra entities that have composite primary keys and 3 Cassandra entities that have single-value primary keys. The example entities in the JDL is based on
 
@@ -52,39 +51,41 @@ Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 
 ### Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 
-## 1. To generate a microservices architecture with Cassandra composite primary key support, run the following command:
+#### 1. To generate a microservices architecture with Cassandra composite primary key support, run the following command:
 ```shell
+npm install -g generator-jhipster-cassandra-composite-primary-key
+
 sh saathratri-generate-code-dev-cassandra.sh
 ```
 
-## 2. You should see the message:
+#### 2. You should see the message:
 ```shell
 Congratulations, JHipster execution is complete!
 ```
 
 ### Run your Cassandra Composite Primary Key Entities Example
 
-## 1.  When the process is complete, cd into the `gateway` directory and start Keycloak and Eureka using Docker Compose.
+#### 1.  When the process is complete, cd into the `gateway` directory and start Keycloak and Eureka using Docker Compose.
 ```shell
 cd gateway
 docker compose -f src/main/docker/keycloak.yml up -d
 docker compose -f src/main/docker/jhipster-registry.yml up -d
 ```
 
-## 2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
+#### 2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
 ```shell
 npm run docker:db:up
 ./mvnw spring-boot:run
 ```
 
-## 3.  Start `blog` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `blog` microservice.
+#### 3.  Start `blog` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `blog` microservice.
 ```shell
 cd blog
 npm run docker:db:up
 ./mvnw spring-boot:run
 ```
 
-## 4.  Start `store` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `store` microservice.
+#### 4.  Start `store` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `store` microservice.
 ```shell
 cd store
 npm run docker:db:up
@@ -120,9 +121,9 @@ Notice the Blog entity shows the required category and blogId composite primary 
 
 I hope you enjoyed this demo, and it helped you understand how to build better microservice architectures with composite primary keys.
 
-☕️ Find the code for this blueprint on GitHub: https://github.com/amarpatel-xx/generator-jhipster-cassandra-composite-primary-key
+☕️ Find the code for the underlying blueprint for this example on GitHub: https://github.com/amarpatel-xx/generator-jhipster-cassandra-composite-primary-key
 
-☕️ Find the example code that uses this blueprint to generate a JHipster application on GitHub: https://github.com/amarpatel-xx/jhipster-cassandra-composite-primary-key-example
+☕️ Find the example code that uses the blueprint to generate a JHipster application on GitHub: https://github.com/amarpatel-xx/jhipster-cassandra-composite-primary-key-example
 
 🤓 Read the following blog post, by Matt Raible, that was used as inspiration for this project: [Micro Frontends for Java
 Microservices](https://auth0.com/blog/micro-frontends-for-java-microservices/)
