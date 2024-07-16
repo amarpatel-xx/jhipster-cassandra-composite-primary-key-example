@@ -40,10 +40,10 @@ Below is the example using the \@customAnnotation methodology to specify the det
 
 ## Prerequisites:
 
-- https://sdkman.io/[Java] 21+
-- https://nodejs.com/[Node.js] 20+
-- https://www.docker.com/products/docker-desktop/[Docker Desktop]
-- https://www.jhipster.tech/installation/[JHipster] 8.6.0
+- [Java](https://sdkman.io/) 21+
+- [Node.js](https://nodejs.com/) 20+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [JHipster](https://www.jhipster.tech/installation/) 8.6.0
 
 ### Build
 
