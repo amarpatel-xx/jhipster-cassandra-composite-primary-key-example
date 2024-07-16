@@ -52,41 +52,41 @@ Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 ### Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 
 1. To generate a microservices architecture with Cassandra composite primary key support, run the following command:
-```shell
+```console
 npm install -g generator-jhipster-cassandra-composite-primary-key
 
 sh saathratri-generate-code-dev-cassandra.sh
 ```
 
  2. You should see the message:
-```shell
+```console
 Congratulations, JHipster execution is complete!
 ```
 
 ### Run your Cassandra Composite Primary Key Entities Example
 
 1.  When the process is complete, cd into the `gateway` directory and start Keycloak and Eureka using Docker Compose.
-```shell
+```console
 cd gateway
 docker compose -f src/main/docker/keycloak.yml up -d
 docker compose -f src/main/docker/jhipster-registry.yml up -d
 ```
 
 2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
-```shell
+```console
 npm run docker:db:up
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 3.  Start `blog` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `blog` microservice.
-```shell
+```console
 cd blog
 npm run docker:db:up
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 4.  Start `store` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then, start the `store` microservice.
-```shell
+```console
 cd store
 npm run docker:db:up
 ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
@@ -98,8 +98,8 @@ JHipster ships with Keycloak when you choose OAuth 2.0 / OIDC as the authenticat
 
 If you'd like to use Okta for your identity provider, see [JHipster's documentation](https://www.jhipster.tech/security/#okta).
 
-## You can configure JHipster quickly with the [Okta CLI](https://cli.okta.com):
-```shell
+### You can configure JHipster quickly with the [Okta CLI](https://cli.okta.com):
+```console
 okta apps create jhipster
 ```
 
