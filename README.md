@@ -111,12 +111,14 @@ Now you can open your favorite browser to [http://localhost:8080](http://localho
 
 ## Then create a Blog
 1.  Open your favorite browser to [http://localhost:8080](http://localhost:8080), and log in with the credentials displayed on the page.
-2.  Then, add a blog by giving it a name, handle and selecting a user.
-3.  Add a tag by giving it a name.
-4.  Finally, create a post by giving it a title, content, selecting a blog and a tag.
+2.  Add a user by providing a ID (UUID) and a login name (string).
+3.  Then, add a blog by giving it a category (string), blog ID (UUID), handle (string) and content (string).
+4.  Add a tag by giving it a ID (UUID) and name (string).
+5.  Create a post by giving it a created date, added date time, post ID (UUID), title (string) and contexnt (string).
+6.  Finally, create by giving it an ID (UUID), title (string), price (number with decimal), image (choose an image file), and added date.
 
 
-Notice the Blog entity shows the required category and blogId composite primary key fields. That is success!
+Notice the Blog and Post entities show the required composite primary key fields during the create, update and delete process. That is success!
 
 ## Have Fun with Micro Frontends and JHipster!
 

@@ -6,14 +6,14 @@ export const sampleWithRequiredData: IProduct = {
   id: '2d35d7bb-5480-44dc-82f4-df8a149b21c2',
   title: 'consignment course wherever',
   price: 29578.59,
-  addedDate: dayjs('2024-07-15'),
+  addedDate: dayjs('2024-07-16'),
 };
 
 export const sampleWithPartialData: IProduct = {
   id: '8b16200f-1630-41d5-b971-f844af264be0',
   title: 'footage underpants cruise',
   price: 25567.26,
-  addedDate: dayjs('2024-07-15'),
+  addedDate: dayjs('2024-07-16'),
 };
 
 export const sampleWithFullData: IProduct = {
@@ -22,14 +22,14 @@ export const sampleWithFullData: IProduct = {
   price: 15462.69,
   image: undefined,
   imageContentType: 'unknown',
-  addedDate: dayjs('2024-07-15'),
+  addedDate: dayjs('2024-07-16'),
   addedDateTime: 4682,
 };
 
 export const sampleWithNewData: NewProduct = {
   title: 'cultivated mole blowhole',
   price: 19767.18,
-  addedDate: dayjs('2024-07-15'),
+  addedDate: dayjs('2024-07-16'),
   id: null,
 };
 
