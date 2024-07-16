@@ -5,17 +5,17 @@ cd ..
 
 cd gateway
 npm run docker:db:up
-ttab ./mvnw spring-boot:run
+ttab ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 cd ..
 
 cd blog
 npm run docker:db:up
 echo "Deploying Blog Service..."
-ttab ./mvnw spring-boot:run -Dspring.profiles.active='dev,no-liquibase' -Dspring-boot.run.jvmArguments="-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8004"
+ttab ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 cd ..
 
 cd store
 npm run docker:db:up
 echo "Deploying Store Service..."
-ttab ./mvnw spring-boot:run -Dspring.profiles.active='dev,no-liquibase' -Dspring-boot.run.jvmArguments='-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=8008'
+ttab ./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 cd ..
