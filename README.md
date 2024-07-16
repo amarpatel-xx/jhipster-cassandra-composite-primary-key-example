@@ -100,7 +100,7 @@ JHipster ships with Keycloak when you choose OAuth 2.0 / OIDC as the authenticat
 
 If you'd like to use Okta for your identity provider, see [JHipster's documentation](https://www.jhipster.tech/security/#okta).
 
-### You can configure JHipster quickly with the [Okta CLI](https://cli.okta.com):
+#### You can configure JHipster quickly with the [Okta CLI](https://cli.okta.com):
 ```console
 okta apps create jhipster
 ```
