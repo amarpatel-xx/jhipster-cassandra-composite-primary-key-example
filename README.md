@@ -55,6 +55,8 @@ Build Java Microservices using the Cassandra Composite Primary Key Blueprint
 ```console
 npm install -g generator-jhipster-cassandra-composite-primary-key
 
+git@github.com:amarpatel-xx/jhipster-cassandra-composite-primary-key-example.git
+cd jhipster-cassandra-composite-primary-key-example
 sh saathratri-generate-code-dev-cassandra.sh
 ```
 
