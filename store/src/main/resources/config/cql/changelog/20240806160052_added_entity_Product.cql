@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS product (
     price decimal,
     image blob,
     image_content_type text,
-    addedDate date,
-    addedDateTime bigint,
-    PRIMARY KEY(id)
-);
+    added_date date,
+    added_date_time bigint,
+  primary key (id));
+
