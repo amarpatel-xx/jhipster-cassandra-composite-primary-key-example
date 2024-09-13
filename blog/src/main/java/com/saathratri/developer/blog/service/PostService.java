@@ -55,15 +55,15 @@ public interface PostService {
      */
     void delete(PostId id);
 
-    List<PostDTO> findByCompositeIdCreatedDate(final Long createdDate);
+    List<PostDTO> findAllByCompositeIdCreatedDate(final Long createdDate);
 
-    List<PostDTO> findByCompositeIdCreatedDateLessThan(final Long createdDate);
+    List<PostDTO> findAllByCompositeIdCreatedDateLessThan(final Long createdDate);
 
-    List<PostDTO> findByCompositeIdCreatedDateGreaterThan(final Long createdDate);
+    List<PostDTO> findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate);
 
-    List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime);
+    List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime);
 
-    List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime);
+    List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime);
 
-    List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime);
+    List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime);
 }

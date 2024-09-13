@@ -89,69 +89,72 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public List<PostDTO> findByCompositeIdCreatedDate(final Long createdDate) {
-        log.debug("Request to findByCompositeIdCreatedDate(final Long createdDate) service in PostServiceImpl.");
+    public List<PostDTO> findAllByCompositeIdCreatedDate(final Long createdDate) {
+        log.debug("Request to findAllByCompositeIdCreatedDate(final Long createdDate) service in PostServiceImpl.");
         return postRepository
-            .findByCompositeIdCreatedDate(createdDate)
+            .findAllByCompositeIdCreatedDate(createdDate)
             .stream()
             .map(postMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
-    public List<PostDTO> findByCompositeIdCreatedDateLessThan(final Long createdDate) {
-        log.debug("Request to findByCompositeIdCreatedDateLessThan(final Long createdDate) service in PostServiceImpl.");
+    public List<PostDTO> findAllByCompositeIdCreatedDateLessThan(final Long createdDate) {
+        log.debug("Request to findAllByCompositeIdCreatedDateLessThan(final Long createdDate) service in PostServiceImpl.");
         return postRepository
-            .findByCompositeIdCreatedDateLessThan(createdDate)
+            .findAllByCompositeIdCreatedDateLessThan(createdDate)
             .stream()
             .map(postMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
-    public List<PostDTO> findByCompositeIdCreatedDateGreaterThan(final Long createdDate) {
-        log.debug("Request to findByCompositeIdCreatedDateGreaterThan(final Long createdDate) service in PostServiceImpl.");
+    public List<PostDTO> findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate) {
+        log.debug("Request to findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate) service in PostServiceImpl.");
         return postRepository
-            .findByCompositeIdCreatedDateGreaterThan(createdDate)
+            .findAllByCompositeIdCreatedDateGreaterThan(createdDate)
             .stream()
             .map(postMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
-    public List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime) {
+    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime) {
         log.debug(
-            "Request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
+            "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
         );
         return postRepository
-            .findByCompositeIdCreatedDateAndCompositeIdAddedDateTime(createdDate, addedDateTime)
+            .findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(createdDate, addedDateTime)
             .stream()
             .map(postMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
-    public List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime) {
-        log.debug(
-            "Request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
-        );
-        return postRepository
-            .findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(createdDate, addedDateTime)
-            .stream()
-            .map(postMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-    @Override
-    public List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(
+    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(
         final Long createdDate,
         final Long addedDateTime
     ) {
         log.debug(
-            "Request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
+            "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
         );
         return postRepository
-            .findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(createdDate, addedDateTime)
+            .findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(createdDate, addedDateTime)
+            .stream()
+            .map(postMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    @Override
+    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(
+        final Long createdDate,
+        final Long addedDateTime
+    ) {
+        log.debug(
+            "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
+        );
+        return postRepository
+            .findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(createdDate, addedDateTime)
             .stream()
             .map(postMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));

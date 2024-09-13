@@ -55,5 +55,5 @@ public interface BlogService {
      */
     void delete(BlogId id);
 
-    List<BlogDTO> findByCompositeIdCategory(final String category);
+    List<BlogDTO> findAllByCompositeIdCategory(final String category);
 }

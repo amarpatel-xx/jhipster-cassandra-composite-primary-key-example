@@ -245,17 +245,17 @@ public class BlogResource {
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /category/:category}
+     * {@code GET /find-all-by-composite-id-category/:category}
      *
      *
      * @param category the Category of the blog to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the blog, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/category")
-    public List<BlogDTO> findByCompositeIdCategory(@RequestParam(name = "category", required = true) final String category) {
+    @GetMapping("/find-all-by-composite-id-category")
+    public List<BlogDTO> findAllByCompositeIdCategory(@RequestParam(name = "category", required = true) final String category) {
         // Composite Primary Key Code
-        log.debug("REST request to findByCompositeIdCategory method for Blogs with parameteres category: {}", category);
-        return blogService.findByCompositeIdCategory(category);
+        log.debug("REST request to findAllByCompositeIdCategory method for Blogs with parameteres category: {}", category);
+        return blogService.findAllByCompositeIdCategory(category);
     }
 
     private String getUrlEncodedParameterValue(String parameterValue) {

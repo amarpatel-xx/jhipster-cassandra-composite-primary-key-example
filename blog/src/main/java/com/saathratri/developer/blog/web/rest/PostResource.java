@@ -304,118 +304,123 @@ public class PostResource {
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /created-date/:createdDate}
+     * {@code GET /find-all-by-composite-id-created-date/:createdDate}
      *
      *
      * @param createdDate the Created Date of the post to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/created-date")
-    public List<PostDTO> findByCompositeIdCreatedDate(@RequestParam(name = "createdDate", required = true) final Long createdDate) {
+    @GetMapping("/find-all-by-composite-id-created-date")
+    public List<PostDTO> findAllByCompositeIdCreatedDate(@RequestParam(name = "createdDate", required = true) final Long createdDate) {
         // Composite Primary Key Code
-        log.debug("REST request to findByCompositeIdCreatedDate method for Posts with parameteres createdDate: {}", createdDate);
-        return postService.findByCompositeIdCreatedDate(createdDate);
+        log.debug("REST request to findAllByCompositeIdCreatedDate method for Posts with parameteres createdDate: {}", createdDate);
+        return postService.findAllByCompositeIdCreatedDate(createdDate);
     }
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /created-date-less-than/:createdDate}
+     * {@code GET /find-all-by-composite-id-created-date-less-than/:createdDate}
      *
      *
      * @param createdDate the Created Date of the post to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/created-date-less-than")
-    public List<PostDTO> findByCompositeIdCreatedDateLessThan(@RequestParam(name = "createdDate", required = true) final Long createdDate) {
-        // Composite Primary Key Code
-        log.debug("REST request to findByCompositeIdCreatedDateLessThan method for Posts with parameteres createdDate: {}", createdDate);
-        return postService.findByCompositeIdCreatedDateLessThan(createdDate);
-    }
-
-    /**
-     * // Composite Primary Key Code
-     * {@code GET /created-date-greater-than/:createdDate}
-     *
-     *
-     * @param createdDate the Created Date of the post to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
-     */
-    @GetMapping("/created-date-greater-than")
-    public List<PostDTO> findByCompositeIdCreatedDateGreaterThan(
+    @GetMapping("/find-all-by-composite-id-created-date-less-than")
+    public List<PostDTO> findAllByCompositeIdCreatedDateLessThan(
         @RequestParam(name = "createdDate", required = true) final Long createdDate
     ) {
         // Composite Primary Key Code
-        log.debug("REST request to findByCompositeIdCreatedDateGreaterThan method for Posts with parameteres createdDate: {}", createdDate);
-        return postService.findByCompositeIdCreatedDateGreaterThan(createdDate);
+        log.debug("REST request to findAllByCompositeIdCreatedDateLessThan method for Posts with parameteres createdDate: {}", createdDate);
+        return postService.findAllByCompositeIdCreatedDateLessThan(createdDate);
     }
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /created-date-and-composite-id-added-date-time/:createdDate/:addedDateTime}
+     * {@code GET /find-all-by-composite-id-created-date-greater-than/:createdDate}
+     *
+     *
+     * @param createdDate the Created Date of the post to retrieve. *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-all-by-composite-id-created-date-greater-than")
+    public List<PostDTO> findAllByCompositeIdCreatedDateGreaterThan(
+        @RequestParam(name = "createdDate", required = true) final Long createdDate
+    ) {
+        // Composite Primary Key Code
+        log.debug(
+            "REST request to findAllByCompositeIdCreatedDateGreaterThan method for Posts with parameteres createdDate: {}",
+            createdDate
+        );
+        return postService.findAllByCompositeIdCreatedDateGreaterThan(createdDate);
+    }
+
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-all-by-composite-id-created-date-and-composite-id-added-date-time/:createdDate/:addedDateTime}
      *
      *
      * @param createdDate the Created Date of the post to retrieve.
      * @param addedDateTime the Added Date Time of the post to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/created-date-and-composite-id-added-date-time")
-    public List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTime(
+    @GetMapping("/find-all-by-composite-id-created-date-and-composite-id-added-date-time")
+    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(
         @RequestParam(name = "createdDate", required = true) final Long createdDate,
         @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime
     ) {
         // Composite Primary Key Code
         log.debug(
-            "REST request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTime method for Posts with parameteres createdDate: {}, addedDateTime: {}",
+            "REST request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime method for Posts with parameteres createdDate: {}, addedDateTime: {}",
             createdDate,
             addedDateTime
         );
-        return postService.findByCompositeIdCreatedDateAndCompositeIdAddedDateTime(createdDate, addedDateTime);
+        return postService.findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(createdDate, addedDateTime);
     }
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /created-date-and-composite-id-added-date-time-less-than/:createdDate/:addedDateTime}
+     * {@code GET /find-all-by-composite-id-created-date-and-composite-id-added-date-time-less-than/:createdDate/:addedDateTime}
      *
      *
      * @param createdDate the Created Date of the post to retrieve.
      * @param addedDateTime the Added Date Time of the post to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/created-date-and-composite-id-added-date-time-less-than")
-    public List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(
+    @GetMapping("/find-all-by-composite-id-created-date-and-composite-id-added-date-time-less-than")
+    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(
         @RequestParam(name = "createdDate", required = true) final Long createdDate,
         @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime
     ) {
         // Composite Primary Key Code
         log.debug(
-            "REST request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan method for Posts with parameteres createdDate: {}, addedDateTime: {}",
+            "REST request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan method for Posts with parameteres createdDate: {}, addedDateTime: {}",
             createdDate,
             addedDateTime
         );
-        return postService.findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(createdDate, addedDateTime);
+        return postService.findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(createdDate, addedDateTime);
     }
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /created-date-and-composite-id-added-date-time-greater-than/:createdDate/:addedDateTime}
+     * {@code GET /find-all-by-composite-id-created-date-and-composite-id-added-date-time-greater-than/:createdDate/:addedDateTime}
      *
      *
      * @param createdDate the Created Date of the post to retrieve.
      * @param addedDateTime the Added Date Time of the post to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/created-date-and-composite-id-added-date-time-greater-than")
-    public List<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(
+    @GetMapping("/find-all-by-composite-id-created-date-and-composite-id-added-date-time-greater-than")
+    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(
         @RequestParam(name = "createdDate", required = true) final Long createdDate,
         @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime
     ) {
         // Composite Primary Key Code
         log.debug(
-            "REST request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan method for Posts with parameteres createdDate: {}, addedDateTime: {}",
+            "REST request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan method for Posts with parameteres createdDate: {}, addedDateTime: {}",
             createdDate,
             addedDateTime
         );
-        return postService.findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(createdDate, addedDateTime);
+        return postService.findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(createdDate, addedDateTime);
     }
 
     private String getUrlEncodedParameterValue(String parameterValue) {

@@ -83,10 +83,10 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public List<BlogDTO> findByCompositeIdCategory(final String category) {
-        log.debug("Request to findByCompositeIdCategory(final String category) service in BlogServiceImpl.");
+    public List<BlogDTO> findAllByCompositeIdCategory(final String category) {
+        log.debug("Request to findAllByCompositeIdCategory(final String category) service in BlogServiceImpl.");
         return blogRepository
-            .findByCompositeIdCategory(category)
+            .findAllByCompositeIdCategory(category)
             .stream()
             .map(blogMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));

@@ -11,5 +11,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface BlogRepository extends CassandraRepository<Blog, BlogId> {
-    List<Blog> findByCompositeIdCategory(final String category);
+    List<Blog> findAllByCompositeIdCategory(final String category);
 }
