@@ -1,28 +1,28 @@
 import { IBlog, NewBlog } from './blog.model';
 
 export const sampleWithRequiredData: IBlog = {
-  category: '4c3cf9c6-a31e-47e9-83c4-e48c726a0331',
-  handle: 'aw parallelogram',
-  content: 'an sentimentalize dangerous',
+  category: '63ee344c-2a31-4769-8c7a-aa9082fd6576',
+  handle: 'haX',
+  content: 'cute',
 };
 
 export const sampleWithPartialData: IBlog = {
-  category: '35b1e79f-9f02-4fbb-8713-e06061f365c1',
-  blogId: 'd1ac6f77-f1f2-4018-ab77-a260408be05f',
-  handle: 'notwithstanding snappy chiffonier',
-  content: 'suddenly software larch',
+  category: 'cf7121b7-200b-40fc-89b9-6ddc17ce9e4c',
+  blogId: 'ed2e19bb-d6d5-4049-93ad-af974dafcdcb',
+  handle: 'factorize',
+  content: 'oh who',
 };
 
 export const sampleWithFullData: IBlog = {
-  category: '99b3b8dd-61d9-45a0-ad4f-9e37aadcaffd',
-  blogId: '47042d3a-ef3c-46dc-ac6b-d6e2aa4926cf',
-  handle: 'diam blind',
-  content: 'certainly when stitch',
+  category: 'd2b85c96-20f7-4a8e-afea-3219a68dfa18',
+  blogId: 'af5de289-e478-41bb-ada1-0724050d868b',
+  handle: 'generously mainstream mobility',
+  content: 'waver afterwards concerning',
 };
 
 export const sampleWithNewData: NewBlog = {
-  handle: 'incidentally',
-  content: 'cruel assassination',
+  handle: 'uh-huh range',
+  content: 'unless consequently',
   category: null,
 };
 

@@ -1,13 +1,13 @@
 import {
-  entityTableSelector,
-  entityDetailsButtonSelector,
-  entityDetailsBackButtonSelector,
-  entityCreateButtonSelector,
-  entityCreateSaveButtonSelector,
-  entityCreateCancelButtonSelector,
-  entityEditButtonSelector,
-  entityDeleteButtonSelector,
   entityConfirmDeleteButtonSelector,
+  entityCreateButtonSelector,
+  entityCreateCancelButtonSelector,
+  entityCreateSaveButtonSelector,
+  entityDeleteButtonSelector,
+  entityDetailsBackButtonSelector,
+  entityDetailsButtonSelector,
+  entityEditButtonSelector,
+  entityTableSelector,
 } from '../../support/entity';
 
 describe('Blog e2e test', () => {
@@ -15,7 +15,7 @@ describe('Blog e2e test', () => {
   const blogPageUrlPattern = new RegExp('/blog/blog(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const blogSample = { handle: 'hibernate astonishing kindly', content: 'ah however lest' };
+  const blogSample = { handle: 'restructure birdbath char', content: 'convalesce decision indeed' };
 
   let blog;
 
@@ -157,17 +157,17 @@ describe('Blog e2e test', () => {
     });
 
     it('should create an instance of Blog', () => {
-      cy.get(`[data-cy="category"]`).type('a883e4fd-e4ab-43e2-aa16-99a86683d4fe');
-      cy.get(`[data-cy="category"]`).should('have.value', 'a883e4fd-e4ab-43e2-aa16-99a86683d4fe');
+      cy.get(`[data-cy="category"]`).type('a9cac377-b22c-43bb-b120-916f54e1358b');
+      cy.get(`[data-cy="category"]`).should('have.value', 'a9cac377-b22c-43bb-b120-916f54e1358b');
 
-      cy.get(`[data-cy="blogId"]`).type('c148885a-6f25-49d8-be02-1819ce24a7d8');
-      cy.get(`[data-cy="blogId"]`).invoke('val').should('match', new RegExp('c148885a-6f25-49d8-be02-1819ce24a7d8'));
+      cy.get(`[data-cy="blogId"]`).type('53e33f6f-c820-4b87-9cef-7cc16fecffe1');
+      cy.get(`[data-cy="blogId"]`).invoke('val').should('match', new RegExp('53e33f6f-c820-4b87-9cef-7cc16fecffe1'));
 
-      cy.get(`[data-cy="handle"]`).type('leafy');
-      cy.get(`[data-cy="handle"]`).should('have.value', 'leafy');
+      cy.get(`[data-cy="handle"]`).type('ouch dual');
+      cy.get(`[data-cy="handle"]`).should('have.value', 'ouch dual');
 
-      cy.get(`[data-cy="content"]`).type('madly inasmuch');
-      cy.get(`[data-cy="content"]`).should('have.value', 'madly inasmuch');
+      cy.get(`[data-cy="content"]`).type('magnetize');
+      cy.get(`[data-cy="content"]`).should('have.value', 'magnetize');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

@@ -1,13 +1,13 @@
 import {
-  entityTableSelector,
-  entityDetailsButtonSelector,
-  entityDetailsBackButtonSelector,
-  entityCreateButtonSelector,
-  entityCreateSaveButtonSelector,
-  entityCreateCancelButtonSelector,
-  entityEditButtonSelector,
-  entityDeleteButtonSelector,
   entityConfirmDeleteButtonSelector,
+  entityCreateButtonSelector,
+  entityCreateCancelButtonSelector,
+  entityCreateSaveButtonSelector,
+  entityDeleteButtonSelector,
+  entityDetailsBackButtonSelector,
+  entityDetailsButtonSelector,
+  entityEditButtonSelector,
+  entityTableSelector,
 } from '../../support/entity';
 
 describe('Post e2e test', () => {
@@ -15,7 +15,7 @@ describe('Post e2e test', () => {
   const postPageUrlPattern = new RegExp('/blog/post(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const postSample = { title: 'stencil spleen arch', content: 'gum sledge respectful' };
+  const postSample = { title: 'upset clonk longingly', content: 'foolishly' };
 
   let post;
 
@@ -157,17 +157,17 @@ describe('Post e2e test', () => {
     });
 
     it('should create an instance of Post', () => {
-      cy.get(`[data-cy="addedDateTime"]`).type('27108');
-      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '27108');
+      cy.get(`[data-cy="addedDateTime"]`).type('13546');
+      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '13546');
 
-      cy.get(`[data-cy="postId"]`).type('e3dab213-ac41-4eb2-a808-57133c030e59');
-      cy.get(`[data-cy="postId"]`).invoke('val').should('match', new RegExp('e3dab213-ac41-4eb2-a808-57133c030e59'));
+      cy.get(`[data-cy="postId"]`).type('ba5c3f71-7734-4dff-9747-39137db2de49');
+      cy.get(`[data-cy="postId"]`).invoke('val').should('match', new RegExp('ba5c3f71-7734-4dff-9747-39137db2de49'));
 
-      cy.get(`[data-cy="title"]`).type('with');
-      cy.get(`[data-cy="title"]`).should('have.value', 'with');
+      cy.get(`[data-cy="title"]`).type('whether demonstrate');
+      cy.get(`[data-cy="title"]`).should('have.value', 'whether demonstrate');
 
-      cy.get(`[data-cy="content"]`).type('try');
-      cy.get(`[data-cy="content"]`).should('have.value', 'try');
+      cy.get(`[data-cy="content"]`).type('from');
+      cy.get(`[data-cy="content"]`).should('have.value', 'from');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

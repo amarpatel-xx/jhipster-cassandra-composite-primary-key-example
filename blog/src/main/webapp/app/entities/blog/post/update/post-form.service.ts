@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
 import { DATE_TIME_FORMAT } from 'app/config/input.constants';
@@ -33,9 +33,9 @@ type PostFormDefaults = Pick<NewPost, 'compositeId'>;
 
 type PostFormGroupContent = {
   compositeId: FormGroup<{
-    createdDate: FormControl<PostFormRawValue['compositeId']['createdDate'] | NewPost['compositeId']['createdDate']>;
-    addedDateTime: FormControl<PostFormRawValue['compositeId']['addedDateTime'] | NewPost['compositeId']['addedDateTime']>;
-    postId: FormControl<PostFormRawValue['compositeId']['postId'] | NewPost['compositeId']['postId']>;
+    createdDate: FormControl<PostFormRawValue['compositeId']['createdDate']>;
+    addedDateTime: FormControl<PostFormRawValue['compositeId']['addedDateTime']>;
+    postId: FormControl<PostFormRawValue['compositeId']['postId']>;
   }>;
   title: FormControl<PostFormRawValue['title']>;
   content: FormControl<PostFormRawValue['content']>;
@@ -53,21 +53,21 @@ export class PostFormService {
     return new FormGroup<PostFormGroupContent>({
       compositeId: new FormGroup({
         createdDate: new FormControl(
-          { value: postRawValue.compositeId?.createdDate, disabled: postRawValue.compositeId?.createdDate !== null },
+          { value: postRawValue.compositeId.createdDate, disabled: postRawValue.compositeId.createdDate !== null },
           {
             nonNullable: true,
             validators: [Validators.required],
           },
         ),
         addedDateTime: new FormControl(
-          { value: postRawValue.compositeId?.addedDateTime, disabled: postRawValue.compositeId?.addedDateTime !== null },
+          { value: postRawValue.compositeId.addedDateTime, disabled: postRawValue.compositeId.addedDateTime !== null },
           {
             nonNullable: true,
             validators: [Validators.required],
           },
         ),
         postId: new FormControl(
-          { value: postRawValue.compositeId?.postId, disabled: postRawValue.compositeId?.postId !== null },
+          { value: postRawValue.compositeId.postId, disabled: postRawValue.compositeId.postId !== null },
           {
             nonNullable: true,
             validators: [Validators.required],
@@ -93,9 +93,9 @@ export class PostFormService {
       {
         ...postRawValue,
         compositeId: {
-          createdDate: { value: postRawValue.compositeId?.createdDate, disabled: postRawValue.compositeId?.createdDate !== null },
-          addedDateTime: { value: postRawValue.compositeId?.addedDateTime, disabled: postRawValue.compositeId?.addedDateTime !== null },
-          postId: { value: postRawValue.compositeId?.postId, disabled: postRawValue.compositeId?.postId !== null },
+          createdDate: { value: postRawValue.compositeId.createdDate, disabled: postRawValue.compositeId.createdDate !== null },
+          addedDateTime: { value: postRawValue.compositeId.addedDateTime, disabled: postRawValue.compositeId.addedDateTime !== null },
+          postId: { value: postRawValue.compositeId.postId, disabled: postRawValue.compositeId.postId !== null },
         },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );
@@ -118,7 +118,7 @@ export class PostFormService {
       ...rawPost,
       compositeId: {
         ...rawPost.compositeId,
-        addedDateTime: dayjs(rawPost.compositeId?.addedDateTime, DATE_TIME_FORMAT),
+        addedDateTime: dayjs(rawPost.compositeId.addedDateTime, DATE_TIME_FORMAT),
       },
     };
   }
@@ -130,7 +130,7 @@ export class PostFormService {
       ...post,
       compositeId: {
         ...post.compositeId,
-        addedDateTime: post.compositeId?.addedDateTime ? post.compositeId?.addedDateTime : null,
+        addedDateTime: post.compositeId.addedDateTime ? post.compositeId.addedDateTime : null,
       },
     };
   }

@@ -1,11 +1,11 @@
-import { inject, Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
-import { IBlog, NewBlog, IBlogId } from '../blog.model';
+import { IBlog, IBlogId, NewBlog } from '../blog.model';
 export type PartialUpdateBlog = Partial<IBlog> & Pick<IBlog, 'compositeId'>;
 
 export type EntityResponseType = HttpResponse<IBlog>;
@@ -35,7 +35,7 @@ export class BlogService {
   }
 
   find(category: string, blogId: string): Observable<EntityResponseType> {
-    let data = { category, blogId };
+    const data = { category, blogId };
     return this.http.get<IBlog>(`${this.resourceUrl}/get`, { params: data, observe: 'response' });
   }
 

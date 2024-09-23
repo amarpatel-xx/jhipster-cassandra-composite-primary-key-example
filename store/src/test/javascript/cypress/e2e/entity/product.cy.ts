@@ -1,13 +1,13 @@
 import {
-  entityTableSelector,
-  entityDetailsButtonSelector,
-  entityDetailsBackButtonSelector,
-  entityCreateButtonSelector,
-  entityCreateSaveButtonSelector,
-  entityCreateCancelButtonSelector,
-  entityEditButtonSelector,
-  entityDeleteButtonSelector,
   entityConfirmDeleteButtonSelector,
+  entityCreateButtonSelector,
+  entityCreateCancelButtonSelector,
+  entityCreateSaveButtonSelector,
+  entityDeleteButtonSelector,
+  entityDetailsBackButtonSelector,
+  entityDetailsButtonSelector,
+  entityEditButtonSelector,
+  entityTableSelector,
 } from '../../support/entity';
 
 describe('Product e2e test', () => {
@@ -15,7 +15,7 @@ describe('Product e2e test', () => {
   const productPageUrlPattern = new RegExp('/store/product(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const productSample = { title: 'pfft', price: 18629.84, addedDate: '2024-09-22' };
+  const productSample = { title: 'toward', price: 23353.64, addedDate: '2024-09-22' };
 
   let product;
 
@@ -157,18 +157,20 @@ describe('Product e2e test', () => {
     });
 
     it('should create an instance of Product', () => {
-      cy.get(`[data-cy="title"]`).type('than');
-      cy.get(`[data-cy="title"]`).should('have.value', 'than');
+      cy.get(`[data-cy="title"]`).type('bare');
+      cy.get(`[data-cy="title"]`).should('have.value', 'bare');
 
-      cy.get(`[data-cy="price"]`).type('16009.07');
-      cy.get(`[data-cy="price"]`).should('have.value', '16009.07');
+      cy.get(`[data-cy="price"]`).type('23798.43');
+      cy.get(`[data-cy="price"]`).should('have.value', '23798.43');
 
-      cy.get(`[data-cy="addedDate"]`).type('2024-09-23');
+      cy.setFieldImageAsBytesOfEntity('image', 'integration-test.png', 'image/png');
+
+      cy.get(`[data-cy="addedDate"]`).type('2024-09-22');
       cy.get(`[data-cy="addedDate"]`).blur();
-      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-09-23');
+      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-09-22');
 
-      cy.get(`[data-cy="addedDateTime"]`).type('2786');
-      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '2786');
+      cy.get(`[data-cy="addedDateTime"]`).type('20407');
+      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '20407');
 
       // since cypress clicks submit too fast before the blob fields are validated
       cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting

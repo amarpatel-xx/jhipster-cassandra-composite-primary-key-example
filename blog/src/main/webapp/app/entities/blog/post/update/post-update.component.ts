@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import dayjs from 'dayjs/esm';
 import { IPost } from '../post.model';
 import { PostService } from '../service/post.service';
-import { PostFormService, PostFormGroup } from './post-form.service';
+import { PostFormGroup, PostFormService } from './post-form.service';
 
 @Component({
   standalone: true,

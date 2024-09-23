@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20240923140412"
+    "changelogDate": "20240923164205"
   },
   "applications": ["store"],
   "clientRootFolder": "store",
@@ -34,10 +34,7 @@
     },
     {
       "fieldName": "image",
-      "fieldType": "ByteBuffer",
-      "fieldTypeBlobContent": "image",
-      "fieldValidate": false,
-      "fieldValidateRules": [],
+      "fieldType": "ImageBlob",
       "options": {
         "customAnnotation": [true, "CassandraType.Name.BLOB", "image"]
       }

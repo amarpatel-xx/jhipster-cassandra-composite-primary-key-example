@@ -1,4 +1,4 @@
-import { Component, inject, OnInit, ElementRef } from '@angular/core';
+import { Component, ElementRef, OnInit, inject } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -13,7 +13,7 @@ import { EventManager, EventWithContent } from 'app/core/util/event-manager.serv
 import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
 import { IProduct } from '../product.model';
 import { ProductService } from '../service/product.service';
-import { ProductFormService, ProductFormGroup } from './product-form.service';
+import { ProductFormGroup, ProductFormService } from './product-form.service';
 
 @Component({
   standalone: true,
@@ -62,7 +62,7 @@ export class ProductUpdateComponent implements OnInit {
   setFileData(event: Event, field: string, isImage: boolean): void {
     this.dataUtils.loadFileToForm(event, this.editForm, field, isImage).subscribe({
       error: (err: FileLoadError) =>
-        this.eventManager.broadcast(new EventWithContent<AlertError>('storeApp.error', { ...err, key: 'error.file.' + err.key })),
+        this.eventManager.broadcast(new EventWithContent<AlertError>('storeApp.error', { ...err, key: `error.file.${err.key}` })),
     });
   }
 
@@ -71,8 +71,8 @@ export class ProductUpdateComponent implements OnInit {
       [field]: null,
       [fieldContentType]: null,
     });
-    if (idInput && this.elementRef.nativeElement.querySelector('#' + idInput)) {
-      this.elementRef.nativeElement.querySelector('#' + idInput).value = null;
+    if (idInput && this.elementRef.nativeElement.querySelector(`#${idInput}`)) {
+      this.elementRef.nativeElement.querySelector(`#${idInput}`).value = null;
     }
   }
 

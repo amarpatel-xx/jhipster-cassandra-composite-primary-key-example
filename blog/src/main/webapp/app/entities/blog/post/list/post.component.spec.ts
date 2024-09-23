@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed, fakeAsync, inject, tick } from '@angular/core/testing';
-import { provideHttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
+import { HttpHeaders, HttpResponse, provideHttpClient } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { of, Subject } from 'rxjs';
+import { Subject, of } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { sampleWithRequiredData } from '../post.test-samples';
@@ -91,7 +91,7 @@ describe('Post Management Component', () => {
     it('Should forward to postService', () => {
       const entity = { createdDate: 123 };
       jest.spyOn(service, 'getPostIdentifier');
-      const createdDate = comp.trackCreatedDate(0, entity);
+      const createdDate = comp.trackCreatedDate(entity);
       expect(service.getPostIdentifier).toHaveBeenCalledWith(entity);
       expect(createdDate).toBe(entity.createdDate);
     });

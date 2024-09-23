@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
-    @if (blog()) {
+    @if (blog(); as blogRef) {
       <div>
         <h2 data-cy="blogDetailsHeading"><span jhiTranslate="blogApp.blogBlog.detail.title">Blog</span></h2>
 
@@ -13,19 +13,19 @@
         <dl class="row-md jh-entity-details">
           <dt><span jhiTranslate="blogApp.blogBlog.category">Category</span></dt>
           <dd>
-            <span>{{ blog()!.compositeId.category }}</span>
+            <span>{{ blogRef.compositeId.category }}</span>
           </dd>
           <dt><span jhiTranslate="blogApp.blogBlog.blogId">Blog Id</span></dt>
           <dd>
-            <span>{{ blog()!.compositeId.blogId }}</span>
+            <span>{{ blogRef.compositeId.blogId }}</span>
           </dd>
           <dt><span jhiTranslate="blogApp.blogBlog.handle">Handle</span></dt>
           <dd>
-            <span>{{ blog()!.handle }}</span>
+            <span>{{ blogRef.handle }}</span>
           </dd>
           <dt><span jhiTranslate="blogApp.blogBlog.content">Content</span></dt>
           <dd>
-            <span>{{ blog()!.content }}</span>
+            <span>{{ blogRef.content }}</span>
           </dd>
         </dl>
 

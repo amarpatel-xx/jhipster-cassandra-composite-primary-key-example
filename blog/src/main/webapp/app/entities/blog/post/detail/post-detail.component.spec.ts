@@ -17,7 +17,7 @@ describe('Post Management Detail Component', () => {
           [
             {
               path: '**',
-              component: PostDetailComponent,
+              loadComponent: () => import('./post-detail.component').then(m => m.PostDetailComponent),
               resolve: { post: () => of({ createdDate: 123 }) },
             },
           ],

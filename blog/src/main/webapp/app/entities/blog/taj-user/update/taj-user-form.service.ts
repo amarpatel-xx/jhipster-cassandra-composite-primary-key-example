@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ITajUser, NewTajUser } from '../taj-user.model';
 
@@ -17,7 +17,7 @@ type TajUserFormGroupInput = ITajUser | PartialWithRequiredKeyOf<NewTajUser>;
 type TajUserFormDefaults = Pick<NewTajUser, 'id'>;
 
 type TajUserFormGroupContent = {
-  id: FormControl<ITajUser['id'] | NewTajUser['id']>;
+  id: FormControl<ITajUser['id']>;
   login: FormControl<ITajUser['login']>;
 };
 

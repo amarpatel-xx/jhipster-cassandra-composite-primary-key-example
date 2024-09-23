@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
 import { DATE_TIME_FORMAT } from 'app/config/input.constants';
@@ -30,7 +30,7 @@ type NewProductFormRawValue = FormValueOf<NewProduct>;
 type ProductFormDefaults = Pick<NewProduct, 'id' | 'addedDateTime'>;
 
 type ProductFormGroupContent = {
-  id: FormControl<ProductFormRawValue['id'] | NewProduct['id']>;
+  id: FormControl<ProductFormRawValue['id']>;
   title: FormControl<ProductFormRawValue['title']>;
   price: FormControl<ProductFormRawValue['price']>;
   image: FormControl<ProductFormRawValue['image']>;

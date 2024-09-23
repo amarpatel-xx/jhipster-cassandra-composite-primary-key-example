@@ -3,32 +3,35 @@ import dayjs from 'dayjs/esm';
 import { IProduct, NewProduct } from './product.model';
 
 export const sampleWithRequiredData: IProduct = {
-  id: '2d35d7bb-5480-44dc-82f4-df8a149b21c2',
-  title: 'consignment course wherever',
-  price: 29578.59,
-  addedDate: dayjs('2024-09-22'),
+  id: '0d24fa4b-12fd-4abd-9283-e21ed8120131',
+  title: 'who ew',
+  price: 14429.32,
+  addedDate: dayjs('2024-09-23'),
 };
 
 export const sampleWithPartialData: IProduct = {
-  id: '8b16200f-1630-41d5-b971-f844af264be0',
-  title: 'footage underpants cruise',
-  price: 25567.26,
-  addedDate: dayjs('2024-09-23'),
+  id: '3bde6440-cadb-4da8-912f-567257a2f366',
+  title: 'down until gee',
+  price: 6999.57,
+  image: '../fake-data/blob/hipster.png',
+  imageContentType: 'unknown',
+  addedDate: dayjs('2024-09-22'),
+  addedDateTime: 3177,
 };
 
 export const sampleWithFullData: IProduct = {
-  id: 'ebedee06-6494-4e0f-bc0a-9d2bfdfa8841',
-  title: 'ha',
-  price: 15462.69,
-  image: undefined,
+  id: '2b120c55-dafd-49b8-8dfc-a3c5bf4a6332',
+  title: 'baptise',
+  price: 8357.44,
+  image: '../fake-data/blob/hipster.png',
   imageContentType: 'unknown',
-  addedDate: dayjs('2024-09-23'),
-  addedDateTime: 4682,
+  addedDate: dayjs('2024-09-22'),
+  addedDateTime: 10646,
 };
 
 export const sampleWithNewData: NewProduct = {
-  title: 'cultivated mole blowhole',
-  price: 19767.18,
+  title: 'upwardly slow',
+  price: 27255.98,
   addedDate: dayjs('2024-09-23'),
   id: null,
 };

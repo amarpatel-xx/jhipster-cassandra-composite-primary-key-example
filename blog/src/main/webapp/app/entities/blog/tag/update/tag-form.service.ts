@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { ITag, NewTag } from '../tag.model';
 
@@ -17,7 +17,7 @@ type TagFormGroupInput = ITag | PartialWithRequiredKeyOf<NewTag>;
 type TagFormDefaults = Pick<NewTag, 'id'>;
 
 type TagFormGroupContent = {
-  id: FormControl<ITag['id'] | NewTag['id']>;
+  id: FormControl<ITag['id']>;
   name: FormControl<ITag['name']>;
 };
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IBlog, NewBlog } from '../blog.model';
 
@@ -20,8 +20,8 @@ type BlogFormDefaults = Pick<NewBlog, 'compositeId'>;
 
 type BlogFormGroupContent = {
   compositeId: FormGroup<{
-    category: FormControl<IBlog['compositeId']['category'] | NewBlog['compositeId']['category']>;
-    blogId: FormControl<IBlog['compositeId']['blogId'] | NewBlog['compositeId']['blogId']>;
+    category: FormControl<IBlog['compositeId']['category']>;
+    blogId: FormControl<IBlog['compositeId']['blogId']>;
   }>;
   handle: FormControl<IBlog['handle']>;
   content: FormControl<IBlog['content']>;
@@ -39,14 +39,14 @@ export class BlogFormService {
     return new FormGroup<BlogFormGroupContent>({
       compositeId: new FormGroup({
         category: new FormControl(
-          { value: blogRawValue.compositeId?.category, disabled: blogRawValue.compositeId?.category !== null },
+          { value: blogRawValue.compositeId.category, disabled: blogRawValue.compositeId.category !== null },
           {
             nonNullable: true,
             validators: [Validators.required],
           },
         ),
         blogId: new FormControl(
-          { value: blogRawValue.compositeId?.blogId, disabled: blogRawValue.compositeId?.blogId !== null },
+          { value: blogRawValue.compositeId.blogId, disabled: blogRawValue.compositeId.blogId !== null },
           {
             nonNullable: true,
             validators: [Validators.required],
@@ -72,8 +72,8 @@ export class BlogFormService {
       {
         ...blogRawValue,
         compositeId: {
-          category: { value: blogRawValue.compositeId?.category, disabled: blogRawValue.compositeId?.category !== null },
-          blogId: { value: blogRawValue.compositeId?.blogId, disabled: blogRawValue.compositeId?.blogId !== null },
+          category: { value: blogRawValue.compositeId.category, disabled: blogRawValue.compositeId.category !== null },
+          blogId: { value: blogRawValue.compositeId.blogId, disabled: blogRawValue.compositeId.blogId !== null },
         },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );

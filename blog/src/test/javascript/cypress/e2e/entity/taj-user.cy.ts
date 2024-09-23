@@ -1,13 +1,13 @@
 import {
-  entityTableSelector,
-  entityDetailsButtonSelector,
-  entityDetailsBackButtonSelector,
-  entityCreateButtonSelector,
-  entityCreateSaveButtonSelector,
-  entityCreateCancelButtonSelector,
-  entityEditButtonSelector,
-  entityDeleteButtonSelector,
   entityConfirmDeleteButtonSelector,
+  entityCreateButtonSelector,
+  entityCreateCancelButtonSelector,
+  entityCreateSaveButtonSelector,
+  entityDeleteButtonSelector,
+  entityDetailsBackButtonSelector,
+  entityDetailsButtonSelector,
+  entityEditButtonSelector,
+  entityTableSelector,
 } from '../../support/entity';
 
 describe('TajUser e2e test', () => {
@@ -15,7 +15,7 @@ describe('TajUser e2e test', () => {
   const tajUserPageUrlPattern = new RegExp('/blog/taj-user(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const tajUserSample = { login: 'um ham' };
+  const tajUserSample = { login: 'but now' };
 
   let tajUser;
 
@@ -157,8 +157,8 @@ describe('TajUser e2e test', () => {
     });
 
     it('should create an instance of TajUser', () => {
-      cy.get(`[data-cy="login"]`).type('frivolous lazily following');
-      cy.get(`[data-cy="login"]`).should('have.value', 'frivolous lazily following');
+      cy.get(`[data-cy="login"]`).type('masquerade blissfully uh-huh');
+      cy.get(`[data-cy="login"]`).should('have.value', 'masquerade blissfully uh-huh');
 
       cy.get(entityCreateSaveButtonSelector).click();
 
