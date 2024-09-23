@@ -59,6 +59,9 @@ spring:
     keyspace-name: store
     local-datacenter: datacenter1
     port: 9142
+    connection:
+      connect-timeout: 5000 # Connection timeout in milliseconds
+      request-timeout: 10000 # Query timeout in milliseconds
   messages:
     cache-duration: PT1S # 1 second, see the ISO 8601 standard
   thymeleaf:
