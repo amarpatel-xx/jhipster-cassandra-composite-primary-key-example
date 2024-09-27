@@ -2,7 +2,7 @@ package com.saathratri.developer.blog.domain;
 
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
-import org.springframework.data.annotation.Id;
+import java.util.UUID;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.Table;
@@ -18,8 +18,11 @@ public class Post implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @Id
-    private PostId compositeId;
+    private Long createdDate;
+
+    private Long addedDateTime;
+
+    private UUID postId;
 
     @NotNull
     @Column("title")
@@ -31,20 +34,46 @@ public class Post implements Serializable {
     @CassandraType(type = CassandraType.Name.TEXT)
     private String content;
 
-    public PostId getCompositeId() {
-        return this.compositeId;
+    // jhipster-needle-entity-add-field - JHipster will add fields here
+
+    public Long getCreatedDate() {
+        return this.createdDate;
     }
 
-    public void setCompositeId(PostId compositeId) {
-        this.compositeId = compositeId;
-    }
-
-    public Post compositeId(PostId compositeId) {
-        this.compositeId = compositeId;
+    public Post createdDate(Long createdDate) {
+        this.setCreatedDate(createdDate);
         return this;
     }
 
-    // jhipster-needle-entity-add-field - JHipster will add fields here
+    public void setCreatedDate(Long createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Long getAddedDateTime() {
+        return this.addedDateTime;
+    }
+
+    public Post addedDateTime(Long addedDateTime) {
+        this.setAddedDateTime(addedDateTime);
+        return this;
+    }
+
+    public void setAddedDateTime(Long addedDateTime) {
+        this.addedDateTime = addedDateTime;
+    }
+
+    public UUID getPostId() {
+        return this.postId;
+    }
+
+    public Post postId(UUID postId) {
+        this.setPostId(postId);
+        return this;
+    }
+
+    public void setPostId(UUID postId) {
+        this.postId = postId;
+    }
 
     public String getTitle() {
         return this.title;
@@ -82,7 +111,7 @@ public class Post implements Serializable {
         if (!(o instanceof Post)) {
             return false;
         }
-        return getCompositeId() != null && getCompositeId().equals(((Post) o).getCompositeId());
+        return getCreatedDate() != null && getCreatedDate().equals(((Post) o).getCreatedDate());
     }
 
     @Override
@@ -95,7 +124,9 @@ public class Post implements Serializable {
     @Override
     public String toString() {
         return "Post{" +
-            "compositeId=" + getCompositeId() +
+            "createdDate=" + getCreatedDate() +
+            ", addedDateTime=" + getAddedDateTime() +
+            ", postId='" + getPostId() + "'" +
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
             "}";

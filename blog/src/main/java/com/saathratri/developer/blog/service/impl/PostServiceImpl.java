@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostServiceImpl implements PostService {
 
-    private final Logger log = LoggerFactory.getLogger(PostServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PostServiceImpl.class);
 
     private final PostRepository postRepository;
 
@@ -33,7 +33,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDTO save(PostDTO postDTO) {
-        log.debug("Request to save Post : {}", postDTO);
+        LOG.debug("Request to save Post : {}", postDTO);
         Post post = postMapper.toEntity(postDTO);
         post = postRepository.save(post);
         log.debug("Saved post : {}", post);
@@ -42,7 +42,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public PostDTO update(PostDTO postDTO) {
-        log.debug("Request to update Post : {}", postDTO);
+        LOG.debug("Request to update Post : {}", postDTO);
         Post post = postMapper.toEntity(postDTO);
         post = postRepository.save(post);
         log.debug("Saved post : {}", post);
@@ -51,7 +51,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Optional<PostDTO> partialUpdate(PostDTO postDTO) {
-        log.debug("Request to partially update Post : {}", postDTO);
+        LOG.debug("Request to partially update Post : {}", postDTO);
 
         return postRepository
             .findById(
@@ -72,19 +72,19 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDTO> findAll() {
-        log.debug("Request to get all Posts");
+        LOG.debug("Request to get all Posts");
         return postRepository.findAll().stream().map(postMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
     public Optional<PostDTO> findOne(PostId compositeId) {
-        log.debug("Request to get Post : {}", compositeId);
+        LOG.debug("Request to get Post : {}", compositeId);
         return postRepository.findById(compositeId).map(postMapper::toDto);
     }
 
     @Override
     public void delete(PostId compositeId) {
-        log.debug("Request to delete Post : {}", compositeId);
+        LOG.debug("Request to delete Post : {}", compositeId);
         postRepository.deleteById(compositeId);
     }
 

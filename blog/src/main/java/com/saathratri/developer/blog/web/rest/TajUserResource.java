@@ -29,7 +29,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @RequestMapping("/api/taj-users")
 public class TajUserResource {
 
-    private static final Logger log = LoggerFactory.getLogger(TajUserResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TajUserResource.class);
 
     private static final String ENTITY_NAME = "blogTajUser";
 
@@ -54,7 +54,7 @@ public class TajUserResource {
      */
     @PostMapping("")
     public ResponseEntity<TajUserDTO> createTajUser(@Valid @RequestBody TajUserDTO tajUserDTO) throws URISyntaxException {
-        log.debug("REST request to save TajUser : {}", tajUserDTO);
+        LOG.debug("REST request to save TajUser : {}", tajUserDTO);
         // Single-value Primary Key Code
         if (tajUserDTO.getId() == null) {
             throw new BadRequestAlertException("A new tajUser must have an ID", ENTITY_NAME, "idinvalid");
@@ -87,7 +87,7 @@ public class TajUserResource {
         @Valid @RequestBody TajUserDTO tajUserDTO
     ) throws URISyntaxException {
         // Single-value Primary Key Code
-        log.debug("REST request to update TajUser : {}, {}", id, tajUserDTO);
+        LOG.debug("REST request to update TajUser : {}, {}", id, tajUserDTO);
         // Single-value Primary Key Code
         if (tajUserDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -130,7 +130,7 @@ public class TajUserResource {
         @NotNull @RequestBody TajUserDTO tajUserDTO
     ) throws URISyntaxException {
         // Single-value Primary Key Code
-        log.debug("REST request to partial update TajUser partially : {}, {}", id, tajUserDTO);
+        LOG.debug("REST request to partial update TajUser partially : {}, {}", id, tajUserDTO);
         // Single-value Primary Key Code
         if (tajUserDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -161,7 +161,7 @@ public class TajUserResource {
      */
     @GetMapping("")
     public List<TajUserDTO> getAllTajUsers() {
-        log.debug("REST request to get all TajUsers");
+        LOG.debug("REST request to get all TajUsers");
         return tajUserService.findAll();
     }
 
@@ -197,7 +197,7 @@ public class TajUserResource {
     // Single-value Primary Key Code
     public ResponseEntity<Void> deleteTajUser(@PathVariable("id") UUID id) {
         // Single-value Primary Key Code
-        log.debug("REST request to delete TajUser : {}", id);
+        LOG.debug("REST request to delete TajUser : {}", id);
         tajUserService.delete(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

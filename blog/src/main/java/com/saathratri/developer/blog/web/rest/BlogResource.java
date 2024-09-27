@@ -30,7 +30,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @RequestMapping("/api/blogs")
 public class BlogResource {
 
-    private static final Logger log = LoggerFactory.getLogger(BlogResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BlogResource.class);
 
     private static final String ENTITY_NAME = "blogBlog";
 
@@ -55,7 +55,7 @@ public class BlogResource {
      */
     @PostMapping("")
     public ResponseEntity<BlogDTO> createBlog(@Valid @RequestBody BlogDTO blogDTO) throws URISyntaxException {
-        log.debug("REST request to save Blog : {}", blogDTO);
+        LOG.debug("REST request to save Blog : {}", blogDTO);
         // Composite Primary Key Code
         if (blogDTO.getCompositeId().getCategory() == null || blogDTO.getCompositeId().getBlogId() == null) {
             throw new BadRequestAlertException("A new blog cannot have an invalid ID", ENTITY_NAME, "idinvalid");
@@ -184,7 +184,7 @@ public class BlogResource {
      */
     @GetMapping("")
     public List<BlogDTO> getAllBlogs() {
-        log.debug("REST request to get all Blogs");
+        LOG.debug("REST request to get all Blogs");
         return blogService.findAll();
     }
 

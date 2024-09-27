@@ -29,7 +29,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @RequestMapping("/api/products")
 public class ProductResource {
 
-    private static final Logger log = LoggerFactory.getLogger(ProductResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProductResource.class);
 
     private static final String ENTITY_NAME = "storeProduct";
 
@@ -54,7 +54,7 @@ public class ProductResource {
      */
     @PostMapping("")
     public ResponseEntity<ProductDTO> createProduct(@Valid @RequestBody ProductDTO productDTO) throws URISyntaxException {
-        log.debug("REST request to save Product : {}", productDTO);
+        LOG.debug("REST request to save Product : {}", productDTO);
         // Single-value Primary Key Code
         if (productDTO.getId() == null) {
             throw new BadRequestAlertException("A new product must have an ID", ENTITY_NAME, "idinvalid");
@@ -87,7 +87,7 @@ public class ProductResource {
         @Valid @RequestBody ProductDTO productDTO
     ) throws URISyntaxException {
         // Single-value Primary Key Code
-        log.debug("REST request to update Product : {}, {}", id, productDTO);
+        LOG.debug("REST request to update Product : {}, {}", id, productDTO);
         // Single-value Primary Key Code
         if (productDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -130,7 +130,7 @@ public class ProductResource {
         @NotNull @RequestBody ProductDTO productDTO
     ) throws URISyntaxException {
         // Single-value Primary Key Code
-        log.debug("REST request to partial update Product partially : {}, {}", id, productDTO);
+        LOG.debug("REST request to partial update Product partially : {}, {}", id, productDTO);
         // Single-value Primary Key Code
         if (productDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -161,7 +161,7 @@ public class ProductResource {
      */
     @GetMapping("")
     public List<ProductDTO> getAllProducts() {
-        log.debug("REST request to get all Products");
+        LOG.debug("REST request to get all Products");
         return productService.findAll();
     }
 
@@ -197,7 +197,7 @@ public class ProductResource {
     // Single-value Primary Key Code
     public ResponseEntity<Void> deleteProduct(@PathVariable("id") UUID id) {
         // Single-value Primary Key Code
-        log.debug("REST request to delete Product : {}", id);
+        LOG.debug("REST request to delete Product : {}", id);
         productService.delete(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

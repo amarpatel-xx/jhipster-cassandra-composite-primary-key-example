@@ -30,7 +30,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @RequestMapping("/api/posts")
 public class PostResource {
 
-    private static final Logger log = LoggerFactory.getLogger(PostResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(PostResource.class);
 
     private static final String ENTITY_NAME = "blogPost";
 
@@ -55,7 +55,7 @@ public class PostResource {
      */
     @PostMapping("")
     public ResponseEntity<PostDTO> createPost(@Valid @RequestBody PostDTO postDTO) throws URISyntaxException {
-        log.debug("REST request to save Post : {}", postDTO);
+        LOG.debug("REST request to save Post : {}", postDTO);
         // Composite Primary Key Code
         if (
             postDTO.getCompositeId().getCreatedDate() == null ||
@@ -227,7 +227,7 @@ public class PostResource {
      */
     @GetMapping("")
     public List<PostDTO> getAllPosts() {
-        log.debug("REST request to get all Posts");
+        LOG.debug("REST request to get all Posts");
         return postService.findAll();
     }
 

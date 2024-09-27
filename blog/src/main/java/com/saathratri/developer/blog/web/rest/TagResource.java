@@ -29,7 +29,7 @@ import tech.jhipster.web.util.ResponseUtil;
 @RequestMapping("/api/tags")
 public class TagResource {
 
-    private static final Logger log = LoggerFactory.getLogger(TagResource.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TagResource.class);
 
     private static final String ENTITY_NAME = "blogTag";
 
@@ -54,7 +54,7 @@ public class TagResource {
      */
     @PostMapping("")
     public ResponseEntity<TagDTO> createTag(@Valid @RequestBody TagDTO tagDTO) throws URISyntaxException {
-        log.debug("REST request to save Tag : {}", tagDTO);
+        LOG.debug("REST request to save Tag : {}", tagDTO);
         // Single-value Primary Key Code
         if (tagDTO.getId() == null) {
             throw new BadRequestAlertException("A new tag must have an ID", ENTITY_NAME, "idinvalid");
@@ -87,7 +87,7 @@ public class TagResource {
         @Valid @RequestBody TagDTO tagDTO
     ) throws URISyntaxException {
         // Single-value Primary Key Code
-        log.debug("REST request to update Tag : {}, {}", id, tagDTO);
+        LOG.debug("REST request to update Tag : {}, {}", id, tagDTO);
         // Single-value Primary Key Code
         if (tagDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -130,7 +130,7 @@ public class TagResource {
         @NotNull @RequestBody TagDTO tagDTO
     ) throws URISyntaxException {
         // Single-value Primary Key Code
-        log.debug("REST request to partial update Tag partially : {}, {}", id, tagDTO);
+        LOG.debug("REST request to partial update Tag partially : {}, {}", id, tagDTO);
         // Single-value Primary Key Code
         if (tagDTO.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -161,7 +161,7 @@ public class TagResource {
      */
     @GetMapping("")
     public List<TagDTO> getAllTags() {
-        log.debug("REST request to get all Tags");
+        LOG.debug("REST request to get all Tags");
         return tagService.findAll();
     }
 
@@ -197,7 +197,7 @@ public class TagResource {
     // Single-value Primary Key Code
     public ResponseEntity<Void> deleteTag(@PathVariable("id") UUID id) {
         // Single-value Primary Key Code
-        log.debug("REST request to delete Tag : {}", id);
+        LOG.debug("REST request to delete Tag : {}", id);
         tagService.delete(id);
         return ResponseEntity.noContent()
             .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))

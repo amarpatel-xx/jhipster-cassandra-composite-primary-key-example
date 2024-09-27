@@ -1,11 +1,12 @@
 package com.saathratri.developer.store.domain;
 
+import static com.saathratri.developer.store.domain.AssertUtils.bigDecimalCompareTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class ProductAsserts {
 
     /**
-     * Asserts that the entity has all properties (fields) set.
+     * Asserts that the entity has all properties (fields/relationships) set.
      *
      * @param expected the expected entity
      * @param actual the actual entity
@@ -16,13 +17,14 @@ public class ProductAsserts {
     }
 
     /**
-     * Asserts that the entity has all updatable properties (fields) set.
+     * Asserts that the entity has all updatable properties (fields/relationships) set.
      *
      * @param expected the expected entity
      * @param actual the actual entity
      */
     public static void assertProductAllUpdatablePropertiesEquals(Product expected, Product actual) {
         assertProductUpdatableFieldsEquals(expected, actual);
+        assertProductUpdatableRelationshipsEquals(expected, actual);
     }
 
     /**
@@ -44,6 +46,23 @@ public class ProductAsserts {
      * @param actual the actual entity
      */
     public static void assertProductUpdatableFieldsEquals(Product expected, Product actual) {
-        assertThat(expected).as("Verify Product relevant properties");
+        assertThat(expected)
+            .as("Verify Product relevant properties")
+            .satisfies(e -> assertThat(e.getTitle()).as("check title").isEqualTo(actual.getTitle()))
+            .satisfies(e -> assertThat(e.getPrice()).as("check price").usingComparator(bigDecimalCompareTo).isEqualTo(actual.getPrice()))
+            .satisfies(e -> assertThat(e.getImage()).as("check image").isEqualTo(actual.getImage()))
+            .satisfies(e -> assertThat(e.getImageContentType()).as("check image contenty type").isEqualTo(actual.getImageContentType()))
+            .satisfies(e -> assertThat(e.getAddedDate()).as("check addedDate").isEqualTo(actual.getAddedDate()))
+            .satisfies(e -> assertThat(e.getAddedDateTime()).as("check addedDateTime").isEqualTo(actual.getAddedDateTime()));
+    }
+
+    /**
+     * Asserts that the entity has all the updatable relationships set.
+     *
+     * @param expected the expected entity
+     * @param actual the actual entity
+     */
+    public static void assertProductUpdatableRelationshipsEquals(Product expected, Product actual) {
+        // empty method
     }
 }

@@ -17,6 +17,7 @@ class TagTest {
 
         tag2.setId(tag1.getId());
         assertThat(tag1).isEqualTo(tag2);
+
         tag2 = getTagSample2();
         assertThat(tag1).isNotEqualTo(tag2);
     }

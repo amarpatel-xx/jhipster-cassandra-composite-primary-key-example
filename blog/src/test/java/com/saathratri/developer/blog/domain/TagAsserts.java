@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class TagAsserts {
 
     /**
-     * Asserts that the entity has all properties (fields) set.
+     * Asserts that the entity has all properties (fields/relationships) set.
      *
      * @param expected the expected entity
      * @param actual the actual entity
@@ -16,13 +16,14 @@ public class TagAsserts {
     }
 
     /**
-     * Asserts that the entity has all updatable properties (fields) set.
+     * Asserts that the entity has all updatable properties (fields/relationships) set.
      *
      * @param expected the expected entity
      * @param actual the actual entity
      */
     public static void assertTagAllUpdatablePropertiesEquals(Tag expected, Tag actual) {
         assertTagUpdatableFieldsEquals(expected, actual);
+        assertTagUpdatableRelationshipsEquals(expected, actual);
     }
 
     /**
@@ -44,6 +45,18 @@ public class TagAsserts {
      * @param actual the actual entity
      */
     public static void assertTagUpdatableFieldsEquals(Tag expected, Tag actual) {
-        assertThat(expected).as("Verify Tag relevant properties");
+        assertThat(expected)
+            .as("Verify Tag relevant properties")
+            .satisfies(e -> assertThat(e.getName()).as("check name").isEqualTo(actual.getName()));
+    }
+
+    /**
+     * Asserts that the entity has all the updatable relationships set.
+     *
+     * @param expected the expected entity
+     * @param actual the actual entity
+     */
+    public static void assertTagUpdatableRelationshipsEquals(Tag expected, Tag actual) {
+        // empty method
     }
 }

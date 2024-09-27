@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TajUserServiceImpl implements TajUserService {
 
-    private final Logger log = LoggerFactory.getLogger(TajUserServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(TajUserServiceImpl.class);
 
     private final TajUserRepository tajUserRepository;
 
@@ -33,7 +33,7 @@ public class TajUserServiceImpl implements TajUserService {
 
     @Override
     public TajUserDTO save(TajUserDTO tajUserDTO) {
-        log.debug("Request to save TajUser : {}", tajUserDTO);
+        LOG.debug("Request to save TajUser : {}", tajUserDTO);
         TajUser tajUser = tajUserMapper.toEntity(tajUserDTO);
         tajUser = tajUserRepository.save(tajUser);
         log.debug("Saved tajUser : {}", tajUser);
@@ -42,7 +42,7 @@ public class TajUserServiceImpl implements TajUserService {
 
     @Override
     public TajUserDTO update(TajUserDTO tajUserDTO) {
-        log.debug("Request to update TajUser : {}", tajUserDTO);
+        LOG.debug("Request to update TajUser : {}", tajUserDTO);
         TajUser tajUser = tajUserMapper.toEntity(tajUserDTO);
         tajUser = tajUserRepository.save(tajUser);
         log.debug("Saved tajUser : {}", tajUser);
@@ -51,7 +51,7 @@ public class TajUserServiceImpl implements TajUserService {
 
     @Override
     public Optional<TajUserDTO> partialUpdate(TajUserDTO tajUserDTO) {
-        log.debug("Request to partially update TajUser : {}", tajUserDTO);
+        LOG.debug("Request to partially update TajUser : {}", tajUserDTO);
 
         return tajUserRepository
             .findById(tajUserDTO.getId())
@@ -66,19 +66,19 @@ public class TajUserServiceImpl implements TajUserService {
 
     @Override
     public List<TajUserDTO> findAll() {
-        log.debug("Request to get all TajUsers");
+        LOG.debug("Request to get all TajUsers");
         return tajUserRepository.findAll().stream().map(tajUserMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
     public Optional<TajUserDTO> findOne(UUID id) {
-        log.debug("Request to get TajUser : {}", id);
+        LOG.debug("Request to get TajUser : {}", id);
         return tajUserRepository.findById(id).map(tajUserMapper::toDto);
     }
 
     @Override
     public void delete(UUID id) {
-        log.debug("Request to delete TajUser : {}", id);
+        LOG.debug("Request to delete TajUser : {}", id);
         tajUserRepository.deleteById(id);
     }
 }

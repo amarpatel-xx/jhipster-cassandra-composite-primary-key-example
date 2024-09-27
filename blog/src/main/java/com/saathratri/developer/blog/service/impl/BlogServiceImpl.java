@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class BlogServiceImpl implements BlogService {
 
-    private final Logger log = LoggerFactory.getLogger(BlogServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(BlogServiceImpl.class);
 
     private final BlogRepository blogRepository;
 
@@ -33,7 +33,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public BlogDTO save(BlogDTO blogDTO) {
-        log.debug("Request to save Blog : {}", blogDTO);
+        LOG.debug("Request to save Blog : {}", blogDTO);
         Blog blog = blogMapper.toEntity(blogDTO);
         blog = blogRepository.save(blog);
         log.debug("Saved blog : {}", blog);
@@ -42,7 +42,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public BlogDTO update(BlogDTO blogDTO) {
-        log.debug("Request to update Blog : {}", blogDTO);
+        LOG.debug("Request to update Blog : {}", blogDTO);
         Blog blog = blogMapper.toEntity(blogDTO);
         blog = blogRepository.save(blog);
         log.debug("Saved blog : {}", blog);
@@ -51,7 +51,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public Optional<BlogDTO> partialUpdate(BlogDTO blogDTO) {
-        log.debug("Request to partially update Blog : {}", blogDTO);
+        LOG.debug("Request to partially update Blog : {}", blogDTO);
 
         return blogRepository
             .findById(new BlogId(blogDTO.getCompositeId().getCategory(), blogDTO.getCompositeId().getBlogId()))
@@ -66,19 +66,19 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<BlogDTO> findAll() {
-        log.debug("Request to get all Blogs");
+        LOG.debug("Request to get all Blogs");
         return blogRepository.findAll().stream().map(blogMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
     public Optional<BlogDTO> findOne(BlogId compositeId) {
-        log.debug("Request to get Blog : {}", compositeId);
+        LOG.debug("Request to get Blog : {}", compositeId);
         return blogRepository.findById(compositeId).map(blogMapper::toDto);
     }
 
     @Override
     public void delete(BlogId compositeId) {
-        log.debug("Request to delete Blog : {}", compositeId);
+        LOG.debug("Request to delete Blog : {}", compositeId);
         blogRepository.deleteById(compositeId);
     }
 

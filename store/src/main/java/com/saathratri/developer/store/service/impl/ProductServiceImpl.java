@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProductServiceImpl implements ProductService {
 
-    private final Logger log = LoggerFactory.getLogger(ProductServiceImpl.class);
+    private static final Logger LOG = LoggerFactory.getLogger(ProductServiceImpl.class);
 
     private final ProductRepository productRepository;
 
@@ -33,7 +33,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO save(ProductDTO productDTO) {
-        log.debug("Request to save Product : {}", productDTO);
+        LOG.debug("Request to save Product : {}", productDTO);
         Product product = productMapper.toEntity(productDTO);
         product = productRepository.save(product);
         log.debug("Saved product : {}", product);
@@ -42,7 +42,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public ProductDTO update(ProductDTO productDTO) {
-        log.debug("Request to update Product : {}", productDTO);
+        LOG.debug("Request to update Product : {}", productDTO);
         Product product = productMapper.toEntity(productDTO);
         product = productRepository.save(product);
         log.debug("Saved product : {}", product);
@@ -51,7 +51,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Optional<ProductDTO> partialUpdate(ProductDTO productDTO) {
-        log.debug("Request to partially update Product : {}", productDTO);
+        LOG.debug("Request to partially update Product : {}", productDTO);
 
         return productRepository
             .findById(productDTO.getId())
@@ -66,19 +66,19 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDTO> findAll() {
-        log.debug("Request to get all Products");
+        LOG.debug("Request to get all Products");
         return productRepository.findAll().stream().map(productMapper::toDto).collect(Collectors.toCollection(LinkedList::new));
     }
 
     @Override
     public Optional<ProductDTO> findOne(UUID id) {
-        log.debug("Request to get Product : {}", id);
+        LOG.debug("Request to get Product : {}", id);
         return productRepository.findById(id).map(productMapper::toDto);
     }
 
     @Override
     public void delete(UUID id) {
-        log.debug("Request to delete Product : {}", id);
+        LOG.debug("Request to delete Product : {}", id);
         productRepository.deleteById(id);
     }
 }
