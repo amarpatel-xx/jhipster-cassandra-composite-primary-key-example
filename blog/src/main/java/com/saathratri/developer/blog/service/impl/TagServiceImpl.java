@@ -36,7 +36,7 @@ public class TagServiceImpl implements TagService {
         LOG.debug("Request to save Tag : {}", tagDTO);
         Tag tag = tagMapper.toEntity(tagDTO);
         tag = tagRepository.save(tag);
-        log.debug("Saved tag : {}", tag);
+        LOG.debug("Saved tag : {}", tag);
         return tagMapper.toDto(tag);
     }
 
@@ -45,7 +45,7 @@ public class TagServiceImpl implements TagService {
         LOG.debug("Request to update Tag : {}", tagDTO);
         Tag tag = tagMapper.toEntity(tagDTO);
         tag = tagRepository.save(tag);
-        log.debug("Saved tag : {}", tag);
+        LOG.debug("Saved tag : {}", tag);
         return tagMapper.toDto(tag);
     }
 

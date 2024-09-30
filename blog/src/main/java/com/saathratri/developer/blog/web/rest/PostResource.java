@@ -174,7 +174,7 @@ public class PostResource {
         @NotNull @RequestBody PostDTO postDTO
     ) throws URISyntaxException {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to partially update Post with the parameters createdDate: {}, addedDateTime: {}, postId: {}, postDTO: {}",
             createdDate,
             addedDateTime,
@@ -250,7 +250,7 @@ public class PostResource {
         @RequestParam(name = "postId", required = true) final UUID postId
     ) {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to get Post with parameters createdDate: {}, addedDateTime: {}, postId: {}",
             createdDate,
             addedDateTime,
@@ -285,7 +285,7 @@ public class PostResource {
         @PathVariable(value = "postId", required = true) final UUID postId
     ) {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to delete Post with parameters createdDate: {}, addedDateTime: {}, postId: {}",
             createdDate,
             addedDateTime,
@@ -427,9 +427,9 @@ public class PostResource {
         String encodedValue = null;
         try {
             encodedValue = URLEncoder.encode(parameterValue, StandardCharsets.UTF_8);
-            log.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
+            LOG.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
         return encodedValue;
     }

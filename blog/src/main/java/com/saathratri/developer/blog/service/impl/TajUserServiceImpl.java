@@ -36,7 +36,7 @@ public class TajUserServiceImpl implements TajUserService {
         LOG.debug("Request to save TajUser : {}", tajUserDTO);
         TajUser tajUser = tajUserMapper.toEntity(tajUserDTO);
         tajUser = tajUserRepository.save(tajUser);
-        log.debug("Saved tajUser : {}", tajUser);
+        LOG.debug("Saved tajUser : {}", tajUser);
         return tajUserMapper.toDto(tajUser);
     }
 
@@ -45,7 +45,7 @@ public class TajUserServiceImpl implements TajUserService {
         LOG.debug("Request to update TajUser : {}", tajUserDTO);
         TajUser tajUser = tajUserMapper.toEntity(tajUserDTO);
         tajUser = tajUserRepository.save(tajUser);
-        log.debug("Saved tajUser : {}", tajUser);
+        LOG.debug("Saved tajUser : {}", tajUser);
         return tajUserMapper.toDto(tajUser);
     }
 

@@ -178,7 +178,7 @@ public class TagResource {
     // Single-value Primary Key Code
     public ResponseEntity<TagDTO> getTag(@PathVariable("id") UUID id) {
         // Single-value Primary Key Code
-        log.debug("REST request to get Tag : {}", id);
+        LOG.debug("REST request to get Tag : {}", id);
 
         Optional<TagDTO> tagDTO = tagService.findOne(id);
         return ResponseUtil.wrapOrNotFound(tagDTO);
@@ -208,9 +208,9 @@ public class TagResource {
         String encodedValue = null;
         try {
             encodedValue = URLEncoder.encode(parameterValue, StandardCharsets.UTF_8);
-            log.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
+            LOG.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
         return encodedValue;
     }

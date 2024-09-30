@@ -36,7 +36,7 @@ public class BlogServiceImpl implements BlogService {
         LOG.debug("Request to save Blog : {}", blogDTO);
         Blog blog = blogMapper.toEntity(blogDTO);
         blog = blogRepository.save(blog);
-        log.debug("Saved blog : {}", blog);
+        LOG.debug("Saved blog : {}", blog);
         return blogMapper.toDto(blog);
     }
 
@@ -45,7 +45,7 @@ public class BlogServiceImpl implements BlogService {
         LOG.debug("Request to update Blog : {}", blogDTO);
         Blog blog = blogMapper.toEntity(blogDTO);
         blog = blogRepository.save(blog);
-        log.debug("Saved blog : {}", blog);
+        LOG.debug("Saved blog : {}", blog);
         return blogMapper.toDto(blog);
     }
 

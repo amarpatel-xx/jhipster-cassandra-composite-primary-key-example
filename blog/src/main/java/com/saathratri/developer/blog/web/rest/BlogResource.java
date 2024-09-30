@@ -145,7 +145,7 @@ public class BlogResource {
         @NotNull @RequestBody BlogDTO blogDTO
     ) throws URISyntaxException {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to partially update Blog with the parameters category: {}, blogId: {}, blogDTO: {}",
             category,
             blogId,
@@ -205,7 +205,7 @@ public class BlogResource {
         @RequestParam(name = "blogId", required = true) final UUID blogId
     ) {
         // Composite Primary Key Code
-        log.debug("REST request to get Blog with parameters category: {}, blogId: {}", category, blogId);
+        LOG.debug("REST request to get Blog with parameters category: {}, blogId: {}", category, blogId);
         // Composite Primary Key Code
         BlogId compositeId = new BlogId();
         compositeId.setCategory(category);
@@ -232,7 +232,7 @@ public class BlogResource {
         @PathVariable(value = "blogId", required = true) final UUID blogId
     ) {
         // Composite Primary Key Code
-        log.debug("REST request to delete Blog with parameters category: {}, blogId: {}", category, blogId);
+        LOG.debug("REST request to delete Blog with parameters category: {}, blogId: {}", category, blogId);
         // Composite Primary Key Code
         BlogId compositeId = new BlogId();
         compositeId.setCategory(category);
@@ -262,9 +262,9 @@ public class BlogResource {
         String encodedValue = null;
         try {
             encodedValue = URLEncoder.encode(parameterValue, StandardCharsets.UTF_8);
-            log.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
+            LOG.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
         return encodedValue;
     }

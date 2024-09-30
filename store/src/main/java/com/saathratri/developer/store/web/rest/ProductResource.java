@@ -178,7 +178,7 @@ public class ProductResource {
     // Single-value Primary Key Code
     public ResponseEntity<ProductDTO> getProduct(@PathVariable("id") UUID id) {
         // Single-value Primary Key Code
-        log.debug("REST request to get Product : {}", id);
+        LOG.debug("REST request to get Product : {}", id);
 
         Optional<ProductDTO> productDTO = productService.findOne(id);
         return ResponseUtil.wrapOrNotFound(productDTO);
@@ -208,9 +208,9 @@ public class ProductResource {
         String encodedValue = null;
         try {
             encodedValue = URLEncoder.encode(parameterValue, StandardCharsets.UTF_8);
-            log.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
+            LOG.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
         return encodedValue;
     }

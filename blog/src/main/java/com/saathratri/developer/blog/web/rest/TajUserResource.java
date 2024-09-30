@@ -178,7 +178,7 @@ public class TajUserResource {
     // Single-value Primary Key Code
     public ResponseEntity<TajUserDTO> getTajUser(@PathVariable("id") UUID id) {
         // Single-value Primary Key Code
-        log.debug("REST request to get TajUser : {}", id);
+        LOG.debug("REST request to get TajUser : {}", id);
 
         Optional<TajUserDTO> tajUserDTO = tajUserService.findOne(id);
         return ResponseUtil.wrapOrNotFound(tajUserDTO);
@@ -208,9 +208,9 @@ public class TajUserResource {
         String encodedValue = null;
         try {
             encodedValue = URLEncoder.encode(parameterValue, StandardCharsets.UTF_8);
-            log.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
+            LOG.info("Encoded String '{}' is '{}'.", parameterValue, encodedValue);
         } catch (Exception e) {
-            log.error(e.getMessage(), e);
+            LOG.error(e.getMessage(), e);
         }
         return encodedValue;
     }

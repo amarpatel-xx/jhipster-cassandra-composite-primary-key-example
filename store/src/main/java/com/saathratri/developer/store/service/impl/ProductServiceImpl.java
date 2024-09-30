@@ -36,7 +36,7 @@ public class ProductServiceImpl implements ProductService {
         LOG.debug("Request to save Product : {}", productDTO);
         Product product = productMapper.toEntity(productDTO);
         product = productRepository.save(product);
-        log.debug("Saved product : {}", product);
+        LOG.debug("Saved product : {}", product);
         return productMapper.toDto(product);
     }
 
@@ -45,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
         LOG.debug("Request to update Product : {}", productDTO);
         Product product = productMapper.toEntity(productDTO);
         product = productRepository.save(product);
-        log.debug("Saved product : {}", product);
+        LOG.debug("Saved product : {}", product);
         return productMapper.toDto(product);
     }
 

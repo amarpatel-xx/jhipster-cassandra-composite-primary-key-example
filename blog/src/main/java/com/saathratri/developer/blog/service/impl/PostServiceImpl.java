@@ -36,7 +36,7 @@ public class PostServiceImpl implements PostService {
         LOG.debug("Request to save Post : {}", postDTO);
         Post post = postMapper.toEntity(postDTO);
         post = postRepository.save(post);
-        log.debug("Saved post : {}", post);
+        LOG.debug("Saved post : {}", post);
         return postMapper.toDto(post);
     }
 
@@ -45,7 +45,7 @@ public class PostServiceImpl implements PostService {
         LOG.debug("Request to update Post : {}", postDTO);
         Post post = postMapper.toEntity(postDTO);
         post = postRepository.save(post);
-        log.debug("Saved post : {}", post);
+        LOG.debug("Saved post : {}", post);
         return postMapper.toDto(post);
     }
 
