@@ -15,6 +15,7 @@ const postRoute: Routes = [
   },
   {
     path: ':createdDate/:addedDateTime/:postId/view',
+    loadComponent: () => import('./detail/post-detail.component').then(m => m.PostDetailComponent),
     resolve: {
       post: PostResolve,
     },
@@ -30,6 +31,7 @@ const postRoute: Routes = [
   },
   {
     path: ':createdDate/:addedDateTime/:postId/edit',
+    loadComponent: () => import('./update/post-update.component').then(m => m.PostUpdateComponent),
     resolve: {
       post: PostResolve,
     },

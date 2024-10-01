@@ -84,7 +84,7 @@ public class BlogServiceImpl implements BlogService {
 
     @Override
     public List<BlogDTO> findAllByCompositeIdCategory(final String category) {
-        log.debug("Request to findAllByCompositeIdCategory(final String category) service in BlogServiceImpl.");
+        LOG.debug("Request to findAllByCompositeIdCategory(final String category) service in BlogServiceImpl.");
         return blogRepository
             .findAllByCompositeIdCategory(category)
             .stream()

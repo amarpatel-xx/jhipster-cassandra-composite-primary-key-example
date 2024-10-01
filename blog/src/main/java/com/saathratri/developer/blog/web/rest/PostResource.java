@@ -105,7 +105,7 @@ public class PostResource {
         @Valid @RequestBody PostDTO postDTO
     ) throws URISyntaxException {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to update Post with parameters createdDate: {}, addedDateTime: {}, postId: {}, postDTO: {}",
             createdDate,
             addedDateTime,
@@ -313,7 +313,7 @@ public class PostResource {
     @GetMapping("/find-all-by-composite-id-created-date")
     public List<PostDTO> findAllByCompositeIdCreatedDate(@RequestParam(name = "createdDate", required = true) final Long createdDate) {
         // Composite Primary Key Code
-        log.debug("REST request to findAllByCompositeIdCreatedDate method for Posts with parameteres createdDate: {}", createdDate);
+        LOG.debug("REST request to findAllByCompositeIdCreatedDate method for Posts with parameteres createdDate: {}", createdDate);
         return postService.findAllByCompositeIdCreatedDate(createdDate);
     }
 
@@ -330,7 +330,7 @@ public class PostResource {
         @RequestParam(name = "createdDate", required = true) final Long createdDate
     ) {
         // Composite Primary Key Code
-        log.debug("REST request to findAllByCompositeIdCreatedDateLessThan method for Posts with parameteres createdDate: {}", createdDate);
+        LOG.debug("REST request to findAllByCompositeIdCreatedDateLessThan method for Posts with parameteres createdDate: {}", createdDate);
         return postService.findAllByCompositeIdCreatedDateLessThan(createdDate);
     }
 
@@ -347,7 +347,7 @@ public class PostResource {
         @RequestParam(name = "createdDate", required = true) final Long createdDate
     ) {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to findAllByCompositeIdCreatedDateGreaterThan method for Posts with parameteres createdDate: {}",
             createdDate
         );
@@ -369,7 +369,7 @@ public class PostResource {
         @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime
     ) {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime method for Posts with parameteres createdDate: {}, addedDateTime: {}",
             createdDate,
             addedDateTime
@@ -392,7 +392,7 @@ public class PostResource {
         @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime
     ) {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan method for Posts with parameteres createdDate: {}, addedDateTime: {}",
             createdDate,
             addedDateTime
@@ -415,7 +415,7 @@ public class PostResource {
         @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime
     ) {
         // Composite Primary Key Code
-        log.debug(
+        LOG.debug(
             "REST request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan method for Posts with parameteres createdDate: {}, addedDateTime: {}",
             createdDate,
             addedDateTime

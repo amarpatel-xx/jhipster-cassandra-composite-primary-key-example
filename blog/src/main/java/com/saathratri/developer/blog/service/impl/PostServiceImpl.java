@@ -90,7 +90,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDTO> findAllByCompositeIdCreatedDate(final Long createdDate) {
-        log.debug("Request to findAllByCompositeIdCreatedDate(final Long createdDate) service in PostServiceImpl.");
+        LOG.debug("Request to findAllByCompositeIdCreatedDate(final Long createdDate) service in PostServiceImpl.");
         return postRepository
             .findAllByCompositeIdCreatedDate(createdDate)
             .stream()
@@ -100,7 +100,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDTO> findAllByCompositeIdCreatedDateLessThan(final Long createdDate) {
-        log.debug("Request to findAllByCompositeIdCreatedDateLessThan(final Long createdDate) service in PostServiceImpl.");
+        LOG.debug("Request to findAllByCompositeIdCreatedDateLessThan(final Long createdDate) service in PostServiceImpl.");
         return postRepository
             .findAllByCompositeIdCreatedDateLessThan(createdDate)
             .stream()
@@ -110,7 +110,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDTO> findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate) {
-        log.debug("Request to findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate) service in PostServiceImpl.");
+        LOG.debug("Request to findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate) service in PostServiceImpl.");
         return postRepository
             .findAllByCompositeIdCreatedDateGreaterThan(createdDate)
             .stream()
@@ -120,7 +120,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime) {
-        log.debug(
+        LOG.debug(
             "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
         );
         return postRepository
@@ -135,7 +135,7 @@ public class PostServiceImpl implements PostService {
         final Long createdDate,
         final Long addedDateTime
     ) {
-        log.debug(
+        LOG.debug(
             "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
         );
         return postRepository
@@ -150,7 +150,7 @@ public class PostServiceImpl implements PostService {
         final Long createdDate,
         final Long addedDateTime
     ) {
-        log.debug(
+        LOG.debug(
             "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime) service in PostServiceImpl."
         );
         return postRepository

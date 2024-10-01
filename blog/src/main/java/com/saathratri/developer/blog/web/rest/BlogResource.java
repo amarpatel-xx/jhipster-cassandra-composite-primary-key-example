@@ -97,7 +97,7 @@ public class BlogResource {
         @Valid @RequestBody BlogDTO blogDTO
     ) throws URISyntaxException {
         // Composite Primary Key Code
-        log.debug("REST request to update Blog with parameters category: {}, blogId: {}, blogDTO: {}", category, blogId, blogDTO);
+        LOG.debug("REST request to update Blog with parameters category: {}, blogId: {}, blogDTO: {}", category, blogId, blogDTO);
         // Composite Primary Key Code
         if (blogDTO.getCompositeId().getCategory() == null || blogDTO.getCompositeId().getBlogId() == null) {
             throw new BadRequestAlertException("Invalid category", ENTITY_NAME, "idnull");
@@ -254,7 +254,7 @@ public class BlogResource {
     @GetMapping("/find-all-by-composite-id-category")
     public List<BlogDTO> findAllByCompositeIdCategory(@RequestParam(name = "category", required = true) final String category) {
         // Composite Primary Key Code
-        log.debug("REST request to findAllByCompositeIdCategory method for Blogs with parameteres category: {}", category);
+        LOG.debug("REST request to findAllByCompositeIdCategory method for Blogs with parameteres category: {}", category);
         return blogService.findAllByCompositeIdCategory(category);
     }
 

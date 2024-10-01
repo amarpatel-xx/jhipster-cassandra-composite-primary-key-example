@@ -12,6 +12,7 @@ const blogRoute: Routes = [
   },
   {
     path: ':category/:blogId/view',
+    loadComponent: () => import('./detail/blog-detail.component').then(m => m.BlogDetailComponent),
     resolve: {
       blog: BlogResolve,
     },
@@ -27,6 +28,7 @@ const blogRoute: Routes = [
   },
   {
     path: ':category/:blogId/edit',
+    loadComponent: () => import('./update/blog-update.component').then(m => m.BlogUpdateComponent),
     resolve: {
       blog: BlogResolve,
     },

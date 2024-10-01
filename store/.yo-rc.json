@@ -18,9 +18,9 @@
     "enableHibernateCache": false,
     "entities": ["Product"],
     "jhipsterVersion": "8.7.1",
-    "jwtSecretKey": "N2NjNDY1ZmIxY2I2YmEwZjE0ZDY3Y2Y3MzM2NDZjYjY4MmE0NzNjZjEzNTliOGU5MjVhNjk5NDE1YzI5OTI0ZDI1YjU0MjFjZDIxMDQwMzExMTI1OTg2YWUwZGM2ZTNmNWQwNGFkOTg2Mzg1YjQ1NzlmYjJiMjk5NjQ0MDk3NzA=",
+    "jwtSecretKey": "MzI1MDE4NzhmYzlhODI0ZmUyNTkwOTdjNzMxM2Q5MGJmNGU0NmY4NTk3OGY1NmE5OGFlNTRlOGFiOTgzZTQxYWJjZmFiZjcwZGNmNTgxOGI4M2NjZmYzNWFmNTZjNmIzODBlYmUxYjM5NDc3OTY0Yzk4ZWJkODk1YjJiN2MzNTY=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1727725463000,
+    "lastLiquibaseTimestamp": 1727747267000,
     "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.saathratri.developer.store",
@@ -28,6 +28,7 @@
     "serverPort": "8082",
     "serviceDiscoveryType": "eureka",
     "skipCommitHook": true,
+    "skipJhipsterDependencies": true,
     "skipUserManagement": true,
     "testFrameworks": ["cypress"]
   }

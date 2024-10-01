@@ -18,9 +18,9 @@
     "enableHibernateCache": false,
     "entities": ["Blog", "Post", "Tag", "TajUser"],
     "jhipsterVersion": "8.7.1",
-    "jwtSecretKey": "YmM4YTQ5Yzc5OGY5MGExNWJkZmE0NmJiNjkwODJmNDM3M2E5OGQ0MjE2YmE1Y2EzYWJmMmI4YjQyZGM1OTEwZTY0OTNiOGM0NDdlYjQ3NGVjYmFlYWM2MjViZGRmZjgwNWVjY2U0MTVlZWIxZmUwYTdkMjE0ZDQ1MmY5MzRiMTE=",
+    "jwtSecretKey": "ODE3MzQ4Njk1OWQyZWM1MDIyOWM4NTNkYjY1ZjI3ZTIyN2U5OTQxMzUwODJlMGNiMDkyNTUxOTgwMzEwODliZTRlNGI1MDEwMTllMTZiYmQzNGE1YzIzOTA5YWRkNjMxNmI4OWY3YTdjOWIyYTQwMGMwODNkN2Q1NTA0MDE4NWM=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1727725643000,
+    "lastLiquibaseTimestamp": 1727747447000,
     "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.saathratri.developer.blog",
@@ -28,6 +28,7 @@
     "serverPort": "8081",
     "serviceDiscoveryType": "eureka",
     "skipCommitHook": true,
+    "skipJhipsterDependencies": true,
     "skipUserManagement": true,
     "testFrameworks": ["cypress"]
   }
