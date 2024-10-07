@@ -93,9 +93,9 @@ export class PostFormService {
       {
         ...postRawValue,
         compositeId: {
-          createdDate: { value: postRawValue.compositeId.createdDate, disabled: postRawValue.compositeId.createdDate !== null },
-          addedDateTime: { value: postRawValue.compositeId.addedDateTime, disabled: postRawValue.compositeId.addedDateTime !== null },
-          postId: { value: postRawValue.compositeId.postId, disabled: postRawValue.compositeId.postId !== null },
+          createdDate: { value: postRawValue.compositeId.createdDate, disabled: !postRawValue.compositeId.createdDate },
+          addedDateTime: { value: postRawValue.compositeId.addedDateTime, disabled: !postRawValue.compositeId.addedDateTime },
+          postId: { value: postRawValue.compositeId.postId, disabled: !postRawValue.compositeId.postId },
         },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );

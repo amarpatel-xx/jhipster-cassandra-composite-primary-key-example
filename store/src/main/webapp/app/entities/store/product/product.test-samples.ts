@@ -6,7 +6,7 @@ export const sampleWithRequiredData: IProduct = {
   id: '0d24fa4b-12fd-4abd-9283-e21ed8120131',
   title: 'who ew',
   price: 14429.32,
-  addedDate: dayjs('2024-09-30'),
+  addedDate: dayjs('2024-10-07'),
 };
 
 export const sampleWithPartialData: IProduct = {
@@ -15,7 +15,7 @@ export const sampleWithPartialData: IProduct = {
   price: 6999.57,
   image: '../fake-data/blob/hipster.png',
   imageContentType: 'unknown',
-  addedDate: dayjs('2024-09-30'),
+  addedDate: dayjs('2024-10-06'),
   addedDateTime: 3177,
 };
 
@@ -25,14 +25,14 @@ export const sampleWithFullData: IProduct = {
   price: 8357.44,
   image: '../fake-data/blob/hipster.png',
   imageContentType: 'unknown',
-  addedDate: dayjs('2024-09-30'),
+  addedDate: dayjs('2024-10-06'),
   addedDateTime: 10646,
 };
 
 export const sampleWithNewData: NewProduct = {
   title: 'upwardly slow',
   price: 27255.98,
-  addedDate: dayjs('2024-09-30'),
+  addedDate: dayjs('2024-10-07'),
   id: null,
 };
 
