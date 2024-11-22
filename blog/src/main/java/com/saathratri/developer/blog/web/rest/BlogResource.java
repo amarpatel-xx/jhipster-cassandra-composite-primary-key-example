@@ -258,6 +258,21 @@ public class BlogResource {
         return blogService.findAllByCompositeIdCategory(category);
     }
 
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-latest-by-composite-id-category/:category}
+     *
+     *
+     * @param category the Category of the blog to retrieve. *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the blog, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-latest-by-composite-id-category")
+    public BlogDTO findLatestByCompositeIdCategory(@RequestParam(name = "category", required = true) final String category) {
+        // Composite Primary Key Code
+        LOG.debug("REST request to findLatestByCompositeIdCategory method for Blogs with parameteres category: {}", category);
+        return blogService.findLatestByCompositeIdCategory(category);
+    }
+
     private String getUrlEncodedParameterValue(String parameterValue) {
         String encodedValue = null;
         try {

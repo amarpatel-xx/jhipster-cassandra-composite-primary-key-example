@@ -11,7 +11,7 @@
         id="jhi-delete-post-heading"
         jhiTranslate="blogApp.blogPost.delete.question"
         [translateValues]="{
-          createdDate: post.compositeId.createdDate | convertFromDayjsToDateLong,
+          createdDate: post.compositeId.createdDate,
           addedDateTime: post.compositeId.addedDateTime | convertFromDayjsToDateLong,
           postId: post.compositeId.postId,
         }"

@@ -91,4 +91,10 @@ public class BlogServiceImpl implements BlogService {
             .map(blogMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
+
+    @Override
+    public BlogDTO findLatestByCompositeIdCategory(final String category) {
+        LOG.debug("Request to findLatestByCompositeIdCategory(final String category) service in BlogServiceImpl.");
+        return blogRepository.findLatestByCompositeIdCategory(category).map(blogMapper::toDto).orElse(null); // Return null if no record found
+    }
 }

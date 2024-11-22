@@ -5,6 +5,8 @@ CREATE TABLE IF NOT EXISTS post (
     post_id uuid,
     title text,
     content text,
-  primary key ((created_date), added_date_time, post_id))
-  with clustering order by (added_date_time desc, post_id asc);
-
+  primary key (
+    (created_date),
+ added_date_time, post_id  )
+  WITH CLUSTERING ORDER BY (
+added_date_time desc, post_id asc);

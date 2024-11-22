@@ -1,2 +1,2 @@
-sh saathratri-cleanup-dev-cassandra.sh
+sh saathratri-cleanup-dev-main.sh
 sh saathratri-generate-code-dev-cassandra-mf.sh

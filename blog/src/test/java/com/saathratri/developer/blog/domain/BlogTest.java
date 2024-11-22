@@ -4,7 +4,6 @@ import static com.saathratri.developer.blog.domain.BlogTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import com.saathratri.developer.blog.web.rest.TestUtil;
-import java.util.UUID;
 import org.junit.jupiter.api.Test;
 
 class BlogTest {

@@ -16,7 +16,7 @@ public class BlogId implements java.io.Serializable {
     private String category;
 
     @PrimaryKeyColumn(name = "blog_id", ordinal = 1, type = PrimaryKeyType.CLUSTERED)
-    @CassandraType(type = CassandraType.Name.UUID)
+    @CassandraType(type = CassandraType.Name.TIMEUUID)
     private UUID blogId;
 
     public BlogId() {}

@@ -4,6 +4,8 @@ CREATE TABLE IF NOT EXISTS blog (
     blog_id uuid,
     handle text,
     content text,
-  primary key ((category), blog_id))
-  with clustering order by (blog_id desc);
-
+  primary key (
+    (category),
+ blog_id  )
+  WITH CLUSTERING ORDER BY (
+blog_id desc);

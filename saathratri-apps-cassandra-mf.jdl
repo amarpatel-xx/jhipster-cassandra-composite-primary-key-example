@@ -55,7 +55,7 @@ application {
 entity Blog {
   @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("0") category String
   // Do not name composite primary key fields as 'id' as it conflicts with the 'id' field in the JHipster entity.
-  @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("1") blogId UUID
+  @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.TIMEUUID") @customAnnotation("TIMEUUID") @customAnnotation("1") blogId UUID
   @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") handle String required minlength(3)
   @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") content String required
 }

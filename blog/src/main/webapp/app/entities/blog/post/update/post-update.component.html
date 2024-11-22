@@ -11,22 +11,14 @@
         <div formGroupName="compositeId">
           <div class="mb-3">
             <label class="form-label" for="field_createdDate" jhiTranslate="blogApp.blogPost.createdDate">Created Date</label>
-            <div class="input-group">
-              <input
-                id="field_createdDate"
-                data-cy="createdDate"
-                type="text"
-                class="form-control"
-                name="createdDate"
-                ngbDatepicker
-                #createdDateDp="ngbDatepicker"
-                formControlName="createdDate"
-                [readonly]="true"
-              />
-              <button type="button" class="btn btn-secondary" (click)="createdDateDp.toggle()">
-                <fa-icon icon="calendar-alt"></fa-icon>
-              </button>
-            </div>
+            <input
+              type="number"
+              class="form-control"
+              name="createdDate"
+              id="field_createdDate"
+              data-cy="createdDate"
+              formControlName="createdDate"
+            />
           </div>
           <div class="mb-3">
             <label class="form-label" for="field_addedDateTime" jhiTranslate="blogApp.blogPost.addedDateTime">Added Date Time</label>
