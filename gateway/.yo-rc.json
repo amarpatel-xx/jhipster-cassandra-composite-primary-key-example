@@ -44,7 +44,6 @@
     "serverPort": 8080,
     "serviceDiscoveryType": "eureka",
     "skipCommitHook": true,
-    "skipJhipsterDependencies": true,
     "skipUserManagement": true,
     "testFrameworks": ["cypress"]
   }

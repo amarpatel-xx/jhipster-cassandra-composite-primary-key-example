@@ -29,7 +29,7 @@ application {
     serviceDiscoveryType eureka
     testFrameworks [cypress]
   }
-  entities Blog, Post, Tag, TajUser
+  entities Blog, Post, Tag, TajUser, SaathratriEntity
 }
 
 application {
@@ -58,6 +58,13 @@ entity Blog {
   @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.TIMEUUID") @customAnnotation("TIMEUUID") @customAnnotation("1") blogId UUID
   @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") handle String required minlength(3)
   @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") content String required
+}
+
+entity SaathratriEntity {
+  @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") entityId UUID
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") entityName String
+  @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") entityDescription String
+  @customAnnotation("") @customAnnotation("CassandraType.Name.DECIMAL") @customAnnotation("") entityCost BigDecimal
 }
 
 // Single-value Primary Key Example:

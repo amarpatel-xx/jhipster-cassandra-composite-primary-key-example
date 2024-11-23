@@ -1,6 +1,5 @@
 {
   "generator-jhipster": {
-    "appsFolders": ["gateway", "blog", "store"],
     "baseName": "workspaces",
     "blueprints": [
       {
@@ -8,12 +7,7 @@
         "version": "1.0.4"
       }
     ],
-    "clientPackageManager": "npm",
     "directoryPath": "./",
-    "dockerCompose": true,
-    "entities": [],
-    "jhipsterVersion": "8.7.1",
-    "monorepository": true,
-    "skipJhipsterDependencies": true
+    "jhipsterVersion": "8.7.1"
   }
 }

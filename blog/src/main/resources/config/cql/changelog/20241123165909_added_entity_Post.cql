@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS post (
     (created_date),
  added_date_time, post_id  )
   WITH CLUSTERING ORDER BY (
-added_date_time desc, post_id asc);
+added_date_time desc, post_id desc);

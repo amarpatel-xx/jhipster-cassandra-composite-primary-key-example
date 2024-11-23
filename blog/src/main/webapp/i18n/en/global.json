@@ -11,7 +11,8 @@
         "blogBlog": "Blog",
         "blogPost": "Post",
         "blogTag": "Tag",
-        "blogTajUser": "Taj User"
+        "blogTajUser": "Taj User",
+        "blogSaathratriEntity": "Saathratri Entity"
       },
       "account": {
         "main": "Account",
