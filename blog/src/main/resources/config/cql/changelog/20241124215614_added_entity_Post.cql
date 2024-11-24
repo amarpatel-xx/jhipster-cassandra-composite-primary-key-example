@@ -7,6 +7,6 @@ CREATE TABLE IF NOT EXISTS post (
     content text,
   primary key (
     (created_date),
- added_date_time, post_id  )
+ added_date_time, post_id  ))
   WITH CLUSTERING ORDER BY (
 added_date_time desc, post_id desc);

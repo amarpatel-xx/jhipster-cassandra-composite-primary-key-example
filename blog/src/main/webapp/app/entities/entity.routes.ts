@@ -26,6 +26,11 @@ const routes: Routes = [
     data: { pageTitle: 'blogApp.blogSaathratriEntity.home.title' },
     loadChildren: () => import('./blog/saathratri-entity/saathratri-entity.routes'),
   },
+  {
+    path: 'saathratri-entity-2',
+    data: { pageTitle: 'blogApp.blogSaathratriEntity2.home.title' },
+    loadChildren: () => import('./blog/saathratri-entity-2/saathratri-entity-2.routes'),
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 

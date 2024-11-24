@@ -57,10 +57,6 @@ public interface PostService {
 
     List<PostDTO> findAllByCompositeIdCreatedDate(final Long createdDate);
 
-    List<PostDTO> findAllByCompositeIdCreatedDateLessThan(final Long createdDate);
-
-    List<PostDTO> findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate);
-
     List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime);
 
     List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime);

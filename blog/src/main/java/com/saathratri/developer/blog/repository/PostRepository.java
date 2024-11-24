@@ -13,10 +13,6 @@ import org.springframework.stereotype.Repository;
 public interface PostRepository extends CassandraRepository<Post, PostId> {
     List<Post> findAllByCompositeIdCreatedDate(final Long createdDate);
 
-    List<Post> findAllByCompositeIdCreatedDateLessThan(final Long createdDate);
-
-    List<Post> findAllByCompositeIdCreatedDateGreaterThan(final Long createdDate);
-
     List<Post> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime);
 
     List<Post> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime);

@@ -6,6 +6,6 @@ CREATE TABLE IF NOT EXISTS blog (
     content text,
   primary key (
     (category),
- blog_id  )
+ blog_id  ))
   WITH CLUSTERING ORDER BY (
 blog_id desc);

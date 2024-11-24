@@ -12,7 +12,8 @@
         "blogPost": "Post",
         "blogTag": "Tag",
         "blogTajUser": "Taj User",
-        "blogSaathratriEntity": "Saathratri Entity"
+        "blogSaathratriEntity": "Saathratri Entity",
+        "blogSaathratriEntity2": "Saathratri Entity 2"
       },
       "account": {
         "main": "Account",

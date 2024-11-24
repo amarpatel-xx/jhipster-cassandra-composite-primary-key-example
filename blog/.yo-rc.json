@@ -7,7 +7,7 @@
     "blueprints": [
       {
         "name": "generator-jhipster-cassandra-composite-primary-key",
-        "version": "1.0.4"
+        "version": "1.0.5"
       }
     ],
     "buildTool": "maven",
@@ -16,11 +16,11 @@
     "devDatabaseType": "cassandra",
     "devServerPort": 4201,
     "enableHibernateCache": false,
-    "entities": ["Blog", "Post", "Tag", "TajUser", "SaathratriEntity"],
+    "entities": ["Blog", "Post", "Tag", "TajUser", "SaathratriEntity", "SaathratriEntity2"],
     "jhipsterVersion": "8.7.1",
-    "jwtSecretKey": "NDdhMTdiMTkyYzI5OTMyNWE2NGM5YWNiOGZlYzJiNWIwZGYzNTc4OGViMzliMWM0ODU4OGZlYzA3ZDBmZDdlM2Y2OTA0OGNmNjM0OTgzOWNlYzYzMjYyZDE1OTVhZTk3ODdjNTJlNTIzYTI5YmM2NGM0MTdhMTAwMWUyYWYyOGU=",
+    "jwtSecretKey": "NzQ1OWY3NGVjMTFjNTg0ZmQ4OGUxYjgwYjAyODZiMmVjN2I0YzI1YWFjNTA2NTgzMDRjNmRjYWYwNDEyNDNiMjJiN2NlYzZjZjNkNGIxOTg2NTlmNmQ4ZDA3MTY1M2Q1MThhMmM5MzRiZDNiMGEyNWQ2YjcwNjk3OGM5ODRiZTM=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1732381329000,
+    "lastLiquibaseTimestamp": 1732485614000,
     "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.saathratri.developer.blog",
@@ -28,6 +28,7 @@
     "serverPort": "8081",
     "serviceDiscoveryType": "eureka",
     "skipCommitHook": true,
+    "skipJhipsterDependencies": true,
     "skipUserManagement": true,
     "testFrameworks": ["cypress"]
   }

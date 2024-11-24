@@ -319,43 +319,6 @@ public class PostResource {
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /find-all-by-composite-id-created-date-less-than/:createdDate}
-     *
-     *
-     * @param createdDate the Created Date of the post to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
-     */
-    @GetMapping("/find-all-by-composite-id-created-date-less-than")
-    public List<PostDTO> findAllByCompositeIdCreatedDateLessThan(
-        @RequestParam(name = "createdDate", required = true) final Long createdDate
-    ) {
-        // Composite Primary Key Code
-        LOG.debug("REST request to findAllByCompositeIdCreatedDateLessThan method for Posts with parameteres createdDate: {}", createdDate);
-        return postService.findAllByCompositeIdCreatedDateLessThan(createdDate);
-    }
-
-    /**
-     * // Composite Primary Key Code
-     * {@code GET /find-all-by-composite-id-created-date-greater-than/:createdDate}
-     *
-     *
-     * @param createdDate the Created Date of the post to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the post, or with status {@code 404 (Not Found)}.
-     */
-    @GetMapping("/find-all-by-composite-id-created-date-greater-than")
-    public List<PostDTO> findAllByCompositeIdCreatedDateGreaterThan(
-        @RequestParam(name = "createdDate", required = true) final Long createdDate
-    ) {
-        // Composite Primary Key Code
-        LOG.debug(
-            "REST request to findAllByCompositeIdCreatedDateGreaterThan method for Posts with parameteres createdDate: {}",
-            createdDate
-        );
-        return postService.findAllByCompositeIdCreatedDateGreaterThan(createdDate);
-    }
-
-    /**
-     * // Composite Primary Key Code
      * {@code GET /find-all-by-composite-id-created-date-and-composite-id-added-date-time/:createdDate/:addedDateTime}
      *
      *
