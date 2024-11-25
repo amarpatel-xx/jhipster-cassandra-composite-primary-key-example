@@ -39,7 +39,7 @@
               formControlName="yearOfDateAdded"
             />
           </div>
-          <!-- <div class="mb-3">
+          <div class="mb-3">
             <label class="form-label" for="field_arrivalDate" jhiTranslate="blogApp.blogSaathratriEntity2.arrivalDate">Arrival Date</label>
             <input
               type="number"
@@ -49,29 +49,6 @@
               data-cy="arrivalDate"
               formControlName="arrivalDate"
             />
-          </div> -->
-          <div class="mb-3">
-            <label class="form-label" for="field_arrivalDate" jhiTranslate="blogApp.blogSaathratriEntity2.arrivalDate">Arrival Date</label>
-            <div class="input-group">
-              <input
-                id="field_arrivalDate"
-                data-cy="arrivalDate"
-                type="text"
-                class="form-control"
-                name="arrivalDate"
-                ngbDatepicker
-                #arrivalDateDp="ngbDatepicker"
-                formControlName="arrivalDate"
-              />
-              <button type="button" class="btn btn-secondary" (click)="arrivalDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
-            </div>
-            @if (editForm.get('arrivalDate')!.invalid && (editForm.get('arrivalDate')!.dirty || editForm.get('arrivalDate')!.touched)) {
-              <div>
-                @if (editForm.get('arrivalDate')?.errors?.required) {
-                  <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
-                }
-              </div>
-            }
           </div>
           <div class="mb-3">
             <label class="form-label" for="field_blogId" jhiTranslate="blogApp.blogSaathratriEntity2.blogId">Blog Id</label>
