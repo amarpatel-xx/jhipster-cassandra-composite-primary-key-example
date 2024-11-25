@@ -32,7 +32,7 @@ services:
       jhipster-registry:
         condition: service_healthy
   gateway-postgresql:
-    image: postgres:16.4
+    image: postgres:17.0
     environment:
       - POSTGRES_USER=gateway
       - POSTGRES_PASSWORD=password

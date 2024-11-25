@@ -12,7 +12,7 @@
     "directoryPath": "./",
     "dockerCompose": true,
     "entities": [],
-    "jhipsterVersion": "8.7.1",
+    "jhipsterVersion": "8.7.3",
     "monorepository": true,
     "skipJhipsterDependencies": true
   }
