@@ -15,7 +15,7 @@ describe('Product e2e test', () => {
   const productPageUrlPattern = new RegExp('/store/product(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const productSample = { title: 'toward', price: 23353.64, addedDate: '2024-11-25' };
+  const productSample = { title: 'toward', price: 23353.64, addedDate: '2024-11-27' };
 
   let product;
 
@@ -165,9 +165,9 @@ describe('Product e2e test', () => {
 
       cy.setFieldImageAsBytesOfEntity('image', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="addedDate"]`).type('2024-11-24');
+      cy.get(`[data-cy="addedDate"]`).type('2024-11-26');
       cy.get(`[data-cy="addedDate"]`).blur();
-      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-24');
+      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-26');
 
       cy.get(`[data-cy="addedDateTime"]`).type('20407');
       cy.get(`[data-cy="addedDateTime"]`).should('have.value', '20407');

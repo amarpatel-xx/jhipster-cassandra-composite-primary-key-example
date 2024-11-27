@@ -36,10 +36,10 @@ export class SaathratriEntity2Component implements OnInit {
 
   sortState = sortStateSignal({});
 
-  public router = inject(Router);
-  protected saathratriEntity2Service = inject(SaathratriEntity2Service);
-  protected activatedRoute = inject(ActivatedRoute);
-  protected sortService = inject(SortService);
+  public readonly router = inject(Router);
+  protected readonly saathratriEntity2Service = inject(SaathratriEntity2Service);
+  protected readonly activatedRoute = inject(ActivatedRoute);
+  protected readonly sortService = inject(SortService);
   protected modalService = inject(NgbModal);
   protected ngZone = inject(NgZone);
   // Saathratri: Composite Primary Key Code

@@ -13,8 +13,8 @@ export type EntityArrayResponseType = HttpResponse<ISaathratriEntity[]>;
 
 @Injectable({ providedIn: 'root' })
 export class SaathratriEntityService {
-  protected http = inject(HttpClient);
-  protected applicationConfigService = inject(ApplicationConfigService);
+  protected readonly http = inject(HttpClient);
+  protected readonly applicationConfigService = inject(ApplicationConfigService);
 
   protected resourceUrl = this.applicationConfigService.getEndpointFor('api/saathratri-entities', 'blog');
 

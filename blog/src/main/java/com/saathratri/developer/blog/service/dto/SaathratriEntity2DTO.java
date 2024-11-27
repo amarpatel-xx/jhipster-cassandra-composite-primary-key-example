@@ -1,7 +1,9 @@
 package com.saathratri.developer.blog.service.dto;
 
+import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.Objects;
 
 /**
@@ -14,6 +16,7 @@ public class SaathratriEntity2DTO implements Serializable {
     private String entityName;
     private String entityDescription;
     private BigDecimal entityCost;
+    private LocalDate addedDate;
 
     public SaathratriEntity2DTO() {
         // Empty constructor needed for Jackson.
@@ -71,6 +74,19 @@ public class SaathratriEntity2DTO implements Serializable {
         return this;
     }
 
+    public LocalDate getAddedDate() {
+        return addedDate;
+    }
+
+    public void setAddedDate(LocalDate addedDate) {
+        this.addedDate = addedDate;
+    }
+
+    public SaathratriEntity2DTO addedDate(LocalDate addedDate) {
+        this.addedDate = addedDate;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,6 +108,7 @@ public class SaathratriEntity2DTO implements Serializable {
             ", entityName='" + getEntityName() + "'" +
             ", entityDescription='" + getEntityDescription() + "'" +
             ", entityCost=" + getEntityCost() +
+            ", addedDate='" + getAddedDate() + "'" +
             "}";
     }
 }

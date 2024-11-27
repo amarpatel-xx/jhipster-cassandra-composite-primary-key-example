@@ -2,13 +2,15 @@ import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideHttpClient } from '@angular/common/http';
 
+import { DATE_FORMAT } from 'app/config/input.constants';
 import { ISaathratriEntity2 } from '../saathratri-entity-2.model';
 import { sampleWithFullData, sampleWithNewData, sampleWithPartialData, sampleWithRequiredData } from '../saathratri-entity-2.test-samples';
 
-import { SaathratriEntity2Service } from './saathratri-entity-2.service';
+import { RestSaathratriEntity2, SaathratriEntity2Service } from './saathratri-entity-2.service';
 
-const requireRestSample: ISaathratriEntity2 = {
+const requireRestSample: RestSaathratriEntity2 = {
   ...sampleWithRequiredData,
+  addedDate: sampleWithRequiredData.addedDate?.format(DATE_FORMAT),
 };
 
 describe('SaathratriEntity2 Service', () => {

@@ -5,6 +5,8 @@ import com.saathratri.developer.blog.repository.SaathratriEntity2Repository;
 import com.saathratri.developer.blog.service.SaathratriEntity2Service;
 import com.saathratri.developer.blog.service.dto.SaathratriEntity2DTO;
 import com.saathratri.developer.blog.web.rest.errors.BadRequestAlertException;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URLEncoder;
@@ -55,7 +57,7 @@ public class SaathratriEntity2Resource {
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
-    public ResponseEntity<SaathratriEntity2DTO> createSaathratriEntity2(@RequestBody SaathratriEntity2DTO saathratriEntity2DTO)
+    public ResponseEntity<SaathratriEntity2DTO> createSaathratriEntity2(@Valid @RequestBody SaathratriEntity2DTO saathratriEntity2DTO)
         throws URISyntaxException {
         LOG.debug("REST request to save SaathratriEntity2 : {}", saathratriEntity2DTO);
         // Composite Primary Key Code
@@ -111,7 +113,7 @@ public class SaathratriEntity2Resource {
         @PathVariable(value = "yearOfDateAdded", required = true) final Long yearOfDateAdded,
         @PathVariable(value = "arrivalDate", required = true) final Long arrivalDate,
         @PathVariable(value = "blogId", required = true) final UUID blogId,
-        @RequestBody SaathratriEntity2DTO saathratriEntity2DTO
+        @Valid @RequestBody SaathratriEntity2DTO saathratriEntity2DTO
     ) throws URISyntaxException {
         // Composite Primary Key Code
         LOG.debug(
@@ -191,7 +193,7 @@ public class SaathratriEntity2Resource {
         @PathVariable(value = "yearOfDateAdded", required = true) final Long yearOfDateAdded,
         @PathVariable(value = "arrivalDate", required = true) final Long arrivalDate,
         @PathVariable(value = "blogId", required = true) final UUID blogId,
-        @RequestBody SaathratriEntity2DTO saathratriEntity2DTO
+        @NotNull @RequestBody SaathratriEntity2DTO saathratriEntity2DTO
     ) throws URISyntaxException {
         // Composite Primary Key Code
         LOG.debug(

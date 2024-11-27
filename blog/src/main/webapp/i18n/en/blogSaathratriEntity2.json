@@ -23,7 +23,8 @@
       "blogId": "Blog Id",
       "entityName": "Entity Name",
       "entityDescription": "Entity Description",
-      "entityCost": "Entity Cost"
+      "entityCost": "Entity Cost",
+      "addedDate": "Added Date"
     }
   }
 }

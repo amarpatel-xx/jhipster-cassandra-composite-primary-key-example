@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20241125190538"
+    "changelogDate": "20241127202950"
   },
   "applications": ["blog"],
   "clientRootFolder": "blog",
@@ -56,6 +56,14 @@
       "fieldType": "BigDecimal",
       "options": {
         "customAnnotation": [true, "CassandraType.Name.DECIMAL"]
+      }
+    },
+    {
+      "fieldName": "addedDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"],
+      "options": {
+        "customAnnotation": [true, "CassandraType.Name.DATE"]
       }
     }
   ],

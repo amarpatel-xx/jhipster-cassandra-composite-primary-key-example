@@ -26,6 +26,7 @@
               formControlName="entityTypeId"
             />
           </div>
+
           <div class="mb-3">
             <label class="form-label" for="field_yearOfDateAdded" jhiTranslate="blogApp.blogSaathratriEntity2.yearOfDateAdded"
               >Year Of Date Added</label
@@ -39,6 +40,7 @@
               formControlName="yearOfDateAdded"
             />
           </div>
+
           <div class="mb-3">
             <label class="form-label" for="field_arrivalDate" jhiTranslate="blogApp.blogSaathratriEntity2.arrivalDate">Arrival Date</label>
             <input
@@ -50,6 +52,7 @@
               formControlName="arrivalDate"
             />
           </div>
+
           <div class="mb-3">
             <label class="form-label" for="field_blogId" jhiTranslate="blogApp.blogSaathratriEntity2.blogId">Blog Id</label>
             <input type="text" class="form-control" name="blogId" id="field_blogId" data-cy="blogId" formControlName="blogId" />
@@ -92,6 +95,30 @@
             data-cy="entityCost"
             formControlName="entityCost"
           />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_addedDate" jhiTranslate="blogApp.blogSaathratriEntity2.addedDate">Added Date</label>
+          <div class="input-group">
+            <input
+              id="field_addedDate"
+              data-cy="addedDate"
+              type="text"
+              class="form-control"
+              name="addedDate"
+              ngbDatepicker
+              #addedDateDp="ngbDatepicker"
+              formControlName="addedDate"
+            />
+            <button type="button" class="btn btn-secondary" (click)="addedDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+          @if (editForm.get('addedDate')!.invalid && (editForm.get('addedDate')!.dirty || editForm.get('addedDate')!.touched)) {
+            <div>
+              @if (editForm.get('addedDate')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
         </div>
       </div>
 

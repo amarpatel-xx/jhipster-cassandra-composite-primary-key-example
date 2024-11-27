@@ -1,8 +1,11 @@
+import dayjs from 'dayjs/esm';
+
 export interface ISaathratriEntity2 {
   compositeId: ISaathratriEntity2Id;
   entityName?: string | null;
   entityDescription?: string | null;
   entityCost?: number | null;
+  addedDate?: dayjs.Dayjs | null;
 }
 export interface ISaathratriEntity2Id {
   entityTypeId: string | null;

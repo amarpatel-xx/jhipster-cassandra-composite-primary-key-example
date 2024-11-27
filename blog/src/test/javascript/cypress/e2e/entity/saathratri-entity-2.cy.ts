@@ -15,7 +15,7 @@ describe('SaathratriEntity2 e2e test', () => {
   const saathratriEntity2PageUrlPattern = new RegExp('/blog/saathratri-entity-2(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const saathratriEntity2Sample = {};
+  const saathratriEntity2Sample = { addedDate: '2024-11-26' };
 
   let saathratriEntity2;
 
@@ -157,23 +157,27 @@ describe('SaathratriEntity2 e2e test', () => {
     });
 
     it('should create an instance of SaathratriEntity2', () => {
-      cy.get(`[data-cy="yearOfDateAdded"]`).type('13638');
-      cy.get(`[data-cy="yearOfDateAdded"]`).should('have.value', '13638');
+      cy.get(`[data-cy="yearOfDateAdded"]`).type('1479');
+      cy.get(`[data-cy="yearOfDateAdded"]`).should('have.value', '1479');
 
-      cy.get(`[data-cy="arrivalDate"]`).type('7045');
-      cy.get(`[data-cy="arrivalDate"]`).should('have.value', '7045');
+      cy.get(`[data-cy="arrivalDate"]`).type('20299');
+      cy.get(`[data-cy="arrivalDate"]`).should('have.value', '20299');
 
-      cy.get(`[data-cy="blogId"]`).type('04469f04-645b-47f1-a370-981c94c48379');
-      cy.get(`[data-cy="blogId"]`).invoke('val').should('match', new RegExp('04469f04-645b-47f1-a370-981c94c48379'));
+      cy.get(`[data-cy="blogId"]`).type('81c94c48-3799-471e-b0d0-e8d73a791bea');
+      cy.get(`[data-cy="blogId"]`).invoke('val').should('match', new RegExp('81c94c48-3799-471e-b0d0-e8d73a791bea'));
 
-      cy.get(`[data-cy="entityName"]`).type('provided careless');
-      cy.get(`[data-cy="entityName"]`).should('have.value', 'provided careless');
+      cy.get(`[data-cy="entityName"]`).type('in blah');
+      cy.get(`[data-cy="entityName"]`).should('have.value', 'in blah');
 
-      cy.get(`[data-cy="entityDescription"]`).type('round truly stump');
-      cy.get(`[data-cy="entityDescription"]`).should('have.value', 'round truly stump');
+      cy.get(`[data-cy="entityDescription"]`).type('oof minus foodstuffs');
+      cy.get(`[data-cy="entityDescription"]`).should('have.value', 'oof minus foodstuffs');
 
-      cy.get(`[data-cy="entityCost"]`).type('6524.21');
-      cy.get(`[data-cy="entityCost"]`).should('have.value', '6524.21');
+      cy.get(`[data-cy="entityCost"]`).type('23020.36');
+      cy.get(`[data-cy="entityCost"]`).should('have.value', '23020.36');
+
+      cy.get(`[data-cy="addedDate"]`).type('2024-11-26');
+      cy.get(`[data-cy="addedDate"]`).blur();
+      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-26');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

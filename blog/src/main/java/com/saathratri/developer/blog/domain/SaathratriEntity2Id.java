@@ -1,5 +1,6 @@
 package com.saathratri.developer.blog.domain;
 
+import jakarta.validation.constraints.*;
 import java.util.Objects;
 import java.util.UUID;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;

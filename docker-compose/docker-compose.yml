@@ -99,6 +99,8 @@ services:
       interval: 5s
       timeout: 25s
       retries: 20
+    labels:
+      org.springframework.boot.ignore: true
 
   store:
     image: store
@@ -154,6 +156,8 @@ services:
       interval: 5s
       timeout: 25s
       retries: 20
+    labels:
+      org.springframework.boot.ignore: true
 
   jhipster-registry:
     image: jhipster/jhipster-registry:v7.4.0
