@@ -7,6 +7,11 @@ import { finalize } from 'rxjs/operators';
 import SharedModule from 'app/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 import dayjs from 'dayjs/esm';
 import { ISaathratriEntity2 } from '../saathratri-entity-2.model';
 import { SaathratriEntity2Service } from '../service/saathratri-entity-2.service';
@@ -16,7 +21,17 @@ import { SaathratriEntity2FormGroup, SaathratriEntity2FormService } from './saat
   standalone: true,
   selector: 'jhi-saathratri-entity-2-update',
   templateUrl: './saathratri-entity-2-update.component.html',
-  imports: [SharedModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
 })
 export class SaathratriEntity2UpdateComponent implements OnInit {
   isSaving = false;

@@ -41,17 +41,20 @@
             />
           </div>
 
-          <div class="mb-3">
-            <label class="form-label" for="field_arrivalDate" jhiTranslate="blogApp.blogSaathratriEntity2.arrivalDate">Arrival Date</label>
+          <mat-form-field appearance="fill" class="mb-3">
+            <mat-label jhiTranslate="blogApp.blogSaathratriEntity2.arrivalDate">Arrival Date</mat-label>
             <input
-              type="number"
-              class="form-control"
+              matInput
+              [matDatepicker]="picker"
               name="arrivalDate"
               id="field_arrivalDate"
               data-cy="arrivalDate"
               formControlName="arrivalDate"
             />
-          </div>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          
 
           <div class="mb-3">
             <label class="form-label" for="field_blogId" jhiTranslate="blogApp.blogSaathratriEntity2.blogId">Blog Id</label>

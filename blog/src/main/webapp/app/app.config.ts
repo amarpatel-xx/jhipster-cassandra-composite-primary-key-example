@@ -1,5 +1,5 @@
 import { ApplicationConfig, LOCALE_ID, importProvidersFrom, inject } from '@angular/core';
-import { BrowserModule, Title } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 import {
   NavigationError,
   Router,
@@ -12,7 +12,10 @@ import {
 } from '@angular/router';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideAnimations } from '@angular/platform-browser/animations';
 
+import { BrowserModule } from '@angular/platform-browser';
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
@@ -46,7 +49,9 @@ if (DEBUG_INFO_ENABLED) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes, ...routerFeatures),
-    importProvidersFrom(BrowserModule),
+    importProvidersFrom(BrowserModule), // BrowserModule is safe to import here
+    importProvidersFrom(BrowserAnimationsModule), // BrowserAnimationsModule is safe to import here
+    provideAnimations(),
     // Set this to true to enable service worker (PWA)
     importProvidersFrom(ServiceWorkerModule.register('ngsw-worker.js', { enabled: false })),
     importProvidersFrom(TranslationModule),

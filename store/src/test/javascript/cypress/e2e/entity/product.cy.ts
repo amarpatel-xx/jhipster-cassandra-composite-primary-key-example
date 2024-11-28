@@ -165,9 +165,9 @@ describe('Product e2e test', () => {
 
       cy.setFieldImageAsBytesOfEntity('image', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="addedDate"]`).type('2024-11-26');
+      cy.get(`[data-cy="addedDate"]`).type('2024-11-27');
       cy.get(`[data-cy="addedDate"]`).blur();
-      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-26');
+      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-27');
 
       cy.get(`[data-cy="addedDateTime"]`).type('20407');
       cy.get(`[data-cy="addedDateTime"]`).should('have.value', '20407');
