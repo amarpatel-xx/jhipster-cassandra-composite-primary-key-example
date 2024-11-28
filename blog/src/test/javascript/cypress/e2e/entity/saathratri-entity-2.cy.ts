@@ -15,7 +15,7 @@ describe('SaathratriEntity2 e2e test', () => {
   const saathratriEntity2PageUrlPattern = new RegExp('/blog/saathratri-entity-2(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const saathratriEntity2Sample = { addedDate: '2024-11-26' };
+  const saathratriEntity2Sample = { addedDate: '2024-11-27' };
 
   let saathratriEntity2;
 
@@ -175,9 +175,9 @@ describe('SaathratriEntity2 e2e test', () => {
       cy.get(`[data-cy="entityCost"]`).type('23020.36');
       cy.get(`[data-cy="entityCost"]`).should('have.value', '23020.36');
 
-      cy.get(`[data-cy="addedDate"]`).type('2024-11-26');
+      cy.get(`[data-cy="addedDate"]`).type('2024-11-27');
       cy.get(`[data-cy="addedDate"]`).blur();
-      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-26');
+      cy.get(`[data-cy="addedDate"]`).should('have.value', '2024-11-27');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

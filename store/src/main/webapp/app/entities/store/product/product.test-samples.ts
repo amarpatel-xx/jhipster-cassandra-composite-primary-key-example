@@ -6,7 +6,7 @@ export const sampleWithRequiredData: IProduct = {
   id: '0d24fa4b-12fd-4abd-9283-e21ed8120131',
   title: 'who ew',
   price: 14429.32,
-  addedDate: dayjs('2024-11-27'),
+  addedDate: dayjs('2024-11-28'),
 };
 
 export const sampleWithPartialData: IProduct = {
@@ -32,7 +32,7 @@ export const sampleWithFullData: IProduct = {
 export const sampleWithNewData: NewProduct = {
   title: 'upwardly slow',
   price: 27255.98,
-  addedDate: dayjs('2024-11-27'),
+  addedDate: dayjs('2024-11-28'),
   id: null,
 };
 

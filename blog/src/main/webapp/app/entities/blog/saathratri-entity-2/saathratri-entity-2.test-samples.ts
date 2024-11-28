@@ -13,7 +13,7 @@ export const sampleWithPartialData: ISaathratriEntity2 = {
   blogId: '6c70dc92-b16f-4f40-92e6-34b95d34ac53',
   entityName: 'blissfully yet lively',
   entityCost: 14731.99,
-  addedDate: dayjs('2024-11-27'),
+  addedDate: dayjs('2024-11-28'),
 };
 
 export const sampleWithFullData: ISaathratriEntity2 = {
@@ -28,7 +28,7 @@ export const sampleWithFullData: ISaathratriEntity2 = {
 };
 
 export const sampleWithNewData: NewSaathratriEntity2 = {
-  addedDate: dayjs('2024-11-27'),
+  addedDate: dayjs('2024-11-28'),
   entityTypeId: null,
 };
 
