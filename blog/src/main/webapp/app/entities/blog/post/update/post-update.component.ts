@@ -11,7 +11,6 @@ import dayjs from 'dayjs/esm';
 import { IPost } from '../post.model';
 import { PostService } from '../service/post.service';
 import { PostFormGroup, PostFormService } from './post-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-post-update',

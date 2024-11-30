@@ -101,7 +101,7 @@
 
               <td>{{ saathratriEntity2!.compositeId.yearOfDateAdded }}</td>
 
-              <td>{{ saathratriEntity2!.compositeId.arrivalDate }}</td>
+              <td>{{ saathratriEntity2!.compositeId.arrivalDate | formatMediumDate }}</td>
 
               <td>{{ saathratriEntity2!.compositeId.blogId }}</td>
 
@@ -116,7 +116,7 @@
                       '/blog/saathratri-entity-2',
                       saathratriEntity2!.compositeId.entityTypeId,
                       saathratriEntity2!.compositeId.yearOfDateAdded,
-                      saathratriEntity2!.compositeId.arrivalDate,
+                      saathratriEntity2!.compositeId.arrivalDate | convertFromDayjsToDateLong,
                       saathratriEntity2!.compositeId.blogId,
                       'view',
                     ]"
@@ -131,7 +131,7 @@
                       '/blog/saathratri-entity-2',
                       saathratriEntity2!.compositeId.entityTypeId,
                       saathratriEntity2!.compositeId.yearOfDateAdded,
-                      saathratriEntity2!.compositeId.arrivalDate,
+                      saathratriEntity2!.compositeId.arrivalDate | convertFromDayjsToDateLong,
                       saathratriEntity2!.compositeId.blogId,
                       'edit',
                     ]"

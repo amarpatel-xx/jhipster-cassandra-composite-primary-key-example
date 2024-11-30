@@ -10,8 +10,9 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { IPost, IPostId, NewPost } from '../post.model';
 export type PartialUpdatePost = Partial<IPost> & Pick<IPost, 'compositeId'>;
 
-type RestOf<T extends IPost | NewPost> = Omit<T, 'addedDateTime'> & {
+type RestOf<T extends IPost | NewPost> = Omit<T, 'createdDate' | 'addedDateTime'> & {
   compositeId: {
+    createdDate?: number | null;
     addedDateTime?: number | null;
   };
 };
@@ -41,7 +42,7 @@ export class PostService {
     const copy = this.convertDateFromClient(post);
     return this.http
       .put<RestPost>(
-        `${this.resourceUrl}/${post.compositeId.createdDate}/${copy.compositeId.addedDateTime}/${post.compositeId.postId}`,
+        `${this.resourceUrl}/${copy.compositeId.createdDate}/${copy.compositeId.addedDateTime}/${post.compositeId.postId}`,
         copy,
         { observe: 'response' },
       )
@@ -52,7 +53,7 @@ export class PostService {
     const copy = this.convertDateFromClient(post);
     return this.http
       .patch<RestPost>(
-        `${this.resourceUrl}/${post.compositeId.createdDate}/${copy.compositeId.addedDateTime}/${post.compositeId.postId}`,
+        `${this.resourceUrl}/${copy.compositeId.createdDate}/${copy.compositeId.addedDateTime}/${post.compositeId.postId}`,
         copy,
         { observe: 'response' },
       )
@@ -76,7 +77,7 @@ export class PostService {
   delete(post: IPost): Observable<HttpResponse<{}>> {
     const copy = this.convertDateFromClient(post);
     return this.http.delete(
-      `${this.resourceUrl}/${post.compositeId.createdDate}/${copy.compositeId.addedDateTime}/${post.compositeId.postId}`,
+      `${this.resourceUrl}/${copy.compositeId.createdDate}/${copy.compositeId.addedDateTime}/${post.compositeId.postId}`,
       { observe: 'response' },
     );
   }
@@ -112,6 +113,7 @@ export class PostService {
       ...post,
       compositeId: {
         ...post.compositeId,
+        createdDate: post.compositeId.createdDate ? post.compositeId.createdDate.valueOf() : null,
 
         addedDateTime: post.compositeId.addedDateTime ? post.compositeId.addedDateTime.valueOf() : null,
       },
@@ -122,7 +124,7 @@ export class PostService {
     return {
       ...restPost,
       compositeId: {
-        createdDate: restPost.compositeId.createdDate,
+        createdDate: restPost.compositeId.createdDate ? dayjs(restPost.compositeId.createdDate) : null,
         addedDateTime: restPost.compositeId.addedDateTime ? dayjs(restPost.compositeId.addedDateTime) : null,
 
         postId: restPost.compositeId.postId,

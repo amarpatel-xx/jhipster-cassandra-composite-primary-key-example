@@ -18,6 +18,7 @@ import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { DEBUG_INFO_ENABLED } from 'app/app.constants';
 import './config/dayjs';
 import { TranslationModule } from 'app/shared/language/translation.module';
+import { provideAnimations } from '@angular/platform-browser/animations';
 import { httpInterceptorProviders } from './core/interceptor';
 import routes from './app.routes';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
@@ -55,6 +56,7 @@ export const appConfig: ApplicationConfig = {
     { provide: LOCALE_ID, useValue: 'en' },
     { provide: NgbDateAdapter, useClass: NgbDateDayjsAdapter },
     httpInterceptorProviders,
+    provideAnimations(),
     { provide: TitleStrategy, useClass: AppPageTitleStrategy },
     // jhipster-needle-angular-add-module JHipster will add new module here
   ],

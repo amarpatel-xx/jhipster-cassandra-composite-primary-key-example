@@ -76,7 +76,7 @@
         <tbody>
           @for (post of posts; track trackCompositeId) {
             <tr data-cy="entityTable">
-              <td>{{ post!.compositeId.createdDate }}</td>
+              <td>{{ post!.compositeId.createdDate | formatMediumDate }}</td>
 
               <td>{{ post!.compositeId.addedDateTime | formatMediumDatetime }}</td>
 
@@ -89,7 +89,7 @@
                   <a
                     [routerLink]="[
                       '/blog/post',
-                      post!.compositeId.createdDate,
+                      post!.compositeId.createdDate | convertFromDayjsToDateLong,
                       post!.compositeId.addedDateTime | convertFromDayjsToDateLong,
                       post!.compositeId.postId,
                       'view',
@@ -103,7 +103,7 @@
                   <a
                     [routerLink]="[
                       '/blog/post',
-                      post!.compositeId.createdDate,
+                      post!.compositeId.createdDate | convertFromDayjsToDateLong,
                       post!.compositeId.addedDateTime | convertFromDayjsToDateLong,
                       post!.compositeId.postId,
                       'edit',

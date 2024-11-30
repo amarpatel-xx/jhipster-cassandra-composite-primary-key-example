@@ -14,7 +14,6 @@ import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
 import { IProduct } from '../product.model';
 import { ProductService } from '../service/product.service';
 import { ProductFormGroup, ProductFormService } from './product-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-product-update',

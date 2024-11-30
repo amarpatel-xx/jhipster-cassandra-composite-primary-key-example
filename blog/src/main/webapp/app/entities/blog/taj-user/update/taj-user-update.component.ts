@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ITajUser } from '../taj-user.model';
 import { TajUserService } from '../service/taj-user.service';
 import { TajUserFormGroup, TajUserFormService } from './taj-user-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-taj-user-update',

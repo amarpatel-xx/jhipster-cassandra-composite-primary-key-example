@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ISaathratriEntity } from '../saathratri-entity.model';
 import { SaathratriEntityService } from '../service/saathratri-entity.service';
 import { SaathratriEntityFormGroup, SaathratriEntityFormService } from './saathratri-entity-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-update',

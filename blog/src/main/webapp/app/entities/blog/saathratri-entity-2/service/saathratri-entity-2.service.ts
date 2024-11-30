@@ -2,14 +2,18 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Observable, map } from 'rxjs';
 
+import dayjs from 'dayjs/esm';
+
 import { isPresent } from 'app/core/util/operators';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
 import { ISaathratriEntity2, ISaathratriEntity2Id, NewSaathratriEntity2 } from '../saathratri-entity-2.model';
 export type PartialUpdateSaathratriEntity2 = Partial<ISaathratriEntity2> & Pick<ISaathratriEntity2, 'compositeId'>;
 
-type RestOf<T extends ISaathratriEntity2 | NewSaathratriEntity2> = Omit<T, ''> & {
-  compositeId: {};
+type RestOf<T extends ISaathratriEntity2 | NewSaathratriEntity2> = Omit<T, 'arrivalDate'> & {
+  compositeId: {
+    arrivalDate?: number | null;
+  };
 };
 
 export type RestSaathratriEntity2 = RestOf<ISaathratriEntity2>;
@@ -39,7 +43,7 @@ export class SaathratriEntity2Service {
     const copy = this.convertDateFromClient(saathratriEntity2);
     return this.http
       .put<RestSaathratriEntity2>(
-        `${this.resourceUrl}/${saathratriEntity2.compositeId.entityTypeId}/${saathratriEntity2.compositeId.yearOfDateAdded}/${saathratriEntity2.compositeId.arrivalDate}/${saathratriEntity2.compositeId.blogId}`,
+        `${this.resourceUrl}/${saathratriEntity2.compositeId.entityTypeId}/${saathratriEntity2.compositeId.yearOfDateAdded}/${copy.compositeId.arrivalDate}/${saathratriEntity2.compositeId.blogId}`,
         copy,
         { observe: 'response' },
       )
@@ -50,7 +54,7 @@ export class SaathratriEntity2Service {
     const copy = this.convertDateFromClient(saathratriEntity2);
     return this.http
       .patch<RestSaathratriEntity2>(
-        `${this.resourceUrl}/${saathratriEntity2.compositeId.entityTypeId}/${saathratriEntity2.compositeId.yearOfDateAdded}/${saathratriEntity2.compositeId.arrivalDate}/${saathratriEntity2.compositeId.blogId}`,
+        `${this.resourceUrl}/${saathratriEntity2.compositeId.entityTypeId}/${saathratriEntity2.compositeId.yearOfDateAdded}/${copy.compositeId.arrivalDate}/${saathratriEntity2.compositeId.blogId}`,
         copy,
         { observe: 'response' },
       )
@@ -74,7 +78,7 @@ export class SaathratriEntity2Service {
   delete(saathratriEntity2: ISaathratriEntity2): Observable<HttpResponse<{}>> {
     const copy = this.convertDateFromClient(saathratriEntity2);
     return this.http.delete(
-      `${this.resourceUrl}/${saathratriEntity2.compositeId.entityTypeId}/${saathratriEntity2.compositeId.yearOfDateAdded}/${saathratriEntity2.compositeId.arrivalDate}/${saathratriEntity2.compositeId.blogId}`,
+      `${this.resourceUrl}/${saathratriEntity2.compositeId.entityTypeId}/${saathratriEntity2.compositeId.yearOfDateAdded}/${copy.compositeId.arrivalDate}/${saathratriEntity2.compositeId.blogId}`,
       { observe: 'response' },
     );
   }
@@ -117,6 +121,8 @@ export class SaathratriEntity2Service {
       ...saathratriEntity2,
       compositeId: {
         ...saathratriEntity2.compositeId,
+
+        arrivalDate: saathratriEntity2.compositeId.arrivalDate ? saathratriEntity2.compositeId.arrivalDate.valueOf() : null,
       },
     };
   }
@@ -128,8 +134,7 @@ export class SaathratriEntity2Service {
         entityTypeId: restSaathratriEntity2.compositeId.entityTypeId,
 
         yearOfDateAdded: restSaathratriEntity2.compositeId.yearOfDateAdded,
-
-        arrivalDate: restSaathratriEntity2.compositeId.arrivalDate,
+        arrivalDate: restSaathratriEntity2.compositeId.arrivalDate ? dayjs(restSaathratriEntity2.compositeId.arrivalDate) : null,
 
         blogId: restSaathratriEntity2.compositeId.blogId,
       },

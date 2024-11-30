@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ITag } from '../tag.model';
 import { TagService } from '../service/tag.service';
 import { TagFormGroup, TagFormService } from './tag-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-tag-update',

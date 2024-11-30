@@ -10,7 +10,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IBlog } from '../blog.model';
 import { BlogService } from '../service/blog.service';
 import { BlogFormGroup, BlogFormService } from './blog-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-blog-update',

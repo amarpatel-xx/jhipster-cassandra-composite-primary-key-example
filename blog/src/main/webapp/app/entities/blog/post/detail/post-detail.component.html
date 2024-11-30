@@ -13,7 +13,7 @@
         <dl class="row-md jh-entity-details">
           <dt><span jhiTranslate="blogApp.blogPost.createdDate">Created Date</span></dt>
           <dd>
-            <span>{{ postRef.compositeId.createdDate }}</span>
+            <span>{{ postRef.compositeId.createdDate | formatMediumDate }}</span>
           </dd>
           <dt><span jhiTranslate="blogApp.blogPost.addedDateTime">Added Date Time</span></dt>
           <dd>
@@ -41,7 +41,7 @@
           type="button"
           [routerLink]="[
             '/blog/post',
-            post()!.compositeId.createdDate,
+            post()!.compositeId.createdDate | convertFromDayjsToDateLong,
             post()!.compositeId.addedDateTime | convertFromDayjsToDateLong,
             post()!.compositeId.postId,
             'edit',

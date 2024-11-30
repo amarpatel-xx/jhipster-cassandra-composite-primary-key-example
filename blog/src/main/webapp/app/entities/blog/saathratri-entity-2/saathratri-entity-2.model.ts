@@ -10,7 +10,7 @@ export interface ISaathratriEntity2 {
 export interface ISaathratriEntity2Id {
   entityTypeId: string | null;
   yearOfDateAdded: number | null;
-  arrivalDate: number | null;
+  arrivalDate: dayjs.Dayjs | null;
   blogId: string | null;
 }
 

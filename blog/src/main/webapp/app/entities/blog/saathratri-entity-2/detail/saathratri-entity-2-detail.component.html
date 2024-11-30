@@ -23,7 +23,7 @@
           </dd>
           <dt><span jhiTranslate="blogApp.blogSaathratriEntity2.arrivalDate">Arrival Date</span></dt>
           <dd>
-            <span>{{ saathratriEntity2Ref.compositeId.arrivalDate }}</span>
+            <span>{{ saathratriEntity2Ref.compositeId.arrivalDate | formatMediumDate }}</span>
           </dd>
           <dt><span jhiTranslate="blogApp.blogSaathratriEntity2.blogId">Blog Id</span></dt>
           <dd>
@@ -57,7 +57,7 @@
             '/blog/saathratri-entity-2',
             saathratriEntity2()!.compositeId.entityTypeId,
             saathratriEntity2()!.compositeId.yearOfDateAdded,
-            saathratriEntity2()!.compositeId.arrivalDate,
+            saathratriEntity2()!.compositeId.arrivalDate | convertFromDayjsToDateLong,
             saathratriEntity2()!.compositeId.blogId,
             'edit',
           ]"
