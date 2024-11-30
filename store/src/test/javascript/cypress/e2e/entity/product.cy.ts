@@ -15,7 +15,7 @@ describe('Product e2e test', () => {
   const productPageUrlPattern = new RegExp('/store/product(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const productSample = { title: 'toward', price: 23353.64, addedDate: '2024-11-29' };
+  const productSample = { title: 'toward', price: 23353.64, addedDate: '2024-11-30' };
 
   let product;
 

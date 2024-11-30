@@ -4,7 +4,7 @@ import { ISaathratriEntity2, NewSaathratriEntity2 } from './saathratri-entity-2.
 
 export const sampleWithRequiredData: ISaathratriEntity2 = {
   entityTypeId: 'a2f983fe-b4e0-49e0-9026-e41a14776d43',
-  addedDate: dayjs('2024-11-29'),
+  addedDate: dayjs('2024-11-30'),
 };
 
 export const sampleWithPartialData: ISaathratriEntity2 = {
@@ -13,7 +13,7 @@ export const sampleWithPartialData: ISaathratriEntity2 = {
   blogId: '6c70dc92-b16f-4f40-92e6-34b95d34ac53',
   entityName: 'blissfully yet lively',
   entityCost: 14731.99,
-  addedDate: dayjs('2024-11-29'),
+  addedDate: dayjs('2024-11-30'),
 };
 
 export const sampleWithFullData: ISaathratriEntity2 = {
@@ -28,7 +28,7 @@ export const sampleWithFullData: ISaathratriEntity2 = {
 };
 
 export const sampleWithNewData: NewSaathratriEntity2 = {
-  addedDate: dayjs('2024-11-29'),
+  addedDate: dayjs('2024-11-30'),
   entityTypeId: null,
 };
 
