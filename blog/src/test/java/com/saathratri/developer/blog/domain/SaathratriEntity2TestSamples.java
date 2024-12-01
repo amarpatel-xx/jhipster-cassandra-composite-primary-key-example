@@ -19,7 +19,8 @@ public class SaathratriEntity2TestSamples {
                     .blogId(UUID.fromString("23d8dc04-a48b-45d9-a01d-4b728f0ad4aa"))
             )
             .entityName("entityName1")
-            .entityDescription("entityDescription1");
+            .entityDescription("entityDescription1")
+            .departureDate(1L);
     }
 
     public static SaathratriEntity2 getSaathratriEntity2Sample2() {
@@ -32,7 +33,8 @@ public class SaathratriEntity2TestSamples {
                     .blogId(UUID.fromString("ad79f240-3727-46c3-b89f-2cf6ebd74367"))
             )
             .entityName("entityName1")
-            .entityDescription("entityDescription1");
+            .entityDescription("entityDescription1")
+            .departureDate(1L);
     }
 
     public static SaathratriEntity2 getSaathratriEntity2RandomSampleGenerator() {
@@ -45,6 +47,7 @@ public class SaathratriEntity2TestSamples {
                     .blogId(UUID.randomUUID())
             )
             .entityName("entityName1")
-            .entityDescription("entityDescription1");
+            .entityDescription("entityDescription1")
+            .departureDate(1L);
     }
 }

@@ -65,6 +65,6 @@ public class SaathratriEntity2Asserts {
             .satisfies(e ->
                 assertThat(e.getEntityCost()).as("check entityCost").usingComparator(bigDecimalCompareTo).isEqualTo(actual.getEntityCost())
             )
-            .satisfies(e -> assertThat(e.getAddedDate()).as("check addedDate").isEqualTo(actual.getAddedDate()));
+            .satisfies(e -> assertThat(e.getDepartureDate()).as("check departureDate").isEqualTo(actual.getDepartureDate()));
     }
 }

@@ -25,7 +25,7 @@ export const sampleWithFullData: IProduct = {
   price: 8357.44,
   image: '../fake-data/blob/hipster.png',
   imageContentType: 'unknown',
-  addedDate: dayjs('2024-11-29'),
+  addedDate: dayjs('2024-11-30'),
   addedDateTime: 10646,
 };
 

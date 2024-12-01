@@ -5,7 +5,7 @@ export interface ISaathratriEntity2 {
   entityName?: string | null;
   entityDescription?: string | null;
   entityCost?: number | null;
-  addedDate?: dayjs.Dayjs | null;
+  departureDate?: dayjs.Dayjs | null;
 }
 export interface ISaathratriEntity2Id {
   entityTypeId: string | null;

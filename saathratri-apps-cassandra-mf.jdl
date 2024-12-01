@@ -75,7 +75,7 @@ entity SaathratriEntity2 {
   @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") entityName String
   @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") entityDescription String
   @customAnnotation("") @customAnnotation("CassandraType.Name.DECIMAL") @customAnnotation("") entityCost BigDecimal
-  @customAnnotation("") @customAnnotation("CassandraType.Name.DATE") @customAnnotation("") @customAnnotation("") addedDate LocalDate required
+  @customAnnotation("") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATE") departureDate Long
 }
 
 // Single-value Primary Key Example:

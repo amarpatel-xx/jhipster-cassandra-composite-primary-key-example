@@ -10,10 +10,11 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { ISaathratriEntity2, ISaathratriEntity2Id, NewSaathratriEntity2 } from '../saathratri-entity-2.model';
 export type PartialUpdateSaathratriEntity2 = Partial<ISaathratriEntity2> & Pick<ISaathratriEntity2, 'compositeId'>;
 
-type RestOf<T extends ISaathratriEntity2 | NewSaathratriEntity2> = Omit<T, 'arrivalDate'> & {
+type RestOf<T extends ISaathratriEntity2 | NewSaathratriEntity2> = Omit<T, 'arrivalDate' | 'departureDate'> & {
   compositeId: {
     arrivalDate?: number | null;
   };
+  departureDate?: number | null;
 };
 
 export type RestSaathratriEntity2 = RestOf<ISaathratriEntity2>;
@@ -124,6 +125,7 @@ export class SaathratriEntity2Service {
 
         arrivalDate: saathratriEntity2.compositeId.arrivalDate ? saathratriEntity2.compositeId.arrivalDate.valueOf() : null,
       },
+      departureDate: saathratriEntity2.departureDate ? saathratriEntity2.departureDate.valueOf() : null,
     };
   }
 
@@ -138,6 +140,7 @@ export class SaathratriEntity2Service {
 
         blogId: restSaathratriEntity2.compositeId.blogId,
       },
+      departureDate: restSaathratriEntity2.departureDate ? dayjs(restSaathratriEntity2.departureDate) : null,
     };
   }
 

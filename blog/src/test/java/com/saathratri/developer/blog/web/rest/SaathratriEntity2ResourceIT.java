@@ -17,8 +17,6 @@ import com.saathratri.developer.blog.repository.SaathratriEntity2Repository;
 import com.saathratri.developer.blog.service.dto.SaathratriEntity2DTO;
 import com.saathratri.developer.blog.service.mapper.SaathratriEntity2Mapper;
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
@@ -59,8 +57,8 @@ class SaathratriEntity2ResourceIT {
     private static final BigDecimal DEFAULT_ENTITY_COST = new BigDecimal(1);
     private static final BigDecimal UPDATED_ENTITY_COST = new BigDecimal(2);
 
-    private static final LocalDate DEFAULT_ADDED_DATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_ADDED_DATE = LocalDate.now(ZoneId.systemDefault());
+    private static final Long DEFAULT_DEPARTURE_DATE = 1L;
+    private static final Long UPDATED_DEPARTURE_DATE = 2L;
 
     private static final String ENTITY_API_URL = "/api/saathratri-entity-2-s";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{entityTypeId}";
@@ -100,7 +98,7 @@ class SaathratriEntity2ResourceIT {
             .entityName("entityName1")
             .entityDescription("entityDescription1")
             .entityCost(new BigDecimal(1))
-            .addedDate(java.time.LocalDate.now());
+            .departureDate(1L);
         saathratriEntity2.setCompositeId(
             new SaathratriEntity2Id(DEFAULT_ENTITY_TYPE_ID, DEFAULT_YEAR_OF_DATE_ADDED, DEFAULT_ARRIVAL_DATE, DEFAULT_BLOG_ID)
         );
@@ -125,7 +123,7 @@ class SaathratriEntity2ResourceIT {
             .entityName("entityName1")
             .entityDescription("entityDescription1")
             .entityCost(new BigDecimal(1))
-            .addedDate(java.time.LocalDate.now());
+            .departureDate(1L);
         saathratriEntity2.setCompositeId(
             new SaathratriEntity2Id(UPDATED_ENTITY_TYPE_ID, UPDATED_YEAR_OF_DATE_ADDED, UPDATED_ARRIVAL_DATE, UPDATED_BLOG_ID)
         );
@@ -189,27 +187,6 @@ class SaathratriEntity2ResourceIT {
     }
 
     @Test
-    void checkAddedDateIsRequired() throws Exception {
-        long databaseSizeBeforeTest = getRepositoryCount();
-        // set the field null
-        saathratriEntity2.setAddedDate(null);
-
-        // Create the SaathratriEntity2, which fails.
-        SaathratriEntity2DTO saathratriEntity2DTO = saathratriEntity2Mapper.toDto(saathratriEntity2);
-
-        restSaathratriEntity2MockMvc
-            .perform(
-                post(ENTITY_API_URL)
-                    .with(csrf())
-                    .contentType(MediaType.APPLICATION_JSON)
-                    .content(om.writeValueAsBytes(saathratriEntity2DTO))
-            )
-            .andExpect(status().isBadRequest());
-
-        assertSameRepositoryCount(databaseSizeBeforeTest);
-    }
-
-    @Test
     void getAllSaathratriEntity2s() throws Exception {
         // Initialize the database
         saathratriEntity2.getCompositeId().setEntityTypeId(UUID.randomUUID());
@@ -238,7 +215,7 @@ class SaathratriEntity2ResourceIT {
             .andExpect(jsonPath("$.[*].entityName").value(hasItem(DEFAULT_ENTITY_NAME)))
             .andExpect(jsonPath("$.[*].entityDescription").value(hasItem(DEFAULT_ENTITY_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))))
-            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.toString())));
+            .andExpect(jsonPath("$.[*].departureDate").value(hasItem(DEFAULT_DEPARTURE_DATE.intValue())));
     }
 
     @Test
@@ -281,7 +258,7 @@ class SaathratriEntity2ResourceIT {
             .andExpect(jsonPath("$.[*].entityName").value(hasItem(DEFAULT_ENTITY_NAME)))
             .andExpect(jsonPath("$.[*].entityDescription").value(hasItem(DEFAULT_ENTITY_DESCRIPTION)))
             .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))))
-            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.toString())));
+            .andExpect(jsonPath("$.[*].departureDate").value(hasItem(DEFAULT_DEPARTURE_DATE.intValue())));
     }
 
     @Test
@@ -320,7 +297,7 @@ class SaathratriEntity2ResourceIT {
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
             .entityCost(UPDATED_ENTITY_COST)
-            .addedDate(UPDATED_ADDED_DATE);
+            .departureDate(UPDATED_DEPARTURE_DATE);
         SaathratriEntity2DTO saathratriEntity2DTO = saathratriEntity2Mapper.toDto(updatedSaathratriEntity2);
 
         restSaathratriEntity2MockMvc
@@ -448,7 +425,7 @@ class SaathratriEntity2ResourceIT {
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
             .entityCost(UPDATED_ENTITY_COST)
-            .addedDate(UPDATED_ADDED_DATE);
+            .departureDate(UPDATED_DEPARTURE_DATE);
 
         restSaathratriEntity2MockMvc
             .perform(
@@ -487,7 +464,7 @@ class SaathratriEntity2ResourceIT {
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
             .entityCost(UPDATED_ENTITY_COST)
-            .addedDate(UPDATED_ADDED_DATE);
+            .departureDate(UPDATED_DEPARTURE_DATE);
 
         restSaathratriEntity2MockMvc
             .perform(

@@ -26,7 +26,7 @@ describe('SaathratriEntity2 Form Service', () => {
             entityName: expect.any(Object),
             entityDescription: expect.any(Object),
             entityCost: expect.any(Object),
-            addedDate: expect.any(Object),
+            departureDate: expect.any(Object),
           }),
         );
       });
@@ -43,7 +43,7 @@ describe('SaathratriEntity2 Form Service', () => {
             entityName: expect.any(Object),
             entityDescription: expect.any(Object),
             entityCost: expect.any(Object),
-            addedDate: expect.any(Object),
+            departureDate: expect.any(Object),
           }),
         );
       });

@@ -1,9 +1,7 @@
 package com.saathratri.developer.blog.domain;
 
-import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
@@ -35,10 +33,9 @@ public class SaathratriEntity2 implements Serializable {
     @CassandraType(type = CassandraType.Name.DECIMAL)
     private BigDecimal entityCost;
 
-    @NotNull
-    @Column("added_date")
-    @CassandraType(type = CassandraType.Name.DATE)
-    private LocalDate addedDate;
+    @Column("departure_date")
+    @CassandraType(type = CassandraType.Name.BIGINT)
+    private Long departureDate;
 
     public SaathratriEntity2Id getCompositeId() {
         return this.compositeId;
@@ -94,17 +91,17 @@ public class SaathratriEntity2 implements Serializable {
         this.entityCost = entityCost;
     }
 
-    public LocalDate getAddedDate() {
-        return this.addedDate;
+    public Long getDepartureDate() {
+        return this.departureDate;
     }
 
-    public SaathratriEntity2 addedDate(LocalDate addedDate) {
-        this.setAddedDate(addedDate);
+    public SaathratriEntity2 departureDate(Long departureDate) {
+        this.setDepartureDate(departureDate);
         return this;
     }
 
-    public void setAddedDate(LocalDate addedDate) {
-        this.addedDate = addedDate;
+    public void setDepartureDate(Long departureDate) {
+        this.departureDate = departureDate;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
@@ -134,7 +131,7 @@ public class SaathratriEntity2 implements Serializable {
             ", entityName='" + getEntityName() + "'" +
             ", entityDescription='" + getEntityDescription() + "'" +
             ", entityCost=" + getEntityCost() +
-            ", addedDate='" + getAddedDate() + "'" +
+            ", departureDate=" + getDepartureDate() +
             "}";
     }
 }

@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS saathratri_entity_2 (
     entity_name text,
     entity_description text,
     entity_cost decimal,
-    added_date date,
+    departure_date bigint,
   primary key (
     (entity_type_id, year_of_date_added),
  arrival_date, blog_id  ))

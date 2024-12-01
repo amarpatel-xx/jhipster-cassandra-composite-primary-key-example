@@ -1,6 +1,5 @@
 package com.saathratri.developer.blog.service.dto;
 
-import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.util.Objects;
 import java.util.UUID;
