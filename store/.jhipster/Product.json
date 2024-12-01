@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20241201005803"
+    "changelogDate": "20241201222555"
   },
   "applications": ["store"],
   "clientRootFolder": "store",
@@ -41,10 +41,10 @@
     },
     {
       "fieldName": "addedDate",
-      "fieldType": "LocalDate",
+      "fieldType": "Long",
       "fieldValidateRules": ["required"],
       "options": {
-        "customAnnotation": [true, "CassandraType.Name.DATE"]
+        "customAnnotation": [true, "CassandraType.Name.BIGINT", "UTC_DATE"]
       }
     },
     {

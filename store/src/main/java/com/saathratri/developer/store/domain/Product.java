@@ -4,7 +4,6 @@ import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
-import java.time.LocalDate;
 import java.util.UUID;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
@@ -49,8 +48,8 @@ public class Product implements Serializable {
 
     @NotNull
     @Column("added_date")
-    @CassandraType(type = CassandraType.Name.DATE)
-    private LocalDate addedDate;
+    @CassandraType(type = CassandraType.Name.BIGINT)
+    private Long addedDate;
 
     @Column("added_date_time")
     @CassandraType(type = CassandraType.Name.BIGINT)
@@ -123,16 +122,16 @@ public class Product implements Serializable {
         this.imageContentType = imageContentType;
     }
 
-    public LocalDate getAddedDate() {
+    public Long getAddedDate() {
         return this.addedDate;
     }
 
-    public Product addedDate(LocalDate addedDate) {
+    public Product addedDate(Long addedDate) {
         this.setAddedDate(addedDate);
         return this;
     }
 
-    public void setAddedDate(LocalDate addedDate) {
+    public void setAddedDate(Long addedDate) {
         this.addedDate = addedDate;
     }
 
@@ -177,7 +176,7 @@ public class Product implements Serializable {
             ", price=" + getPrice() +
             ", image='" + getImage() + "'" +
             ", imageContentType='" + getImageContentType() + "'" +
-            ", addedDate='" + getAddedDate() + "'" +
+            ", addedDate=" + getAddedDate() +
             ", addedDateTime=" + getAddedDateTime() +
             "}";
     }

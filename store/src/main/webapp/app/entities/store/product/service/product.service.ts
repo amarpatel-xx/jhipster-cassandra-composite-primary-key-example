@@ -10,7 +10,8 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { IProduct, NewProduct } from '../product.model';
 export type PartialUpdateProduct = Partial<IProduct> & Pick<IProduct, 'id'>;
 
-type RestOf<T extends IProduct | NewProduct> = Omit<T, 'addedDateTime'> & {
+type RestOf<T extends IProduct | NewProduct> = Omit<T, 'addedDate' | 'addedDateTime'> & {
+  addedDate?: number | null;
   addedDateTime?: number | null;
 };
 
@@ -99,6 +100,7 @@ export class ProductService {
   protected convertDateFromClient<T extends IProduct | NewProduct | PartialUpdateProduct>(product: T): RestOf<T> {
     return {
       ...product,
+      addedDate: product.addedDate ? product.addedDate.valueOf() : null,
       addedDateTime: product.addedDateTime ? product.addedDateTime.valueOf() : null,
     };
   }
@@ -106,6 +108,7 @@ export class ProductService {
   protected convertDateFromServer(restProduct: RestProduct): IProduct {
     return {
       ...restProduct,
+      addedDate: restProduct.addedDate ? dayjs(restProduct.addedDate) : null,
       addedDateTime: restProduct.addedDateTime ? dayjs(restProduct.addedDateTime) : null,
     };
   }

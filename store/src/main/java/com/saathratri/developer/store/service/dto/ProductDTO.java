@@ -4,7 +4,6 @@ import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
-import java.time.LocalDate;
 import java.util.Objects;
 import java.util.UUID;
 
@@ -18,7 +17,7 @@ public class ProductDTO implements Serializable {
     private String title;
     private BigDecimal price;
     private ByteBuffer image;
-    private LocalDate addedDate;
+    private Long addedDate;
     private Long addedDateTime;
     private String imageContentType;
 
@@ -91,15 +90,15 @@ public class ProductDTO implements Serializable {
         return this;
     }
 
-    public LocalDate getAddedDate() {
+    public Long getAddedDate() {
         return addedDate;
     }
 
-    public void setAddedDate(LocalDate addedDate) {
+    public void setAddedDate(Long addedDate) {
         this.addedDate = addedDate;
     }
 
-    public ProductDTO addedDate(LocalDate addedDate) {
+    public ProductDTO addedDate(Long addedDate) {
         this.addedDate = addedDate;
         return this;
     }
@@ -139,7 +138,7 @@ public class ProductDTO implements Serializable {
             ", price=" + getPrice() +
             ", image='" + getImage() + "'" +
             ", imageContentType='" + getImageContentType() + "'" +
-            ", addedDate='" + getAddedDate() + "'" +
+            ", addedDate=" + getAddedDate() +
             ", addedDateTime=" + getAddedDateTime() +
             "}";
     }

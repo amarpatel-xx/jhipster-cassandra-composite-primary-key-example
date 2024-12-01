@@ -101,19 +101,10 @@ export class SaathratriEntity2FormService {
       {
         ...saathratriEntity2RawValue,
         compositeId: {
-          entityTypeId: {
-            value: saathratriEntity2RawValue.compositeId.entityTypeId,
-            disabled: !saathratriEntity2RawValue.compositeId.entityTypeId,
-          },
-          yearOfDateAdded: {
-            value: saathratriEntity2RawValue.compositeId.yearOfDateAdded,
-            disabled: !saathratriEntity2RawValue.compositeId.yearOfDateAdded,
-          },
-          arrivalDate: {
-            value: saathratriEntity2RawValue.compositeId.arrivalDate,
-            disabled: !saathratriEntity2RawValue.compositeId.arrivalDate,
-          },
-          blogId: { value: saathratriEntity2RawValue.compositeId.blogId, disabled: !saathratriEntity2RawValue.compositeId.blogId },
+          entityTypeId: { value: saathratriEntity2RawValue.compositeId.entityTypeId, disabled: true },
+          yearOfDateAdded: { value: saathratriEntity2RawValue.compositeId.yearOfDateAdded, disabled: true },
+          arrivalDate: { value: saathratriEntity2RawValue.compositeId.arrivalDate, disabled: true },
+          blogId: { value: saathratriEntity2RawValue.compositeId.blogId, disabled: true },
         },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );

@@ -106,6 +106,12 @@
               @if (editForm.get('addedDate')?.errors?.required) {
                 <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
               }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('addedDate')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
             </div>
           }
         </div>

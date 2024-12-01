@@ -17,8 +17,6 @@ import com.saathratri.developer.store.service.dto.ProductDTO;
 import com.saathratri.developer.store.service.mapper.ProductMapper;
 import java.math.BigDecimal;
 import java.nio.ByteBuffer;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Base64;
 import java.util.UUID;
 import org.junit.jupiter.api.BeforeEach;
@@ -51,8 +49,8 @@ class ProductResourceIT {
     private static final String DEFAULT_IMAGE_CONTENT_TYPE = "image/jpg";
     private static final String UPDATED_IMAGE_CONTENT_TYPE = "image/png";
 
-    private static final LocalDate DEFAULT_ADDED_DATE = LocalDate.ofEpochDay(0L);
-    private static final LocalDate UPDATED_ADDED_DATE = LocalDate.now(ZoneId.systemDefault());
+    private static final Long DEFAULT_ADDED_DATE = 1L;
+    private static final Long UPDATED_ADDED_DATE = 2L;
 
     private static final Long DEFAULT_ADDED_DATE_TIME = 1L;
     private static final Long UPDATED_ADDED_DATE_TIME = 2L;
@@ -220,7 +218,7 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE.array()))))
-            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.toString())))
+            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())))
             .andExpect(jsonPath("$.[*].addedDateTime").value(hasItem(DEFAULT_ADDED_DATE_TIME.intValue())));
     }
 
@@ -240,7 +238,7 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE.array()))))
-            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.toString())))
+            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())))
             .andExpect(jsonPath("$.[*].addedDateTime").value(hasItem(DEFAULT_ADDED_DATE_TIME.intValue())));
     }
 

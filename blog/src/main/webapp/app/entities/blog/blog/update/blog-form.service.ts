@@ -72,8 +72,8 @@ export class BlogFormService {
       {
         ...blogRawValue,
         compositeId: {
-          category: { value: blogRawValue.compositeId.category, disabled: !blogRawValue.compositeId.category },
-          blogId: { value: blogRawValue.compositeId.blogId, disabled: !blogRawValue.compositeId.blogId },
+          category: { value: blogRawValue.compositeId.category, disabled: true },
+          blogId: { value: blogRawValue.compositeId.blogId, disabled: true },
         },
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );
