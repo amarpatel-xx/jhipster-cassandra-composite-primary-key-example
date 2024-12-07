@@ -1,5 +1,23 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
+    <form [formGroup]="group">
+      <mat-form-field [color]="themeColor">
+        <mat-label>DateTime</mat-label>
+        <mtx-datetimepicker-toggle [for]="datetimePicker" matSuffix />
+        <mtx-datetimepicker #datetimePicker startView="month" [timeInterval]="5"/>
+        <input [mtxDatetimepicker]="datetimePicker" [max]="tomorrow" [min]="today"
+          autocomplete="false" formControlName="dateTime" matInput required>
+        @if (group.get('dateTime')?.errors?.required) {
+          <mat-error>required</mat-error>
+        }
+        @if (group.get('dateTime')?.errors?.mtxDatetimepickerMin) {
+          <mat-error>min</mat-error>
+        }
+        @if (group.get('dateTime')?.errors?.mtxDatetimepickerMax) {
+          <mat-error>max</mat-error>
+        }
+      </mat-form-field>
+    </form>
     <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
       <h2 id="jhi-post-heading" data-cy="PostCreateUpdateHeading" jhiTranslate="blogApp.blogPost.home.createOrEditLabel">
         Create or edit a Post
@@ -25,20 +43,30 @@
             </mat-form-field>
           </div>
 
-          <div class="mb-3">
-            <label class="form-label" for="field_addedDateTime" jhiTranslate="blogApp.blogPost.addedDateTime">Added Date Time</label>
-            <div class="d-flex">
+          <!-- <div class="mb-3">
+            <mat-form-field appearance="fill">
+              <mat-label jhiTranslate="blogApp.blogPost.addedDateTime">Added Date Time</mat-label>
+              <br />
               <input
+                matInput
+                [mtxDatetimepicker]="addedDateTimePicker"
                 id="field_addedDateTime"
                 data-cy="addedDateTime"
-                type="datetime-local"
-                class="form-control"
-                name="addedDateTime"
                 formControlName="addedDateTime"
                 placeholder="YYYY-MM-DD HH:mm"
               />
-            </div>
-          </div>
+              <mtx-datetimepicker-toggle matSuffix [for]="addedDateTimePicker"></mtx-datetimepicker-toggle>
+              <mtx-datetimepicker #addedDateTimePicker></mtx-datetimepicker>
+            </mat-form-field>
+          </div> -->
+
+          <mat-form-field [color]="themeColor">
+            <mat-label>DateTime</mat-label>
+            <mtx-datetimepicker-toggle [for]="addedDateTimePicker" matSuffix />
+            <mtx-datetimepicker #addedDateTimePicker startView="month" [timeInterval]="5"/>
+            <input [mtxDatetimepicker]="addedDateTimePicker" [max]="tomorrow" [min]="today"
+              autocomplete="false" formControlName="addedDateTime" matInput required>
+          </mat-form-field>
 
           <div class="mb-3">
             <label class="form-label" for="field_postId" jhiTranslate="blogApp.blogPost.postId">Post Id</label>

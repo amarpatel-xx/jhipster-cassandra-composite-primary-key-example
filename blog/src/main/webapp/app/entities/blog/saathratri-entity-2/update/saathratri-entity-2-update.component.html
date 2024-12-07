@@ -102,24 +102,19 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_departureDate" jhiTranslate="blogApp.blogSaathratriEntity2.departureDate"
-            >Departure Date</label
-          >
-          <div class="input-group">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label jhiTranslate="blogApp.blogSaathratriEntity2.departureDate">Departure Date</mat-label>
+            <br />
             <input
+              matInput
+              [matDatepicker]="departureDatePicker"
               id="field_departureDate"
               data-cy="departureDate"
-              type="text"
-              class="form-control"
-              name="departureDate"
-              ngbDatepicker
-              #departureDateDp="ngbDatepicker"
               formControlName="departureDate"
             />
-            <button type="button" class="btn btn-secondary" (click)="departureDateDp.toggle()">
-              <fa-icon icon="calendar-alt"></fa-icon>
-            </button>
-          </div>
+            <mat-datepicker-toggle matSuffix [for]="departureDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #departureDatePicker></mat-datepicker>
+          </mat-form-field>
         </div>
       </div>
 

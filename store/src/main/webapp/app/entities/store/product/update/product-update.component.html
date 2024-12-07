@@ -87,20 +87,13 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_addedDate" jhiTranslate="storeApp.storeProduct.addedDate">Added Date</label>
-          <div class="input-group">
-            <input
-              id="field_addedDate"
-              data-cy="addedDate"
-              type="text"
-              class="form-control"
-              name="addedDate"
-              ngbDatepicker
-              #addedDateDp="ngbDatepicker"
-              formControlName="addedDate"
-            />
-            <button type="button" class="btn btn-secondary" (click)="addedDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
-          </div>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label jhiTranslate="storeApp.storeProduct.addedDate">Added Date</mat-label>
+            <br />
+            <input matInput [matDatepicker]="addedDatePicker" id="field_addedDate" data-cy="addedDate" formControlName="addedDate" />
+            <mat-datepicker-toggle matSuffix [for]="addedDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #addedDatePicker></mat-datepicker>
+          </mat-form-field>
           @if (editForm.get('addedDate')!.invalid && (editForm.get('addedDate')!.dirty || editForm.get('addedDate')!.touched)) {
             <div>
               @if (editForm.get('addedDate')?.errors?.required) {
@@ -117,18 +110,20 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_addedDateTime" jhiTranslate="storeApp.storeProduct.addedDateTime">Added Date Time</label>
-          <div class="d-flex">
+          <mat-form-field appearance="fill">
+            <mat-label jhiTranslate="storeApp.storeProduct.addedDateTime">Added Date Time</mat-label>
+            <br />
             <input
+              matInput
+              [mtxDatetimepicker]="addedDateTimePicker"
               id="field_addedDateTime"
               data-cy="addedDateTime"
-              type="datetime-local"
-              class="form-control"
-              name="addedDateTime"
               formControlName="addedDateTime"
               placeholder="YYYY-MM-DD HH:mm"
             />
-          </div>
+            <mtx-datetimepicker-toggle matSuffix [for]="addedDateTimePicker"></mtx-datetimepicker-toggle>
+            <mtx-datetimepicker #addedDateTimePicker></mtx-datetimepicker>
+          </mat-form-field>
         </div>
       </div>
 
