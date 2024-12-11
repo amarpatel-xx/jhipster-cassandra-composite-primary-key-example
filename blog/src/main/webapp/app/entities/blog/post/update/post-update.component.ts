@@ -9,6 +9,8 @@ import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
+import { DateTimeComponent } from 'app/components/date-time/date-time.component';
+
 import { IPost } from '../post.model';
 import { PostService } from '../service/post.service';
 import { PostFormGroup, PostFormService } from './post-form.service';
@@ -16,7 +18,7 @@ import { PostFormGroup, PostFormService } from './post-form.service';
   standalone: true,
   selector: 'jhi-post-update',
   templateUrl: './post-update.component.html',
-  imports: [SharedModule, FormsModule, ReactiveFormsModule, MaterialModule],
+  imports: [SharedModule, FormsModule, ReactiveFormsModule, MaterialModule, DateTimeComponent],
 })
 export class PostUpdateComponent implements OnInit {
   isSaving = false;

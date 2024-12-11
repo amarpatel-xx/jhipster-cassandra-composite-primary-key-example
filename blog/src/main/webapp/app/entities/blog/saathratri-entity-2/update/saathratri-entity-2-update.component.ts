@@ -9,6 +9,7 @@ import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
+
 import { ISaathratriEntity2 } from '../saathratri-entity-2.model';
 import { SaathratriEntity2Service } from '../service/saathratri-entity-2.service';
 import { SaathratriEntity2FormGroup, SaathratriEntity2FormService } from './saathratri-entity-2-form.service';
