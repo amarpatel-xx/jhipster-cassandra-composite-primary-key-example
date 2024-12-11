@@ -42,6 +42,8 @@ module.exports = (config, options, targetOptions) => {
         'app/shared/language',
         'app/shared/pagination',
         'app/shared/sort',
+        'app/components',
+        'app/components/date-time',
       ),
     },
   });

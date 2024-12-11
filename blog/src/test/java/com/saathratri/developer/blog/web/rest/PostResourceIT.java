@@ -49,6 +49,9 @@ class PostResourceIT {
     private static final String DEFAULT_CONTENT = "AAAAAAAAAA";
     private static final String UPDATED_CONTENT = "BBBBBBBBBB";
 
+    private static final Long DEFAULT_PUBLISHED_DATE_TIME = 1L;
+    private static final Long UPDATED_PUBLISHED_DATE_TIME = 2L;
+
     private static final String ENTITY_API_URL = "/api/posts";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{createdDate}";
 
@@ -79,7 +82,8 @@ class PostResourceIT {
         Post post = new Post()
             .compositeId(new PostId().createdDate(DEFAULT_CREATED_DATE).addedDateTime(DEFAULT_ADDED_DATE_TIME).postId(DEFAULT_POST_ID))
             .title("title1")
-            .content("content1");
+            .content("content1")
+            .publishedDateTime(1L);
         post.setCompositeId(new PostId(DEFAULT_CREATED_DATE, DEFAULT_ADDED_DATE_TIME, DEFAULT_POST_ID));
         return post;
     }
@@ -94,7 +98,8 @@ class PostResourceIT {
         Post post = new Post()
             .compositeId(new PostId().createdDate(UPDATED_CREATED_DATE).addedDateTime(UPDATED_ADDED_DATE_TIME).postId(UPDATED_POST_ID))
             .title("title1")
-            .content("content1");
+            .content("content1")
+            .publishedDateTime(1L);
         post.setCompositeId(new PostId(UPDATED_CREATED_DATE, UPDATED_ADDED_DATE_TIME, UPDATED_POST_ID));
         return post;
     }
@@ -191,7 +196,8 @@ class PostResourceIT {
             .andExpect(jsonPath("$.[*].compositeId.addedDateTime").value(hasItem(post.getCompositeId().getAddedDateTime().intValue())))
             .andExpect(jsonPath("$.[*].compositeId.postId").value(hasItem(post.getCompositeId().getPostId().toString())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)));
+            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
+            .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())));
     }
 
     @Test
@@ -219,7 +225,8 @@ class PostResourceIT {
             .andExpect(jsonPath("$.[*].compositeId.addedDateTime").value(hasItem(post.getCompositeId().getAddedDateTime().intValue())))
             .andExpect(jsonPath("$.[*].compositeId.postId").value(hasItem(post.getCompositeId().getPostId().toString())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)));
+            .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
+            .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())));
     }
 
     @Test
@@ -250,7 +257,7 @@ class PostResourceIT {
 
         // Update the post
         Post updatedPost = postRepository.findById(post.getCompositeId()).orElseThrow();
-        updatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT);
+        updatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT).publishedDateTime(UPDATED_PUBLISHED_DATE_TIME);
         PostDTO postDTO = postMapper.toDto(updatedPost);
 
         restPostMockMvc
@@ -344,7 +351,7 @@ class PostResourceIT {
         Post partialUpdatedPost = new Post();
         partialUpdatedPost.setCompositeId(post.getCompositeId());
 
-        partialUpdatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT);
+        partialUpdatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT).publishedDateTime(UPDATED_PUBLISHED_DATE_TIME);
 
         restPostMockMvc
             .perform(
@@ -374,7 +381,7 @@ class PostResourceIT {
         Post partialUpdatedPost = new Post();
         partialUpdatedPost.setCompositeId(post.getCompositeId());
 
-        partialUpdatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT);
+        partialUpdatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT).publishedDateTime(UPDATED_PUBLISHED_DATE_TIME);
 
         restPostMockMvc
             .perform(

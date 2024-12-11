@@ -21,8 +21,7 @@
       "title": "Title",
       "price": "Price",
       "image": "Image",
-      "addedDate": "Added Date",
-      "addedDateTime": "Added Date Time"
+      "addedDate": "Added Date"
     }
   }
 }

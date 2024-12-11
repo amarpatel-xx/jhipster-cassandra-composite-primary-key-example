@@ -10,11 +10,12 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { IPost, IPostId, NewPost } from '../post.model';
 export type PartialUpdatePost = Partial<IPost> & Pick<IPost, 'compositeId'>;
 
-type RestOf<T extends IPost | NewPost> = Omit<T, 'createdDate' | 'addedDateTime'> & {
+type RestOf<T extends IPost | NewPost> = Omit<T, 'createdDate' | 'addedDateTime' | 'publishedDateTime'> & {
   compositeId: {
     createdDate?: number | null;
     addedDateTime?: number | null;
   };
+  publishedDateTime?: number | null;
 };
 
 export type RestPost = RestOf<IPost>;
@@ -117,6 +118,7 @@ export class PostService {
 
         addedDateTime: post.compositeId.addedDateTime ? post.compositeId.addedDateTime.valueOf() : null,
       },
+      publishedDateTime: post.publishedDateTime ? post.publishedDateTime.valueOf() : null,
     };
   }
 
@@ -129,6 +131,7 @@ export class PostService {
 
         postId: restPost.compositeId.postId,
       },
+      publishedDateTime: restPost.publishedDateTime ? dayjs(restPost.publishedDateTime) : null,
     };
   }
 

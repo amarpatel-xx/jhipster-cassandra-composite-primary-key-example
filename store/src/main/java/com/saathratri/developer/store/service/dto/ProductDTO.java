@@ -18,7 +18,6 @@ public class ProductDTO implements Serializable {
     private BigDecimal price;
     private ByteBuffer image;
     private Long addedDate;
-    private Long addedDateTime;
     private String imageContentType;
 
     public ProductDTO() {
@@ -103,19 +102,6 @@ public class ProductDTO implements Serializable {
         return this;
     }
 
-    public Long getAddedDateTime() {
-        return addedDateTime;
-    }
-
-    public void setAddedDateTime(Long addedDateTime) {
-        this.addedDateTime = addedDateTime;
-    }
-
-    public ProductDTO addedDateTime(Long addedDateTime) {
-        this.addedDateTime = addedDateTime;
-        return this;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -139,7 +125,6 @@ public class ProductDTO implements Serializable {
             ", image='" + getImage() + "'" +
             ", imageContentType='" + getImageContentType() + "'" +
             ", addedDate=" + getAddedDate() +
-            ", addedDateTime=" + getAddedDateTime() +
             "}";
     }
 }

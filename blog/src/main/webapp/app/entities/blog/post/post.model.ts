@@ -4,6 +4,7 @@ export interface IPost {
   compositeId: IPostId;
   title?: string | null;
   content?: string | null;
+  publishedDateTime?: dayjs.Dayjs | null;
 }
 export interface IPostId {
   createdDate: dayjs.Dayjs | null;

@@ -15,7 +15,7 @@ describe('Post e2e test', () => {
   const postPageUrlPattern = new RegExp('/blog/post(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const postSample = { title: 'upset clonk longingly', content: 'foolishly' };
+  const postSample = { title: 'ew', content: 'boo' };
 
   let post;
 
@@ -157,17 +157,20 @@ describe('Post e2e test', () => {
     });
 
     it('should create an instance of Post', () => {
-      cy.get(`[data-cy="addedDateTime"]`).type('13546');
-      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '13546');
+      cy.get(`[data-cy="addedDateTime"]`).type('4630');
+      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '4630');
 
-      cy.get(`[data-cy="postId"]`).type('ba5c3f71-7734-4dff-9747-39137db2de49');
-      cy.get(`[data-cy="postId"]`).invoke('val').should('match', new RegExp('ba5c3f71-7734-4dff-9747-39137db2de49'));
+      cy.get(`[data-cy="postId"]`).type('d357b46a-4cae-4b56-a3c2-2bd60b675aa0');
+      cy.get(`[data-cy="postId"]`).invoke('val').should('match', new RegExp('d357b46a-4cae-4b56-a3c2-2bd60b675aa0'));
 
-      cy.get(`[data-cy="title"]`).type('whether demonstrate');
-      cy.get(`[data-cy="title"]`).should('have.value', 'whether demonstrate');
+      cy.get(`[data-cy="title"]`).type('notwithstanding');
+      cy.get(`[data-cy="title"]`).should('have.value', 'notwithstanding');
 
-      cy.get(`[data-cy="content"]`).type('from');
-      cy.get(`[data-cy="content"]`).should('have.value', 'from');
+      cy.get(`[data-cy="content"]`).type('square');
+      cy.get(`[data-cy="content"]`).should('have.value', 'square');
+
+      cy.get(`[data-cy="publishedDateTime"]`).type('77');
+      cy.get(`[data-cy="publishedDateTime"]`).should('have.value', '77');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

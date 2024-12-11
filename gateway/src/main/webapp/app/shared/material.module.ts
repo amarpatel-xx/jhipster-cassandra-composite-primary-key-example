@@ -14,6 +14,7 @@ import { DayjsDateAdapter } from './date/dayjs-date-adapter';
 import { ConvertFromDayjsToDateLongPipe } from './date/convert-from-dayjs-to-date-long.pipe';
 
 // Import the standalone DateTimeComponent
+import { DateTimeComponent } from './date-time.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { ConvertFromDayjsToDateLongPipe } from './date/convert-from-dayjs-to-dat
     MatFormFieldModule,
     MatToolbarModule,
     MatSelectModule,
+    DateTimeComponent,
     ConvertFromDayjsToDateLongPipe,
   ],
   exports: [
@@ -36,6 +38,7 @@ import { ConvertFromDayjsToDateLongPipe } from './date/convert-from-dayjs-to-dat
     MatFormFieldModule,
     MatToolbarModule,
     MatSelectModule,
+    DateTimeComponent,
     ConvertFromDayjsToDateLongPipe,
   ],
   providers: [

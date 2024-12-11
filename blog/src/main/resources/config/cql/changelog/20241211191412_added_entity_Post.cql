@@ -5,6 +5,7 @@ CREATE TABLE IF NOT EXISTS post (
     post_id uuid,
     title text,
     content text,
+    published_date_time bigint,
   primary key (
     (created_date),
  added_date_time, post_id  ))

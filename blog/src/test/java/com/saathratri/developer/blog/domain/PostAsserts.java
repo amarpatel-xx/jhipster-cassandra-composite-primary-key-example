@@ -55,6 +55,7 @@ public class PostAsserts {
         assertThat(expected)
             .as("Verify Post relevant properties")
             .satisfies(e -> assertThat(e.getTitle()).as("check title").isEqualTo(actual.getTitle()))
-            .satisfies(e -> assertThat(e.getContent()).as("check content").isEqualTo(actual.getContent()));
+            .satisfies(e -> assertThat(e.getContent()).as("check content").isEqualTo(actual.getContent()))
+            .satisfies(e -> assertThat(e.getPublishedDateTime()).as("check publishedDateTime").isEqualTo(actual.getPublishedDateTime()));
     }
 }

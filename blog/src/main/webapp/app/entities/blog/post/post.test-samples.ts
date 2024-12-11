@@ -1,28 +1,31 @@
 import { IPost, NewPost } from './post.model';
 
 export const sampleWithRequiredData: IPost = {
-  createdDate: 14702,
-  title: 'biodegrade',
-  content: 'rear victoriously boohoo',
+  createdDate: 5212,
+  title: 'until',
+  content: 'sock dramatic',
 };
 
 export const sampleWithPartialData: IPost = {
-  createdDate: 23669,
-  title: 'energetic',
-  content: 'infatuated zowie',
+  createdDate: 19998,
+  addedDateTime: 5720,
+  postId: 'aab49e7e-7938-49e5-96ab-6d34aa4e3ea9',
+  title: 'phew boo till',
+  content: 'provided',
 };
 
 export const sampleWithFullData: IPost = {
-  createdDate: 8021,
-  addedDateTime: 30064,
-  postId: 'a96ce413-fac1-420a-8561-405aa9d3a23c',
-  title: 'upward highlight always',
-  content: 'unblinking',
+  createdDate: 17741,
+  addedDateTime: 15425,
+  postId: '3c3e9350-336c-4dc3-9c30-2cdb08bf53a9',
+  title: 'cloudy into dwell',
+  content: 'jam-packed save',
+  publishedDateTime: 6457,
 };
 
 export const sampleWithNewData: NewPost = {
-  title: 'sleepy immediately',
-  content: 'in completion mushy',
+  title: 'splosh obedience till',
+  content: 'opposite consequently anti',
   createdDate: null,
 };
 

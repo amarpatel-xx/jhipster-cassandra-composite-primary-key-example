@@ -70,13 +70,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="addedDateTime">
-              <div class="d-flex">
-                <span jhiTranslate="storeApp.storeProduct.addedDateTime">Added Date Time</span>
-
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -97,7 +90,6 @@
                 }
               </td>
               <td>{{ product.addedDate }}</td>
-              <td>{{ product.addedDateTime }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a [routerLink]="['/store/product', product.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">

@@ -15,7 +15,7 @@ describe('Product e2e test', () => {
   const productPageUrlPattern = new RegExp('/store/product(\\?.*)?$');
   const username = Cypress.env('E2E_USERNAME') ?? 'user';
   const password = Cypress.env('E2E_PASSWORD') ?? 'user';
-  const productSample = { title: 'toward', price: 23353.64, addedDate: 9158 };
+  const productSample = { title: 'swift hm even', price: 12805.17, addedDate: 290 };
 
   let product;
 
@@ -157,19 +157,16 @@ describe('Product e2e test', () => {
     });
 
     it('should create an instance of Product', () => {
-      cy.get(`[data-cy="title"]`).type('bare');
-      cy.get(`[data-cy="title"]`).should('have.value', 'bare');
+      cy.get(`[data-cy="title"]`).type('repeat');
+      cy.get(`[data-cy="title"]`).should('have.value', 'repeat');
 
-      cy.get(`[data-cy="price"]`).type('23798.43');
-      cy.get(`[data-cy="price"]`).should('have.value', '23798.43');
+      cy.get(`[data-cy="price"]`).type('13850.96');
+      cy.get(`[data-cy="price"]`).should('have.value', '13850.96');
 
       cy.setFieldImageAsBytesOfEntity('image', 'integration-test.png', 'image/png');
 
-      cy.get(`[data-cy="addedDate"]`).type('4192');
-      cy.get(`[data-cy="addedDate"]`).should('have.value', '4192');
-
-      cy.get(`[data-cy="addedDateTime"]`).type('20407');
-      cy.get(`[data-cy="addedDateTime"]`).should('have.value', '20407');
+      cy.get(`[data-cy="addedDate"]`).type('29099');
+      cy.get(`[data-cy="addedDate"]`).should('have.value', '29099');
 
       // since cypress clicks submit too fast before the blob fields are validated
       cy.wait(200); // eslint-disable-line cypress/no-unnecessary-waiting

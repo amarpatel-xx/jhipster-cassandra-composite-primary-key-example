@@ -70,6 +70,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="publishedDateTime">
+              <div class="d-flex">
+                <span jhiTranslate="blogApp.blogPost.publishedDateTime">Published Date Time</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -84,6 +91,7 @@
 
               <td>{{ post.title }}</td>
               <td>{{ post.content }}</td>
+              <td>{{ post.publishedDateTime | formatMediumDatetime }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a

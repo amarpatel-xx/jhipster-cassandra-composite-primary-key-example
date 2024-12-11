@@ -52,9 +52,6 @@ class ProductResourceIT {
     private static final Long DEFAULT_ADDED_DATE = 1L;
     private static final Long UPDATED_ADDED_DATE = 2L;
 
-    private static final Long DEFAULT_ADDED_DATE_TIME = 1L;
-    private static final Long UPDATED_ADDED_DATE_TIME = 2L;
-
     private static final String ENTITY_API_URL = "/api/products";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{id}";
 
@@ -85,8 +82,7 @@ class ProductResourceIT {
             .price(DEFAULT_PRICE)
             .image(DEFAULT_IMAGE)
             .imageContentType(DEFAULT_IMAGE_CONTENT_TYPE)
-            .addedDate(DEFAULT_ADDED_DATE)
-            .addedDateTime(DEFAULT_ADDED_DATE_TIME);
+            .addedDate(DEFAULT_ADDED_DATE);
         return product;
     }
 
@@ -103,8 +99,7 @@ class ProductResourceIT {
             .price(UPDATED_PRICE)
             .image(UPDATED_IMAGE)
             .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
-            .addedDate(UPDATED_ADDED_DATE)
-            .addedDateTime(UPDATED_ADDED_DATE_TIME);
+            .addedDate(UPDATED_ADDED_DATE);
         return product;
     }
 
@@ -218,8 +213,7 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE.array()))))
-            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())))
-            .andExpect(jsonPath("$.[*].addedDateTime").value(hasItem(DEFAULT_ADDED_DATE_TIME.intValue())));
+            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())));
     }
 
     @Test
@@ -238,8 +232,7 @@ class ProductResourceIT {
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
             .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE.array()))))
-            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())))
-            .andExpect(jsonPath("$.[*].addedDateTime").value(hasItem(DEFAULT_ADDED_DATE_TIME.intValue())));
+            .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())));
     }
 
     @Test
@@ -264,8 +257,7 @@ class ProductResourceIT {
             .price(UPDATED_PRICE)
             .image(UPDATED_IMAGE)
             .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
-            .addedDate(UPDATED_ADDED_DATE)
-            .addedDateTime(UPDATED_ADDED_DATE_TIME);
+            .addedDate(UPDATED_ADDED_DATE);
         ProductDTO productDTO = productMapper.toDto(updatedProduct);
 
         restProductMockMvc
@@ -359,8 +351,7 @@ class ProductResourceIT {
             .price(UPDATED_PRICE)
             .image(UPDATED_IMAGE)
             .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
-            .addedDate(UPDATED_ADDED_DATE)
-            .addedDateTime(UPDATED_ADDED_DATE_TIME);
+            .addedDate(UPDATED_ADDED_DATE);
 
         restProductMockMvc
             .perform(
@@ -394,8 +385,7 @@ class ProductResourceIT {
             .price(UPDATED_PRICE)
             .image(UPDATED_IMAGE)
             .imageContentType(UPDATED_IMAGE_CONTENT_TYPE)
-            .addedDate(UPDATED_ADDED_DATE)
-            .addedDateTime(UPDATED_ADDED_DATE_TIME);
+            .addedDate(UPDATED_ADDED_DATE);
 
         restProductMockMvc
             .perform(

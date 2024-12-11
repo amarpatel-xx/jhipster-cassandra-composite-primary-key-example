@@ -1,36 +1,34 @@
 import { IProduct, NewProduct } from './product.model';
 
 export const sampleWithRequiredData: IProduct = {
-  id: '0d24fa4b-12fd-4abd-9283-e21ed8120131',
-  title: 'who ew',
-  price: 14429.32,
-  addedDate: 19526,
+  id: 'b40d24fa-4b12-4fda-8bd2-83e21ed81201',
+  title: 'ew',
+  price: 29078,
+  addedDate: 29561,
 };
 
 export const sampleWithPartialData: IProduct = {
-  id: '3bde6440-cadb-4da8-912f-567257a2f366',
-  title: 'down until gee',
-  price: 6999.57,
+  id: '74544479-133b-4de6-9440-cadbda812f56',
+  title: 'kookily',
+  price: 14316.53,
   image: '../fake-data/blob/hipster.png',
   imageContentType: 'unknown',
-  addedDate: 9874,
-  addedDateTime: 3177,
+  addedDate: 9463,
 };
 
 export const sampleWithFullData: IProduct = {
-  id: '2b120c55-dafd-49b8-8dfc-a3c5bf4a6332',
-  title: 'baptise',
-  price: 8357.44,
+  id: 'e11e4696-4c2c-493b-bfee-87393412b120',
+  title: 'shameless',
+  price: 17307.26,
   image: '../fake-data/blob/hipster.png',
   imageContentType: 'unknown',
-  addedDate: 6808,
-  addedDateTime: 10646,
+  addedDate: 26959,
 };
 
 export const sampleWithNewData: NewProduct = {
-  title: 'upwardly slow',
-  price: 27255.98,
-  addedDate: 20720,
+  title: 'whose caption exempt',
+  price: 1775.05,
+  addedDate: 8357,
   id: null,
 };
 

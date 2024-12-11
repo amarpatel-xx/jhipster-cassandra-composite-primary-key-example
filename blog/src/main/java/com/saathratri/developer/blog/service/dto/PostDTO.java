@@ -13,6 +13,7 @@ public class PostDTO implements Serializable {
     private PostDTOId compositeId;
     private String title;
     private String content;
+    private Long publishedDateTime;
 
     public PostDTO() {
         // Empty constructor needed for Jackson.
@@ -57,6 +58,19 @@ public class PostDTO implements Serializable {
         return this;
     }
 
+    public Long getPublishedDateTime() {
+        return publishedDateTime;
+    }
+
+    public void setPublishedDateTime(Long publishedDateTime) {
+        this.publishedDateTime = publishedDateTime;
+    }
+
+    public PostDTO publishedDateTime(Long publishedDateTime) {
+        this.publishedDateTime = publishedDateTime;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -77,6 +91,7 @@ public class PostDTO implements Serializable {
         return "PostDTO {" +"compositeId = " + getCompositeId() +
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
+            ", publishedDateTime=" + getPublishedDateTime() +
             "}";
     }
 }

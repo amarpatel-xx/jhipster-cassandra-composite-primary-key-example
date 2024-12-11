@@ -7,7 +7,6 @@ export interface IProduct {
   image?: string | null;
   imageContentType?: string | null;
   addedDate?: dayjs.Dayjs | null;
-  addedDateTime?: dayjs.Dayjs | null;
 }
 
 export type NewProduct = Omit<IProduct, 'id'> & { id: string };

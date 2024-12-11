@@ -51,10 +51,6 @@ public class Product implements Serializable {
     @CassandraType(type = CassandraType.Name.BIGINT)
     private Long addedDate;
 
-    @Column("added_date_time")
-    @CassandraType(type = CassandraType.Name.BIGINT)
-    private Long addedDateTime;
-
     public UUID getId() {
         return this.id;
     }
@@ -135,19 +131,6 @@ public class Product implements Serializable {
         this.addedDate = addedDate;
     }
 
-    public Long getAddedDateTime() {
-        return this.addedDateTime;
-    }
-
-    public Product addedDateTime(Long addedDateTime) {
-        this.setAddedDateTime(addedDateTime);
-        return this;
-    }
-
-    public void setAddedDateTime(Long addedDateTime) {
-        this.addedDateTime = addedDateTime;
-    }
-
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -177,7 +160,6 @@ public class Product implements Serializable {
             ", image='" + getImage() + "'" +
             ", imageContentType='" + getImageContentType() + "'" +
             ", addedDate=" + getAddedDate() +
-            ", addedDateTime=" + getAddedDateTime() +
             "}";
     }
 }

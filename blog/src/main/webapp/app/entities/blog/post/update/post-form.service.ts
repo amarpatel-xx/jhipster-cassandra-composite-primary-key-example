@@ -21,15 +21,16 @@ type PostFormGroupInput = IPost | PartialWithRequiredKeyOf<NewPost>;
 /**
  * Type that converts some properties for forms.
  */
-type FormValueOf<T extends IPost | NewPost> = Omit<T, 'addedDateTime'> & {
+type FormValueOf<T extends IPost | NewPost> = Omit<T, 'addedDateTime' | 'publishedDateTime'> & {
   addedDateTime?: string | null;
+  publishedDateTime?: string | null;
 };
 
 type PostFormRawValue = FormValueOf<IPost>;
 
 type NewPostFormRawValue = FormValueOf<NewPost>;
 
-type PostFormDefaults = Pick<NewPost, 'compositeId'>;
+type PostFormDefaults = Pick<NewPost, 'publishedDateTime' | 'compositeId'>;
 
 type PostFormGroupContent = {
   compositeId: FormGroup<{
@@ -39,6 +40,7 @@ type PostFormGroupContent = {
   }>;
   title: FormControl<PostFormRawValue['title']>;
   content: FormControl<PostFormRawValue['content']>;
+  publishedDateTime: FormControl<PostFormRawValue['publishedDateTime']>;
 };
 
 export type PostFormGroup = FormGroup<PostFormGroupContent>;
@@ -80,6 +82,7 @@ export class PostFormService {
       content: new FormControl(postRawValue.content, {
         validators: [Validators.required],
       }),
+      publishedDateTime: new FormControl(postRawValue.publishedDateTime),
     });
   }
 
@@ -110,6 +113,7 @@ export class PostFormService {
         addedDateTime: currentTime,
         postId: null,
       },
+      publishedDateTime: currentTime,
     };
   }
 
@@ -120,6 +124,7 @@ export class PostFormService {
         ...rawPost.compositeId,
         addedDateTime: dayjs(rawPost.compositeId.addedDateTime, DATE_TIME_FORMAT),
       },
+      publishedDateTime: dayjs(rawPost.publishedDateTime, DATE_TIME_FORMAT),
     };
   }
 
@@ -132,6 +137,7 @@ export class PostFormService {
         ...post.compositeId,
         addedDateTime: post.compositeId.addedDateTime ? post.compositeId.addedDateTime : null,
       },
+      publishedDateTime: post.publishedDateTime ? post.publishedDateTime.format(DATE_TIME_FORMAT) : undefined,
     };
   }
 }

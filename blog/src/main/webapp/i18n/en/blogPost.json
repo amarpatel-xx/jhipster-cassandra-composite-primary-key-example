@@ -21,7 +21,8 @@
       "addedDateTime": "Added Date Time",
       "postId": "Post Id",
       "title": "Title",
-      "content": "Content"
+      "content": "Content",
+      "publishedDateTime": "Published Date Time"
     }
   }
 }

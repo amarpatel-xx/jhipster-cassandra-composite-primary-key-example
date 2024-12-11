@@ -24,6 +24,7 @@ describe('Post Form Service', () => {
             postId: expect.any(Object),
             title: expect.any(Object),
             content: expect.any(Object),
+            publishedDateTime: expect.any(Object),
           }),
         );
       });
@@ -38,6 +39,7 @@ describe('Post Form Service', () => {
             postId: expect.any(Object),
             title: expect.any(Object),
             content: expect.any(Object),
+            publishedDateTime: expect.any(Object),
           }),
         );
       });

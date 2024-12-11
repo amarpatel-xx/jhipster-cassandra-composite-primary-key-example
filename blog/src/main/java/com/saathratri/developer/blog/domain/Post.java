@@ -31,6 +31,10 @@ public class Post implements Serializable {
     @CassandraType(type = CassandraType.Name.TEXT)
     private String content;
 
+    @Column("published_date_time")
+    @CassandraType(type = CassandraType.Name.BIGINT)
+    private Long publishedDateTime;
+
     public PostId getCompositeId() {
         return this.compositeId;
     }
@@ -72,6 +76,19 @@ public class Post implements Serializable {
         this.content = content;
     }
 
+    public Long getPublishedDateTime() {
+        return this.publishedDateTime;
+    }
+
+    public Post publishedDateTime(Long publishedDateTime) {
+        this.setPublishedDateTime(publishedDateTime);
+        return this;
+    }
+
+    public void setPublishedDateTime(Long publishedDateTime) {
+        this.publishedDateTime = publishedDateTime;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -98,6 +115,7 @@ public class Post implements Serializable {
             "compositeId=" + getCompositeId() +
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
+            ", publishedDateTime=" + getPublishedDateTime() +
             "}";
     }
 }
