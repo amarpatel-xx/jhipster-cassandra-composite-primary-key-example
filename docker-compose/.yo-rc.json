@@ -1,16 +1,21 @@
 {
   "generator-jhipster": {
-    "deploymentType": "docker-compose",
-    "appsFolders": [
-      "gateway",
-      "blog",
-      "store"
+    "adminPassword": "admin",
+    "appsFolders": ["gateway", "blog", "store"],
+    "blueprints": [
+      {
+        "name": "generator-jhipster-cassandra-composite-primary-key",
+        "version": "1.0.5"
+      }
     ],
-    "directoryPath": "../",
-    "gatewayType": "SpringCloudGateway",
-    "monitoring": "no",
     "clusteredDbApps": [],
-    "serviceDiscoveryType": "eureka",
-    "dockerRepositoryName": "amarppatel"
+    "deploymentType": "docker-compose",
+    "directoryPath": "../",
+    "dockerRepositoryName": "amarppatel",
+    "gatewayType": "SpringCloudGateway",
+    "jhipsterVersion": "8.7.3",
+    "jwtSecretKey": "YTliNjZiZDlmODAxNTQ0ZDNiZGExODVhYjA3NzBjM2M1MDdjYWI4YmY1NDhmOTE2YmQ4OTUwZGQ2ODVmODBlODkzOWM2Y2M1MDI2NmU5YzhkNzAwN2FlZjBmODVlMjlkYmM4OQ==",
+    "monitoring": "no",
+    "serviceDiscoveryType": "eureka"
   }
 }
