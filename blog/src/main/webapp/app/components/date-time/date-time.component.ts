@@ -78,14 +78,17 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
   writeValue(value: number): void {
     if (value) {
       const newDate = new Date(value);
-      this.editForm.setValue({
-        date: newDate,
-        hours: newDate.getHours() % 12 || 12,
-        minutes: newDate.getMinutes(),
-        amPm: newDate.getHours() >= 12 ? 'PM' : 'AM',
-        seconds: newDate.getSeconds(),
-        milliseconds: newDate.getMilliseconds(),
-      });
+      this.editForm.setValue(
+        {
+          date: newDate,
+          hours: newDate.getHours() % 12 || 12,
+          minutes: newDate.getMinutes(),
+          amPm: newDate.getHours() >= 12 ? 'PM' : 'AM',
+          seconds: newDate.getSeconds(),
+          milliseconds: newDate.getMilliseconds(),
+        },
+        { emitEvent: false },
+      );
     }
   }
 
@@ -99,5 +102,10 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
 
   setDisabledState?(isDisabled: boolean): void {
     this.disabled = isDisabled;
+    if (isDisabled) {
+      this.editForm.disable(); // Disable all controls
+    } else {
+      this.editForm.enable(); // Enable all controls
+    }
   }
 }
