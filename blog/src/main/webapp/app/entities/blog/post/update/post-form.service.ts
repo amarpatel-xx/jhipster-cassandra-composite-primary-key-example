@@ -96,7 +96,7 @@ export class PostFormService {
       {
         ...postRawValue,
         compositeId: {
-          createdDate: { value: postRawValue.compositeId.createdDate, disabled: true },
+          createdDate: { value: postRawValue.compositeId.createdDate?.toDate(), disabled: true },
           addedDateTime: { value: postRawValue.compositeId.addedDateTime, disabled: true },
           postId: { value: postRawValue.compositeId.postId, disabled: true },
         },
@@ -105,15 +105,12 @@ export class PostFormService {
   }
 
   private getFormDefaults(): PostFormDefaults {
-    const currentTime = dayjs();
-
     return {
       compositeId: {
         createdDate: null,
-        addedDateTime: currentTime,
+        addedDateTime: null,
         postId: null,
       },
-      publishedDateTime: currentTime,
     };
   }
 
