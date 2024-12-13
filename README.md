@@ -18,12 +18,12 @@ Below is the example using the \@customAnnotation methodology to specify the det
 ```
     // Composite Primary Key Example:
     entity Post {
-      @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATE") @customAnnotation("0") createdDate Long
-      // Do not name composite primary key fields as 'id' as it conflicts with the 'id' field in the JHipster entity.
+      @Id @customAnnotation("PrimaryKeyType.PARTITIONED") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATE") @customAnnotation("0") createdDate Long 
       @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATETIME") @customAnnotation("1") addedDateTime Long
       @customAnnotation("PrimaryKeyType.CLUSTERED") @customAnnotation("CassandraType.Name.UUID") @customAnnotation("") @customAnnotation("2") postId UUID
       @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") title String required
       @customAnnotation("") @customAnnotation("CassandraType.Name.TEXT") @customAnnotation("") @customAnnotation("") content String required
+      @customAnnotation("") @customAnnotation("CassandraType.Name.BIGINT") @customAnnotation("UTC_DATETIME") @customAnnotation("") publishedDateTime Long
     }
 
     // Single-value Primary Key Example:
@@ -127,8 +127,8 @@ Now you can open your favorite browser to [http://localhost:8080](http://localho
 2.  Add a user by providing a ID (UUID) and a login name (string).
 3.  Then, add a blog by giving it a category (string), blog ID (UUID), handle (string) and content (string).
 4.  Add a tag by giving it a ID (UUID) and name (string).
-5.  Create a post by giving it a created date, added date time, post ID (UUID), title (string) and contexnt (string).
-6.  Finally, create by giving it an ID (UUID), title (string), price (number with decimal), image (choose an image file), and added date.
+5.  Create a post by giving it a created date, added date time, post ID (UUID), title (string), content (string), and published date time.
+6.  Finally, create a product by giving it an ID (UUID), title (string), price (number with decimal), image (choose an image file), and added date.
 
 
 Notice the Blog and Post entities show the required composite primary key fields during the create, update and delete process. That is success!
