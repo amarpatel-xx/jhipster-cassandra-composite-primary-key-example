@@ -96,7 +96,7 @@ export class PostFormService {
       {
         ...postRawValue,
         compositeId: {
-          createdDate: { value: postRawValue.compositeId.createdDate?.toDate(), disabled: true },
+          createdDate: { value: postRawValue.compositeId.createdDate, disabled: true },
           addedDateTime: { value: postRawValue.compositeId.addedDateTime, disabled: true },
           postId: { value: postRawValue.compositeId.postId, disabled: true },
         },
