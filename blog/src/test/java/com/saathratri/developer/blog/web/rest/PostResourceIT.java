@@ -52,6 +52,9 @@ class PostResourceIT {
     private static final Long DEFAULT_PUBLISHED_DATE_TIME = 1L;
     private static final Long UPDATED_PUBLISHED_DATE_TIME = 2L;
 
+    private static final Long DEFAULT_SENT_DATE = 1L;
+    private static final Long UPDATED_SENT_DATE = 2L;
+
     private static final String ENTITY_API_URL = "/api/posts";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{createdDate}";
 
@@ -83,7 +86,8 @@ class PostResourceIT {
             .compositeId(new PostId().createdDate(DEFAULT_CREATED_DATE).addedDateTime(DEFAULT_ADDED_DATE_TIME).postId(DEFAULT_POST_ID))
             .title("title1")
             .content("content1")
-            .publishedDateTime(1L);
+            .publishedDateTime(1L)
+            .sentDate(1L);
         post.setCompositeId(new PostId(DEFAULT_CREATED_DATE, DEFAULT_ADDED_DATE_TIME, DEFAULT_POST_ID));
         return post;
     }
@@ -99,7 +103,8 @@ class PostResourceIT {
             .compositeId(new PostId().createdDate(UPDATED_CREATED_DATE).addedDateTime(UPDATED_ADDED_DATE_TIME).postId(UPDATED_POST_ID))
             .title("title1")
             .content("content1")
-            .publishedDateTime(1L);
+            .publishedDateTime(1L)
+            .sentDate(1L);
         post.setCompositeId(new PostId(UPDATED_CREATED_DATE, UPDATED_ADDED_DATE_TIME, UPDATED_POST_ID));
         return post;
     }
@@ -197,7 +202,8 @@ class PostResourceIT {
             .andExpect(jsonPath("$.[*].compositeId.postId").value(hasItem(post.getCompositeId().getPostId().toString())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
-            .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())));
+            .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())))
+            .andExpect(jsonPath("$.[*].sentDate").value(hasItem(DEFAULT_SENT_DATE.intValue())));
     }
 
     @Test
@@ -226,7 +232,8 @@ class PostResourceIT {
             .andExpect(jsonPath("$.[*].compositeId.postId").value(hasItem(post.getCompositeId().getPostId().toString())))
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
-            .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())));
+            .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())))
+            .andExpect(jsonPath("$.[*].sentDate").value(hasItem(DEFAULT_SENT_DATE.intValue())));
     }
 
     @Test
@@ -257,7 +264,11 @@ class PostResourceIT {
 
         // Update the post
         Post updatedPost = postRepository.findById(post.getCompositeId()).orElseThrow();
-        updatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT).publishedDateTime(UPDATED_PUBLISHED_DATE_TIME);
+        updatedPost
+            .title(UPDATED_TITLE)
+            .content(UPDATED_CONTENT)
+            .publishedDateTime(UPDATED_PUBLISHED_DATE_TIME)
+            .sentDate(UPDATED_SENT_DATE);
         PostDTO postDTO = postMapper.toDto(updatedPost);
 
         restPostMockMvc
@@ -351,7 +362,11 @@ class PostResourceIT {
         Post partialUpdatedPost = new Post();
         partialUpdatedPost.setCompositeId(post.getCompositeId());
 
-        partialUpdatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT).publishedDateTime(UPDATED_PUBLISHED_DATE_TIME);
+        partialUpdatedPost
+            .title(UPDATED_TITLE)
+            .content(UPDATED_CONTENT)
+            .publishedDateTime(UPDATED_PUBLISHED_DATE_TIME)
+            .sentDate(UPDATED_SENT_DATE);
 
         restPostMockMvc
             .perform(
@@ -381,7 +396,11 @@ class PostResourceIT {
         Post partialUpdatedPost = new Post();
         partialUpdatedPost.setCompositeId(post.getCompositeId());
 
-        partialUpdatedPost.title(UPDATED_TITLE).content(UPDATED_CONTENT).publishedDateTime(UPDATED_PUBLISHED_DATE_TIME);
+        partialUpdatedPost
+            .title(UPDATED_TITLE)
+            .content(UPDATED_CONTENT)
+            .publishedDateTime(UPDATED_PUBLISHED_DATE_TIME)
+            .sentDate(UPDATED_SENT_DATE);
 
         restPostMockMvc
             .perform(

@@ -35,6 +35,10 @@
           <dd>
             <td>{{ postRef.publishedDateTime | formatMediumDatetime }}</td>
           </dd>
+          <dt><span jhiTranslate="blogApp.blogPost.sentDate">Sent Date</span></dt>
+          <dd>
+            <td>{{ postRef.sentDate | formatMediumDate }}</td>
+          </dd>
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

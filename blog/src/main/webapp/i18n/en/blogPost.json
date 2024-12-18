@@ -22,7 +22,8 @@
       "postId": "Post Id",
       "title": "Title",
       "content": "Content",
-      "publishedDateTime": "Published Date Time"
+      "publishedDateTime": "Published Date Time",
+      "sentDate": "Sent Date"
     }
   }
 }

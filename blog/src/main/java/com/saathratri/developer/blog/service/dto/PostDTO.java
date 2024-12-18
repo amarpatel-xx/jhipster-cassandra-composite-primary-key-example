@@ -14,6 +14,7 @@ public class PostDTO implements Serializable {
     private String title;
     private String content;
     private Long publishedDateTime;
+    private Long sentDate;
 
     public PostDTO() {
         // Empty constructor needed for Jackson.
@@ -71,6 +72,19 @@ public class PostDTO implements Serializable {
         return this;
     }
 
+    public Long getSentDate() {
+        return sentDate;
+    }
+
+    public void setSentDate(Long sentDate) {
+        this.sentDate = sentDate;
+    }
+
+    public PostDTO sentDate(Long sentDate) {
+        this.sentDate = sentDate;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -92,6 +106,7 @@ public class PostDTO implements Serializable {
             ", title='" + getTitle() + "'" +
             ", content='" + getContent() + "'" +
             ", publishedDateTime=" + getPublishedDateTime() +
+            ", sentDate=" + getSentDate() +
             "}";
     }
 }

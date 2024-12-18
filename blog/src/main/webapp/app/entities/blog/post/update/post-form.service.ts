@@ -41,6 +41,7 @@ type PostFormGroupContent = {
   title: FormControl<PostFormRawValue['title']>;
   content: FormControl<PostFormRawValue['content']>;
   publishedDateTime: FormControl<PostFormRawValue['publishedDateTime']>;
+  sentDate: FormControl<PostFormRawValue['sentDate']>;
 };
 
 export type PostFormGroup = FormGroup<PostFormGroupContent>;
@@ -83,6 +84,7 @@ export class PostFormService {
         validators: [Validators.required],
       }),
       publishedDateTime: new FormControl(postRawValue.publishedDateTime),
+      sentDate: new FormControl(postRawValue.sentDate),
     });
   }
 
@@ -96,10 +98,11 @@ export class PostFormService {
       {
         ...postRawValue,
         compositeId: {
-          createdDate: { value: postRawValue.compositeId.createdDate, disabled: true },
+          createdDate: { value: postRawValue.compositeId.createdDate?.toDate(), disabled: true },
           addedDateTime: { value: postRawValue.compositeId.addedDateTime, disabled: true },
           postId: { value: postRawValue.compositeId.postId, disabled: true },
         },
+        publishedDateTime: postRawValue.publishedDateTime,
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );
   }

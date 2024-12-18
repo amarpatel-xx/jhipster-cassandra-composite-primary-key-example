@@ -5,6 +5,7 @@ export interface IPost {
   title?: string | null;
   content?: string | null;
   publishedDateTime?: dayjs.Dayjs | null;
+  sentDate?: dayjs.Dayjs | null;
 }
 export interface IPostId {
   createdDate: dayjs.Dayjs | null;
