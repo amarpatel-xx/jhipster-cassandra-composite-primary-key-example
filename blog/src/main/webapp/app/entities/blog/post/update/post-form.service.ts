@@ -103,6 +103,7 @@ export class PostFormService {
           postId: { value: postRawValue.compositeId.postId, disabled: true },
         },
         publishedDateTime: postRawValue.publishedDateTime,
+        sentDate: postRawValue.sentDate?.toDate(),
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );
   }

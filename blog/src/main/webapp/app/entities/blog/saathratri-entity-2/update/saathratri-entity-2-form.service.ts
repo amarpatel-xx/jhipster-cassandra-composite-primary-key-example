@@ -106,6 +106,7 @@ export class SaathratriEntity2FormService {
           arrivalDate: { value: saathratriEntity2RawValue.compositeId.arrivalDate?.toDate(), disabled: true },
           blogId: { value: saathratriEntity2RawValue.compositeId.blogId, disabled: true },
         },
+        departureDate: saathratriEntity2RawValue.departureDate?.toDate(),
       } as any /* cast to workaround https://github.com/angular/angular/issues/46458 */,
     );
   }
