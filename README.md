@@ -88,6 +88,7 @@ cd gateway
 docker compose -f src/main/docker/keycloak.yml up -d
 docker compose -f src/main/docker/jhipster-registry.yml up -d
 ```
+Please make sure the jhipster-registry-1 Docker Container is started; sometimes that container does not run after the above command and needs to be started manually in Docker Desktop.  The jhipster-registry-1 container should appear under the gateway application within Docker Desktop.
 
 2.  Start `gateway` database with Docker by opening a terminal and navigating to its directory and running the Docker command. Then start the `gateway` by running the Maven command.
 ```console
