@@ -26,7 +26,7 @@
           </div>
 
           <div class="mb-3">
-            <app-date-time formControlName="addedDateTime"></app-date-time>
+            <app-date-time formControlName="addedDateTime" [dateTimeLabel]="'blogApp.blogPost.addedDateTime' | translate"></app-date-time>
           </div>
 
           <div class="mb-3">
@@ -60,7 +60,10 @@
         </div>
 
         <div class="mb-3">
-          <app-date-time formControlName="publishedDateTime"></app-date-time>
+          <app-date-time
+            formControlName="publishedDateTime"
+            [dateTimeLabel]="'blogApp.blogPost.publishedDateTime' | translate"
+          ></app-date-time>
         </div>
 
         <div class="mb-3">
