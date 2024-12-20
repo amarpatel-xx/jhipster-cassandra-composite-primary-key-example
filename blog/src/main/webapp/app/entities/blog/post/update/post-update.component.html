@@ -30,6 +30,7 @@
               formControlName="addedDateTime"
               [dateTimeLabel]="'blogApp.blogPost.addedDateTime' | translate"
               [labelClass]="'form-label'"
+              (isValid)="onDateTimeValid('addedDateTime', $event)"
             ></app-date-time>
           </div>
 
@@ -68,6 +69,7 @@
             formControlName="publishedDateTime"
             [dateTimeLabel]="'blogApp.blogPost.publishedDateTime' | translate"
             [labelClass]="'form-label'"
+            (isValid)="onDateTimeValid('publishedDateTime', $event)"
           ></app-date-time>
         </div>
 
@@ -91,7 +93,7 @@
           type="submit"
           id="save-entity"
           data-cy="entityCreateSaveButton"
-          [disabled]="editForm.invalid || isSaving"
+          [disabled]="editForm.invalid || isSaving || !isDateTimeValid"
           class="btn btn-primary"
         >
           <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>

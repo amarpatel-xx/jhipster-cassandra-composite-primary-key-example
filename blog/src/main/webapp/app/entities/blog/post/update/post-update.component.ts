@@ -24,6 +24,7 @@ export class PostUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+  isDateTimeValid: Record<string, boolean> = {};
   post: IPost | null = null;
 
   protected postService = inject(PostService);
@@ -64,6 +65,15 @@ export class PostUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.postService.update(post));
     }
+  }
+
+  onDateTimeValid(controlName: string, isValid: boolean): void {
+    this.isDateTimeValid[controlName] = isValid;
+  }
+
+  get areAllDateTimeFieldsValid(): boolean {
+    // Check if all date-time fields are valid
+    return Object.values(this.isDateTimeValid).every(valid => valid);
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPost>>): void {
