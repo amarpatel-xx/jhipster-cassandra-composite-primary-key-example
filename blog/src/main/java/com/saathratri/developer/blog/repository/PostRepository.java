@@ -3,6 +3,7 @@ package com.saathratri.developer.blog.repository;
 import com.saathratri.developer.blog.domain.Post;
 import com.saathratri.developer.blog.domain.PostId;
 import java.util.List;
+import java.util.UUID;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +19,10 @@ public interface PostRepository extends CassandraRepository<Post, PostId> {
     List<Post> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime);
 
     List<Post> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime);
+
+    List<Post> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(
+        final Long createdDate,
+        final Long addedDateTime,
+        final UUID postId
+    );
 }

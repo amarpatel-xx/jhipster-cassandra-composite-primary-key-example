@@ -4,6 +4,7 @@ import com.saathratri.developer.blog.domain.BlogId;
 import com.saathratri.developer.blog.service.dto.BlogDTO;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 /**
  * Service Interface for managing {@link com.saathratri.developer.blog.domain.Blog}.
@@ -57,5 +58,11 @@ public interface BlogService {
 
     List<BlogDTO> findAllByCompositeIdCategory(final String category);
 
-    BlogDTO findLatestByCompositeIdCategory(final String category);
+    List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId);
+
+    List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId);
+
+    List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(final String category, final UUID blogId);
+
+    BlogDTO findLatestByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId);
 }

@@ -9,6 +9,7 @@ import com.saathratri.developer.blog.service.mapper.BlogMapper;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -93,8 +94,46 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
-    public BlogDTO findLatestByCompositeIdCategory(final String category) {
-        LOG.debug("Request to findLatestByCompositeIdCategory(final String category) service in BlogServiceImpl.");
-        return blogRepository.findLatestByCompositeIdCategory(category).map(blogMapper::toDto).orElse(null); // Return null if no record found
+    public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId) {
+        LOG.debug(
+            "Request to findAllByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId) service in BlogServiceImpl."
+        );
+        return blogRepository
+            .findAllByCompositeIdCategoryAndCompositeIdBlogId(category, blogId)
+            .stream()
+            .map(blogMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    @Override
+    public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId) {
+        LOG.debug(
+            "Request to findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId) service in BlogServiceImpl."
+        );
+        return blogRepository
+            .findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(category, blogId)
+            .stream()
+            .map(blogMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    @Override
+    public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(final String category, final UUID blogId) {
+        LOG.debug(
+            "Request to findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(final String category, final UUID blogId) service in BlogServiceImpl."
+        );
+        return blogRepository
+            .findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(category, blogId)
+            .stream()
+            .map(blogMapper::toDto)
+            .collect(Collectors.toCollection(LinkedList::new));
+    }
+
+    @Override
+    public BlogDTO findLatestByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId) {
+        LOG.debug(
+            "Request to findLatestByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId) service in BlogServiceImpl."
+        );
+        return blogRepository.findLatestByCompositeIdCategoryAndCompositeIdBlogId(category, blogId).map(blogMapper::toDto).orElse(null); // Return null if no record found
     }
 }

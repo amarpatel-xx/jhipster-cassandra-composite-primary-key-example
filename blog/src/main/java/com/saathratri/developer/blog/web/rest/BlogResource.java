@@ -1,5 +1,6 @@
 package com.saathratri.developer.blog.web.rest;
 
+import com.datastax.oss.driver.api.core.uuid.Uuids;
 import com.saathratri.developer.blog.domain.BlogId;
 import com.saathratri.developer.blog.repository.BlogRepository;
 import com.saathratri.developer.blog.service.BlogService;
@@ -56,6 +57,10 @@ public class BlogResource {
     @PostMapping("")
     public ResponseEntity<BlogDTO> createBlog(@Valid @RequestBody BlogDTO blogDTO) throws URISyntaxException {
         LOG.debug("REST request to save Blog : {}", blogDTO);
+        // Generate a TimeUUID for the Primary Key composite fields.
+
+        blogDTO.getCompositeId().setBlogId(Uuids.timeBased());
+
         // Composite Primary Key Code
         if (blogDTO.getCompositeId().getCategory() == null || blogDTO.getCompositeId().getBlogId() == null) {
             throw new BadRequestAlertException("A new blog cannot have an invalid ID", ENTITY_NAME, "idinvalid");
@@ -260,17 +265,94 @@ public class BlogResource {
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /find-latest-by-composite-id-category/:category}
+     * {@code GET /find-all-by-composite-id-category-and-composite-id-blog-id/:category/:blogId}
      *
      *
-     * @param category the Category of the blog to retrieve. *
+     * @param category the Category of the blog to retrieve.
+     * @param blogId the Blog Id of the blog to retrieve. *
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the blog, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/find-latest-by-composite-id-category")
-    public BlogDTO findLatestByCompositeIdCategory(@RequestParam(name = "category", required = true) final String category) {
+    @GetMapping("/find-all-by-composite-id-category-and-composite-id-blog-id")
+    public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogId(
+        @RequestParam(name = "category", required = true) final String category,
+        @RequestParam(name = "blogId", required = true) final UUID blogId
+    ) {
         // Composite Primary Key Code
-        LOG.debug("REST request to findLatestByCompositeIdCategory method for Blogs with parameteres category: {}", category);
-        return blogService.findLatestByCompositeIdCategory(category);
+        LOG.debug(
+            "REST request to findAllByCompositeIdCategoryAndCompositeIdBlogId method for Blogs with parameteres category: {}, blogId: {}",
+            category,
+            blogId
+        );
+        return blogService.findAllByCompositeIdCategoryAndCompositeIdBlogId(category, blogId);
+    }
+
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-all-by-composite-id-category-and-composite-id-blog-id-less-than/:category/:blogId}
+     *
+     *
+     * @param category the Category of the blog to retrieve.
+     * @param blogId the Blog Id of the blog to retrieve. *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the blog, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-all-by-composite-id-category-and-composite-id-blog-id-less-than")
+    public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(
+        @RequestParam(name = "category", required = true) final String category,
+        @RequestParam(name = "blogId", required = true) final UUID blogId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan method for Blogs with parameteres category: {}, blogId: {}",
+            category,
+            blogId
+        );
+        return blogService.findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(category, blogId);
+    }
+
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-all-by-composite-id-category-and-composite-id-blog-id-greater-than/:category/:blogId}
+     *
+     *
+     * @param category the Category of the blog to retrieve.
+     * @param blogId the Blog Id of the blog to retrieve. *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the blog, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-all-by-composite-id-category-and-composite-id-blog-id-greater-than")
+    public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(
+        @RequestParam(name = "category", required = true) final String category,
+        @RequestParam(name = "blogId", required = true) final UUID blogId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan method for Blogs with parameteres category: {}, blogId: {}",
+            category,
+            blogId
+        );
+        return blogService.findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(category, blogId);
+    }
+
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-latest-by-composite-id-category-and-composite-id-blog-id/:category/:blogId}
+     *
+     *
+     * @param category the Category of the blog to retrieve.
+     * @param blogId the Blog Id of the blog to retrieve. *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the blog, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-latest-by-composite-id-category-and-composite-id-blog-id")
+    public BlogDTO findLatestByCompositeIdCategoryAndCompositeIdBlogId(
+        @RequestParam(name = "category", required = true) final String category,
+        @RequestParam(name = "blogId", required = true) final UUID blogId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findLatestByCompositeIdCategoryAndCompositeIdBlogId method for Blogs with parameteres category: {}, blogId: {}",
+            category,
+            blogId
+        );
+        return blogService.findLatestByCompositeIdCategoryAndCompositeIdBlogId(category, blogId);
     }
 
     private String getUrlEncodedParameterValue(String parameterValue) {

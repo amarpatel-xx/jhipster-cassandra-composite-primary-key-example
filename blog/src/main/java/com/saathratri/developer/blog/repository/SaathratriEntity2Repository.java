@@ -39,10 +39,40 @@ public interface SaathratriEntity2Repository extends CassandraRepository<Saathra
         final Long arrivalDate
     );
 
-    @Query("SELECT * FROM saathratri_entity_2 WHERE entity_type_id = ?0 AND year_of_date_added = ?1 AND arrival_date = ?2 LIMIT 1")
-    Optional<SaathratriEntity2> findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDate(
+    List<SaathratriEntity2> findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
-        final Long arrivalDate
+        final Long arrivalDate,
+        final UUID blogId
+    );
+
+    List<
+        SaathratriEntity2
+    > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogIdLessThan(
+        final UUID entityTypeId,
+        final Long yearOfDateAdded,
+        final Long arrivalDate,
+        final UUID blogId
+    );
+
+    List<
+        SaathratriEntity2
+    > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogIdGreaterThan(
+        final UUID entityTypeId,
+        final Long yearOfDateAdded,
+        final Long arrivalDate,
+        final UUID blogId
+    );
+
+    @Query(
+        "SELECT * FROM saathratri_entity_2 WHERE entity_type_id = ?0 AND year_of_date_added = ?1 AND arrival_date = ?2 AND blog_id = ?3 LIMIT 1"
+    )
+    Optional<
+        SaathratriEntity2
+    > findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+        final UUID entityTypeId,
+        final Long yearOfDateAdded,
+        final Long arrivalDate,
+        final UUID blogId
     );
 }
