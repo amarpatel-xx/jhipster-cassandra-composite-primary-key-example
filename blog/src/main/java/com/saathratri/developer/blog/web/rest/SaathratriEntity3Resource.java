@@ -59,6 +59,7 @@ public class SaathratriEntity3Resource {
     public ResponseEntity<SaathratriEntity3DTO> createSaathratriEntity3(@RequestBody SaathratriEntity3DTO saathratriEntity3DTO)
         throws URISyntaxException {
         LOG.debug("REST request to save SaathratriEntity3 : {}", saathratriEntity3DTO);
+
         // Generate a TimeUUID for the Primary Key composite fields.
 
         saathratriEntity3DTO.getCompositeId().setCreatedTimeId(Uuids.timeBased());
@@ -287,8 +288,9 @@ public class SaathratriEntity3Resource {
      * {@code GET /find-all-by-composite-id-entity-type/:entityType}
      *
      *
-     * @param entityType the Entity Type of the saathratriEntity3 to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the saathratriEntity3, or with status {@code 404 (Not Found)}.
+     * @param entityType the Entity Type of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity3, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/find-all-by-composite-id-entity-type")
     public List<SaathratriEntity3DTO> findAllByCompositeIdEntityType(
@@ -304,35 +306,13 @@ public class SaathratriEntity3Resource {
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /find-all-by-composite-id-entity-type-and-composite-id-created-time-id/:entityType/:createdTimeId}
-     *
-     *
-     * @param entityType the Entity Type of the saathratriEntity3 to retrieve.
-     * @param createdTimeId the Created Time Id of the saathratriEntity3 to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the saathratriEntity3, or with status {@code 404 (Not Found)}.
-     */
-    @GetMapping("/find-all-by-composite-id-entity-type-and-composite-id-created-time-id")
-    public List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
-        @RequestParam(name = "entityType", required = true) final String entityType,
-        @RequestParam(name = "createdTimeId", required = true) final UUID createdTimeId
-    ) {
-        // Composite Primary Key Code
-        LOG.debug(
-            "REST request to findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId method for SaathratriEntity3s with parameteres entityType: {}, createdTimeId: {}",
-            entityType,
-            createdTimeId
-        );
-        return saathratriEntity3Service.findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(entityType, createdTimeId);
-    }
-
-    /**
-     * // Composite Primary Key Code
      * {@code GET /find-all-by-composite-id-entity-type-and-composite-id-created-time-id-less-than/:entityType/:createdTimeId}
      *
      *
-     * @param entityType the Entity Type of the saathratriEntity3 to retrieve.
-     * @param createdTimeId the Created Time Id of the saathratriEntity3 to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the saathratriEntity3, or with status {@code 404 (Not Found)}.
+     * @param entityType the Entity Type of the entity to retrieve.
+     * @param createdTimeId the Created Time Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity3, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/find-all-by-composite-id-entity-type-and-composite-id-created-time-id-less-than")
     public List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdLessThan(
@@ -353,9 +333,10 @@ public class SaathratriEntity3Resource {
      * {@code GET /find-all-by-composite-id-entity-type-and-composite-id-created-time-id-greater-than/:entityType/:createdTimeId}
      *
      *
-     * @param entityType the Entity Type of the saathratriEntity3 to retrieve.
-     * @param createdTimeId the Created Time Id of the saathratriEntity3 to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the saathratriEntity3, or with status {@code 404 (Not Found)}.
+     * @param entityType the Entity Type of the entity to retrieve.
+     * @param createdTimeId the Created Time Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity3, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/find-all-by-composite-id-entity-type-and-composite-id-created-time-id-greater-than")
     public List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdGreaterThan(
@@ -373,25 +354,23 @@ public class SaathratriEntity3Resource {
 
     /**
      * // Composite Primary Key Code
-     * {@code GET /find-latest-by-composite-id-entity-type-and-composite-id-created-time-id/:entityType/:createdTimeId}
+     * {@code GET /find-latest-by-composite-id-entity-type/:entityType}
      *
      *
-     * @param entityType the Entity Type of the saathratriEntity3 to retrieve.
-     * @param createdTimeId the Created Time Id of the saathratriEntity3 to retrieve. *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the saathratriEntity3, or with status {@code 404 (Not Found)}.
+     * @param entityType the Entity Type of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity3, or with status {@code 404 (Not Found)}.
      */
-    @GetMapping("/find-latest-by-composite-id-entity-type-and-composite-id-created-time-id")
-    public SaathratriEntity3DTO findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
-        @RequestParam(name = "entityType", required = true) final String entityType,
-        @RequestParam(name = "createdTimeId", required = true) final UUID createdTimeId
+    @GetMapping("/find-latest-by-composite-id-entity-type")
+    public SaathratriEntity3DTO findLatestByCompositeIdEntityType(
+        @RequestParam(name = "entityType", required = true) final String entityType
     ) {
         // Composite Primary Key Code
         LOG.debug(
-            "REST request to findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId method for SaathratriEntity3s with parameteres entityType: {}, createdTimeId: {}",
-            entityType,
-            createdTimeId
+            "REST request to findLatestByCompositeIdEntityType method for SaathratriEntity3s with parameteres entityType: {}",
+            entityType
         );
-        return saathratriEntity3Service.findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(entityType, createdTimeId);
+        return saathratriEntity3Service.findLatestByCompositeIdEntityType(entityType);
     }
 
     private String getUrlEncodedParameterValue(String parameterValue) {

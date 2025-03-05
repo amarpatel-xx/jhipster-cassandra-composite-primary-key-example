@@ -4,7 +4,6 @@ import com.saathratri.developer.blog.domain.PostId;
 import com.saathratri.developer.blog.service.dto.PostDTO;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 
 /**
  * Service Interface for managing {@link com.saathratri.developer.blog.domain.Post}.
@@ -57,16 +56,7 @@ public interface PostService {
     void delete(PostId id);
 
     List<PostDTO> findAllByCompositeIdCreatedDate(final Long createdDate);
-
     List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTime(final Long createdDate, final Long addedDateTime);
-
     List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeLessThan(final Long createdDate, final Long addedDateTime);
-
     List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(final Long createdDate, final Long addedDateTime);
-
-    List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(
-        final Long createdDate,
-        final Long addedDateTime,
-        final UUID postId
-    );
 }

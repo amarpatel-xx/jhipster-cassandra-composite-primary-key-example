@@ -15,13 +15,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BlogRepository extends CassandraRepository<Blog, BlogId> {
     List<Blog> findAllByCompositeIdCategory(final String category);
-
-    List<Blog> findAllByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId);
-
     List<Blog> findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId);
-
     List<Blog> findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(final String category, final UUID blogId);
 
-    @Query("SELECT * FROM blog WHERE category = ?0 AND blog_id = ?1 LIMIT 1")
-    Optional<Blog> findLatestByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId);
+    @Query("SELECT * FROM blog WHERE  LIMIT 1")
+    Optional<Blog> findLatestByCompositeIdCategory(final String category);
 }

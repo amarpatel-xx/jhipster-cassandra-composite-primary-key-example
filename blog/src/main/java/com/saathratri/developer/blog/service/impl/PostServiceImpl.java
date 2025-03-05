@@ -139,20 +139,4 @@ public class PostServiceImpl implements PostService {
             .map(postMapper::toDto)
             .collect(Collectors.toCollection(LinkedList::new));
     }
-
-    @Override
-    public List<PostDTO> findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(
-        final Long createdDate,
-        final Long addedDateTime,
-        final UUID postId
-    ) {
-        LOG.debug(
-            "Request to findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(final Long createdDate, final Long addedDateTime, final UUID postId) service in PostServiceImpl."
-        );
-        return postRepository
-            .findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(createdDate, addedDateTime, postId)
-            .stream()
-            .map(postMapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
 }

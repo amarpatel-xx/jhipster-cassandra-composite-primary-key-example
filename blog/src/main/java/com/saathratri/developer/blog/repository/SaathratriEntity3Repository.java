@@ -15,22 +15,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SaathratriEntity3Repository extends CassandraRepository<SaathratriEntity3, SaathratriEntity3Id> {
     List<SaathratriEntity3> findAllByCompositeIdEntityType(final String entityType);
-
-    List<SaathratriEntity3> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(final String entityType, final UUID createdTimeId);
-
     List<SaathratriEntity3> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdLessThan(
         final String entityType,
         final UUID createdTimeId
     );
-
     List<SaathratriEntity3> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdGreaterThan(
         final String entityType,
         final UUID createdTimeId
     );
 
-    @Query("SELECT * FROM saathratri_entity_3 WHERE entity_type = ?0 AND created_time_id = ?1 LIMIT 1")
-    Optional<SaathratriEntity3> findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
-        final String entityType,
-        final UUID createdTimeId
-    );
+    @Query("SELECT * FROM saathratri_entity_3 WHERE  LIMIT 1")
+    Optional<SaathratriEntity3> findLatestByCompositeIdEntityType(final String entityType);
 }

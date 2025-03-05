@@ -15,37 +15,25 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface SaathratriEntity2Repository extends CassandraRepository<SaathratriEntity2, SaathratriEntity2Id> {
     List<SaathratriEntity2> findAllByCompositeIdEntityTypeId(final UUID entityTypeId);
-
     List<SaathratriEntity2> findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAdded(
         final UUID entityTypeId,
         final Long yearOfDateAdded
     );
-
     List<SaathratriEntity2> findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDate(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
         final Long arrivalDate
     );
-
     List<SaathratriEntity2> findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateLessThan(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
         final Long arrivalDate
     );
-
     List<SaathratriEntity2> findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateGreaterThan(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
         final Long arrivalDate
     );
-
-    List<SaathratriEntity2> findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
-        final UUID entityTypeId,
-        final Long yearOfDateAdded,
-        final Long arrivalDate,
-        final UUID blogId
-    );
-
     List<
         SaathratriEntity2
     > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogIdLessThan(
@@ -54,7 +42,6 @@ public interface SaathratriEntity2Repository extends CassandraRepository<Saathra
         final Long arrivalDate,
         final UUID blogId
     );
-
     List<
         SaathratriEntity2
     > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogIdGreaterThan(
@@ -64,15 +51,10 @@ public interface SaathratriEntity2Repository extends CassandraRepository<Saathra
         final UUID blogId
     );
 
-    @Query(
-        "SELECT * FROM saathratri_entity_2 WHERE entity_type_id = ?0 AND year_of_date_added = ?1 AND arrival_date = ?2 AND blog_id = ?3 LIMIT 1"
-    )
-    Optional<
-        SaathratriEntity2
-    > findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+    @Query("SELECT * FROM saathratri_entity_2 WHERE  LIMIT 1")
+    Optional<SaathratriEntity2> findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDate(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
-        final Long arrivalDate,
-        final UUID blogId
+        final Long arrivalDate
     );
 }

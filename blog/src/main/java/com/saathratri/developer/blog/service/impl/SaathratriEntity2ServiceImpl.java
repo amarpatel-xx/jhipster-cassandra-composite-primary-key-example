@@ -185,30 +185,6 @@ public class SaathratriEntity2ServiceImpl implements SaathratriEntity2Service {
     @Override
     public List<
         SaathratriEntity2DTO
-    > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
-        final UUID entityTypeId,
-        final Long yearOfDateAdded,
-        final Long arrivalDate,
-        final UUID blogId
-    ) {
-        LOG.debug(
-            "Request to findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(final UUID entityTypeId, final Long yearOfDateAdded, final Long arrivalDate, final UUID blogId) service in SaathratriEntity2ServiceImpl."
-        );
-        return saathratriEntity2Repository
-            .findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
-                entityTypeId,
-                yearOfDateAdded,
-                arrivalDate,
-                blogId
-            )
-            .stream()
-            .map(saathratriEntity2Mapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-    @Override
-    public List<
-        SaathratriEntity2DTO
     > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogIdLessThan(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
@@ -255,21 +231,19 @@ public class SaathratriEntity2ServiceImpl implements SaathratriEntity2Service {
     }
 
     @Override
-    public SaathratriEntity2DTO findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+    public SaathratriEntity2DTO findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDate(
         final UUID entityTypeId,
         final Long yearOfDateAdded,
-        final Long arrivalDate,
-        final UUID blogId
+        final Long arrivalDate
     ) {
         LOG.debug(
-            "Request to findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(final UUID entityTypeId, final Long yearOfDateAdded, final Long arrivalDate, final UUID blogId) service in SaathratriEntity2ServiceImpl."
+            "Request to findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDate(final UUID entityTypeId, final Long yearOfDateAdded, final Long arrivalDate) service in SaathratriEntity2ServiceImpl."
         );
         return saathratriEntity2Repository
-            .findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+            .findLatestByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDate(
                 entityTypeId,
                 yearOfDateAdded,
-                arrivalDate,
-                blogId
+                arrivalDate
             )
             .map(saathratriEntity2Mapper::toDto)
             .orElse(null); // Return null if no record found

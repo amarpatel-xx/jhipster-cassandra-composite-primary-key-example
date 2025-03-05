@@ -36,6 +36,21 @@ const routes: Routes = [
     data: { pageTitle: 'blogApp.blogSaathratriEntity3.home.title' },
     loadChildren: () => import('./blog/saathratri-entity-3/saathratri-entity-3.routes'),
   },
+  {
+    path: 'saathratri-entity-4',
+    data: { pageTitle: 'blogApp.blogSaathratriEntity4.home.title' },
+    loadChildren: () => import('./blog/saathratri-entity-4/saathratri-entity-4.routes'),
+  },
+  {
+    path: 'saathratri-entity-5',
+    data: { pageTitle: 'blogApp.blogSaathratriEntity5.home.title' },
+    loadChildren: () => import('./blog/saathratri-entity-5/saathratri-entity-5.routes'),
+  },
+  {
+    path: 'saathratri-entity-6',
+    data: { pageTitle: 'blogApp.blogSaathratriEntity6.home.title' },
+    loadChildren: () => import('./blog/saathratri-entity-6/saathratri-entity-6.routes'),
+  },
   /* jhipster-needle-add-entity-route - JHipster will add entity modules routes here */
 ];
 

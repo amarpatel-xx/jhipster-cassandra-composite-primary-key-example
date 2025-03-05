@@ -57,18 +57,13 @@ public interface SaathratriEntity3Service {
     void delete(SaathratriEntity3Id id);
 
     List<SaathratriEntity3DTO> findAllByCompositeIdEntityType(final String entityType);
-
-    List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(final String entityType, final UUID createdTimeId);
-
     List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdLessThan(
         final String entityType,
         final UUID createdTimeId
     );
-
     List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdGreaterThan(
         final String entityType,
         final UUID createdTimeId
     );
-
-    SaathratriEntity3DTO findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(final String entityType, final UUID createdTimeId);
+    SaathratriEntity3DTO findLatestByCompositeIdEntityType(final String entityType);
 }

@@ -57,12 +57,7 @@ public interface BlogService {
     void delete(BlogId id);
 
     List<BlogDTO> findAllByCompositeIdCategory(final String category);
-
-    List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId);
-
     List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId);
-
     List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdGreaterThan(final String category, final UUID blogId);
-
-    BlogDTO findLatestByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId);
+    BlogDTO findLatestByCompositeIdCategory(final String category);
 }

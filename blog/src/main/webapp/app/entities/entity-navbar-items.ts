@@ -36,4 +36,19 @@ export const EntityNavbarItems: NavbarItem[] = [
     route: '/blog/saathratri-entity-3',
     translationKey: 'global.menu.entities.blogSaathratriEntity3',
   },
+  {
+    name: 'SaathratriEntity4',
+    route: '/blog/saathratri-entity-4',
+    translationKey: 'global.menu.entities.blogSaathratriEntity4',
+  },
+  {
+    name: 'SaathratriEntity5',
+    route: '/blog/saathratri-entity-5',
+    translationKey: 'global.menu.entities.blogSaathratriEntity5',
+  },
+  {
+    name: 'SaathratriEntity6',
+    route: '/blog/saathratri-entity-6',
+    translationKey: 'global.menu.entities.blogSaathratriEntity6',
+  },
 ];

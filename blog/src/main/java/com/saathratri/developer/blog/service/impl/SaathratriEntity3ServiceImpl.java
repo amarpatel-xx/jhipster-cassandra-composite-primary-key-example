@@ -106,21 +106,6 @@ public class SaathratriEntity3ServiceImpl implements SaathratriEntity3Service {
     }
 
     @Override
-    public List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
-        final String entityType,
-        final UUID createdTimeId
-    ) {
-        LOG.debug(
-            "Request to findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(final String entityType, final UUID createdTimeId) service in SaathratriEntity3ServiceImpl."
-        );
-        return saathratriEntity3Repository
-            .findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(entityType, createdTimeId)
-            .stream()
-            .map(saathratriEntity3Mapper::toDto)
-            .collect(Collectors.toCollection(LinkedList::new));
-    }
-
-    @Override
     public List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdLessThan(
         final String entityType,
         final UUID createdTimeId
@@ -151,16 +136,8 @@ public class SaathratriEntity3ServiceImpl implements SaathratriEntity3Service {
     }
 
     @Override
-    public SaathratriEntity3DTO findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
-        final String entityType,
-        final UUID createdTimeId
-    ) {
-        LOG.debug(
-            "Request to findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(final String entityType, final UUID createdTimeId) service in SaathratriEntity3ServiceImpl."
-        );
-        return saathratriEntity3Repository
-            .findLatestByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(entityType, createdTimeId)
-            .map(saathratriEntity3Mapper::toDto)
-            .orElse(null); // Return null if no record found
+    public SaathratriEntity3DTO findLatestByCompositeIdEntityType(final String entityType) {
+        LOG.debug("Request to findLatestByCompositeIdEntityType(final String entityType) service in SaathratriEntity3ServiceImpl.");
+        return saathratriEntity3Repository.findLatestByCompositeIdEntityType(entityType).map(saathratriEntity3Mapper::toDto).orElse(null); // Return null if no record found
     }
 }
