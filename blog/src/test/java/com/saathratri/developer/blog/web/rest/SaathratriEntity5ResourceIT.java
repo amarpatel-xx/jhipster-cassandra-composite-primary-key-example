@@ -2,7 +2,6 @@ package com.saathratri.developer.blog.web.rest;
 
 import static com.saathratri.developer.blog.domain.SaathratriEntity5Asserts.*;
 import static com.saathratri.developer.blog.web.rest.TestUtil.createUpdateProxyForBean;
-import static com.saathratri.developer.blog.web.rest.TestUtil.sameNumber;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -280,11 +279,16 @@ class SaathratriEntity5ResourceIT {
             )
             .andExpect(jsonPath("$.[*].compositeId.entityId").value(hasItem(saathratriEntity5.getCompositeId().getEntityId().toString())))
             .andExpect(jsonPath("$.[*].compositeId.addOnId").value(hasItem(saathratriEntity5.getCompositeId().getAddOnId().toString())))
+            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnType").value(hasItem(DEFAULT_ADD_ON_TYPE)))
-            .andExpect(jsonPath("$.[*].addOnDetailsText").value(hasItem(DEFAULT_ADD_ON_DETAILS_TEXT)))
-            .andExpect(jsonPath("$.[*].addOnDetailsDecimal").value(hasItem(sameNumber(DEFAULT_ADD_ON_DETAILS_DECIMAL))))
-            .andExpect(jsonPath("$.[*].addOnDetailsBoolean").value(hasItem(DEFAULT_ADD_ON_DETAILS_BOOLEAN.booleanValue())))
-            .andExpect(jsonPath("$.[*].addOnDetailsBigInt").value(hasItem(DEFAULT_ADD_ON_DETAILS_BIG_INT.intValue())));
+            /*Saathratri-1*/
+            .andExpect(jsonPath("$.[*].addOnDetailsText['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_TEXT.get("AAAAAAAAAA")))
+            /*Saathratri-1*/
+            .andExpect(jsonPath("$.[*].addOnDetailsDecimal['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_DECIMAL.get("AAAAAAAAAA")))
+            /*Saathratri-1*/
+            .andExpect(jsonPath("$.[*].addOnDetailsBoolean['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BOOLEAN.get("AAAAAAAAAA")))
+            /*Saathratri-1*/
+            .andExpect(jsonPath("$.[*].addOnDetailsBigInt['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BIG_INT.get("AAAAAAAAAA")));
     }
 
     @Test
@@ -322,11 +326,16 @@ class SaathratriEntity5ResourceIT {
             )
             .andExpect(jsonPath("$.[*].compositeId.entityId").value(hasItem(saathratriEntity5.getCompositeId().getEntityId().toString())))
             .andExpect(jsonPath("$.[*].compositeId.addOnId").value(hasItem(saathratriEntity5.getCompositeId().getAddOnId().toString())))
+            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnType").value(hasItem(DEFAULT_ADD_ON_TYPE)))
-            .andExpect(jsonPath("$.[*].addOnDetailsText").value(hasItem(DEFAULT_ADD_ON_DETAILS_TEXT)))
-            .andExpect(jsonPath("$.[*].addOnDetailsDecimal").value(hasItem(sameNumber(DEFAULT_ADD_ON_DETAILS_DECIMAL))))
-            .andExpect(jsonPath("$.[*].addOnDetailsBoolean").value(hasItem(DEFAULT_ADD_ON_DETAILS_BOOLEAN.booleanValue())))
-            .andExpect(jsonPath("$.[*].addOnDetailsBigInt").value(hasItem(DEFAULT_ADD_ON_DETAILS_BIG_INT.intValue())));
+            /*Saathratri-2*/
+            .andExpect(jsonPath("$.[*].addOnDetailsText['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_TEXT.get("AAAAAAAAAA")))
+            /*Saathratri-2*/
+            .andExpect(jsonPath("$.[*].addOnDetailsDecimal['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_DECIMAL.get("AAAAAAAAAA")))
+            /*Saathratri-2*/
+            .andExpect(jsonPath("$.[*].addOnDetailsBoolean['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BOOLEAN.get("AAAAAAAAAA")))
+            /*Saathratri-2*/
+            .andExpect(jsonPath("$.[*].addOnDetailsBigInt['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BIG_INT.get("AAAAAAAAAA")));
     }
 
     @Test

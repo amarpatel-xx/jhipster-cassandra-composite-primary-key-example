@@ -181,7 +181,9 @@ class BlogResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].compositeId.category").value(hasItem(blog.getCompositeId().getCategory().toString())))
             .andExpect(jsonPath("$.[*].compositeId.blogId").value(hasItem(blog.getCompositeId().getBlogId().toString())))
+            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].handle").value(hasItem(DEFAULT_HANDLE)))
+            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)));
     }
 
@@ -199,7 +201,9 @@ class BlogResourceIT {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].compositeId.category").value(hasItem(blog.getCompositeId().getCategory().toString())))
             .andExpect(jsonPath("$.[*].compositeId.blogId").value(hasItem(blog.getCompositeId().getBlogId().toString())))
+            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].handle").value(hasItem(DEFAULT_HANDLE)))
+            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)));
     }
 
