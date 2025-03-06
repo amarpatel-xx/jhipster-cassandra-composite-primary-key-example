@@ -1,6 +1,5 @@
 package com.saathratri.developer.blog.domain;
 
-import static com.saathratri.developer.blog.domain.AssertUtils.bigDecimalCompareTo;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class SaathratriEntity5Asserts {
@@ -64,8 +63,7 @@ public class SaathratriEntity5Asserts {
             .satisfies(e ->
                 assertThat(e.getAddOnDetailsDecimal())
                     .as("check addOnDetailsDecimal")
-                    .usingComparator(bigDecimalCompareTo)
-                    .isEqualTo(actual.getAddOnDetailsDecimal())
+                    .containsExactlyEntriesOf(actual.getAddOnDetailsDecimal())
             )
             .satisfies(e ->
                 assertThat(e.getAddOnDetailsBoolean()).as("check addOnDetailsBoolean").isEqualTo(actual.getAddOnDetailsBoolean())

@@ -14,7 +14,7 @@
     "dockerRepositoryName": "amarppatel",
     "gatewayType": "SpringCloudGateway",
     "jhipsterVersion": "8.7.3",
-    "jwtSecretKey": "NjE1MzBhMDRhYjhlMmY4YWFkMjI3OTAyYmY1YTM2MDJiYjdjZWZhZWU2Njk4YTZmZGYyOGE5Mzk4ZmQ2NzE3NzQwNzBmNWIyNmYwOGYzMTI1ZjllYjM4ZGIyNjA3M2ExOWJmNw==",
+    "jwtSecretKey": "MzFmMTNlZTE3NWYyOGI1MmJkMDVkNTY5NGI0MGZhNThiNmQ3MTM1OGYyZmIzMDVjNTgyOWNhYTRiYjhiYzkxNGY2ODljMDYwOTRiOThkOWNkMWYwMTAwYjAwNmQxMWIzZjllOA==",
     "monitoring": "no",
     "serviceDiscoveryType": "eureka"
   }

@@ -48,6 +48,7 @@ public class SaathratriEntity3Asserts {
             .satisfies(e ->
                 assertThat(e.getEntityCost()).as("check entityCost").usingComparator(bigDecimalCompareTo).isEqualTo(actual.getEntityCost())
             )
-            .satisfies(e -> assertThat(e.getDepartureDate()).as("check departureDate").isEqualTo(actual.getDepartureDate()));
+            .satisfies(e -> assertThat(e.getDepartureDate()).as("check departureDate").isEqualTo(actual.getDepartureDate()))
+            .satisfies(e -> assertThat(e.getTags()).as("check tags").isEqualTo(actual.getTags()));
     }
 }

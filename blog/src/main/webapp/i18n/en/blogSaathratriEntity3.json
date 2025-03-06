@@ -22,7 +22,8 @@
       "entityName": "Entity Name",
       "entityDescription": "Entity Description",
       "entityCost": "Entity Cost",
-      "departureDate": "Departure Date"
+      "departureDate": "Departure Date",
+      "tags": "Tags"
     }
   }
 }

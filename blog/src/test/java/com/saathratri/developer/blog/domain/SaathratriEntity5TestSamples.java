@@ -19,8 +19,20 @@ public class SaathratriEntity5TestSamples {
                     .addOnId(UUID.fromString("23d8dc04-a48b-45d9-a01d-4b728f0ad4aa"))
             )
             .addOnType("addOnType1")
-            .addOnDetailsText("addOnDetailsText1")
-            .addOnDetailsBigInt(1L);
+            .addOnDetailsText(
+                new java.util.HashMap<String, String>() {
+                    {
+                        put("addOnDetailsText1", "addOnDetailsText1");
+                    }
+                }
+            )
+            .addOnDetailsBigInt(
+                new java.util.HashMap<String, Long>() {
+                    {
+                        put("addOnDetailsBigInt1", 1L);
+                    }
+                }
+            );
     }
 
     public static SaathratriEntity5 getSaathratriEntity5Sample2() {
@@ -33,8 +45,20 @@ public class SaathratriEntity5TestSamples {
                     .addOnId(UUID.fromString("ad79f240-3727-46c3-b89f-2cf6ebd74367"))
             )
             .addOnType("addOnType1")
-            .addOnDetailsText("addOnDetailsText1")
-            .addOnDetailsBigInt(1L);
+            .addOnDetailsText(
+                new java.util.HashMap<String, String>() {
+                    {
+                        put("addOnDetailsText1", "addOnDetailsText1");
+                    }
+                }
+            )
+            .addOnDetailsBigInt(
+                new java.util.HashMap<String, Long>() {
+                    {
+                        put("addOnDetailsBigInt1", 1L);
+                    }
+                }
+            );
     }
 
     public static SaathratriEntity5 getSaathratriEntity5RandomSampleGenerator() {
@@ -47,7 +71,19 @@ public class SaathratriEntity5TestSamples {
                     .addOnId(UUID.randomUUID())
             )
             .addOnType("addOnType1")
-            .addOnDetailsText("addOnDetailsText1")
-            .addOnDetailsBigInt(1L);
+            .addOnDetailsText(
+                new java.util.HashMap<String, String>() {
+                    {
+                        put("addOnDetailsText1", "addOnDetailsText1");
+                    }
+                }
+            )
+            .addOnDetailsBigInt(
+                new java.util.HashMap<String, Long>() {
+                    {
+                        put("addOnDetailsBigInt1", 1L);
+                    }
+                }
+            );
     }
 }

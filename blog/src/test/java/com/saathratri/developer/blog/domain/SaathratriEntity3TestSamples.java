@@ -16,7 +16,14 @@ public class SaathratriEntity3TestSamples {
             )
             .entityName("entityName1")
             .entityDescription("entityDescription1")
-            .departureDate(1L);
+            .departureDate(1L)
+            .tags(
+                new java.util.TreeSet<String>() {
+                    {
+                        add("tags1");
+                    }
+                }
+            );
     }
 
     public static SaathratriEntity3 getSaathratriEntity3Sample2() {
@@ -26,7 +33,14 @@ public class SaathratriEntity3TestSamples {
             )
             .entityName("entityName1")
             .entityDescription("entityDescription1")
-            .departureDate(1L);
+            .departureDate(1L)
+            .tags(
+                new java.util.TreeSet<String>() {
+                    {
+                        add("tags1");
+                    }
+                }
+            );
     }
 
     public static SaathratriEntity3 getSaathratriEntity3RandomSampleGenerator() {
@@ -34,6 +48,13 @@ public class SaathratriEntity3TestSamples {
             .compositeId(new SaathratriEntity3Id().entityType(UUID.randomUUID().toString()).createdTimeId(UUID.randomUUID()))
             .entityName("entityName1")
             .entityDescription("entityDescription1")
-            .departureDate(1L);
+            .departureDate(1L)
+            .tags(
+                new java.util.TreeSet<String>() {
+                    {
+                        add("tags1");
+                    }
+                }
+            );
     }
 }

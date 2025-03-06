@@ -157,23 +157,26 @@ describe('SaathratriEntity3 e2e test', () => {
     });
 
     it('should create an instance of SaathratriEntity3', () => {
-      cy.get(`[data-cy="entityType"]`).type('635ffec0-9bab-41a9-a5b4-da8d69826a0b');
-      cy.get(`[data-cy="entityType"]`).should('have.value', '635ffec0-9bab-41a9-a5b4-da8d69826a0b');
+      cy.get(`[data-cy="entityType"]`).type('b7d22f70-e319-4b1f-95e0-557124806272');
+      cy.get(`[data-cy="entityType"]`).should('have.value', 'b7d22f70-e319-4b1f-95e0-557124806272');
 
-      cy.get(`[data-cy="createdTimeId"]`).type('8431bd0e-1b7d-422f-870e-319b1f5e0557');
-      cy.get(`[data-cy="createdTimeId"]`).invoke('val').should('match', new RegExp('8431bd0e-1b7d-422f-870e-319b1f5e0557'));
+      cy.get(`[data-cy="createdTimeId"]`).type('460bed02-e9a2-4e7f-8463-df832843ae6f');
+      cy.get(`[data-cy="createdTimeId"]`).invoke('val').should('match', new RegExp('460bed02-e9a2-4e7f-8463-df832843ae6f'));
 
-      cy.get(`[data-cy="entityName"]`).type('anti');
-      cy.get(`[data-cy="entityName"]`).should('have.value', 'anti');
+      cy.get(`[data-cy="entityName"]`).type('trek see');
+      cy.get(`[data-cy="entityName"]`).should('have.value', 'trek see');
 
-      cy.get(`[data-cy="entityDescription"]`).type('account');
-      cy.get(`[data-cy="entityDescription"]`).should('have.value', 'account');
+      cy.get(`[data-cy="entityDescription"]`).type('like powerless purse');
+      cy.get(`[data-cy="entityDescription"]`).should('have.value', 'like powerless purse');
 
-      cy.get(`[data-cy="entityCost"]`).type('5244.65');
-      cy.get(`[data-cy="entityCost"]`).should('have.value', '5244.65');
+      cy.get(`[data-cy="entityCost"]`).type('29412.8');
+      cy.get(`[data-cy="entityCost"]`).should('have.value', '29412.8');
 
-      cy.get(`[data-cy="departureDate"]`).type('30336');
-      cy.get(`[data-cy="departureDate"]`).should('have.value', '30336');
+      cy.get(`[data-cy="departureDate"]`).type('12788');
+      cy.get(`[data-cy="departureDate"]`).should('have.value', '12788');
+
+      cy.get(`[data-cy="tags"]`).type('nerve despite pleasant');
+      cy.get(`[data-cy="tags"]`).should('have.value', 'nerve despite pleasant');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

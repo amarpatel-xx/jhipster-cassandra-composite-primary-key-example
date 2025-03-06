@@ -2,6 +2,7 @@ package com.saathratri.developer.blog.domain;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
+import java.util.Set;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.cassandra.core.mapping.CassandraType;
 import org.springframework.data.cassandra.core.mapping.Column;
@@ -36,6 +37,10 @@ public class SaathratriEntity3 implements Serializable {
     @Column("departure_date")
     @CassandraType(type = CassandraType.Name.BIGINT)
     private Long departureDate;
+
+    @Column("tags")
+    @CassandraType(type = CassandraType.Name.SET, typeArguments = CassandraType.Name.TEXT)
+    private Set<String> tags;
 
     public SaathratriEntity3Id getCompositeId() {
         return this.compositeId;
@@ -104,6 +109,19 @@ public class SaathratriEntity3 implements Serializable {
         this.departureDate = departureDate;
     }
 
+    public Set<String> getTags() {
+        return this.tags;
+    }
+
+    public SaathratriEntity3 tags(Set<String> tags) {
+        this.setTags(tags);
+        return this;
+    }
+
+    public void setTags(Set<String> tags) {
+        this.tags = tags;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -132,6 +150,7 @@ public class SaathratriEntity3 implements Serializable {
             ", entityDescription='" + getEntityDescription() + "'" +
             ", entityCost=" + getEntityCost() +
             ", departureDate=" + getDepartureDate() +
+            ", tags='" + getTags() + "'" +
             "}";
     }
 }

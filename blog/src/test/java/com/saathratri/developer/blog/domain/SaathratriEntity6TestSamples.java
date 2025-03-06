@@ -26,8 +26,20 @@ public class SaathratriEntity6TestSamples {
             .customerUpdatedPhoneNumber("customerUpdatedPhoneNumber1")
             .customerEstimatedArrivalTime("customerEstimatedArrivalTime1")
             .tinyUrlShortCode("tinyUrlShortCode1")
-            .addOnDetailsText("addOnDetailsText1")
-            .addOnDetailsBigInt(1L);
+            .addOnDetailsText(
+                new java.util.HashMap<String, String>() {
+                    {
+                        put("addOnDetailsText1", "addOnDetailsText1");
+                    }
+                }
+            )
+            .addOnDetailsBigInt(
+                new java.util.HashMap<String, Long>() {
+                    {
+                        put("addOnDetailsBigInt1", 1L);
+                    }
+                }
+            );
     }
 
     public static SaathratriEntity6 getSaathratriEntity6Sample2() {
@@ -47,8 +59,20 @@ public class SaathratriEntity6TestSamples {
             .customerUpdatedPhoneNumber("customerUpdatedPhoneNumber1")
             .customerEstimatedArrivalTime("customerEstimatedArrivalTime1")
             .tinyUrlShortCode("tinyUrlShortCode1")
-            .addOnDetailsText("addOnDetailsText1")
-            .addOnDetailsBigInt(1L);
+            .addOnDetailsText(
+                new java.util.HashMap<String, String>() {
+                    {
+                        put("addOnDetailsText1", "addOnDetailsText1");
+                    }
+                }
+            )
+            .addOnDetailsBigInt(
+                new java.util.HashMap<String, Long>() {
+                    {
+                        put("addOnDetailsBigInt1", 1L);
+                    }
+                }
+            );
     }
 
     public static SaathratriEntity6 getSaathratriEntity6RandomSampleGenerator() {
@@ -68,7 +92,19 @@ public class SaathratriEntity6TestSamples {
             .customerUpdatedPhoneNumber("customerUpdatedPhoneNumber1")
             .customerEstimatedArrivalTime("customerEstimatedArrivalTime1")
             .tinyUrlShortCode("tinyUrlShortCode1")
-            .addOnDetailsText("addOnDetailsText1")
-            .addOnDetailsBigInt(1L);
+            .addOnDetailsText(
+                new java.util.HashMap<String, String>() {
+                    {
+                        put("addOnDetailsText1", "addOnDetailsText1");
+                    }
+                }
+            )
+            .addOnDetailsBigInt(
+                new java.util.HashMap<String, Long>() {
+                    {
+                        put("addOnDetailsBigInt1", 1L);
+                    }
+                }
+            );
     }
 }

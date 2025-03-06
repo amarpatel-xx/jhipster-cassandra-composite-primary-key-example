@@ -6,6 +6,7 @@ export interface ISaathratriEntity3 {
   entityDescription?: string | null;
   entityCost?: number | null;
   departureDate?: dayjs.Dayjs | null;
+  tags?: string | null;
 }
 export interface ISaathratriEntity3Id {
   entityType: string | null;

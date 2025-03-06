@@ -10,9 +10,10 @@ import { createRequestOption } from 'app/core/request/request-util';
 import { ISaathratriEntity3, ISaathratriEntity3Id, NewSaathratriEntity3 } from '../saathratri-entity-3.model';
 export type PartialUpdateSaathratriEntity3 = Partial<ISaathratriEntity3> & Pick<ISaathratriEntity3, 'compositeId'>;
 
-type RestOf<T extends ISaathratriEntity3 | NewSaathratriEntity3> = Omit<T, 'departureDate'> & {
+type RestOf<T extends ISaathratriEntity3 | NewSaathratriEntity3> = Omit<T, 'departureDate' | 'tags'> & {
   compositeId: {};
   departureDate?: number | null;
+  tags?: string | null;
 };
 
 export type RestSaathratriEntity3 = RestOf<ISaathratriEntity3>;

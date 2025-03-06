@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20250306141742"
+    "changelogDate": "20250306154508"
   },
   "applications": ["blog"],
   "clientRootFolder": "blog",
@@ -49,6 +49,13 @@
       "fieldType": "Long",
       "options": {
         "customAnnotation": [true, "CassandraType.Name.BIGINT", "UTC_DATE"]
+      }
+    },
+    {
+      "fieldName": "tags",
+      "fieldType": "String",
+      "options": {
+        "customAnnotation": ["CassandraType.Name.SET", "CassandraType.Name.TEXT", true]
       }
     }
   ],

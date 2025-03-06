@@ -77,6 +77,13 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="tags">
+              <div class="d-flex">
+                <span jhiTranslate="blogApp.blogSaathratriEntity3.tags">Tags</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -91,6 +98,7 @@
               <td>{{ saathratriEntity3.entityDescription }}</td>
               <td>{{ saathratriEntity3.entityCost }}</td>
               <td>{{ saathratriEntity3.departureDate | formatMediumDate }}</td>
+              <td>{{ saathratriEntity3.tags }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a

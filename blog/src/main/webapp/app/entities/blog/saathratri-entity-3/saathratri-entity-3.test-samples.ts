@@ -1,22 +1,24 @@
 import { ISaathratriEntity3, NewSaathratriEntity3 } from './saathratri-entity-3.model';
 
 export const sampleWithRequiredData: ISaathratriEntity3 = {
-  entityType: '4727c3dd-75d1-495a-b213-37d013125ad7',
+  entityType: '27c3dd75-d195-4a21-9337-d013125ad7cc',
 };
 
 export const sampleWithPartialData: ISaathratriEntity3 = {
-  entityType: '486d641a-08ab-4ff2-807c-1115a7413467',
-  entityName: 'sans midwife digestive',
-  departureDate: 891,
+  entityType: 'd641a08a-bff2-407c-a111-5a74134671ea',
+  entityDescription: 'but abseil physically',
+  entityCost: 7057.75,
+  tags: 'cuddly though yum',
 };
 
 export const sampleWithFullData: ISaathratriEntity3 = {
-  entityType: '593d2ae4-ac28-49ed-a28a-6030ce520538',
-  createdTimeId: 'cae4762d-1030-4828-8f8d-947c6b5eb53c',
-  entityName: 'plus word',
-  entityDescription: 'duh',
-  entityCost: 13544.51,
-  departureDate: 12420,
+  entityType: '20538aca-e476-42d1-9030-828f8d947c6b',
+  createdTimeId: 'eb53c066-380e-45b6-972b-f8f1dce435b6',
+  entityName: 'authorized modulo',
+  entityDescription: 'humble until',
+  entityCost: 17108.58,
+  departureDate: 17168,
+  tags: 'because',
 };
 
 export const sampleWithNewData: NewSaathratriEntity3 = {
