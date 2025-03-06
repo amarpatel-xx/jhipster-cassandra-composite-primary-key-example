@@ -5,7 +5,6 @@ import com.saathratri.developer.blog.service.dto.SaathratriEntity2DTO;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
-import java.util.UUID;
 
 /**
  * Service Interface for managing {@link com.saathratri.developer.blog.domain.SaathratriEntity2}.
@@ -76,6 +75,12 @@ public interface SaathratriEntity2Service {
         final UUID entityTypeId,
         final Long yearOfDateAdded,
         final Long arrivalDate
+    );
+    Optional<SaathratriEntity2DTO> findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+        final UUID entityTypeId,
+        final Long yearOfDateAdded,
+        final Long arrivalDate,
+        final UUID blogId
     );
     List<
         SaathratriEntity2DTO

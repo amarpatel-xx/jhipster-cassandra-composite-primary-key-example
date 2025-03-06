@@ -173,6 +173,28 @@ public class SaathratriEntity6ServiceImpl implements SaathratriEntity6Service {
     }
 
     @Override
+    public Optional<
+        SaathratriEntity6DTO
+    > findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId(
+        final UUID organizationId,
+        final Long arrivalDate,
+        final String accountNumber,
+        final UUID createdTimeId
+    ) {
+        LOG.debug(
+            "Request to findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId(final UUID organizationId, final Long arrivalDate, final String accountNumber, final UUID createdTimeId) service in SaathratriEntity6ServiceImpl."
+        );
+        return saathratriEntity6Repository
+            .findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId(
+                organizationId,
+                arrivalDate,
+                accountNumber,
+                createdTimeId
+            )
+            .map(saathratriEntity6Mapper::toDto);
+    }
+
+    @Override
     public List<
         SaathratriEntity6DTO
     > findAllByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeIdLessThan(

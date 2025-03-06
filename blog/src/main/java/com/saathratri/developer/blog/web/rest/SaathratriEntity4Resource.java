@@ -307,6 +307,30 @@ public class SaathratriEntity4Resource {
         return saathratriEntity4Service.findAllByCompositeIdOrganizationId(organizationId);
     }
 
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-organization-id-and-composite-id-attribute-key/:organizationId/:attributeKey}
+     *
+     *
+     * @param organizationId the Organization Id of the entity to retrieve.
+     * @param attributeKey the Attribute Key of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity4, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-by-composite-id-organization-id-and-composite-id-attribute-key")
+    public Optional<SaathratriEntity4DTO> findByCompositeIdOrganizationIdAndCompositeIdAttributeKey(
+        @RequestParam(name = "organizationId", required = true) final UUID organizationId,
+        @RequestParam(name = "attributeKey", required = true) final String attributeKey
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdOrganizationIdAndCompositeIdAttributeKey method for SaathratriEntity4s with parameteres organizationId: {}, attributeKey: {}",
+            organizationId,
+            attributeKey
+        );
+        return saathratriEntity4Service.findByCompositeIdOrganizationIdAndCompositeIdAttributeKey(organizationId, attributeKey);
+    }
+
     private String getUrlEncodedParameterValue(String parameterValue) {
         String encodedValue = null;
         try {

@@ -57,6 +57,10 @@ public interface SaathratriEntity3Service {
     void delete(SaathratriEntity3Id id);
 
     List<SaathratriEntity3DTO> findAllByCompositeIdEntityType(final String entityType);
+    Optional<SaathratriEntity3DTO> findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
+        final String entityType,
+        final UUID createdTimeId
+    );
     List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdLessThan(
         final String entityType,
         final UUID createdTimeId

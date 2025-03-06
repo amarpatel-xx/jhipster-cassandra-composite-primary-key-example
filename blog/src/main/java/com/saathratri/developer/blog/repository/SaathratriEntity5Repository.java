@@ -3,6 +3,7 @@ package com.saathratri.developer.blog.repository;
 import com.saathratri.developer.blog.domain.SaathratriEntity5;
 import com.saathratri.developer.blog.domain.SaathratriEntity5Id;
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.stereotype.Repository;
@@ -18,5 +19,11 @@ public interface SaathratriEntity5Repository extends CassandraRepository<Saathra
         final UUID organizationId,
         final String entityType,
         final UUID entityId
+    );
+    Optional<SaathratriEntity5> findByCompositeIdOrganizationIdAndCompositeIdEntityTypeAndCompositeIdEntityIdAndCompositeIdAddOnId(
+        final UUID organizationId,
+        final String entityType,
+        final UUID entityId,
+        final UUID addOnId
     );
 }

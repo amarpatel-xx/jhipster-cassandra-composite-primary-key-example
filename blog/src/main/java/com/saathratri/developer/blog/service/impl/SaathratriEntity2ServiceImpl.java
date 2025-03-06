@@ -183,6 +183,28 @@ public class SaathratriEntity2ServiceImpl implements SaathratriEntity2Service {
     }
 
     @Override
+    public Optional<
+        SaathratriEntity2DTO
+    > findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+        final UUID entityTypeId,
+        final Long yearOfDateAdded,
+        final Long arrivalDate,
+        final UUID blogId
+    ) {
+        LOG.debug(
+            "Request to findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(final UUID entityTypeId, final Long yearOfDateAdded, final Long arrivalDate, final UUID blogId) service in SaathratriEntity2ServiceImpl."
+        );
+        return saathratriEntity2Repository
+            .findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+                entityTypeId,
+                yearOfDateAdded,
+                arrivalDate,
+                blogId
+            )
+            .map(saathratriEntity2Mapper::toDto);
+    }
+
+    @Override
     public List<
         SaathratriEntity2DTO
     > findAllByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogIdLessThan(

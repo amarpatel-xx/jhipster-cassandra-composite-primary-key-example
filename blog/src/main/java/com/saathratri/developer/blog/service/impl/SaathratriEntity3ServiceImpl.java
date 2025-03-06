@@ -106,6 +106,19 @@ public class SaathratriEntity3ServiceImpl implements SaathratriEntity3Service {
     }
 
     @Override
+    public Optional<SaathratriEntity3DTO> findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
+        final String entityType,
+        final UUID createdTimeId
+    ) {
+        LOG.debug(
+            "Request to findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(final String entityType, final UUID createdTimeId) service in SaathratriEntity3ServiceImpl."
+        );
+        return saathratriEntity3Repository
+            .findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(entityType, createdTimeId)
+            .map(saathratriEntity3Mapper::toDto);
+    }
+
+    @Override
     public List<SaathratriEntity3DTO> findAllByCompositeIdEntityTypeAndCompositeIdCreatedTimeIdLessThan(
         final String entityType,
         final UUID createdTimeId

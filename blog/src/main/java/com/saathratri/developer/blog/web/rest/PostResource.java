@@ -391,6 +391,33 @@ public class PostResource {
         return postService.findAllByCompositeIdCreatedDateAndCompositeIdAddedDateTimeGreaterThan(createdDate, addedDateTime);
     }
 
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-created-date-and-composite-id-added-date-time-and-composite-id-post-id/:createdDate/:addedDateTime/:postId}
+     *
+     *
+     * @param createdDate the Created Date of the entity to retrieve.
+     * @param addedDateTime the Added Date Time of the entity to retrieve.
+     * @param postId the Post Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the Post, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-by-composite-id-created-date-and-composite-id-added-date-time-and-composite-id-post-id")
+    public Optional<PostDTO> findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(
+        @RequestParam(name = "createdDate", required = true) final Long createdDate,
+        @RequestParam(name = "addedDateTime", required = true) final Long addedDateTime,
+        @RequestParam(name = "postId", required = true) final UUID postId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId method for Posts with parameteres createdDate: {}, addedDateTime: {}, postId: {}",
+            createdDate,
+            addedDateTime,
+            postId
+        );
+        return postService.findByCompositeIdCreatedDateAndCompositeIdAddedDateTimeAndCompositeIdPostId(createdDate, addedDateTime, postId);
+    }
+
     private String getUrlEncodedParameterValue(String parameterValue) {
         String encodedValue = null;
         try {

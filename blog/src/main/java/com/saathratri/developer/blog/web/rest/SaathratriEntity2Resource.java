@@ -481,6 +481,45 @@ public class SaathratriEntity2Resource {
 
     /**
      * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-entity-type-id-and-composite-id-year-of-date-added-and-composite-id-arrival-date-and-composite-id-blog-id/:entityTypeId/:yearOfDateAdded/:arrivalDate/:blogId}
+     *
+     *
+     * @param entityTypeId the Entity Type Id of the entity to retrieve.
+     * @param yearOfDateAdded the Year Of Date Added of the entity to retrieve.
+     * @param arrivalDate the Arrival Date of the entity to retrieve.
+     * @param blogId the Blog Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity2, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping(
+        "/find-by-composite-id-entity-type-id-and-composite-id-year-of-date-added-and-composite-id-arrival-date-and-composite-id-blog-id"
+    )
+    public Optional<
+        SaathratriEntity2DTO
+    > findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+        @RequestParam(name = "entityTypeId", required = true) final UUID entityTypeId,
+        @RequestParam(name = "yearOfDateAdded", required = true) final Long yearOfDateAdded,
+        @RequestParam(name = "arrivalDate", required = true) final Long arrivalDate,
+        @RequestParam(name = "blogId", required = true) final UUID blogId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId method for SaathratriEntity2s with parameteres entityTypeId: {}, yearOfDateAdded: {}, arrivalDate: {}, blogId: {}",
+            entityTypeId,
+            yearOfDateAdded,
+            arrivalDate,
+            blogId
+        );
+        return saathratriEntity2Service.findByCompositeIdEntityTypeIdAndCompositeIdYearOfDateAddedAndCompositeIdArrivalDateAndCompositeIdBlogId(
+            entityTypeId,
+            yearOfDateAdded,
+            arrivalDate,
+            blogId
+        );
+    }
+
+    /**
+     * // Composite Primary Key Code
      * {@code GET /find-all-by-composite-id-entity-type-id-and-composite-id-year-of-date-added-and-composite-id-arrival-date-and-composite-id-blog-id-less-than/:entityTypeId/:yearOfDateAdded/:arrivalDate/:blogId}
      *
      *

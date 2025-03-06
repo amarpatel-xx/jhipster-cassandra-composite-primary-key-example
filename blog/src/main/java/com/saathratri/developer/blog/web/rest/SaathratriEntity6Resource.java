@@ -467,6 +467,45 @@ public class SaathratriEntity6Resource {
 
     /**
      * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-organization-id-and-composite-id-arrival-date-and-composite-id-account-number-and-composite-id-created-time-id/:organizationId/:arrivalDate/:accountNumber/:createdTimeId}
+     *
+     *
+     * @param organizationId the Organization Id of the entity to retrieve.
+     * @param arrivalDate the Arrival Date of the entity to retrieve.
+     * @param accountNumber the Account Number of the entity to retrieve.
+     * @param createdTimeId the Created Time Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity6, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping(
+        "/find-by-composite-id-organization-id-and-composite-id-arrival-date-and-composite-id-account-number-and-composite-id-created-time-id"
+    )
+    public Optional<
+        SaathratriEntity6DTO
+    > findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId(
+        @RequestParam(name = "organizationId", required = true) final UUID organizationId,
+        @RequestParam(name = "arrivalDate", required = true) final Long arrivalDate,
+        @RequestParam(name = "accountNumber", required = true) final String accountNumber,
+        @RequestParam(name = "createdTimeId", required = true) final UUID createdTimeId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId method for SaathratriEntity6s with parameteres organizationId: {}, arrivalDate: {}, accountNumber: {}, createdTimeId: {}",
+            organizationId,
+            arrivalDate,
+            accountNumber,
+            createdTimeId
+        );
+        return saathratriEntity6Service.findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId(
+            organizationId,
+            arrivalDate,
+            accountNumber,
+            createdTimeId
+        );
+    }
+
+    /**
+     * // Composite Primary Key Code
      * {@code GET /find-all-by-composite-id-organization-id-and-composite-id-arrival-date-and-composite-id-account-number-and-composite-id-created-time-id-less-than/:organizationId/:arrivalDate/:accountNumber/:createdTimeId}
      *
      *

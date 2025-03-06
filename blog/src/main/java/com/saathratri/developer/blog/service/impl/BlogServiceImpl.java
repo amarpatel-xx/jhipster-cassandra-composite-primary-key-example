@@ -94,6 +94,14 @@ public class BlogServiceImpl implements BlogService {
     }
 
     @Override
+    public Optional<BlogDTO> findByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId) {
+        LOG.debug(
+            "Request to findByCompositeIdCategoryAndCompositeIdBlogId(final String category, final UUID blogId) service in BlogServiceImpl."
+        );
+        return blogRepository.findByCompositeIdCategoryAndCompositeIdBlogId(category, blogId).map(blogMapper::toDto);
+    }
+
+    @Override
     public List<BlogDTO> findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId) {
         LOG.debug(
             "Request to findAllByCompositeIdCategoryAndCompositeIdBlogIdLessThan(final String category, final UUID blogId) service in BlogServiceImpl."

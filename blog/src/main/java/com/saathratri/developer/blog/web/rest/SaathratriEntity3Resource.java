@@ -306,6 +306,30 @@ public class SaathratriEntity3Resource {
 
     /**
      * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-entity-type-and-composite-id-created-time-id/:entityType/:createdTimeId}
+     *
+     *
+     * @param entityType the Entity Type of the entity to retrieve.
+     * @param createdTimeId the Created Time Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity3, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-by-composite-id-entity-type-and-composite-id-created-time-id")
+    public Optional<SaathratriEntity3DTO> findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(
+        @RequestParam(name = "entityType", required = true) final String entityType,
+        @RequestParam(name = "createdTimeId", required = true) final UUID createdTimeId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId method for SaathratriEntity3s with parameteres entityType: {}, createdTimeId: {}",
+            entityType,
+            createdTimeId
+        );
+        return saathratriEntity3Service.findByCompositeIdEntityTypeAndCompositeIdCreatedTimeId(entityType, createdTimeId);
+    }
+
+    /**
+     * // Composite Primary Key Code
      * {@code GET /find-all-by-composite-id-entity-type-and-composite-id-created-time-id-less-than/:entityType/:createdTimeId}
      *
      *

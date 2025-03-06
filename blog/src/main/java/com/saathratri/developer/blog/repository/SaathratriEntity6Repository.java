@@ -4,6 +4,7 @@ import com.saathratri.developer.blog.domain.SaathratriEntity6;
 import com.saathratri.developer.blog.domain.SaathratriEntity6Id;
 import java.util.List;
 import java.util.Optional;
+import java.util.Optional;
 import java.util.UUID;
 import org.springframework.data.cassandra.repository.CassandraRepository;
 import org.springframework.data.cassandra.repository.Query;
@@ -28,6 +29,14 @@ public interface SaathratriEntity6Repository extends CassandraRepository<Saathra
         final UUID organizationId,
         final Long arrivalDate,
         final String accountNumber
+    );
+    Optional<
+        SaathratriEntity6
+    > findByCompositeIdOrganizationIdAndCompositeIdArrivalDateAndCompositeIdAccountNumberAndCompositeIdCreatedTimeId(
+        final UUID organizationId,
+        final Long arrivalDate,
+        final String accountNumber,
+        final UUID createdTimeId
     );
     List<
         SaathratriEntity6

@@ -411,6 +411,43 @@ public class SaathratriEntity5Resource {
         );
     }
 
+    /**
+     * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-organization-id-and-composite-id-entity-type-and-composite-id-entity-id-and-composite-id-add-on-id/:organizationId/:entityType/:entityId/:addOnId}
+     *
+     *
+     * @param organizationId the Organization Id of the entity to retrieve.
+     * @param entityType the Entity Type of the entity to retrieve.
+     * @param entityId the Entity Id of the entity to retrieve.
+     * @param addOnId the Add On Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the SaathratriEntity5, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-by-composite-id-organization-id-and-composite-id-entity-type-and-composite-id-entity-id-and-composite-id-add-on-id")
+    public Optional<
+        SaathratriEntity5DTO
+    > findByCompositeIdOrganizationIdAndCompositeIdEntityTypeAndCompositeIdEntityIdAndCompositeIdAddOnId(
+        @RequestParam(name = "organizationId", required = true) final UUID organizationId,
+        @RequestParam(name = "entityType", required = true) final String entityType,
+        @RequestParam(name = "entityId", required = true) final UUID entityId,
+        @RequestParam(name = "addOnId", required = true) final UUID addOnId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdOrganizationIdAndCompositeIdEntityTypeAndCompositeIdEntityIdAndCompositeIdAddOnId method for SaathratriEntity5s with parameteres organizationId: {}, entityType: {}, entityId: {}, addOnId: {}",
+            organizationId,
+            entityType,
+            entityId,
+            addOnId
+        );
+        return saathratriEntity5Service.findByCompositeIdOrganizationIdAndCompositeIdEntityTypeAndCompositeIdEntityIdAndCompositeIdAddOnId(
+            organizationId,
+            entityType,
+            entityId,
+            addOnId
+        );
+    }
+
     private String getUrlEncodedParameterValue(String parameterValue) {
         String encodedValue = null;
         try {

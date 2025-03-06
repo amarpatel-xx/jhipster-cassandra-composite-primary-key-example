@@ -267,6 +267,30 @@ public class BlogResource {
 
     /**
      * // Composite Primary Key Code
+     * {@code GET /find-by-composite-id-category-and-composite-id-blog-id/:category/:blogId}
+     *
+     *
+     * @param category the Category of the entity to retrieve.
+     * @param blogId the Blog Id of the entity to retrieve.
+     *
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the Blog, or with status {@code 404 (Not Found)}.
+     */
+    @GetMapping("/find-by-composite-id-category-and-composite-id-blog-id")
+    public Optional<BlogDTO> findByCompositeIdCategoryAndCompositeIdBlogId(
+        @RequestParam(name = "category", required = true) final String category,
+        @RequestParam(name = "blogId", required = true) final UUID blogId
+    ) {
+        // Composite Primary Key Code
+        LOG.debug(
+            "REST request to findByCompositeIdCategoryAndCompositeIdBlogId method for Blogs with parameteres category: {}, blogId: {}",
+            category,
+            blogId
+        );
+        return blogService.findByCompositeIdCategoryAndCompositeIdBlogId(category, blogId);
+    }
+
+    /**
+     * // Composite Primary Key Code
      * {@code GET /find-all-by-composite-id-category-and-composite-id-blog-id-less-than/:category/:blogId}
      *
      *
