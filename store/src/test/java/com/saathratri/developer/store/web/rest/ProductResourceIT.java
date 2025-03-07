@@ -209,14 +209,10 @@ class ProductResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(product.getId().toString())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE.array()))))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())));
     }
 
@@ -232,14 +228,10 @@ class ProductResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(product.getId().toString())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].price").value(hasItem(sameNumber(DEFAULT_PRICE))))
             .andExpect(jsonPath("$.[*].imageContentType").value(hasItem(DEFAULT_IMAGE_CONTENT_TYPE)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].image").value(hasItem(Base64.getEncoder().encodeToString(DEFAULT_IMAGE.array()))))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addedDate").value(hasItem(DEFAULT_ADDED_DATE.intValue())));
     }
 

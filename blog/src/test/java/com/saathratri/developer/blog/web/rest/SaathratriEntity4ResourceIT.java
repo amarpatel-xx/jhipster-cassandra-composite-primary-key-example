@@ -160,7 +160,6 @@ class SaathratriEntity4ResourceIT {
             .andExpect(
                 jsonPath("$.[*].compositeId.attributeKey").value(hasItem(saathratriEntity4.getCompositeId().getAttributeKey().toString()))
             )
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].attributeValue").value(hasItem(DEFAULT_ATTRIBUTE_VALUE)));
     }
 
@@ -189,7 +188,6 @@ class SaathratriEntity4ResourceIT {
             .andExpect(
                 jsonPath("$.[*].compositeId.attributeKey").value(hasItem(saathratriEntity4.getCompositeId().getAttributeKey().toString()))
             )
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].attributeValue").value(hasItem(DEFAULT_ATTRIBUTE_VALUE)));
     }
 

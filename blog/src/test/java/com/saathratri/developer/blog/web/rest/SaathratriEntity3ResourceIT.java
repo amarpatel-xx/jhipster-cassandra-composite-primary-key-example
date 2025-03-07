@@ -199,15 +199,10 @@ class SaathratriEntity3ResourceIT {
             .andExpect(
                 jsonPath("$.[*].compositeId.createdTimeId").value(hasItem(saathratriEntity3.getCompositeId().getCreatedTimeId().toString()))
             )
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].entityName").value(hasItem(DEFAULT_ENTITY_NAME)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].entityDescription").value(hasItem(DEFAULT_ENTITY_DESCRIPTION)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].departureDate").value(hasItem(DEFAULT_DEPARTURE_DATE.intValue())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].tags").value(hasItem(DEFAULT_TAGS)));
     }
 
@@ -234,15 +229,10 @@ class SaathratriEntity3ResourceIT {
             .andExpect(
                 jsonPath("$.[*].compositeId.createdTimeId").value(hasItem(saathratriEntity3.getCompositeId().getCreatedTimeId().toString()))
             )
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].entityName").value(hasItem(DEFAULT_ENTITY_NAME)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].entityDescription").value(hasItem(DEFAULT_ENTITY_DESCRIPTION)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].departureDate").value(hasItem(DEFAULT_DEPARTURE_DATE.intValue())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].tags").value(hasItem(DEFAULT_TAGS)));
     }
 

@@ -200,13 +200,9 @@ class PostResourceIT {
             .andExpect(jsonPath("$.[*].compositeId.createdDate").value(hasItem(post.getCompositeId().getCreatedDate().intValue())))
             .andExpect(jsonPath("$.[*].compositeId.addedDateTime").value(hasItem(post.getCompositeId().getAddedDateTime().intValue())))
             .andExpect(jsonPath("$.[*].compositeId.postId").value(hasItem(post.getCompositeId().getPostId().toString())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].sentDate").value(hasItem(DEFAULT_SENT_DATE.intValue())));
     }
 
@@ -234,13 +230,9 @@ class PostResourceIT {
             .andExpect(jsonPath("$.[*].compositeId.createdDate").value(hasItem(post.getCompositeId().getCreatedDate().intValue())))
             .andExpect(jsonPath("$.[*].compositeId.addedDateTime").value(hasItem(post.getCompositeId().getAddedDateTime().intValue())))
             .andExpect(jsonPath("$.[*].compositeId.postId").value(hasItem(post.getCompositeId().getPostId().toString())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].content").value(hasItem(DEFAULT_CONTENT)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].publishedDateTime").value(hasItem(DEFAULT_PUBLISHED_DATE_TIME.intValue())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].sentDate").value(hasItem(DEFAULT_SENT_DATE.intValue())));
     }
 

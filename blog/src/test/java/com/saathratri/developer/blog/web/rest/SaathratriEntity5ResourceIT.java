@@ -279,15 +279,10 @@ class SaathratriEntity5ResourceIT {
             )
             .andExpect(jsonPath("$.[*].compositeId.entityId").value(hasItem(saathratriEntity5.getCompositeId().getEntityId().toString())))
             .andExpect(jsonPath("$.[*].compositeId.addOnId").value(hasItem(saathratriEntity5.getCompositeId().getAddOnId().toString())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnType").value(hasItem(DEFAULT_ADD_ON_TYPE)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsText['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_TEXT.get("AAAAAAAAAA")))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsDecimal['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_DECIMAL.get("AAAAAAAAAA")))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsBoolean['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BOOLEAN.get("AAAAAAAAAA")))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsBigInt['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BIG_INT.get("AAAAAAAAAA")));
     }
 
@@ -326,15 +321,10 @@ class SaathratriEntity5ResourceIT {
             )
             .andExpect(jsonPath("$.[*].compositeId.entityId").value(hasItem(saathratriEntity5.getCompositeId().getEntityId().toString())))
             .andExpect(jsonPath("$.[*].compositeId.addOnId").value(hasItem(saathratriEntity5.getCompositeId().getAddOnId().toString())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnType").value(hasItem(DEFAULT_ADD_ON_TYPE)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsText['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_TEXT.get("AAAAAAAAAA")))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsDecimal['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_DECIMAL.get("AAAAAAAAAA")))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsBoolean['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BOOLEAN.get("AAAAAAAAAA")))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsBigInt['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BIG_INT.get("AAAAAAAAAA")));
     }
 

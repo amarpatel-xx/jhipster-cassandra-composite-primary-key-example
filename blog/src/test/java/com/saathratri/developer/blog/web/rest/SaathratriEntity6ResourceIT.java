@@ -323,29 +323,17 @@ class SaathratriEntity6ResourceIT {
             .andExpect(
                 jsonPath("$.[*].compositeId.createdTimeId").value(hasItem(saathratriEntity6.getCompositeId().getCreatedTimeId().toString()))
             )
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].departureDate").value(hasItem(DEFAULT_DEPARTURE_DATE.intValue())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].customerId").value(hasItem(DEFAULT_CUSTOMER_ID.toString())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].customerFirstName").value(hasItem(DEFAULT_CUSTOMER_FIRST_NAME)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].customerLastName").value(hasItem(DEFAULT_CUSTOMER_LAST_NAME)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].customerUpdatedEmail").value(hasItem(DEFAULT_CUSTOMER_UPDATED_EMAIL)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].customerUpdatedPhoneNumber").value(hasItem(DEFAULT_CUSTOMER_UPDATED_PHONE_NUMBER)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].customerEstimatedArrivalTime").value(hasItem(DEFAULT_CUSTOMER_ESTIMATED_ARRIVAL_TIME)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].tinyUrlShortCode").value(hasItem(DEFAULT_TINY_URL_SHORT_CODE)))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsText['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_TEXT.get("AAAAAAAAAA")))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsDecimal['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_DECIMAL.get("AAAAAAAAAA")))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsBoolean['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BOOLEAN.get("AAAAAAAAAA")))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].addOnDetailsBigInt['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BIG_INT.get("AAAAAAAAAA")));
     }
 
@@ -388,29 +376,17 @@ class SaathratriEntity6ResourceIT {
             .andExpect(
                 jsonPath("$.[*].compositeId.createdTimeId").value(hasItem(saathratriEntity6.getCompositeId().getCreatedTimeId().toString()))
             )
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].departureDate").value(hasItem(DEFAULT_DEPARTURE_DATE.intValue())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].customerId").value(hasItem(DEFAULT_CUSTOMER_ID.toString())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].customerFirstName").value(hasItem(DEFAULT_CUSTOMER_FIRST_NAME)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].customerLastName").value(hasItem(DEFAULT_CUSTOMER_LAST_NAME)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].customerUpdatedEmail").value(hasItem(DEFAULT_CUSTOMER_UPDATED_EMAIL)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].customerUpdatedPhoneNumber").value(hasItem(DEFAULT_CUSTOMER_UPDATED_PHONE_NUMBER)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].customerEstimatedArrivalTime").value(hasItem(DEFAULT_CUSTOMER_ESTIMATED_ARRIVAL_TIME)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].tinyUrlShortCode").value(hasItem(DEFAULT_TINY_URL_SHORT_CODE)))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsText['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_TEXT.get("AAAAAAAAAA")))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsDecimal['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_DECIMAL.get("AAAAAAAAAA")))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsBoolean['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BOOLEAN.get("AAAAAAAAAA")))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].addOnDetailsBigInt['AAAAAAAAAA']").value(DEFAULT_ADD_ON_DETAILS_BIG_INT.get("AAAAAAAAAA")));
     }
 

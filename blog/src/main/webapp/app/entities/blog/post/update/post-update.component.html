@@ -30,6 +30,7 @@
               formControlName="addedDateTime"
               [dateTimeLabel]="'blogApp.blogPost.addedDateTime' | translate"
               [labelClass]="'form-label'"
+              [isRequired]="true"
               (isValid)="onDateTimeValid('addedDateTime', $event)"
             ></app-date-time>
           </div>
@@ -69,6 +70,7 @@
             formControlName="publishedDateTime"
             [dateTimeLabel]="'blogApp.blogPost.publishedDateTime' | translate"
             [labelClass]="'form-label'"
+            [isRequired]="false"
             (isValid)="onDateTimeValid('publishedDateTime', $event)"
           ></app-date-time>
         </div>

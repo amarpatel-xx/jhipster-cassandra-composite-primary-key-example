@@ -7,7 +7,7 @@ jhipster:
   security:
     authentication:
       jwt:
-        base64-secret: ZjE5YjE1MTY3ZTVlMmFmOGYxZmU5MWFhZjNkYTIwODQ3MjY1NzgxZDJjYTBmZDA3MDY3YjMzN2M1ZjllNjNjZjA4YTdhZjUxYjBkNGViMTBhZTNkMmVkYmYzOGVkNTViMTQ3OQ==
+        base64-secret: ZTY4MGE0ZDJlM2JmZGMxNGFjYmI2MzgwM2VlOWRjZTdkYzQyYWU4OGM2YmVkZTI4NDBjMzY1NTRhMGQzMzYxMmM3YWRkOWRhMWIyNTIzY2YzMzNlZTE1Nzc1NmVlOGEyYTNkMg==
 eureka:
   client:
     service-url:

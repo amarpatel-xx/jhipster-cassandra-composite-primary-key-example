@@ -148,7 +148,6 @@ class TagResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tag.getId().toString())))
-            /*Saathratri-1*/
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
 
@@ -164,7 +163,6 @@ class TagResourceIT {
             .andExpect(status().isOk())
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(tag.getId().toString())))
-            /*Saathratri-2*/
             .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME)));
     }
 
