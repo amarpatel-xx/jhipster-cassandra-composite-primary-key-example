@@ -37,6 +37,15 @@
               data-cy="createdTimeId"
               formControlName="createdTimeId"
             />
+            <button type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.createdTimeId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearTimeUUID('compositeId.createdTimeId')"
+              [disabled]="!editForm.get('compositeId.createdTimeId')?.value"
+            >
+              Clear
+            </button>
           </div>
         </div>
 

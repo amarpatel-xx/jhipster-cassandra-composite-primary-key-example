@@ -25,6 +25,15 @@
               data-cy="organizationId"
               formControlName="organizationId"
             />
+            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearUUID('compositeId.organizationId')"
+              [disabled]="!editForm.get('compositeId.organizationId')?.value"
+            >
+              Clear
+            </button>
           </div>
 
           <div class="mb-3">
@@ -69,6 +78,15 @@
               data-cy="createdTimeId"
               formControlName="createdTimeId"
             />
+            <button type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.createdTimeId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearTimeUUID('compositeId.createdTimeId')"
+              [disabled]="!editForm.get('compositeId.createdTimeId')?.value"
+            >
+              Clear
+            </button>
           </div>
         </div>
 
@@ -98,6 +116,10 @@
             data-cy="customerId"
             formControlName="customerId"
           />
+          <button type="button" class="btn btn-primary" (click)="generateUUID('customerId')">Generate</button>
+          <button type="button" class="btn btn-danger" (click)="clearUUID('customerId')" [disabled]="!editForm.get('customerId')?.value">
+            Clear
+          </button>
         </div>
 
         <div class="mb-3">

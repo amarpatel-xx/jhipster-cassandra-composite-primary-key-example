@@ -9,10 +9,11 @@ import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
+
 import { AlertError } from 'app/shared/alert/alert-error.model';
 import { EventManager, EventWithContent } from 'app/core/util/event-manager.service';
 import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
-
+import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { IProduct } from '../product.model';
 import { ProductService } from '../service/product.service';
 import { ProductFormGroup, ProductFormService } from './product-form.service';
@@ -90,6 +91,17 @@ export class ProductUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.productService.update(product));
     }
+  }
+
+  // Generate a new UUID and update the form
+  generateUUID(field: string): void {
+    const newUUID = uuidv4();
+    this.editForm.get(field)?.setValue(newUUID);
+  }
+
+  // Clear the UUID field
+  clearUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IProduct>>): void {

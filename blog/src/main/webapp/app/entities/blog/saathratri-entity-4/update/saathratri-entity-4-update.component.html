@@ -25,6 +25,15 @@
               data-cy="organizationId"
               formControlName="organizationId"
             />
+            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearUUID('compositeId.organizationId')"
+              [disabled]="!editForm.get('compositeId.organizationId')?.value"
+            >
+              Clear
+            </button>
           </div>
 
           <div class="mb-3">

@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20250312013346"
+    "changelogDate": "20250312202948"
   },
   "applications": ["blog"],
   "clientRootFolder": "blog",

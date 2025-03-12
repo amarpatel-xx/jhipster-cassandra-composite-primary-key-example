@@ -8,9 +8,11 @@ import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { ISaathratriEntity4 } from '../saathratri-entity-4.model';
 import { SaathratriEntity4Service } from '../service/saathratri-entity-4.service';
 import { SaathratriEntity4FormGroup, SaathratriEntity4FormService } from './saathratri-entity-4-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-4-update',
@@ -53,6 +55,17 @@ export class SaathratriEntity4UpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.saathratriEntity4Service.update(saathratriEntity4));
     }
+  }
+
+  // Generate a new UUID and update the form
+  generateUUID(field: string): void {
+    const newUUID = uuidv4();
+    this.editForm.get(field)?.setValue(newUUID);
+  }
+
+  // Clear the UUID field
+  clearUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity4>>): void {

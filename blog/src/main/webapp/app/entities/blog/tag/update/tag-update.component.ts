@@ -8,9 +8,11 @@ import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { ITag } from '../tag.model';
 import { TagService } from '../service/tag.service';
 import { TagFormGroup, TagFormService } from './tag-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-tag-update',
@@ -54,6 +56,17 @@ export class TagUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.tagService.update(tag));
     }
+  }
+
+  // Generate a new UUID and update the form
+  generateUUID(field: string): void {
+    const newUUID = uuidv4();
+    this.editForm.get(field)?.setValue(newUUID);
+  }
+
+  // Clear the UUID field
+  clearUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ITag>>): void {

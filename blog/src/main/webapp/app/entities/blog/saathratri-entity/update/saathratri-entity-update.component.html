@@ -15,6 +15,10 @@
         <div class="mb-3">
           <label class="form-label" for="field_entityId" jhiTranslate="blogApp.blogSaathratriEntity.entityId">Entity Id</label>
           <input type="text" class="form-control" name="entityId" id="field_entityId" data-cy="entityId" formControlName="entityId" />
+          <button type="button" class="btn btn-primary" (click)="generateUUID('entityId')">Generate</button>
+          <button type="button" class="btn btn-danger" (click)="clearUUID('entityId')" [disabled]="!editForm.get('entityId')?.value">
+            Clear
+          </button>
         </div>
 
         <div class="mb-3">

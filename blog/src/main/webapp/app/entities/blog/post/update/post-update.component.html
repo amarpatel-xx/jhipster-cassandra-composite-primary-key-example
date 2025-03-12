@@ -38,6 +38,15 @@
           <div class="mb-3">
             <label class="form-label" for="field_postId" jhiTranslate="blogApp.blogPost.postId">Post Id</label>
             <input type="text" class="form-control" name="postId" id="field_postId" data-cy="postId" formControlName="postId" />
+            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.postId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearUUID('compositeId.postId')"
+              [disabled]="!editForm.get('compositeId.postId')?.value"
+            >
+              Clear
+            </button>
           </div>
         </div>
 

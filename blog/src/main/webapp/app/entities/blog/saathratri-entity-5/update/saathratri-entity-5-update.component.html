@@ -25,6 +25,15 @@
               data-cy="organizationId"
               formControlName="organizationId"
             />
+            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearUUID('compositeId.organizationId')"
+              [disabled]="!editForm.get('compositeId.organizationId')?.value"
+            >
+              Clear
+            </button>
           </div>
 
           <div class="mb-3">
@@ -42,11 +51,29 @@
           <div class="mb-3">
             <label class="form-label" for="field_entityId" jhiTranslate="blogApp.blogSaathratriEntity5.entityId">Entity Id</label>
             <input type="text" class="form-control" name="entityId" id="field_entityId" data-cy="entityId" formControlName="entityId" />
+            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.entityId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearUUID('compositeId.entityId')"
+              [disabled]="!editForm.get('compositeId.entityId')?.value"
+            >
+              Clear
+            </button>
           </div>
 
           <div class="mb-3">
             <label class="form-label" for="field_addOnId" jhiTranslate="blogApp.blogSaathratriEntity5.addOnId">Add On Id</label>
             <input type="text" class="form-control" name="addOnId" id="field_addOnId" data-cy="addOnId" formControlName="addOnId" />
+            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.addOnId')">Generate</button>
+            <button
+              type="button"
+              class="btn btn-danger"
+              (click)="clearUUID('compositeId.addOnId')"
+              [disabled]="!editForm.get('compositeId.addOnId')?.value"
+            >
+              Clear
+            </button>
           </div>
         </div>
 

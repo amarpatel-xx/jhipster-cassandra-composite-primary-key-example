@@ -8,9 +8,11 @@ import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { ITajUser } from '../taj-user.model';
 import { TajUserService } from '../service/taj-user.service';
 import { TajUserFormGroup, TajUserFormService } from './taj-user-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-taj-user-update',
@@ -54,6 +56,17 @@ export class TajUserUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.tajUserService.update(tajUser));
     }
+  }
+
+  // Generate a new UUID and update the form
+  generateUUID(field: string): void {
+    const newUUID = uuidv4();
+    this.editForm.get(field)?.setValue(newUUID);
+  }
+
+  // Clear the UUID field
+  clearUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ITajUser>>): void {

@@ -10,6 +10,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
 import { DateTimeComponent } from 'app/components/date-time/date-time.component';
+import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 
 import { IPost } from '../post.model';
 import { PostService } from '../service/post.service';
@@ -81,6 +82,17 @@ export class PostUpdateComponent implements OnInit {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       (!publishedDateTimeControl?.hasError('required') || this.isDateTimeValid.publishedDateTime)
     );
+  }
+
+  // Generate a new UUID and update the form
+  generateUUID(field: string): void {
+    const newUUID = uuidv4();
+    this.editForm.get(field)?.setValue(newUUID);
+  }
+
+  // Clear the UUID field
+  clearUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPost>>): void {

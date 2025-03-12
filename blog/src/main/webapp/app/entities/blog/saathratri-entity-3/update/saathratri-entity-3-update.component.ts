@@ -9,6 +9,7 @@ import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import dayjs from 'dayjs/esm';
+import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 
 import { ISaathratriEntity3 } from '../saathratri-entity-3.model';
 import { SaathratriEntity3Service } from '../service/saathratri-entity-3.service';
@@ -62,6 +63,17 @@ export class SaathratriEntity3UpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.saathratriEntity3Service.update(saathratriEntity3));
     }
+  }
+
+  // Generate a new TimeUUID and update the form
+  generateTimeUUID(field: string): void {
+    const newTimeUUID = uuidv1();
+    this.editForm.get(field)?.setValue(newTimeUUID);
+  }
+
+  // Clear the TimeUUID field
+  clearTimeUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity3>>): void {

@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20250312013646"
+    "changelogDate": "20250312203248"
   },
   "applications": ["blog"],
   "clientRootFolder": "blog",
@@ -34,7 +34,7 @@
       "fieldName": "blogId",
       "fieldType": "UUID",
       "options": {
-        "customAnnotation": ["PrimaryKeyType.CLUSTERED", "CassandraType.Name.TIMEUUID", "TIMEUUID"]
+        "customAnnotation": ["PrimaryKeyType.CLUSTERED", "CassandraType.Name.TIMEUUID", true]
       }
     },
     {

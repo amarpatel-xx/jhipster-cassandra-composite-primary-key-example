@@ -8,9 +8,11 @@ import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 import { IBlog } from '../blog.model';
 import { BlogService } from '../service/blog.service';
 import { BlogFormGroup, BlogFormService } from './blog-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-blog-update',
@@ -53,6 +55,17 @@ export class BlogUpdateComponent implements OnInit {
     } else {
       this.subscribeToSaveResponse(this.blogService.update(blog));
     }
+  }
+
+  // Generate a new TimeUUID and update the form
+  generateTimeUUID(field: string): void {
+    const newTimeUUID = uuidv1();
+    this.editForm.get(field)?.setValue(newTimeUUID);
+  }
+
+  // Clear the TimeUUID field
+  clearTimeUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IBlog>>): void {
