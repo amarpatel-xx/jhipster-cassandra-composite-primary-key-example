@@ -73,8 +73,12 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
   }
 
   get areAllDateTimeFieldsValid(): boolean {
-    // Check if all date-time fields are valid
-    return Object.values(this.isDateTimeValid).every(valid => valid);
+    const addOnDetailsBigIntControl = this.editForm.get('addOnDetailsBigInt');
+
+    return (
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      !addOnDetailsBigIntControl?.hasError('required') || this.isDateTimeValid.addOnDetailsBigInt
+    );
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity6>>): void {

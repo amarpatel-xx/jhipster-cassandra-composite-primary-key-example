@@ -72,8 +72,15 @@ export class PostUpdateComponent implements OnInit {
   }
 
   get areAllDateTimeFieldsValid(): boolean {
-    // Check if all date-time fields are valid
-    return Object.values(this.isDateTimeValid).every(valid => valid);
+    const addedDateTimeControl = this.editForm.get('addedDateTime');
+    const publishedDateTimeControl = this.editForm.get('publishedDateTime');
+
+    return (
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      (!addedDateTimeControl?.hasError('required') || this.isDateTimeValid.addedDateTime) &&
+      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+      (!publishedDateTimeControl?.hasError('required') || this.isDateTimeValid.publishedDateTime)
+    );
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IPost>>): void {

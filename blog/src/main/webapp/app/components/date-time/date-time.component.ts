@@ -183,14 +183,12 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   dateTimeValidator: ValidatorFn = (formGroup: AbstractControl): ValidationErrors | null => {
-    const date = formGroup.get('date')?.value;
-    const hours = formGroup.get('hours')?.value;
-    const minutes = formGroup.get('minutes')?.value;
-    const amPm = formGroup.get('amPm')?.value;
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+    const controls = ['date', 'hours', 'minutes', 'amPm'].map(field => formGroup.get(field)?.value);
 
-    if (!date || !hours || !minutes || !amPm) {
-      return { dateTimeInvalid: true }; // Return an error object
-    }
-    return null; // Return null if valid
+    // Check if ANY field has a value
+    const hasValue = controls.some(value => value !== null && value !== undefined && value !== '');
+
+    return hasValue ? null : { required: true }; // Make it behave like Validators.required
   };
 }
