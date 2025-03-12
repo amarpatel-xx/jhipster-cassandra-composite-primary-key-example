@@ -36,6 +36,14 @@ public class SaathratriEntity implements Serializable {
     @CassandraType(type = CassandraType.Name.DECIMAL)
     private BigDecimal entityCost;
 
+    @Column("created_id")
+    @CassandraType(type = CassandraType.Name.UUID)
+    private UUID createdId;
+
+    @Column("created_time_id")
+    @CassandraType(type = CassandraType.Name.TIMEUUID)
+    private UUID createdTimeId;
+
     public UUID getEntityId() {
         return this.entityId;
     }
@@ -90,6 +98,32 @@ public class SaathratriEntity implements Serializable {
         this.entityCost = entityCost;
     }
 
+    public UUID getCreatedId() {
+        return this.createdId;
+    }
+
+    public SaathratriEntity createdId(UUID createdId) {
+        this.setCreatedId(createdId);
+        return this;
+    }
+
+    public void setCreatedId(UUID createdId) {
+        this.createdId = createdId;
+    }
+
+    public UUID getCreatedTimeId() {
+        return this.createdTimeId;
+    }
+
+    public SaathratriEntity createdTimeId(UUID createdTimeId) {
+        this.setCreatedTimeId(createdTimeId);
+        return this;
+    }
+
+    public void setCreatedTimeId(UUID createdTimeId) {
+        this.createdTimeId = createdTimeId;
+    }
+
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
 
     @Override
@@ -117,6 +151,8 @@ public class SaathratriEntity implements Serializable {
             ", entityName='" + getEntityName() + "'" +
             ", entityDescription='" + getEntityDescription() + "'" +
             ", entityCost=" + getEntityCost() +
+            ", createdId='" + getCreatedId() + "'" +
+            ", createdTimeId='" + getCreatedTimeId() + "'" +
             "}";
     }
 }

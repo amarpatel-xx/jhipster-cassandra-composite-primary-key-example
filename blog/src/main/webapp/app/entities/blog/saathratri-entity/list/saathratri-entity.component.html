@@ -63,6 +63,20 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
+            <th scope="col" jhiSortBy="createdId">
+              <div class="d-flex">
+                <span jhiTranslate="blogApp.blogSaathratriEntity.createdId">Created Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="createdTimeId">
+              <div class="d-flex">
+                <span jhiTranslate="blogApp.blogSaathratriEntity.createdTimeId">Created Time Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
             <th scope="col"></th>
           </tr>
         </thead>
@@ -75,6 +89,8 @@
               <td>{{ saathratriEntity.entityName }}</td>
               <td>{{ saathratriEntity.entityDescription }}</td>
               <td>{{ saathratriEntity.entityCost }}</td>
+              <td>{{ saathratriEntity.createdId }}</td>
+              <td>{{ saathratriEntity.createdTimeId }}</td>
               <td class="text-end">
                 <div class="btn-group">
                   <a

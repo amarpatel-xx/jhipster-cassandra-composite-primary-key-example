@@ -157,14 +157,20 @@ describe('SaathratriEntity e2e test', () => {
     });
 
     it('should create an instance of SaathratriEntity', () => {
-      cy.get(`[data-cy="entityName"]`).type('lotion');
-      cy.get(`[data-cy="entityName"]`).should('have.value', 'lotion');
+      cy.get(`[data-cy="entityName"]`).type('ew');
+      cy.get(`[data-cy="entityName"]`).should('have.value', 'ew');
 
-      cy.get(`[data-cy="entityDescription"]`).type('bind stiffen blah');
-      cy.get(`[data-cy="entityDescription"]`).should('have.value', 'bind stiffen blah');
+      cy.get(`[data-cy="entityDescription"]`).type('thread abaft');
+      cy.get(`[data-cy="entityDescription"]`).should('have.value', 'thread abaft');
 
-      cy.get(`[data-cy="entityCost"]`).type('17604.23');
-      cy.get(`[data-cy="entityCost"]`).should('have.value', '17604.23');
+      cy.get(`[data-cy="entityCost"]`).type('19057.39');
+      cy.get(`[data-cy="entityCost"]`).should('have.value', '19057.39');
+
+      cy.get(`[data-cy="createdId"]`).type('4f4629f7-de18-4000-b6bc-63cd47c43d8c');
+      cy.get(`[data-cy="createdId"]`).invoke('val').should('match', new RegExp('4f4629f7-de18-4000-b6bc-63cd47c43d8c'));
+
+      cy.get(`[data-cy="createdTimeId"]`).type('180045fb-be52-47e4-a6e9-e885f024208d');
+      cy.get(`[data-cy="createdTimeId"]`).invoke('val').should('match', new RegExp('180045fb-be52-47e4-a6e9-e885f024208d'));
 
       cy.get(entityCreateSaveButtonSelector).click();
 

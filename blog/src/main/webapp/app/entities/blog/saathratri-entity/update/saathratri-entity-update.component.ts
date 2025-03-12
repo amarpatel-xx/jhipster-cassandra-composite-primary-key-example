@@ -9,10 +9,10 @@ import { MaterialModule } from 'app/shared/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
+import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 import { ISaathratriEntity } from '../saathratri-entity.model';
 import { SaathratriEntityService } from '../service/saathratri-entity.service';
 import { SaathratriEntityFormGroup, SaathratriEntityFormService } from './saathratri-entity-form.service';
-
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-update',
@@ -66,6 +66,17 @@ export class SaathratriEntityUpdateComponent implements OnInit {
 
   // Clear the UUID field
   clearUUID(field: string): void {
+    this.editForm.get(field)?.setValue('');
+  }
+
+  // Generate a new TimeUUID and update the form
+  generateTimeUUID(field: string): void {
+    const newTimeUUID = uuidv1();
+    this.editForm.get(field)?.setValue(newTimeUUID);
+  }
+
+  // Clear the TimeUUID field
+  clearTimeUUID(field: string): void {
     this.editForm.get(field)?.setValue('');
   }
 

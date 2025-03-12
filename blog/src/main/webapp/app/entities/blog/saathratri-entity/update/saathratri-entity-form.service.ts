@@ -21,6 +21,8 @@ type SaathratriEntityFormGroupContent = {
   entityName: FormControl<ISaathratriEntity['entityName']>;
   entityDescription: FormControl<ISaathratriEntity['entityDescription']>;
   entityCost: FormControl<ISaathratriEntity['entityCost']>;
+  createdId: FormControl<ISaathratriEntity['createdId']>;
+  createdTimeId: FormControl<ISaathratriEntity['createdTimeId']>;
 };
 
 export type SaathratriEntityFormGroup = FormGroup<SaathratriEntityFormGroupContent>;
@@ -43,6 +45,8 @@ export class SaathratriEntityFormService {
       entityName: new FormControl(saathratriEntityRawValue.entityName),
       entityDescription: new FormControl(saathratriEntityRawValue.entityDescription),
       entityCost: new FormControl(saathratriEntityRawValue.entityCost),
+      createdId: new FormControl(saathratriEntityRawValue.createdId),
+      createdTimeId: new FormControl(saathratriEntityRawValue.createdTimeId),
     });
   }
 

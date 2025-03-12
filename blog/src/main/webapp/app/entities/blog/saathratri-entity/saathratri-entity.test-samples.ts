@@ -1,20 +1,22 @@
 import { ISaathratriEntity, NewSaathratriEntity } from './saathratri-entity.model';
 
 export const sampleWithRequiredData: ISaathratriEntity = {
-  entityId: '0a12abbb-cbc7-4233-8d33-638e4f24eb9b',
+  entityId: 'abbbcbc7-233d-4336-938e-4f24eb9b13b2',
 };
 
 export const sampleWithPartialData: ISaathratriEntity = {
-  entityId: '5659ffb4-244c-461e-9a74-f787a2422e3c',
-  entityName: 'against during acidly',
-  entityCost: 5939.97,
+  entityId: 'b4244c61-ea74-4f78-97a2-422e3c6c20d9',
+  entityName: 'finally anti hundred',
+  entityDescription: 'conversation inasmuch',
 };
 
 export const sampleWithFullData: ISaathratriEntity = {
-  entityId: '0ed97841-b0ab-4204-ae52-95cfbca84d82',
-  entityName: 'with whoa sunny',
-  entityDescription: 'provided lustrous',
-  entityCost: 26498.61,
+  entityId: 'cfbca84d-829a-4f2f-9007-f0c44401398c',
+  entityName: 'longingly sign',
+  entityDescription: 'healthily greatly brr',
+  entityCost: 11466.15,
+  createdId: '60db336f-4188-450a-899e-f4619cbfdd82',
+  createdTimeId: '450224e1-6212-407e-9ec9-e52679b9f7bf',
 };
 
 export const sampleWithNewData: NewSaathratriEntity = {

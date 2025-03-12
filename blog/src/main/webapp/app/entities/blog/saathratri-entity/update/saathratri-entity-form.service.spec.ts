@@ -23,6 +23,8 @@ describe('SaathratriEntity Form Service', () => {
             entityName: expect.any(Object),
             entityDescription: expect.any(Object),
             entityCost: expect.any(Object),
+            createdId: expect.any(Object),
+            createdTimeId: expect.any(Object),
           }),
         );
       });
@@ -36,6 +38,8 @@ describe('SaathratriEntity Form Service', () => {
             entityName: expect.any(Object),
             entityDescription: expect.any(Object),
             entityCost: expect.any(Object),
+            createdId: expect.any(Object),
+            createdTimeId: expect.any(Object),
           }),
         );
       });

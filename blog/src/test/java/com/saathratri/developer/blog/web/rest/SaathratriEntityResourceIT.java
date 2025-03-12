@@ -45,6 +45,12 @@ class SaathratriEntityResourceIT {
     private static final BigDecimal DEFAULT_ENTITY_COST = new BigDecimal(1);
     private static final BigDecimal UPDATED_ENTITY_COST = new BigDecimal(2);
 
+    private static final UUID DEFAULT_CREATED_ID = UUID.randomUUID();
+    private static final UUID UPDATED_CREATED_ID = UUID.randomUUID();
+
+    private static final UUID DEFAULT_CREATED_TIME_ID = UUID.randomUUID();
+    private static final UUID UPDATED_CREATED_TIME_ID = UUID.randomUUID();
+
     private static final String ENTITY_API_URL = "/api/saathratri-entities";
     private static final String ENTITY_API_URL_ID = ENTITY_API_URL + "/{entityId}";
 
@@ -73,7 +79,9 @@ class SaathratriEntityResourceIT {
             .entityId(DEFAULT_ENTITY_ID)
             .entityName(DEFAULT_ENTITY_NAME)
             .entityDescription(DEFAULT_ENTITY_DESCRIPTION)
-            .entityCost(DEFAULT_ENTITY_COST);
+            .entityCost(DEFAULT_ENTITY_COST)
+            .createdId(DEFAULT_CREATED_ID)
+            .createdTimeId(DEFAULT_CREATED_TIME_ID);
         return saathratriEntity;
     }
 
@@ -88,7 +96,9 @@ class SaathratriEntityResourceIT {
             .entityId(UPDATED_ENTITY_ID)
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
-            .entityCost(UPDATED_ENTITY_COST);
+            .entityCost(UPDATED_ENTITY_COST)
+            .createdId(UPDATED_CREATED_ID)
+            .createdTimeId(UPDATED_CREATED_TIME_ID);
         return saathratriEntity;
     }
 
@@ -157,7 +167,9 @@ class SaathratriEntityResourceIT {
             .andExpect(jsonPath("$.[*].entityId").value(hasItem(saathratriEntity.getEntityId().toString())))
             .andExpect(jsonPath("$.[*].entityName").value(hasItem(DEFAULT_ENTITY_NAME)))
             .andExpect(jsonPath("$.[*].entityDescription").value(hasItem(DEFAULT_ENTITY_DESCRIPTION)))
-            .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))));
+            .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))))
+            .andExpect(jsonPath("$.[*].createdId").value(hasItem(DEFAULT_CREATED_ID.toString())))
+            .andExpect(jsonPath("$.[*].createdTimeId").value(hasItem(DEFAULT_CREATED_TIME_ID.toString())));
     }
 
     @Test
@@ -174,7 +186,9 @@ class SaathratriEntityResourceIT {
             .andExpect(jsonPath("$.[*].entityId").value(hasItem(saathratriEntity.getEntityId().toString())))
             .andExpect(jsonPath("$.[*].entityName").value(hasItem(DEFAULT_ENTITY_NAME)))
             .andExpect(jsonPath("$.[*].entityDescription").value(hasItem(DEFAULT_ENTITY_DESCRIPTION)))
-            .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))));
+            .andExpect(jsonPath("$.[*].entityCost").value(hasItem(sameNumber(DEFAULT_ENTITY_COST))))
+            .andExpect(jsonPath("$.[*].createdId").value(hasItem(DEFAULT_CREATED_ID.toString())))
+            .andExpect(jsonPath("$.[*].createdTimeId").value(hasItem(DEFAULT_CREATED_TIME_ID.toString())));
     }
 
     @Test
@@ -197,7 +211,9 @@ class SaathratriEntityResourceIT {
             .entityId(UPDATED_ENTITY_ID)
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
-            .entityCost(UPDATED_ENTITY_COST);
+            .entityCost(UPDATED_ENTITY_COST)
+            .createdId(UPDATED_CREATED_ID)
+            .createdTimeId(UPDATED_CREATED_TIME_ID);
         SaathratriEntityDTO saathratriEntityDTO = saathratriEntityMapper.toDto(updatedSaathratriEntity);
 
         restSaathratriEntityMockMvc
@@ -291,7 +307,9 @@ class SaathratriEntityResourceIT {
         partialUpdatedSaathratriEntity
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
-            .entityCost(UPDATED_ENTITY_COST);
+            .entityCost(UPDATED_ENTITY_COST)
+            .createdId(UPDATED_CREATED_ID)
+            .createdTimeId(UPDATED_CREATED_TIME_ID);
 
         restSaathratriEntityMockMvc
             .perform(
@@ -326,7 +344,9 @@ class SaathratriEntityResourceIT {
         partialUpdatedSaathratriEntity
             .entityName(UPDATED_ENTITY_NAME)
             .entityDescription(UPDATED_ENTITY_DESCRIPTION)
-            .entityCost(UPDATED_ENTITY_COST);
+            .entityCost(UPDATED_ENTITY_COST)
+            .createdId(UPDATED_CREATED_ID)
+            .createdTimeId(UPDATED_CREATED_TIME_ID);
 
         restSaathratriEntityMockMvc
             .perform(

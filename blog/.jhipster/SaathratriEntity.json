@@ -1,6 +1,6 @@
 {
   "annotations": {
-    "changelogDate": "20250312203148"
+    "changelogDate": "20250312210116"
   },
   "applications": ["blog"],
   "clientRootFolder": "blog",
@@ -34,6 +34,20 @@
       "fieldType": "BigDecimal",
       "options": {
         "customAnnotation": [true, "CassandraType.Name.DECIMAL"]
+      }
+    },
+    {
+      "fieldName": "createdId",
+      "fieldType": "UUID",
+      "options": {
+        "customAnnotation": [true, "CassandraType.Name.UUID"]
+      }
+    },
+    {
+      "fieldName": "createdTimeId",
+      "fieldType": "UUID",
+      "options": {
+        "customAnnotation": [true, "CassandraType.Name.TIMEUUID"]
       }
     }
   ],

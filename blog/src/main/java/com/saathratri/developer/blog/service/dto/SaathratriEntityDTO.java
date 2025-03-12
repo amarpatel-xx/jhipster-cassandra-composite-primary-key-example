@@ -15,6 +15,8 @@ public class SaathratriEntityDTO implements Serializable {
     private String entityName;
     private String entityDescription;
     private BigDecimal entityCost;
+    private UUID createdId;
+    private UUID createdTimeId;
 
     public SaathratriEntityDTO() {
         // Empty constructor needed for Jackson.
@@ -72,6 +74,32 @@ public class SaathratriEntityDTO implements Serializable {
         return this;
     }
 
+    public UUID getCreatedId() {
+        return createdId;
+    }
+
+    public void setCreatedId(UUID createdId) {
+        this.createdId = createdId;
+    }
+
+    public SaathratriEntityDTO createdId(UUID createdId) {
+        this.createdId = createdId;
+        return this;
+    }
+
+    public UUID getCreatedTimeId() {
+        return createdTimeId;
+    }
+
+    public void setCreatedTimeId(UUID createdTimeId) {
+        this.createdTimeId = createdTimeId;
+    }
+
+    public SaathratriEntityDTO createdTimeId(UUID createdTimeId) {
+        this.createdTimeId = createdTimeId;
+        return this;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -93,6 +121,8 @@ public class SaathratriEntityDTO implements Serializable {
             ", entityName='" + getEntityName() + "'" +
             ", entityDescription='" + getEntityDescription() + "'" +
             ", entityCost=" + getEntityCost() +
+            ", createdId='" + getCreatedId() + "'" +
+            ", createdTimeId='" + getCreatedTimeId() + "'" +
             "}";
     }
 }
