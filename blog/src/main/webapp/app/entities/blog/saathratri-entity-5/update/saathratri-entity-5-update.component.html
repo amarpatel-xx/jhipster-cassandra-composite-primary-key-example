@@ -25,14 +25,17 @@
               data-cy="organizationId"
               formControlName="organizationId"
             />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">
+              Generate
+            </button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.organizationId')"
+              (click)="reset('compositeId.organizationId')"
               [disabled]="!editForm.get('compositeId.organizationId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
 
@@ -51,28 +54,30 @@
           <div class="mb-3">
             <label class="form-label" for="field_entityId" jhiTranslate="blogApp.blogSaathratriEntity5.entityId">Entity Id</label>
             <input type="text" class="form-control" name="entityId" id="field_entityId" data-cy="entityId" formControlName="entityId" />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.entityId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.entityId')">Generate</button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.entityId')"
+              (click)="reset('compositeId.entityId')"
               [disabled]="!editForm.get('compositeId.entityId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
 
           <div class="mb-3">
             <label class="form-label" for="field_addOnId" jhiTranslate="blogApp.blogSaathratriEntity5.addOnId">Add On Id</label>
             <input type="text" class="form-control" name="addOnId" id="field_addOnId" data-cy="addOnId" formControlName="addOnId" />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.addOnId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.addOnId')">Generate</button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.addOnId')"
+              (click)="reset('compositeId.addOnId')"
               [disabled]="!editForm.get('compositeId.addOnId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
         </div>
@@ -132,6 +137,15 @@
             [isRequired]="false"
             (isValid)="onDateTimeValid('addOnDetailsBigInt', $event)"
           ></app-date-time>
+          <button type="button" class="btn btn-primary" (click)="generateDateTime('addOnDetailsBigInt')">Generate</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="reset('addOnDetailsBigInt')"
+            [disabled]="!editForm.get('addOnDetailsBigInt')?.dirty"
+          >
+            Reset
+          </button>
         </div>
       </div>
 

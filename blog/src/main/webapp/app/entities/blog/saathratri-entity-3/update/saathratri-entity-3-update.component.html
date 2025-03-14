@@ -37,14 +37,17 @@
               data-cy="createdTimeId"
               formControlName="createdTimeId"
             />
-            <button type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.createdTimeId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.createdTimeId')">
+              Generate
+            </button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearTimeUUID('compositeId.createdTimeId')"
+              (click)="reset('compositeId.createdTimeId')"
               [disabled]="!editForm.get('compositeId.createdTimeId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
         </div>

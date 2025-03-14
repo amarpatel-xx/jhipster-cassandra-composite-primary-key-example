@@ -83,15 +83,16 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
     );
   }
 
+  // Generate today's date and current time
+  generateDateTime(field: string): void {
+    const currentTimestamp = Date.now(); // Get current timestamp in milliseconds
+    this.editForm.get(field)?.setValue(currentTimestamp);
+  }
+
   // Generate a new UUID and update the form
   generateUUID(field: string): void {
     const newUUID = uuidv4();
     this.editForm.get(field)?.setValue(newUUID);
-  }
-
-  // Clear the UUID field
-  clearUUID(field: string): void {
-    this.editForm.get(field)?.setValue('');
   }
 
   // Generate a new TimeUUID and update the form
@@ -101,8 +102,8 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
   }
 
   // Clear the TimeUUID field
-  clearTimeUUID(field: string): void {
-    this.editForm.get(field)?.setValue('');
+  reset(field: string): void {
+    this.editForm.get(field)?.reset();
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity6>>): void {

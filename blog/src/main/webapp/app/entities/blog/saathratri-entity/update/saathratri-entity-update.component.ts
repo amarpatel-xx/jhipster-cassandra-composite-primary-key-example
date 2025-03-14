@@ -64,11 +64,6 @@ export class SaathratriEntityUpdateComponent implements OnInit {
     this.editForm.get(field)?.setValue(newUUID);
   }
 
-  // Clear the UUID field
-  clearUUID(field: string): void {
-    this.editForm.get(field)?.setValue('');
-  }
-
   // Generate a new TimeUUID and update the form
   generateTimeUUID(field: string): void {
     const newTimeUUID = uuidv1();
@@ -76,8 +71,8 @@ export class SaathratriEntityUpdateComponent implements OnInit {
   }
 
   // Clear the TimeUUID field
-  clearTimeUUID(field: string): void {
-    this.editForm.get(field)?.setValue('');
+  reset(field: string): void {
+    this.editForm.get(field)?.reset();
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity>>): void {

@@ -33,19 +33,32 @@
               [isRequired]="true"
               (isValid)="onDateTimeValid('addedDateTime', $event)"
             ></app-date-time>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateDateTime('compositeId.addedDateTime')">
+              Generate
+            </button>
+            <button
+              *ngIf="isNew"
+              type="button"
+              class="btn btn-danger"
+              (click)="reset('compositeId.addedDateTime')"
+              [disabled]="!editForm.get('compositeId.addedDateTime')?.value"
+            >
+              Reset
+            </button>
           </div>
 
           <div class="mb-3">
             <label class="form-label" for="field_postId" jhiTranslate="blogApp.blogPost.postId">Post Id</label>
             <input type="text" class="form-control" name="postId" id="field_postId" data-cy="postId" formControlName="postId" />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.postId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.postId')">Generate</button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.postId')"
+              (click)="reset('compositeId.postId')"
               [disabled]="!editForm.get('compositeId.postId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
         </div>
@@ -82,6 +95,15 @@
             [isRequired]="false"
             (isValid)="onDateTimeValid('publishedDateTime', $event)"
           ></app-date-time>
+          <button type="button" class="btn btn-primary" (click)="generateDateTime('publishedDateTime')">Generate</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="reset('publishedDateTime')"
+            [disabled]="!editForm.get('publishedDateTime')?.dirty"
+          >
+            Reset
+          </button>
         </div>
 
         <div class="mb-3">

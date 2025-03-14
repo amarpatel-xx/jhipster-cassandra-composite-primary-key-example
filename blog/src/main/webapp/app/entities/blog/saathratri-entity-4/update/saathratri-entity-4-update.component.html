@@ -25,14 +25,17 @@
               data-cy="organizationId"
               formControlName="organizationId"
             />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">
+              Generate
+            </button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.organizationId')"
+              (click)="reset('compositeId.organizationId')"
               [disabled]="!editForm.get('compositeId.organizationId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
 

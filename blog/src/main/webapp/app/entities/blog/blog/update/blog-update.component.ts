@@ -64,8 +64,8 @@ export class BlogUpdateComponent implements OnInit {
   }
 
   // Clear the TimeUUID field
-  clearTimeUUID(field: string): void {
-    this.editForm.get(field)?.setValue('');
+  reset(field: string): void {
+    this.editForm.get(field)?.reset();
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<IBlog>>): void {

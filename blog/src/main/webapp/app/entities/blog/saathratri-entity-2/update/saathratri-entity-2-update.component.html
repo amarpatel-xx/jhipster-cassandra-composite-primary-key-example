@@ -25,14 +25,15 @@
               data-cy="entityTypeId"
               formControlName="entityTypeId"
             />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.entityTypeId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.entityTypeId')">Generate</button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.entityTypeId')"
+              (click)="reset('compositeId.entityTypeId')"
               [disabled]="!editForm.get('compositeId.entityTypeId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
 
@@ -69,14 +70,15 @@
           <div class="mb-3">
             <label class="form-label" for="field_blogId" jhiTranslate="blogApp.blogSaathratriEntity2.blogId">Blog Id</label>
             <input type="text" class="form-control" name="blogId" id="field_blogId" data-cy="blogId" formControlName="blogId" />
-            <button type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.blogId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.blogId')">Generate</button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearTimeUUID('compositeId.blogId')"
+              (click)="reset('compositeId.blogId')"
               [disabled]="!editForm.get('compositeId.blogId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
         </div>

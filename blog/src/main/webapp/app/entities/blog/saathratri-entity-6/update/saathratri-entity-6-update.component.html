@@ -25,14 +25,17 @@
               data-cy="organizationId"
               formControlName="organizationId"
             />
-            <button type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('compositeId.organizationId')">
+              Generate
+            </button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearUUID('compositeId.organizationId')"
+              (click)="reset('compositeId.organizationId')"
               [disabled]="!editForm.get('compositeId.organizationId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
 
@@ -78,14 +81,17 @@
               data-cy="createdTimeId"
               formControlName="createdTimeId"
             />
-            <button type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.createdTimeId')">Generate</button>
+            <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateTimeUUID('compositeId.createdTimeId')">
+              Generate
+            </button>
             <button
+              *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="clearTimeUUID('compositeId.createdTimeId')"
+              (click)="reset('compositeId.createdTimeId')"
               [disabled]="!editForm.get('compositeId.createdTimeId')?.value"
             >
-              Clear
+              Reset
             </button>
           </div>
         </div>
@@ -117,8 +123,8 @@
             formControlName="customerId"
           />
           <button type="button" class="btn btn-primary" (click)="generateUUID('customerId')">Generate</button>
-          <button type="button" class="btn btn-danger" (click)="clearUUID('customerId')" [disabled]="!editForm.get('customerId')?.value">
-            Clear
+          <button type="button" class="btn btn-danger" (click)="reset('customerId')" [disabled]="!editForm.get('customerId')?.value">
+            Reset
           </button>
         </div>
 
@@ -262,6 +268,15 @@
             [isRequired]="false"
             (isValid)="onDateTimeValid('addOnDetailsBigInt', $event)"
           ></app-date-time>
+          <button type="button" class="btn btn-primary" (click)="generateDateTime('addOnDetailsBigInt')">Generate</button>
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="reset('addOnDetailsBigInt')"
+            [disabled]="!editForm.get('addOnDetailsBigInt')?.dirty"
+          >
+            Reset
+          </button>
         </div>
       </div>
 
