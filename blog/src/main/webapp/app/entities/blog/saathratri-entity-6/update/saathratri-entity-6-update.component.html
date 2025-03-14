@@ -122,10 +122,6 @@
             data-cy="customerId"
             formControlName="customerId"
           />
-          <button type="button" class="btn btn-primary" (click)="generateUUID('customerId')">Generate</button>
-          <button type="button" class="btn btn-danger" (click)="reset('customerId')" [disabled]="!editForm.get('customerId')?.value">
-            Reset
-          </button>
         </div>
 
         <div class="mb-3">
@@ -268,15 +264,6 @@
             [isRequired]="false"
             (isValid)="onDateTimeValid('addOnDetailsBigInt', $event)"
           ></app-date-time>
-          <button type="button" class="btn btn-primary" (click)="generateDateTime('addOnDetailsBigInt')">Generate</button>
-          <button
-            type="button"
-            class="btn btn-danger"
-            (click)="reset('addOnDetailsBigInt')"
-            [disabled]="!editForm.get('addOnDetailsBigInt')?.dirty"
-          >
-            Reset
-          </button>
         </div>
       </div>
 
