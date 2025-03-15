@@ -85,6 +85,13 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
     );
   }
 
+  // Generate today's date and current time
+  generateDateTime(field: string): void {
+    const currentTimestamp = Date.now(); // Get current timestamp in milliseconds
+    this.editForm.get(field)?.setValue(currentTimestamp);
+    this.updateDirtyState({ field, isDirty: true }); // Mark the field as dirty
+  }
+
   // Update dirty state when event is emitted from child
   updateDirtyState(event: { field: string; isDirty: boolean }): void {
     this.isDateTimeDirty[event.field] = event.isDirty; // Store dirty state correctly
@@ -92,14 +99,8 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
 
   // Reset specific field and mark it as pristine
   resetDateTime(field: string): void {
+    this.updateDirtyState({ field, isDirty: false }); // Mark the field as pristine
     this.editForm.get(field)?.reset();
-    this.isDateTimeDirty[field] = false;
-  }
-
-  // Generate today's date and current time
-  generateDateTime(field: string): void {
-    const currentTimestamp = Date.now(); // Get current timestamp in milliseconds
-    this.editForm.get(field)?.setValue(currentTimestamp);
   }
 
   // Generate a new UUID and update the form
