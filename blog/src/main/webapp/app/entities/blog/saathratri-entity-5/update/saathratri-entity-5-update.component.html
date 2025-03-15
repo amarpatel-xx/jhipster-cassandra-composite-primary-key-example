@@ -138,6 +138,7 @@
             [isRequired]="false"
             (isValid)="onDateTimeValid('addOnDetailsBigInt', $event)"
             (dirtyStateChange)="updateDirtyState($event)"
+            [isNew]="isNew"
           >
           </app-date-time>
           <button type="button" class="btn btn-primary" (click)="generateDateTime('addOnDetailsBigInt')">Generate</button>

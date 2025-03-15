@@ -34,6 +34,7 @@
               [isRequired]="true"
               (isValid)="onDateTimeValid('compositeId.addedDateTime', $event)"
               (dirtyStateChange)="updateDirtyState($event)"
+              [isNew]="isNew"
             >
             </app-date-time>
             <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateDateTime('compositeId.addedDateTime')">
@@ -99,6 +100,7 @@
             [isRequired]="false"
             (isValid)="onDateTimeValid('publishedDateTime', $event)"
             (dirtyStateChange)="updateDirtyState($event)"
+            [isNew]="isNew"
           >
           </app-date-time>
           <button type="button" class="btn btn-primary" (click)="generateDateTime('publishedDateTime')">Generate</button>

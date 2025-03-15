@@ -33,6 +33,8 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   private lastValidValue: number | null = null; // Store last valid timestamp
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  private preInitializedValue: boolean | null = null;
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   onChange: any = () => {};
@@ -48,6 +50,8 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
   @Input() labelClass = 'default-label-class'; // Dynamic class for the label
   // eslint-disable-next-line @typescript-eslint/member-ordering
   @Input() isRequired = false; // Input property for the required flag
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @Input() isNew!: boolean; // Receive isNew value from parent
 
   // Receive field name from parent
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -115,13 +119,17 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
 
   // ControlValueAccessor implementation
   writeValue(value: number | null): void {
+    if (this.preInitializedValue === null) {
+      if (value === null) {
+        this.preInitializedValue = false;
+      } else {
+        this.preInitializedValue = true;
+        this.lastValidValue = value;
+      }
+    }
+
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (value !== null && value !== undefined) {
-      // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-      if (this.lastValidValue === null || this.lastValidValue === undefined) {
-        this.lastValidValue = value; // Store only the first valid value
-      }
-
       const newDate = new Date(value);
       this.editForm.setValue(
         {
@@ -148,17 +156,6 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
       this.writeValue(this.lastValidValue); // Restore last valid value
     } else {
       this.editForm.reset(); // Default reset if no last valid value exists
-      this.editForm.setValue(
-        {
-          date: null, // Set date to null (clears input)
-          hours: null, // Clear hours
-          minutes: null, // Clear minutes
-          amPm: null, // Clear AM/PM selection
-          seconds: null, // Reset seconds
-          milliseconds: null, // Reset milliseconds
-        },
-        { emitEvent: false },
-      );
     }
 
     // Override the dirty state to ensure the form is clean after reset
