@@ -43,7 +43,7 @@
               *ngIf="isNew"
               type="button"
               class="btn btn-danger"
-              (click)="reset('compositeId.addedDateTime')"
+              (click)="resetDateTime('compositeId.addedDateTime')"
               [disabled]="!isDateTimeDirty['compositeId.addedDateTime']"
             >
               Reset
@@ -105,7 +105,7 @@
           <button
             type="button"
             class="btn btn-danger"
-            (click)="reset('publishedDateTime')"
+            (click)="resetDateTime('publishedDateTime')"
             [disabled]="!isDateTimeDirty['publishedDateTime']"
           >
             Reset
