@@ -26,6 +26,8 @@ export class PostUpdateComponent implements OnInit {
   // Saathratri:
   isNew = false;
   isDateTimeValid: Record<string, boolean> = {};
+  // Track the dirty state for each date-time field
+  isDateTimeDirty: Record<string, boolean> = {};
   post: IPost | null = null;
 
   protected postService = inject(PostService);
@@ -82,6 +84,17 @@ export class PostUpdateComponent implements OnInit {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       (!publishedDateTimeControl?.hasError('required') || this.isDateTimeValid.publishedDateTime)
     );
+  }
+
+  // Update dirty state when event is emitted from child
+  updateDirtyState(event: { field: string; isDirty: boolean }): void {
+    this.isDateTimeDirty[event.field] = event.isDirty; // Store dirty state correctly
+  }
+
+  // Reset specific field and mark it as pristine
+  resetDateTime(field: string): void {
+    this.editForm.get(field)?.reset();
+    this.isDateTimeDirty[field] = false;
   }
 
   // Generate today's date and current time

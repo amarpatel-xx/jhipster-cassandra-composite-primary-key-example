@@ -49,6 +49,14 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   @Input() isRequired = false; // Input property for the required flag
 
+  // Receive field name from parent
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @Input() fieldName!: string;
+
+  // Emit dirty state with field name
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  @Output() dirtyStateChange = new EventEmitter<{ field: string; isDirty: boolean }>();
+
   // eslint-disable-next-line @typescript-eslint/member-ordering
   @Output() timestampChange = new EventEmitter<number>(); // Emit the UTC timestamp
 
@@ -73,6 +81,8 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
       this.updateTimestamp();
       this.onTouched();
       this.isValid.emit(this.editForm.valid); // Emit the valid property directly
+      // Listen for changes and emit dirty state
+      this.dirtyStateChange.emit({ field: this.fieldName, isDirty: this.editForm.dirty });
     });
   }
 
@@ -127,6 +137,9 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
     } else {
       this.reset();
     }
+
+    // Ensure form starts as pristine
+    this.editForm.markAsPristine();
   }
 
   reset(): void {
@@ -139,7 +152,7 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
 
     // Override the dirty state to ensure the form is clean after reset
     this.editForm.markAsPristine();
-    this.editForm.markAsUntouched();
+    this.dirtyStateChange.emit({ field: this.fieldName, isDirty: false });
   }
 
   registerOnChange(fn: any): void {
@@ -169,6 +182,15 @@ export class DateTimeComponent implements OnInit, ControlValueAccessor {
 
   private padZero(value: number): string {
     return value < 10 ? `0${value}` : `${value}`;
+  }
+
+  // Mark form as touched when the user interacts
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  onUserInteraction(): void {
+    if (!this.editForm.dirty) {
+      this.editForm.markAsDirty();
+      this.dirtyStateChange.emit({ field: this.fieldName, isDirty: true });
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/member-ordering

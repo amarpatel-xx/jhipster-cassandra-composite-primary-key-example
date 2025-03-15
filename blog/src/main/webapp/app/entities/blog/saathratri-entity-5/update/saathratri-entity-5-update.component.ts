@@ -26,6 +26,8 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
   // Saathratri:
   isNew = false;
   isDateTimeValid: Record<string, boolean> = {};
+  // Track the dirty state for each date-time field
+  isDateTimeDirty: Record<string, boolean> = {};
   saathratriEntity5: ISaathratriEntity5 | null = null;
 
   protected saathratriEntity5Service = inject(SaathratriEntity5Service);
@@ -80,6 +82,17 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
       // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
       !addOnDetailsBigIntControl?.hasError('required') || this.isDateTimeValid.addOnDetailsBigInt
     );
+  }
+
+  // Update dirty state when event is emitted from child
+  updateDirtyState(event: { field: string; isDirty: boolean }): void {
+    this.isDateTimeDirty[event.field] = event.isDirty; // Store dirty state correctly
+  }
+
+  // Reset specific field and mark it as pristine
+  resetDateTime(field: string): void {
+    this.editForm.get(field)?.reset();
+    this.isDateTimeDirty[field] = false;
   }
 
   // Generate today's date and current time

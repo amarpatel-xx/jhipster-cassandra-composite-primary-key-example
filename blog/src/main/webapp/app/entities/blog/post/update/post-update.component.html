@@ -27,12 +27,15 @@
 
           <div class="mb-3">
             <app-date-time
+              fieldName="addedDateTime"
               formControlName="addedDateTime"
               [dateTimeLabel]="'blogApp.blogPost.addedDateTime' | translate"
               [labelClass]="'form-label'"
               [isRequired]="true"
-              (isValid)="onDateTimeValid('addedDateTime', $event)"
-            ></app-date-time>
+              (isValid)="onDateTimeValid('compositeId.addedDateTime', $event)"
+              (dirtyStateChange)="updateDirtyState($event)"
+            >
+            </app-date-time>
             <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateDateTime('compositeId.addedDateTime')">
               Generate
             </button>
@@ -41,7 +44,7 @@
               type="button"
               class="btn btn-danger"
               (click)="reset('compositeId.addedDateTime')"
-              [disabled]="!editForm.get('compositeId.addedDateTime')?.value"
+              [disabled]="!isDateTimeDirty['compositeId.addedDateTime']"
             >
               Reset
             </button>
@@ -89,18 +92,21 @@
 
         <div class="mb-3">
           <app-date-time
+            fieldName="publishedDateTime"
             formControlName="publishedDateTime"
             [dateTimeLabel]="'blogApp.blogPost.publishedDateTime' | translate"
             [labelClass]="'form-label'"
             [isRequired]="false"
             (isValid)="onDateTimeValid('publishedDateTime', $event)"
-          ></app-date-time>
+            (dirtyStateChange)="updateDirtyState($event)"
+          >
+          </app-date-time>
           <button type="button" class="btn btn-primary" (click)="generateDateTime('publishedDateTime')">Generate</button>
           <button
             type="button"
             class="btn btn-danger"
             (click)="reset('publishedDateTime')"
-            [disabled]="!editForm.get('publishedDateTime')?.dirty"
+            [disabled]="!isDateTimeDirty['publishedDateTime']"
           >
             Reset
           </button>
