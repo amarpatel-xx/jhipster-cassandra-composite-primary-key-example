@@ -17,7 +17,7 @@
           <input type="text" class="form-control" name="entityId" id="field_entityId" data-cy="entityId" formControlName="entityId" />
           <button *ngIf="isNew" type="button" class="btn btn-primary" (click)="generateUUID('entityId')">Generate</button>
           <button *ngIf="isNew" type="button" class="btn btn-danger" (click)="reset('entityId')" [disabled]="isResetDisabled['entityId']">
-            "> Reset
+            Reset
           </button>
         </div>
 

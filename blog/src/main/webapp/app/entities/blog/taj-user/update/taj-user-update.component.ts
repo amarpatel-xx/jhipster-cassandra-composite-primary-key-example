@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -6,7 +7,6 @@ import { finalize } from 'rxjs/operators';
 
 import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { ITajUser } from '../taj-user.model';
@@ -43,6 +43,8 @@ export class TajUserUpdateComponent implements OnInit {
       this.tajUser = tajUser;
       if (tajUser) {
         this.updateForm(tajUser);
+      } else {
+        this.initializeResetButtonStates();
       }
     });
 
@@ -79,6 +81,7 @@ export class TajUserUpdateComponent implements OnInit {
   generateUUID(field: string): void {
     const newUUID = uuidv4();
     this.editForm.get(field)?.setValue(newUUID);
+    this.updateResetButtonState(field);
   }
 
   // Clear the TimeUUID field
@@ -98,6 +101,7 @@ export class TajUserUpdateComponent implements OnInit {
   updateResetButtonState(field: string): void {
     const lastValue = this.lastSavedValues[field];
     const currentValue = this.editForm.get(field)?.value;
+
     if (currentValue === null) {
       this.isResetDisabled[field] = true; // Disable if null
     } else {
@@ -131,6 +135,21 @@ export class TajUserUpdateComponent implements OnInit {
     // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
+    });
+  }
+
+  protected initializeResetButtonStates(): void {
+    Object.keys(this.editForm.controls).forEach(field => {
+      const control = this.editForm.get(field);
+
+      // Handle nested composite keys
+      if (control instanceof FormGroup) {
+        Object.keys(control.controls).forEach(nestedField => {
+          this.updateResetButtonState(`.${nestedField}`);
+        });
+      } else {
+        this.updateResetButtonState(field);
+      }
     });
   }
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
+import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpResponse } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
@@ -6,7 +7,6 @@ import { finalize } from 'rxjs/operators';
 
 import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 import { IBlog } from '../blog.model';
@@ -43,6 +43,8 @@ export class BlogUpdateComponent implements OnInit {
       this.blog = blog;
       if (blog) {
         this.updateForm(blog);
+      } else {
+        this.initializeResetButtonStates();
       }
     });
 
@@ -73,6 +75,7 @@ export class BlogUpdateComponent implements OnInit {
   generateTimeUUID(field: string): void {
     const newTimeUUID = uuidv1();
     this.editForm.get(field)?.setValue(newTimeUUID);
+    this.updateResetButtonState(field);
   }
 
   // Clear the TimeUUID field
@@ -92,6 +95,7 @@ export class BlogUpdateComponent implements OnInit {
   updateResetButtonState(field: string): void {
     const lastValue = this.lastSavedValues[field];
     const currentValue = this.editForm.get(field)?.value;
+
     if (currentValue === null) {
       this.isResetDisabled[field] = true; // Disable if null
     } else {
@@ -125,6 +129,21 @@ export class BlogUpdateComponent implements OnInit {
     // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
+    });
+  }
+
+  protected initializeResetButtonStates(): void {
+    Object.keys(this.editForm.controls).forEach(field => {
+      const control = this.editForm.get(field);
+
+      // Handle nested composite keys
+      if (control instanceof FormGroup) {
+        Object.keys(control.controls).forEach(nestedField => {
+          this.updateResetButtonState(`compositeId.${nestedField}`);
+        });
+      } else {
+        this.updateResetButtonState(field);
+      }
     });
   }
 }
