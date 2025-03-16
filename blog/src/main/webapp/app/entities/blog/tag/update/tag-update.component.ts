@@ -49,6 +49,7 @@ export class TagUpdateComponent implements OnInit {
     // Listen for changes to enable/disable reset button
     Object.keys(this.editForm.controls).forEach(field => {
       this.editForm.get(field)?.valueChanges.subscribe(() => {
+        this.isResetDisabled[field] = true; // Disable reset button on load
         this.updateResetButtonState(field);
       });
     });
@@ -64,7 +65,6 @@ export class TagUpdateComponent implements OnInit {
     // Update the last saved values when saving
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
-      this.isResetDisabled[field] = true; // Disable reset button on load
     });
 
     // Single-value Primary Key
@@ -98,7 +98,11 @@ export class TagUpdateComponent implements OnInit {
   updateResetButtonState(field: string): void {
     const lastValue = this.lastSavedValues[field];
     const currentValue = this.editForm.get(field)?.value;
-    this.isResetDisabled[field] = currentValue === lastValue; // Disable if unchanged
+    if (currentValue === null) {
+      this.isResetDisabled[field] = true; // Disable if null
+    } else {
+      this.isResetDisabled[field] = currentValue === lastValue; // Disable if unchanged
+    }
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ITag>>): void {
@@ -127,7 +131,6 @@ export class TagUpdateComponent implements OnInit {
     // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
-      this.isResetDisabled[field] = true; // Disable reset button on load
     });
   }
 }
