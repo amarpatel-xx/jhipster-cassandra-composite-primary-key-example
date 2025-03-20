@@ -35,6 +35,8 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
 
+  protected mapData: { key: string; value: string }[] = [];
+
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering
   private lastSavedValues: Record<string, any> = {}; // Store last valid values
@@ -146,6 +148,12 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
     } else {
       this.isResetDisabled[field] = currentValue === lastValue; // Disable if unchanged
     }
+  }
+
+  handleMapDataUpdate(data: { key: string; value: string }[]): void {
+    this.mapData = data;
+    // eslint-disable-next-line no-console
+    console.log('Updated Data from Child:', this.mapData);
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity5>>): void {

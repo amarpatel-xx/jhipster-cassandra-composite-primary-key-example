@@ -31,6 +31,8 @@ export class SaathratriEntity3UpdateComponent implements OnInit {
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
 
+  protected setData: string[] = [];
+
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering
   private lastSavedValues: Record<string, any> = {}; // Store last valid values
@@ -109,6 +111,12 @@ export class SaathratriEntity3UpdateComponent implements OnInit {
     } else {
       this.isResetDisabled[field] = currentValue === lastValue; // Disable if unchanged
     }
+  }
+
+  handleSetDataUpdate(data: string[]): void {
+    this.setData = data;
+    // eslint-disable-next-line no-console
+    console.log('Updated Data from Child:', this.setData);
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity3>>): void {

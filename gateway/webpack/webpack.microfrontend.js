@@ -44,6 +44,8 @@ module.exports = (config, options, targetOptions) => {
         'app/shared/sort',
         'app/components',
         'app/components/date-time',
+        'app/components/set-component',
+        'app/components/map-component',
       ),
     },
   });

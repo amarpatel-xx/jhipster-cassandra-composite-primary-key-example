@@ -10,11 +10,11 @@ import { MaterialModule } from 'app/shared/material.module';
 
 import dayjs from 'dayjs/esm';
 import { DateTimeComponent } from 'app/components/date-time/date-time.component';
+
 import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
-
-import { ISaathratriEntity6 } from '../saathratri-entity-6.model';
 import { SaathratriEntity6Service } from '../service/saathratri-entity-6.service';
+import { ISaathratriEntity6 } from '../saathratri-entity-6.model';
 import { SaathratriEntity6FormGroup, SaathratriEntity6FormService } from './saathratri-entity-6-form.service';
 @Component({
   standalone: true,
@@ -35,6 +35,8 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
   protected saathratriEntity6FormService = inject(SaathratriEntity6FormService);
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
+
+  protected mapData: { key: string; value: string }[] = [];
 
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -154,6 +156,12 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
     } else {
       this.isResetDisabled[field] = currentValue === lastValue; // Disable if unchanged
     }
+  }
+
+  handleMapDataUpdate(data: { key: string; value: string }[]): void {
+    this.mapData = data;
+    // eslint-disable-next-line no-console
+    console.log('Updated Data from Child:', this.mapData);
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity6>>): void {
