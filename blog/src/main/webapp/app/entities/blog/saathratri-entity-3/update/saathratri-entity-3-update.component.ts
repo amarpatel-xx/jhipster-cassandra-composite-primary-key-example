@@ -31,7 +31,7 @@ export class SaathratriEntity3UpdateComponent implements OnInit {
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
 
-  protected setData: string[] = [];
+  inputFieldsTags: Set<string> = new Set(); // Start with one input field
 
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -113,10 +113,8 @@ export class SaathratriEntity3UpdateComponent implements OnInit {
     }
   }
 
-  handleSetDataUpdate(data: string[]): void {
-    this.setData = data;
-    // eslint-disable-next-line no-console
-    console.log('Updated Data from Child:', this.setData);
+  handleTagsInputChange(updatedFields: Set<string>): void {
+    this.inputFieldsTags = new Set(updatedFields); // Update parent data when child component emits changes
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity3>>): void {

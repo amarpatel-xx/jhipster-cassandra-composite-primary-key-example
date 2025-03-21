@@ -222,42 +222,30 @@
           <label class="form-label" for="field_addOnDetailsText" jhiTranslate="blogApp.blogSaathratriEntity6.addOnDetailsText"
             >Add On Details Text</label
           >
-          <input
-            type="text"
-            class="form-control"
-            name="addOnDetailsText"
-            id="field_addOnDetailsText"
-            data-cy="addOnDetailsText"
-            formControlName="addOnDetailsText"
-          />
+          <app-map-component [inputFields]="inputFieldsAddOnDetailsText" (inputFieldsChange)="handleAddOnDetailsTextInputChange($event)">
+          </app-map-component>
         </div>
 
         <div class="mb-3">
           <label class="form-label" for="field_addOnDetailsDecimal" jhiTranslate="blogApp.blogSaathratriEntity6.addOnDetailsDecimal"
             >Add On Details Decimal</label
           >
-          <input
-            type="number"
-            class="form-control"
-            name="addOnDetailsDecimal"
-            id="field_addOnDetailsDecimal"
-            data-cy="addOnDetailsDecimal"
-            formControlName="addOnDetailsDecimal"
-          />
+          <app-map-component
+            [inputFields]="inputFieldsAddOnDetailsDecimal"
+            (inputFieldsChange)="handleAddOnDetailsDecimalInputChange($event)"
+          >
+          </app-map-component>
         </div>
 
         <div class="mb-3">
           <label class="form-label" for="field_addOnDetailsBoolean" jhiTranslate="blogApp.blogSaathratriEntity6.addOnDetailsBoolean"
             >Add On Details Boolean</label
           >
-          <input
-            type="checkbox"
-            class="form-check"
-            name="addOnDetailsBoolean"
-            id="field_addOnDetailsBoolean"
-            data-cy="addOnDetailsBoolean"
-            formControlName="addOnDetailsBoolean"
-          />
+          <app-map-component
+            [inputFields]="inputFieldsAddOnDetailsBoolean"
+            (inputFieldsChange)="handleAddOnDetailsBooleanInputChange($event)"
+          >
+          </app-map-component>
         </div>
 
         <div class="mb-3">

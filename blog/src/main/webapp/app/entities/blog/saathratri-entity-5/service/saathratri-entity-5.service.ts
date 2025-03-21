@@ -12,6 +12,9 @@ export type PartialUpdateSaathratriEntity5 = Partial<ISaathratriEntity5> & Pick<
 
 type RestOf<T extends ISaathratriEntity5 | NewSaathratriEntity5> = Omit<T, 'addOnDetailsBigInt'> & {
   compositeId: {};
+  addOnDetailsText?: Map<string, string | null>;
+  addOnDetailsDecimal?: Map<string, number | null>;
+  addOnDetailsBoolean?: Map<string, boolean | null>;
   addOnDetailsBigInt?: number | null;
 };
 

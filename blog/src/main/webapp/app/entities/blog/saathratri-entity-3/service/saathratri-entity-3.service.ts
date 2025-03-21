@@ -13,7 +13,7 @@ export type PartialUpdateSaathratriEntity3 = Partial<ISaathratriEntity3> & Pick<
 type RestOf<T extends ISaathratriEntity3 | NewSaathratriEntity3> = Omit<T, 'departureDate' | 'tags'> & {
   compositeId: {};
   departureDate?: number | null;
-  tags?: string | null;
+  tags?: Set<string | null>;
 };
 
 export type RestSaathratriEntity3 = RestOf<ISaathratriEntity3>;

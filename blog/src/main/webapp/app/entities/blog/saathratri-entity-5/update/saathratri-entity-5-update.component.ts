@@ -35,7 +35,11 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
 
-  protected mapData: { key: string; value: string }[] = [];
+  inputFieldsAddOnDetailsText: Map<string> = new Map('', ''); // Start with one input field
+  inputFieldsAddOnDetailsDecimal: Map<string> = new Map('', ''); // Start with one input field
+  inputFieldsAddOnDetailsBoolean: Map<string> = new Map('', ''); // Start with one input field
+  inputFieldsAddOnDetailsBigInt: Map<string> = new Map('', ''); // Start with one input field
+  inputFields: Map<number, string> = new Map([['', '']]); // Start with one input field
 
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering
@@ -150,10 +154,17 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
     }
   }
 
-  handleMapDataUpdate(data: { key: string; value: string }[]): void {
-    this.mapData = data;
-    // eslint-disable-next-line no-console
-    console.log('Updated Data from Child:', this.mapData);
+  handleAddOnDetailsTextInputChange(updatedFields: Map<string, string>): void {
+    this.inputFieldsAddOnDetailsText = new Map(updatedFields); // Update parent with new values from child
+  }
+  handleAddOnDetailsDecimalInputChange(updatedFields: Map<string, number>): void {
+    this.inputFieldsAddOnDetailsDecimal = new Map(updatedFields); // Update parent with new values from child
+  }
+  handleAddOnDetailsBooleanInputChange(updatedFields: Map<string, boolean>): void {
+    this.inputFieldsAddOnDetailsBoolean = new Map(updatedFields); // Update parent with new values from child
+  }
+  handleAddOnDetailsBigIntInputChange(updatedFields: Map<string, number>): void {
+    this.inputFieldsAddOnDetailsBigInt = new Map(updatedFields); // Update parent with new values from child
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity5>>): void {
