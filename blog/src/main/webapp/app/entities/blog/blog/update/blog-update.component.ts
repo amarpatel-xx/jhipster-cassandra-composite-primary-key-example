@@ -23,6 +23,7 @@ export class BlogUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   blog: IBlog | null = null;
 
   protected blogService = inject(BlogService);

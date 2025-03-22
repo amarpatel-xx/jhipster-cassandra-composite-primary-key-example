@@ -91,30 +91,30 @@
           <label class="form-label" for="field_addOnDetailsText" jhiTranslate="blogApp.blogSaathratriEntity5.addOnDetailsText"
             >Add On Details Text</label
           >
-          <app-map-component [inputFields]="inputFieldsAddOnDetailsText" (inputFieldsChange)="handleAddOnDetailsTextInputChange($event)">
-          </app-map-component>
+          <app-map-string-component [inputFields]="inputFieldsAddOnDetailsText" (dataChange)="handleAddOnDetailsTextInputChange($event)">
+          </app-map-string-component>
         </div>
 
         <div class="mb-3">
           <label class="form-label" for="field_addOnDetailsDecimal" jhiTranslate="blogApp.blogSaathratriEntity5.addOnDetailsDecimal"
             >Add On Details Decimal</label
           >
-          <app-map-component
+          <app-map-number-component
             [inputFields]="inputFieldsAddOnDetailsDecimal"
-            (inputFieldsChange)="handleAddOnDetailsDecimalInputChange($event)"
+            (dataChange)="handleAddOnDetailsDecimalInputChange($event)"
           >
-          </app-map-component>
+          </app-map-number-component>
         </div>
 
         <div class="mb-3">
           <label class="form-label" for="field_addOnDetailsBoolean" jhiTranslate="blogApp.blogSaathratriEntity5.addOnDetailsBoolean"
             >Add On Details Boolean</label
           >
-          <app-map-component
+          <app-map-boolean-component
             [inputFields]="inputFieldsAddOnDetailsBoolean"
-            (inputFieldsChange)="handleAddOnDetailsBooleanInputChange($event)"
+            (dataChange)="handleAddOnDetailsBooleanInputChange($event)"
           >
-          </app-map-component>
+          </app-map-boolean-component>
         </div>
 
         <div class="mb-3">

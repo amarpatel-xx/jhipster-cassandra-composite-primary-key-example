@@ -17,6 +17,7 @@ import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { IProduct } from '../product.model';
 import { ProductService } from '../service/product.service';
 import { ProductFormGroup, ProductFormService } from './product-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-product-update',
@@ -27,6 +28,7 @@ export class ProductUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   product: IProduct | null = null;
 
   protected dataUtils = inject(DataUtils);

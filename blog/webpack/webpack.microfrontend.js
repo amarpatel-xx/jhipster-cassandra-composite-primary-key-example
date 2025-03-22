@@ -50,7 +50,9 @@ module.exports = (config, options, targetOptions) => {
         'app/components',
         'app/components/date-time',
         'app/components/set-component',
-        'app/components/map-component',
+        'app/components/map-boolean-component',
+        'app/components/map-number-component',
+        'app/components/map-string-component',
       ),
     },
   });

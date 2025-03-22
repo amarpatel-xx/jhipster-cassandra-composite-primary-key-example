@@ -133,7 +133,6 @@ export class SaathratriEntity5FormService {
         entityId: null,
         addOnId: null,
       },
-      addOnDetailsBoolean: false,
     };
   }
 

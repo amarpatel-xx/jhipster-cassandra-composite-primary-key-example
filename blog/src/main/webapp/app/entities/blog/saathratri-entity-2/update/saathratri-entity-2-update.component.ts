@@ -15,6 +15,7 @@ import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 import { ISaathratriEntity2 } from '../saathratri-entity-2.model';
 import { SaathratriEntity2Service } from '../service/saathratri-entity-2.service';
 import { SaathratriEntity2FormGroup, SaathratriEntity2FormService } from './saathratri-entity-2-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-2-update',
@@ -25,6 +26,7 @@ export class SaathratriEntity2UpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   saathratriEntity2: ISaathratriEntity2 | null = null;
 
   protected saathratriEntity2Service = inject(SaathratriEntity2Service);

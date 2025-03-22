@@ -108,7 +108,7 @@
 
         <div class="mb-3">
           <label class="form-label" for="field_tags" jhiTranslate="blogApp.blogSaathratriEntity3.tags">Tags</label>
-          <app-set-component [inputFields]="inputFieldsTags" (inputFieldsChange)="handleTagsInputChange($event)"> </app-set-component>
+          <app-set-component [inputFields]="inputFieldsTags" (dataChange)="handleTagsInputChange($event)"> </app-set-component>
         </div>
       </div>
 

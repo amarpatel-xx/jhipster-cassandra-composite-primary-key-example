@@ -23,6 +23,7 @@ export class TajUserUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   tajUser: ITajUser | null = null;
 
   protected tajUserService = inject(TajUserService);

@@ -9,29 +9,32 @@ import SharedModule from 'app/shared/shared.module';
 import { MaterialModule } from 'app/shared/material.module';
 
 import dayjs from 'dayjs/esm';
+import { SetComponent } from 'app/components/set-component/set-component.component';
 import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 
 import { ISaathratriEntity3 } from '../saathratri-entity-3.model';
 import { SaathratriEntity3Service } from '../service/saathratri-entity-3.service';
 import { SaathratriEntity3FormGroup, SaathratriEntity3FormService } from './saathratri-entity-3-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-3-update',
   templateUrl: './saathratri-entity-3-update.component.html',
-  imports: [SharedModule, FormsModule, ReactiveFormsModule, MaterialModule],
+  imports: [SharedModule, FormsModule, ReactiveFormsModule, MaterialModule, SetComponent],
 })
 export class SaathratriEntity3UpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   saathratriEntity3: ISaathratriEntity3 | null = null;
+
+  inputFieldsTags: Set<string> = new Set<string>(); // Start with one input field
 
   protected saathratriEntity3Service = inject(SaathratriEntity3Service);
   protected saathratriEntity3FormService = inject(SaathratriEntity3FormService);
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
-
-  inputFieldsTags: Set<string> = new Set(); // Start with one input field
 
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering

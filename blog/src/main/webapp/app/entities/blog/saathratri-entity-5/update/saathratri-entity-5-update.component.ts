@@ -10,36 +10,49 @@ import { MaterialModule } from 'app/shared/material.module';
 
 import dayjs from 'dayjs/esm';
 import { DateTimeComponent } from 'app/components/date-time/date-time.component';
-import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
+import { MapBooleanComponent } from 'app/components/map-boolean-component/map-boolean-component.component';
+import { MapNumberComponent } from 'app/components/map-number-component/map-number-component.component';
+import { MapStringComponent } from 'app/components/map-string-component/map-string-component.component';
 
+import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { ISaathratriEntity5 } from '../saathratri-entity-5.model';
 import { SaathratriEntity5Service } from '../service/saathratri-entity-5.service';
 import { SaathratriEntity5FormGroup, SaathratriEntity5FormService } from './saathratri-entity-5-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-5-update',
   templateUrl: './saathratri-entity-5-update.component.html',
-  imports: [SharedModule, FormsModule, ReactiveFormsModule, MaterialModule, DateTimeComponent],
+  imports: [
+    SharedModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MaterialModule,
+    DateTimeComponent,
+    MapBooleanComponent,
+    MapNumberComponent,
+    MapStringComponent,
+  ],
 })
 export class SaathratriEntity5UpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   isDateTimeValid: Record<string, boolean> = {};
   // Track the dirty state for each date-time field
   isDateTimeDirty: Record<string, boolean> = {};
   saathratriEntity5: ISaathratriEntity5 | null = null;
 
+  inputFieldsAddOnDetailsText: Map<string, string> = new Map<string, string>(); // Start with one input field
+  inputFieldsAddOnDetailsDecimal: Map<string, number> = new Map<string, number>(); // Start with one input field
+  inputFieldsAddOnDetailsBoolean: Map<string, boolean> = new Map<string, boolean>(); // Start with one input field
+  inputFieldsAddOnDetailsBigInt: Map<string, number> = new Map<string, number>(); // Start with one input field
+
   protected saathratriEntity5Service = inject(SaathratriEntity5Service);
   protected saathratriEntity5FormService = inject(SaathratriEntity5FormService);
   protected activatedRoute = inject(ActivatedRoute);
   protected router = inject(Router);
-
-  inputFieldsAddOnDetailsText: Map<string> = new Map('', ''); // Start with one input field
-  inputFieldsAddOnDetailsDecimal: Map<string> = new Map('', ''); // Start with one input field
-  inputFieldsAddOnDetailsBoolean: Map<string> = new Map('', ''); // Start with one input field
-  inputFieldsAddOnDetailsBigInt: Map<string> = new Map('', ''); // Start with one input field
-  inputFields: Map<number, string> = new Map([['', '']]); // Start with one input field
 
   protected isResetDisabled: Record<string, boolean> = {}; // Track reset button states
   // eslint-disable-next-line @typescript-eslint/member-ordering

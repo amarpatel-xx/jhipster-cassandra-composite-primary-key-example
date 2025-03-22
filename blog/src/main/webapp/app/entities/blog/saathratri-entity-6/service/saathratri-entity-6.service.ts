@@ -15,9 +15,9 @@ type RestOf<T extends ISaathratriEntity6 | NewSaathratriEntity6> = Omit<T, 'arri
     arrivalDate?: number | null;
   };
   departureDate?: number | null;
-  addOnDetailsText?: Map<string, string | null>;
-  addOnDetailsDecimal?: Map<string, number | null>;
-  addOnDetailsBoolean?: Map<string, boolean | null>;
+  addOnDetailsText?: Map<string, string> | null;
+  addOnDetailsDecimal?: Map<string, number> | null;
+  addOnDetailsBoolean?: Map<string, boolean> | null;
   addOnDetailsBigInt?: number | null;
 };
 

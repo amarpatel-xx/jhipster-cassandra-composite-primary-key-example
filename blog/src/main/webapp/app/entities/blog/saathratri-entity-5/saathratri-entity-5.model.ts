@@ -3,9 +3,9 @@ import dayjs from 'dayjs/esm';
 export interface ISaathratriEntity5 {
   compositeId: ISaathratriEntity5Id;
   addOnType?: string | null;
-  addOnDetailsText?: Map<string, string | null>;
-  addOnDetailsDecimal?: Map<string, number | null>;
-  addOnDetailsBoolean?: Map<string, boolean | null>;
+  addOnDetailsText?: Map<string, string> | null;
+  addOnDetailsDecimal?: Map<string, number> | null;
+  addOnDetailsBoolean?: Map<string, boolean> | null;
   addOnDetailsBigInt?: dayjs.Dayjs | null;
 }
 export interface ISaathratriEntity5Id {

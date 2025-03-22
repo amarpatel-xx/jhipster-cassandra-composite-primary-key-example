@@ -23,6 +23,7 @@ export class SaathratriEntity4UpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   saathratriEntity4: ISaathratriEntity4 | null = null;
 
   protected saathratriEntity4Service = inject(SaathratriEntity4Service);

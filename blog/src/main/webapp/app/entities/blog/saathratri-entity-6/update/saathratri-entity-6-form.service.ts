@@ -157,7 +157,6 @@ export class SaathratriEntity6FormService {
         accountNumber: null,
         createdTimeId: null,
       },
-      addOnDetailsBoolean: false,
     };
   }
 

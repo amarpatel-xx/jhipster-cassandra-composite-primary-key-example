@@ -13,6 +13,7 @@ import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
 import { ISaathratriEntity } from '../saathratri-entity.model';
 import { SaathratriEntityService } from '../service/saathratri-entity.service';
 import { SaathratriEntityFormGroup, SaathratriEntityFormService } from './saathratri-entity-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-saathratri-entity-update',
@@ -23,6 +24,7 @@ export class SaathratriEntityUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   saathratriEntity: ISaathratriEntity | null = null;
 
   protected saathratriEntityService = inject(SaathratriEntityService);

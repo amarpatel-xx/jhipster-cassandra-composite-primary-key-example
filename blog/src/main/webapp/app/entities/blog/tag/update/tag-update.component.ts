@@ -23,6 +23,7 @@ export class TagUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   tag: ITag | null = null;
 
   protected tagService = inject(TagService);

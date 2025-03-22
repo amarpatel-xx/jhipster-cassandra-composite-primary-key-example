@@ -15,6 +15,7 @@ import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { IPost } from '../post.model';
 import { PostService } from '../service/post.service';
 import { PostFormGroup, PostFormService } from './post-form.service';
+
 @Component({
   standalone: true,
   selector: 'jhi-post-update',
@@ -25,6 +26,7 @@ export class PostUpdateComponent implements OnInit {
   isSaving = false;
   // Saathratri:
   isNew = false;
+
   isDateTimeValid: Record<string, boolean> = {};
   // Track the dirty state for each date-time field
   isDateTimeDirty: Record<string, boolean> = {};
