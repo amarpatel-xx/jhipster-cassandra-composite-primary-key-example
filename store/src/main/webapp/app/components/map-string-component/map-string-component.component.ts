@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -9,15 +9,15 @@ import { EditStringDialogComponent } from '../edit-string-dialog-component/edit-
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'app-map-string-component',
   standalone: true,
-  imports: [MaterialModule, CommonModule, ReactiveFormsModule, EditStringDialogComponent], // ✅ Use ReactiveFormsModule
+  imports: [MaterialModule, CommonModule, ReactiveFormsModule, EditStringDialogComponent],
   templateUrl: './map-string-component.component.html',
   styleUrls: ['./map-string-component.component.css'],
 })
-export class MapStringComponent {
-  @Input() inputFields: Map<string, string> = new Map<string, string>();
-  @Output() dataChange = new EventEmitter<Map<string, string>>();
+export class MapStringComponent implements OnChanges {
+  @Input() inputFields: Record<string, string> = {};
+  @Output() dataChange = new EventEmitter<Record<string, string>>();
 
-  mapDetails: Map<string, string> = new Map<string, string>();
+  mapDetails: Record<string, string> = {};
 
   form: FormGroup;
 
@@ -26,15 +26,15 @@ export class MapStringComponent {
     private dialog: MatDialog,
   ) {
     this.form = this.fb.group({
-      newKey: ['', Validators.required], // ✅ Key is required
-      newValue: [''], // ✅ Value is optional
+      newKey: ['', Validators.required],
+      newValue: [''],
     });
   }
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
-    if (this.inputFields) {
-      this.mapDetails = new Map(this.inputFields);
+    if (changes.inputFields && this.inputFields) {
+      this.mapDetails = { ...this.inputFields };
     }
   }
 
@@ -48,7 +48,7 @@ export class MapStringComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result !== undefined) {
-        this.mapDetails.set(key, result);
+        this.mapDetails[key] = result;
         this.emitData();
       }
     });
@@ -57,18 +57,19 @@ export class MapStringComponent {
   addNewRow(): void {
     if (this.form.valid) {
       const { newKey, newValue } = this.form.value;
-      this.mapDetails.set(newKey.trim(), newValue.trim());
-      this.form.reset(); // ✅ Clear form fields after adding
+      this.mapDetails[newKey.trim()] = newValue?.trim() || '';
+      this.form.reset();
       this.emitData();
     }
   }
 
   deleteRow(key: string): void {
-    this.mapDetails.delete(key);
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+    delete this.mapDetails[key];
     this.emitData();
   }
 
   private emitData(): void {
-    this.dataChange.emit(new Map(this.mapDetails));
+    this.dataChange.emit({ ...this.mapDetails });
   }
 }

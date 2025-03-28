@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormArray, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
@@ -13,11 +13,11 @@ import { EditBooleanDialogComponent } from '../edit-boolean-dialog-component/edi
   templateUrl: './map-boolean-component.component.html',
   styleUrls: ['./map-boolean-component.component.css'],
 })
-export class MapBooleanComponent {
-  @Input() inputFields: Map<string, boolean> = new Map<string, boolean>();
-  @Output() dataChange = new EventEmitter<Map<string, boolean>>();
+export class MapBooleanComponent implements OnChanges {
+  @Input() inputFields: Record<string, boolean> = {};
+  @Output() dataChange = new EventEmitter<Record<string, boolean>>();
 
-  mapDetails: Map<string, boolean> = new Map<string, boolean>();
+  mapDetails: Record<string, boolean> = {};
   form: FormGroup;
 
   constructor(
@@ -25,25 +25,27 @@ export class MapBooleanComponent {
     private dialog: MatDialog,
   ) {
     this.form = this.fb.group({
-      fields: this.fb.array([]), // ✅ FormArray to manage dynamic boolean fields
-      newKey: ['', Validators.required], // ✅ Key is required
-      newValue: [null, Validators.required], // ✅ Required selection (True/False)
+      fields: this.fb.array([]),
+      newKey: ['', Validators.required],
+      newValue: [null, Validators.required],
     });
-
-    this.populateFormArray();
   }
 
   get fields(): FormArray {
     return this.form.get('fields') as FormArray;
   }
 
-  ngOnChanges(): void {
-    this.populateFormArray();
+  ngOnChanges(changes: SimpleChanges): void {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
+    if (changes.inputFields && this.inputFields) {
+      this.mapDetails = { ...this.inputFields };
+      this.populateFormArray();
+    }
   }
 
   populateFormArray(): void {
     this.fields.clear();
-    Array.from(this.mapDetails.entries()).forEach(([key, value]) => {
+    Object.entries(this.mapDetails).forEach(([key, value]) => {
       this.fields.push(this.fb.group({ key: [key], value: [value, Validators.required] }));
     });
   }
@@ -62,9 +64,9 @@ export class MapBooleanComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result !== undefined && typeof result === 'boolean') {
+      if (typeof result === 'boolean') {
         this.getFormControl(index, 'value').setValue(result);
-        this.mapDetails.set(field.key, result);
+        this.mapDetails[field.key] = result;
         this.emitData();
       }
     });
@@ -73,16 +75,18 @@ export class MapBooleanComponent {
   addNewRow(): void {
     if (this.form.valid) {
       const { newKey, newValue } = this.form.value;
-      this.mapDetails.set(newKey.trim(), newValue);
-      this.fields.push(this.fb.group({ key: [newKey.trim()], value: [newValue, Validators.required] }));
-      this.form.reset({ newKey: '', newValue: null }); // ✅ Reset form after adding
+      const trimmedKey = newKey.trim();
+      this.mapDetails[trimmedKey] = newValue;
+      this.fields.push(this.fb.group({ key: [trimmedKey], value: [newValue, Validators.required] }));
+      this.form.reset({ newKey: '', newValue: null });
       this.emitData();
     }
   }
 
   deleteRow(index: number): void {
     const field = this.fields.at(index).value;
-    this.mapDetails.delete(field.key);
+    // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+    delete this.mapDetails[field.key];
     this.fields.removeAt(index);
     this.emitData();
   }
@@ -92,6 +96,6 @@ export class MapBooleanComponent {
   }
 
   private emitData(): void {
-    this.dataChange.emit(new Map(this.mapDetails));
+    this.dataChange.emit({ ...this.mapDetails });
   }
 }

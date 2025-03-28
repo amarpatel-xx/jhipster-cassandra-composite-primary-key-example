@@ -44,10 +44,10 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
   isDateTimeDirty: Record<string, boolean> = {};
   saathratriEntity5: ISaathratriEntity5 | null = null;
 
-  inputFieldsAddOnDetailsText: Map<string, string> = new Map<string, string>(); // Start with one input field
-  inputFieldsAddOnDetailsDecimal: Map<string, number> = new Map<string, number>(); // Start with one input field
-  inputFieldsAddOnDetailsBoolean: Map<string, boolean> = new Map<string, boolean>(); // Start with one input field
-  inputFieldsAddOnDetailsBigInt: Map<string, number> = new Map<string, number>(); // Start with one input field
+  inputFieldsAddOnDetailsText: Record<string, string> = {}; // Start with one input field
+  inputFieldsAddOnDetailsDecimal: Record<string, number> = {}; // Start with one input field
+  inputFieldsAddOnDetailsBoolean: Record<string, boolean> = {}; // Start with one input field
+  inputFieldsAddOnDetailsBigInt: Record<string, dayjs.Dayjs> = {}; // Start with one input field
 
   protected saathratriEntity5Service = inject(SaathratriEntity5Service);
   protected saathratriEntity5FormService = inject(SaathratriEntity5FormService);
@@ -97,6 +97,12 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const saathratriEntity5 = this.saathratriEntity5FormService.getSaathratriEntity5(this.editForm);
+
+    saathratriEntity5.addOnDetailsText = this.inputFieldsAddOnDetailsText;
+    saathratriEntity5.addOnDetailsDecimal = this.inputFieldsAddOnDetailsDecimal;
+    saathratriEntity5.addOnDetailsBoolean = this.inputFieldsAddOnDetailsBoolean;
+    saathratriEntity5.addOnDetailsBigInt = this.inputFieldsAddOnDetailsBigInt;
+
     if (this.isNew) {
       this.subscribeToSaveResponse(this.saathratriEntity5Service.create(saathratriEntity5));
     } else {
@@ -167,17 +173,17 @@ export class SaathratriEntity5UpdateComponent implements OnInit {
     }
   }
 
-  handleAddOnDetailsTextInputChange(updatedFields: Map<string, string>): void {
-    this.inputFieldsAddOnDetailsText = new Map(updatedFields); // Update parent with new values from child
+  handleAddOnDetailsTextInputChange(updatedFields: Record<string, string>): void {
+    this.inputFieldsAddOnDetailsText = { ...updatedFields }; // Update parent with new values from child
   }
-  handleAddOnDetailsDecimalInputChange(updatedFields: Map<string, number>): void {
-    this.inputFieldsAddOnDetailsDecimal = new Map(updatedFields); // Update parent with new values from child
+  handleAddOnDetailsDecimalInputChange(updatedFields: Record<string, number>): void {
+    this.inputFieldsAddOnDetailsDecimal = { ...updatedFields }; // Update parent with new values from child
   }
-  handleAddOnDetailsBooleanInputChange(updatedFields: Map<string, boolean>): void {
-    this.inputFieldsAddOnDetailsBoolean = new Map(updatedFields); // Update parent with new values from child
+  handleAddOnDetailsBooleanInputChange(updatedFields: Record<string, boolean>): void {
+    this.inputFieldsAddOnDetailsBoolean = { ...updatedFields }; // Update parent with new values from child
   }
-  handleAddOnDetailsBigIntInputChange(updatedFields: Map<string, number>): void {
-    this.inputFieldsAddOnDetailsBigInt = new Map(updatedFields); // Update parent with new values from child
+  handleAddOnDetailsBigIntInputChange(updatedFields: Record<string, dayjs.Dayjs>): void {
+    this.inputFieldsAddOnDetailsBigInt = { ...updatedFields }; // Update parent with new values from child
   }
 
   protected subscribeToSaveResponse(result: Observable<HttpResponse<ISaathratriEntity5>>): void {

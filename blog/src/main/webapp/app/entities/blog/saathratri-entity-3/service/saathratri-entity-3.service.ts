@@ -123,7 +123,7 @@ export class SaathratriEntity3Service {
         ...saathratriEntity3.compositeId,
       },
       departureDate: saathratriEntity3.departureDate ? saathratriEntity3.departureDate.valueOf() : null,
-    };
+    } as RestOf<T>;
   }
 
   protected convertDateFromServer(restSaathratriEntity3: RestSaathratriEntity3): ISaathratriEntity3 {

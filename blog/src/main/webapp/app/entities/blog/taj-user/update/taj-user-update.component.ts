@@ -65,6 +65,7 @@ export class TajUserUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const tajUser = this.tajUserFormService.getTajUser(this.editForm);
+
     // Update the last saved values when saving
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;

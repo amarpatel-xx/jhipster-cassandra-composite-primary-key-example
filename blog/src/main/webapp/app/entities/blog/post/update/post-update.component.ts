@@ -79,6 +79,7 @@ export class PostUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const post = this.postFormService.getPost(this.editForm);
+
     if (this.isNew) {
       this.subscribeToSaveResponse(this.postService.create(post));
     } else {

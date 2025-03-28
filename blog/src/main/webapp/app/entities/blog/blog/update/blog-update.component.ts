@@ -65,6 +65,7 @@ export class BlogUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const blog = this.blogFormService.getBlog(this.editForm);
+
     if (this.isNew) {
       this.subscribeToSaveResponse(this.blogService.create(blog));
     } else {

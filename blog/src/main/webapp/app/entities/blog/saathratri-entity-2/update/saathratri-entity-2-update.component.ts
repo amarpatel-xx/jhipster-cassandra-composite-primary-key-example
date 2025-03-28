@@ -77,6 +77,7 @@ export class SaathratriEntity2UpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const saathratriEntity2 = this.saathratriEntity2FormService.getSaathratriEntity2(this.editForm);
+
     if (this.isNew) {
       this.subscribeToSaveResponse(this.saathratriEntity2Service.create(saathratriEntity2));
     } else {

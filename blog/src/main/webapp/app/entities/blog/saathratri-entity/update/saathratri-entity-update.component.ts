@@ -66,6 +66,7 @@ export class SaathratriEntityUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const saathratriEntity = this.saathratriEntityFormService.getSaathratriEntity(this.editForm);
+
     // Update the last saved values when saving
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;

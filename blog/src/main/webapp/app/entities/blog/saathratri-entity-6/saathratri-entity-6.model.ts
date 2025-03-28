@@ -10,10 +10,10 @@ export interface ISaathratriEntity6 {
   customerUpdatedPhoneNumber?: string | null;
   customerEstimatedArrivalTime?: string | null;
   tinyUrlShortCode?: string | null;
-  addOnDetailsText?: Map<string, string> | null;
-  addOnDetailsDecimal?: Map<string, number> | null;
-  addOnDetailsBoolean?: Map<string, boolean> | null;
-  addOnDetailsBigInt?: dayjs.Dayjs | null;
+  addOnDetailsText?: Record<string, string> | null;
+  addOnDetailsDecimal?: Record<string, number> | null;
+  addOnDetailsBoolean?: Record<string, boolean> | null;
+  addOnDetailsBigInt?: Record<string, dayjs.Dayjs> | null;
 }
 export interface ISaathratriEntity6Id {
   organizationId: string | null;

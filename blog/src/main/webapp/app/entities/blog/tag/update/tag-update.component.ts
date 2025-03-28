@@ -65,6 +65,7 @@ export class TagUpdateComponent implements OnInit {
   save(): void {
     this.isSaving = true;
     const tag = this.tagFormService.getTag(this.editForm);
+
     // Update the last saved values when saving
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
