@@ -169,7 +169,7 @@
               <td>{{ saathratriEntity6.customerUpdatedPhoneNumber }}</td>
               <td>{{ saathratriEntity6.customerEstimatedArrivalTime }}</td>
               <td>{{ saathratriEntity6.tinyUrlShortCode }}</td>
-              <td *ngIf="saathratriEntity6.addOnDetailsText">
+              <td>
                 <div *ngFor="let item of saathratriEntity6.addOnDetailsText | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
@@ -177,7 +177,7 @@
                   </dd>
                 </div>
               </td>
-              <td *ngIf="saathratriEntity6.addOnDetailsDecimal">
+              <td>
                 <div *ngFor="let item of saathratriEntity6.addOnDetailsDecimal | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
@@ -185,7 +185,7 @@
                   </dd>
                 </div>
               </td>
-              <td *ngIf="saathratriEntity6.addOnDetailsBoolean">
+              <td>
                 <div *ngFor="let item of saathratriEntity6.addOnDetailsBoolean | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
@@ -193,7 +193,7 @@
                   </dd>
                 </div>
               </td>
-              <td *ngIf="saathratriEntity6.addOnDetailsBigInt">
+              <td>
                 <div *ngFor="let item of saathratriEntity6.addOnDetailsBigInt | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
