@@ -249,26 +249,8 @@
         </div>
 
         <div class="mb-3">
-          <app-date-time
-            fieldName="addOnDetailsBigInt"
-            formControlName="addOnDetailsBigInt"
-            [dateTimeLabel]="'blogApp.blogSaathratriEntity6.addOnDetailsBigInt' | translate"
-            [labelClass]="'form-label'"
-            [isRequired]="false"
-            (isValid)="onDateTimeValid('addOnDetailsBigInt', $event)"
-            (dirtyStateChange)="updateDirtyState($event)"
-            [isNew]="isNew"
-          >
-          </app-date-time>
-          <button type="button" class="btn btn-primary" (click)="generateDateTime('addOnDetailsBigInt')">Generate</button>
-          <button
-            type="button"
-            class="btn btn-danger"
-            (click)="resetDateTime('addOnDetailsBigInt')"
-            [disabled]="!isDateTimeDirty['addOnDetailsBigInt']"
-          >
-            Reset
-          </button>
+          <app-map-dayjs-component [inputFields]="inputFieldsAddOnDetailsBigInt" (dataChange)="handleAddOnDetailsBigIntInputChange($event)">
+          </app-map-dayjs-component>
         </div>
       </div>
 

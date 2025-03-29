@@ -13,6 +13,7 @@ import { DateTimeComponent } from 'app/components/date-time/date-time.component'
 import { MapBooleanComponent } from 'app/components/map-boolean-component/map-boolean-component.component';
 import { MapNumberComponent } from 'app/components/map-number-component/map-number-component.component';
 import { MapStringComponent } from 'app/components/map-string-component/map-string-component.component';
+import { MapDayjsComponent } from 'app/components/map-dayjs-component/map-dayjs-component.component';
 
 import { v4 as uuidv4 } from 'uuid'; // Import UUID (UUID v4)
 import { v1 as uuidv1 } from 'uuid'; // Import TimeUUID (UUID v1)
@@ -33,6 +34,7 @@ import { SaathratriEntity6FormGroup, SaathratriEntity6FormService } from './saat
     MapBooleanComponent,
     MapNumberComponent,
     MapStringComponent,
+    MapDayjsComponent,
   ],
 })
 export class SaathratriEntity6UpdateComponent implements OnInit {
