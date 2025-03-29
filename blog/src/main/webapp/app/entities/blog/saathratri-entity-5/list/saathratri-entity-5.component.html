@@ -113,38 +113,38 @@
               <td>{{ saathratriEntity5!.compositeId.addOnId }}</td>
 
               <td>{{ saathratriEntity5.addOnType }}</td>
-              <dl *ngIf="saathratriEntity5.addOnDetailsText">
+              <td *ngIf="saathratriEntity5.addOnDetailsText">
                 <div *ngFor="let item of saathratriEntity5.addOnDetailsText | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
                     <td>{{ item.value }}</td>
                   </dd>
                 </div>
-              </dl>
-              <dl *ngIf="saathratriEntity5.addOnDetailsDecimal">
+              </td>
+              <td *ngIf="saathratriEntity5.addOnDetailsDecimal">
                 <div *ngFor="let item of saathratriEntity5.addOnDetailsDecimal | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
                     <td>{{ item.value }}</td>
                   </dd>
                 </div>
-              </dl>
-              <dl *ngIf="saathratriEntity5.addOnDetailsBoolean">
+              </td>
+              <td *ngIf="saathratriEntity5.addOnDetailsBoolean">
                 <div *ngFor="let item of saathratriEntity5.addOnDetailsBoolean | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
                     <td>{{ item.value }}</td>
                   </dd>
                 </div>
-              </dl>
-              <dl *ngIf="saathratriEntity5.addOnDetailsBigInt">
+              </td>
+              <td *ngIf="saathratriEntity5.addOnDetailsBigInt">
                 <div *ngFor="let item of saathratriEntity5.addOnDetailsBigInt | keyvalue">
                   <dt>{{ item.key }}</dt>
                   <dd>
                     <td>{{ item.value | formatMediumDatetime }}</td>
                   </dd>
                 </div>
-              </dl>
+              </td>
               <td class="text-end">
                 <div class="btn-group">
                   <a
