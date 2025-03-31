@@ -29,9 +29,9 @@
       "SaathratriEntity6"
     ],
     "jhipsterVersion": "8.7.3",
-    "jwtSecretKey": "MjdlNzI2ZmFiMmY3YTBmM2Y4MzVkMDNmZDkzMzJhZTVkZjRkMDExNjE3MTgzZTAzMDVjZDVlOGYwMTNiNjA2OTljZTczNTMxZjhiZTVmZmEzODFkMGU3NDdiZjE1ZDUxOWFiMzM1M2MyY2NiMjJlNWQzOWY5ODJjNDgzZTlkY2I=",
+    "jwtSecretKey": "ODg5MDYzNTdkMDQyYjYxYTcwNDE2YzU2OTVhZTQwZjdlZTc5YzlhYjY2NTczZWFkYjAwMjBkMmEyMzUwNWM5MDNmYjYzYWI1ZDlmZTQ1ZTE0YTE3YmZhN2Y1MzMyZjMwNDQyNzgzOWFiOTI0YzVhOTkzZWZlMDI3ODllMjVmZmY=",
     "languages": ["en"],
-    "lastLiquibaseTimestamp": 1743287932000,
+    "lastLiquibaseTimestamp": 1743437326000,
     "monorepository": true,
     "nativeLanguage": "en",
     "packageName": "com.saathratri.developer.blog",

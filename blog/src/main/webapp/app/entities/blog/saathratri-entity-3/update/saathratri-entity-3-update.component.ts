@@ -144,7 +144,6 @@ export class SaathratriEntity3UpdateComponent implements OnInit {
     this.saathratriEntity3 = saathratriEntity3;
     this.saathratriEntity3FormService.resetForm(this.editForm, saathratriEntity3);
 
-    // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
     });

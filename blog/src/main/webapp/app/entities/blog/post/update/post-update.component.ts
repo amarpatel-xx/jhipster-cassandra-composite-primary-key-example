@@ -176,7 +176,6 @@ export class PostUpdateComponent implements OnInit {
     this.post = post;
     this.postFormService.resetForm(this.editForm, post);
 
-    // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
     });

@@ -128,7 +128,6 @@ export class BlogUpdateComponent implements OnInit {
     this.blog = blog;
     this.blogFormService.resetForm(this.editForm, blog);
 
-    // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
     });

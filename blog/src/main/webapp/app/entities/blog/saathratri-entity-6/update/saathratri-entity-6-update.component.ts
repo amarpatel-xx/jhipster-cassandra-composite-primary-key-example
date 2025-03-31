@@ -219,10 +219,14 @@ export class SaathratriEntity6UpdateComponent implements OnInit {
     this.saathratriEntity6 = saathratriEntity6;
     this.saathratriEntity6FormService.resetForm(this.editForm, saathratriEntity6);
 
-    // Store the last saved values from the response
     Object.keys(this.editForm.controls).forEach(field => {
       this.lastSavedValues[field] = this.editForm.get(field)?.value;
     });
+
+    this.inputFieldsAddOnDetailsText = { ...(saathratriEntity6.addOnDetailsText ?? {}) };
+    this.inputFieldsAddOnDetailsDecimal = { ...(saathratriEntity6.addOnDetailsDecimal ?? {}) };
+    this.inputFieldsAddOnDetailsBoolean = { ...(saathratriEntity6.addOnDetailsBoolean ?? {}) };
+    this.inputFieldsAddOnDetailsBigInt = { ...(saathratriEntity6.addOnDetailsBigInt ?? {}) };
   }
 
   protected initializeResetButtonStates(): void {
