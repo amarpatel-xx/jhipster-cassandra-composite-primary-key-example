@@ -1,6 +1,13 @@
 
 ## JHipster Example for Composite Primary Keys in Cassandra
 
+### Project Update
+
+This project has been renamed and relocated to a new repository: https://github.com/amarpatel-xx/jhipster-cassandra-example.
+Additionally, the JHipster Blueprint has been moved to: https://github.com/amarpatel-xx/generator-jhipster-cassandra.
+
+Please note that all future updates and developments will be available exclusively at these new locations.
+
 ### About this JHipster Example
 
 This code was generated using the JHipster blueprint `generator-jhipster-cassandra-composite-primary-key`. 
